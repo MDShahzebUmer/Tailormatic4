@@ -8,7 +8,7 @@
                <div class="row" id="row-menu">
                   
                    <button class="et-menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                        {!! Menu::display('page_menu') !!}
+                        {!! TCG\Voyager\Models\Menu::display('page_menu') !!}
                  </div>
             </div>
         </div>
