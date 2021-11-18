@@ -1,0 +1,2 @@
+[16-Nov-2021 04:30:31 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/becoming/public_html/DuniyaTailorDemo/public/blog/wp-includes/kses.php on line 893
+[16-Nov-2021 04:36:33 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/becoming/public_html/DuniyaTailorDemo/public/blog/wp-admin/includes/template.php on line 1425
