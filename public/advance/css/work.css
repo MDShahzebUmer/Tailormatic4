@@ -1,0 +1,399 @@
+#masthead {
+    padding: 10px 0;
+}
+.running #masthead h1, .running #masthead p, .running #container, .running .item, .running #mastfooter {
+   opacity: 0;
+}
+#shirt {
+    position: relative;
+    display: none;
+}
+#shirt.running, #shirt.ie {
+    display: block;
+}
+#content {
+    position: relative;
+    margin: auto;
+    width: 1024px;
+    height: 1180px;
+    -webkit-transition: opacity 400ms ease 250ms;
+    -moz-transition: opacity 400ms ease 250ms;
+    transition: opacity 400ms ease 250ms;
+    opacity: 0;
+}
+.ie #content, .running #content, #content.open {
+    opacity: 1;
+}
+#container {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 210px;
+    background: url(../images/shirt/iTailor-shirt.png) center 70px no-repeat;
+}
+.item {
+    position: absolute;
+    width: 240px;
+    text-align: center;
+}
+.item h2 {
+    color: #e6faff;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size: 22px;
+}
+.item p {
+    text-align: left;
+    color: #ead4a1;
+    margin-bottom: 5px;
+}
+.item img {
+    margin: 10px 0;
+}
+.emphasize {
+    color: #ff0000;
+}
+.mix-n-match {
+    top: 0px;
+    left: 0;
+}
+.cuff-3d {
+    top: 240px;
+    left: 0;
+}
+.gusset-patch {
+    top: 480px;
+    left: 0;
+}
+.high-quality-collar {
+    text-align: left;
+    top: 50px;
+    right: 0;
+}
+.high-quality-collar img {
+    margin-left: 38px;
+}
+.button {
+    top: 270px;
+    right: 0;
+}
+.monogram {
+    top: 520px;
+    right: 0;
+}
+.monogram p {
+    margin-left: 50px;
+}
+#mastfooter {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    color: #efd78e;
+    font-size: 28px;
+    text-align: center;
+}
+#mastfooter p {
+    margin-bottom: 10px;
+}
+#mastfooter img {
+    margin: 10px 0;
+}
+.effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : MIX-N-MATCH OPTIONS
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes mix-n-match{
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes mix-n-match{
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes mix-n-match{
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.mix-n-match .effect .line {
+    left: 170px;
+    top: 140px;
+    -moz-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+}
+.animated.mix-n-match .effect .line {
+    -webkit-animation-name: mix-n-match;
+    -moz-animation-name: mix-n-match;
+    animation-name: mix-n-match;
+}
+/* IE FIX */
+.ie .mix-n-match .effect .line {
+    left: 172px;
+    top: 120px;
+    width: 320px;
+}
+.mix-n-match .effect .ball {
+    right: -260px;
+    top: 95px;
+}
+.mix-n-match .effect .pulse {
+    right: -262px;
+    top: 93px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : 3D CUFF
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes cuff-3d {
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes cuff-3d {
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes cuff-3d {
+    0%{width: 0px;}
+    100%{width: 320px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.cuff-3d .effect .line {
+    left: 170px;
+    top: 100px;
+    -moz-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+}
+.animated.cuff-3d .effect .line {
+    -webkit-animation-name: cuff-3d;
+    -moz-animation-name: cuff-3d;
+    animation-name: cuff-3d;
+}
+/* IE FIX */
+.ie .cuff-3d .effect .line {
+    left: 148px;
+    top: 153px;
+    width: 320px;
+}
+.cuff-3d .effect .ball {
+    right: -224px;
+    top: 203px;
+}
+.cuff-3d .effect .pulse {
+    right: -226px;
+    top: 201px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : GUSSET (Patch)
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes gusset-patch {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes gusset-patch {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes gusset-patch {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.gusset-patch .effect .line {
+    left: 160px;
+    top: 85px;
+    -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+}
+.animated.gusset-patch .effect .line {
+    -webkit-animation-name: gusset-patch;
+    -moz-animation-name: gusset-patch;
+    animation-name: gusset-patch;
+}
+/* IE FIX */
+.ie .gusset-patch .effect .line {
+    left: 162px;
+    top: 80px;
+    width: 230px;
+}
+.gusset-patch .effect .ball {
+    right: -156px;
+    top: 72px;
+}
+.gusset-patch .effect .pulse {
+    right: -158px;
+    top: 70px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : HIGH QUALITY COLLAR
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes high-quality-collar {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes high-quality-collar {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes high-quality-collar {
+    0%{width: 0px;}
+    100%{width: 230px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.high-quality-collar .effect .line {
+    left: 44px;
+    top: 200px;
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+}
+.animated.high-quality-collar .effect .line {
+    -webkit-animation-name: high-quality-collar;
+    -moz-animation-name: high-quality-collar;
+    animation-name: high-quality-collar;
+}
+/* IE FIX */
+.ie .high-quality-collar .effect .line {
+    left: -187px;
+    top: 135px;
+    width: 230px;
+}
+.high-quality-collar .effect .ball {
+    left: -190px;
+    top: 130px;
+}
+.high-quality-collar .effect .pulse {
+    left: -192px;
+    top: 128px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : BUTTONS
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes button {
+    0%{width: 0px;}
+    100%{width: 330px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes button {
+    0%{width: 0px;}
+    100%{width: 330px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes button {
+    0%{width: 0px;}
+    100%{width: 330px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.button .effect .line {
+    left: 80px;
+    top: 133px;
+    -moz-transform: rotate(-172deg);
+    -webkit-transform: rotate(-172deg);
+    -ms-transform: rotate(-172deg);
+    -o-transform: rotate(-172deg);
+}
+.animated.button .effect .line {
+    -webkit-animation-name: button;
+    -moz-animation-name: button;
+    animation-name: button;
+}
+/* IE FIX */
+.ie .button .effect .line {
+    left: -245px;
+    top: 44px;
+    width: 330px;
+}
+.button .effect .ball {
+    left: -247px;
+    top: 17px;
+}
+.button .effect .pulse {
+    left: -249px;
+    top: 15px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : MONOGRAM
+ * ---------------------------------------------------------------------------
+ */
+@-webkit-keyframes monogram {
+    0%{width: 0px;}
+    100%{width: 350px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@-moz-keyframes monogram {
+    0%{width: 0px;}
+    100%{width: 350px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+@keyframes monogram {
+    0%{width: 0px;}
+    100%{width: 350px; box-shadow: 0px 0px 5px 1px rgba(255,255,255,0.5);}
+}
+.monogram .effect .line {
+    left: 58px;
+    top: 168px;
+    -moz-transform: rotate(-146deg);
+    -webkit-transform: rotate(-146deg);
+    -ms-transform: rotate(-146deg);
+    -o-transform: rotate(-146deg);
+}
+.animated.monogram .effect .line {
+    -webkit-animation-name: monogram;
+    -moz-animation-name: monogram;
+    animation-name: monogram;
+}
+/* IE FIX */
+.ie .monogram .effect .line {
+    left: -243px;
+    top: 10px;
+    width: 350px;
+}
+.monogram .effect .ball {
+    left: -219px;
+    top: -92px;
+}
+.monogram .effect .pulse {
+    left: -221px;
+    top: -94px;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : COMMON
+ * ---------------------------------------------------------------------------
+ */
+.animated.mix-n-match .effect .ball,
+.animated.cuff-3d .effect .ball,
+.animated.gusset-patch .effect .ball,
+.animated.high-quality-collar .effect .ball,
+.animated.button .effect .ball,
+.animated.monogram .effect .ball {
+    -webkit-animation-name: point;
+    -moz-animation-name: point;
+    animation-name: point;
+}
+.animated.mix-n-match .effect .pulse,
+.animated.cuff-3d .effect .pulse,
+.animated.gusset-patch .effect .pulse,
+.animated.high-quality-collar .effect .pulse,
+.animated.button .effect .pulse,
+.animated.monogram .effect .pulse {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    animation-name: pulse;
+}
+/* ---------------------------------------------------------------------------
+ * EFFECT : NO "pulse" EFFECT (IE only)
+ * ---------------------------------------------------------------------------
+ */
+.ie .effect .pulse {
+    display: none;
+}
