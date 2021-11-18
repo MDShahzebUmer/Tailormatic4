@@ -1,0 +1,448 @@
+@font-face{
+	font-family:'Century';
+	src:url('../font/GOTHIC.ttf') format('truetype');
+	font-weight:normal;
+	font-style:normal;
+	font-weight:normal
+}
+	@font-face{
+	font-family:'Proxima';
+	src:url('../font/proxima-nova-bold-594e1c110d48f.otf');
+	font-weight:normal;
+	font-style:normal;
+	font-weight:normalproxima-nova-594e257fb0c79.otf
+}
+	@font-face{
+	font-family:'ProximaRegular';
+	src:url('../font/proxima-nova-594e257fb0c79.otf');
+	font-weight:normal;
+	font-style:normal;
+	font-weight:normal;
+}
+/*#preloading{
+	width: 100%;
+	height: 100%;
+	position:fixed;
+	background:black;
+	z-index:999999;}
+	
+	#preloading .status{
+		width: 50%;
+		text-align: center;
+		position: fixed;
+		top: 45%;
+		left: 26%;}
+
+		#preloading .status p{
+		font-size: 1.5em;}
+
+	#preloading .status div{
+		width:10%;
+		height:1px;
+		background:white;
+		margin:0.5em 0;}
+		
+	#preloading .status strong{
+		font-size:1.5em;}*/
+		
+section.esks-section .clear{
+	clear:both;
+	line-height:0; 
+	height:0; 
+	font-size: 1px}
+	
+*{
+	margin:0;
+	padding:0;
+	color:#FFF;
+	font-family:Century;
+	-webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;}
+body{
+	margin:0;
+	padding:0;
+	font-size:19px;
+}
+section.esks-section figure{
+	margin:0;
+}
+section.esks-section{
+	width:100%;
+	/*height:100%;*/
+	position:relative;
+}
+section.esks-section img{
+	border:none;
+	display: block;
+}
+.esks-tab1 header{
+	width:100%;
+	text-align:center;
+	height:210px;
+	background:url('../img/b2b/logo_bg.png');
+	position:relative;}
+.esks-tab1 h4{
+	font-size: 30px;
+    margin-bottom: 6%;
+    color: #5c5c5c;
+    text-shadow: 1px 1px 1px black;
+    font-family: 'Proxima', sans-serif;
+    color: #fff;
+}
+.esks-tab1 article h5{
+	font-size: 30px;
+    float: right;
+    font-family: 'ProximaRegular', sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    line-height: 38px;
+}
+.fig-artic, .figcap-footer{
+	width: 100%;
+	float: left;
+}
+.esks-tab1 .figcap-footer{
+	text-align: center;
+    margin-top: 166px;
+    margin-left: 100px;
+    font-family: 'ProximaRegular', sans-serif;
+    font-size: 35px;
+}
+.esks-tab1 figure{
+	/*position: absolute;
+	width: 55%;
+	top: 10%;*/
+}
+	
+.esks-tab1 figcaption{
+	position: absolute;
+	position: absolute;
+    top: 34%;
+    left: 5;
+    text-align: right;
+    margin-right: 4%;
+    width: 53%;
+    letter-spacing: 1px;
+}
+	
+.esks-tab1 header > img{
+	width:500px;
+	margin-top: 40px;
+	display: inline-block;
+}
+.esks-figure{
+	position: relative;
+}
+	
+.esks-tab1 > div{
+	/*background:url('../imgs/tab1/bg.jpg');*/
+	width:100%;
+	/*height:152%;*/
+	position:relative;
+	cursor:pointer;
+}
+	
+.esks-tab1 > div > img{
+	position: absolute;
+	left: 54%;
+	top: 7%;
+	box-shadow: 1px 1px 28px 7px black;
+}
+.esks-tab2{
+	overflow:hidden;
+}
+	
+.esks-tab2 > img{
+	width:100%;
+	position:absolute;
+	z-index:-1;
+	height:100%;
+}
+.esks-tab2 a{
+	text-decoration: none;
+}
+.esks-tab2 ul{
+	width: 90%;
+	margin: 50px auto;
+	height:auto;
+	position:relative;
+}
+.esks-tab2 li{
+	float:left;
+	text-align:center;
+	width:25%;
+	list-style:none;
+}
+.esks-tab2 figure img{
+	width:80%;
+	display: inherit;
+}
+.esks-tab2 li:nth-child(1){
+	margin-bottom:18px;
+
+}
+.esks-tab2 figcaption{
+	margin:20px 0;
+	font-size: 30px;
+    font-family: 'ProximaRegular', sans-serif;
+    color: #eeeced;
+text-transform: uppercase;
+}
+.esks-tab2 h3{
+	margin-bottom: 45px;
+	text-align: center;
+	font-size: 30px;
+	color: #eeeced;
+	font-family: 'ProximaRegular', sans-serif;
+	letter-spacing: 1px;
+}
+	
+.esks-tab3{
+	overflow:hidden;
+	    background: url(../img/b2b/hq_bg.jpg);
+}
+	
+.esks-tab3 h2{
+	font-size: 30px;
+	margin-bottom: 1%;
+	color: #eeeced;
+	font-family: 'Proxima', sans-serif;
+}
+	
+.esks-tab3 article{
+	font-size: 1.45em;
+	/*width: 65%;*/
+	text-align:right;}
+	
+.esks-tab3 h3{
+	text-align:center;
+	margin:28px 0 ;
+	font-size: 30px;
+	color: #eeeced;
+	font-family: 'Proxima', sans-serif;
+	letter-spacing: 1px;
+}
+	
+.esks-tab3 div img{
+	position:absolute;
+	z-index:-1;
+	top:0;}
+	
+.esks-tab3 figure img{
+	z-index:-1;}
+	
+.esks-tab3 figcaption {
+	position:absolute;
+	top:22%;
+	left:45%;
+}
+.esks-tab3-1{
+	position: relative;
+}
+.esks-tab3-1 > img {
+    width: 100%;
+}
+.figcaps-tab3-1{
+	position: absolute;
+    top: 35%;
+    left: 8%;
+}
+.figcaps-tab3-1 h2{
+	font-size: 40px;
+	color: #eeeced;
+	font-family: 'Proxima', sans-serif;
+	letter-spacing: 1px;
+}
+.figcaps-tab3-1 article{
+	font-size: 25px;
+	color: #eeeced;
+	letter-spacing: 1px;
+	font-family: 'ProximaRegular', sans-serif;
+	margin-top: 20px;
+    line-height: 38px;
+}
+	
+.esks-tab4 img{
+	position:relative;
+	z-index:-1;
+	width:100%;}
+.esks-tab4 hgroup{
+	position: absolute;
+	top: 35%;
+	right: 8%;
+	/*width: 50%;*/
+	text-align:right;
+}
+.esks-tab4 h3{
+	font-size: 70px;
+	letter-spacing: 1px;
+	color: #ffffff;
+    font-family: 'ProximaRegular';
+    font-weight: 100;
+}
+	
+.esks-tab4 h4{
+	font-size: 35;
+	font-family: 'ProximaRegular', sans-serif;
+	letter-spacing: 1px;
+	font-weight: 100;
+}
+	
+.esks-tab4 h5{
+	font-size: 30px;
+	letter-spacing: 1px;
+	margin-top: 10px;
+	color:#fff;
+	font-family: 'Proxima', sans-serif;
+}
+	
+.esks-tab5 hgroup{
+	position: absolute;
+	top: 25%;
+	left: 8%;
+	text-align: left;
+}
+.esks-tab5 h3, .esks-tab5 h2{
+	font-size: 40px;
+	letter-spacing: 1px;
+	font-family: 'ProximaRegular', sans-serif;
+	font-weight: 100;
+	margin-bottom: 10px;
+}
+
+.esks-tab5 #btn-contact{
+	position: relative;
+	background: #4d372f;
+	padding:  15px 40px;
+	font-size: 30px;
+	text-align: center;
+	font-family: 'ProximaRegular', sans-serif;
+	cursor: pointer;
+	margin-top: 35px;
+    float: left;
+}
+.esks-tab5 #contact{
+	position: absolute;
+	bottom: 24%;
+	/* left: 40%; */
+	font-size: 30px;
+	letter-spacing: 1px;
+	width: 100%;
+	text-align: center;
+	font-family: 'ProximaRegular', sans-serif;
+}
+.esks-tab5 img:last-child{
+	position: absolute;
+	bottom: 9.50%;
+    left: 20%;
+    width: 60%;
+}
+
+.esks-tab5 .modal-contact{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	z-index: 999999;
+	display:none;
+}
+	
+.esks-tab5 .modal-contact form{
+	background: black;
+	border: 1px solid white;
+	width: 45%;
+	height: 78%;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.esks-tab5 .modal-contact ul{
+	width:70%;
+	margin: 42px auto;
+}
+.esks-tab5 .modal-contact li{
+	list-style:none;
+	margin:20px 0;
+}
+.esks-tab5 .modal-contact p{
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.esks-tab5 input,textarea{
+	width:100%;
+	font-size:1em;
+	padding:5px;
+	color: #aaa;
+	border: 1px solid #444;
+	background: #222;
+	font-weight: bold;
+}
+.esks-tab5 textarea{
+	height: 8.42em;
+}
+.esks-tab5 .btn{
+	font-size: 24px;
+	background: steelblue;
+	border: 1px solid rgb(173, 157, 157);
+	padding: 10px 48px;
+	cursor:pointer;
+}
+
+.esks-tab5 .send{
+/*margin-top: 0.5em;*/}
+
+.esks-tab5 #btn-close{
+background:url('../img/b2b/btn-close.png');
+z-index: 99999999;
+position: absolute;
+top: 0;
+right: 0;
+width: 50px;
+height: 50px;
+cursor:pointer;}
+.esks-tab5 .alert{
+width: 100%;
+top: 0;
+height: 100%;
+position: absolute;
+background: black;
+display:none;}
+.esks-tab5 .box{
+text-align:center;
+margin-top: 30%;
+padding: 10px 55px;
+font-weight: bolder;
+font-size:20px;
+display:none;}
+.esks-tab5 .box p{
+margin:20px 0;}
+.esks-tab5 .send-btn{
+	background: #4d372f;
+}
+			
+@media screen and (min-width: 1600px){
+	.esks-tab5 .modal-contact form{
+		height:68%;
+	}
+}
+	
+@media screen and (max-width: 1599px){
+	body{
+		font-size:16px;
+	}
+}
+@media screen and (max-width: 1024px){
+	body{
+		font-size:14px;
+	}
+	.esks-tab5 .modal-contact form{
+		height:70%;
+	}
+}
