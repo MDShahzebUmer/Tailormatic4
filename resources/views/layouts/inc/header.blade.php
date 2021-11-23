@@ -42,7 +42,7 @@
 			#demo_info p {margin: 0; padding: 0; font-size: 30px;}
 		</style> 
         
- <script type="text/javascript" src="{{asset('asset/js/bioep.min.js')}}"></script>
+ {{-- <script type="text/javascript" src="{{asset('asset/js/bioep.min.js')}}"></script>
    
  <script type="text/javascript">
 			bioEp.init({
@@ -51,7 +51,9 @@
 				html: '<a href="{{url("/")}}/#news"  onclick="closepp();" ><img src="{{url("storage")."/".$pro_pop->img}}" alt="Claim your discount!" /></a>',
 				cookieExp: 0
 			});
-		</script>
+		</script> --}}
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983d1bb8f245a30763cd239a2/f245ab78133b3614469e853db.js");</script>
+
  
       <?php }?> 		
  
