@@ -36,7 +36,9 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        @if(setting('site.logo'))
+                        <a href="{{url('/')}}"><img style="width: 215px; padding: 20px;" src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
+                        @endif
                     </a>
                 </div>
 
