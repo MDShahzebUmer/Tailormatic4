@@ -1,6 +1,6 @@
 <?php  $seo = App\Http\Helpers::page_seo_details(17);?>
 @include('layouts.inc.header-sub')
-<body class="designshirt">  
+<body class="designshirt">
     <section class="pt-bg">
        <!-- TOP LINKS -->
        <div class="container">
@@ -13,7 +13,7 @@
    </div>
 </div>
 <!-- DESIGN AREA -->
-<div class="pt-design"> 
+<div class="pt-design">
 
    <div class="container">
        <div class="row">
@@ -24,8 +24,8 @@
   <?php
   $cartcount = App\Http\Helpers::cartcount();
   ?>
-  <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" > 
-   {{ csrf_field() }}  
+  <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" >
+   {{ csrf_field() }}
    <div class="row">
        <div class="pt-cart-header et-fw">
            <div class="pt-cart-title et-left">
@@ -56,10 +56,10 @@
                    <!--<li><a class="pt-cart-btn" href="{{url('/designshirts')}}">Continue Shopping</a></li>-->
                    <li style="float:left">
                     <button type="submit" class="pt-cart-btn pt-paypal-button pay-by-paypal">
-                   		<img src="{{URL::asset('/asset/img/pay-paypal.png')}}"  alt="">
+                   		<img src="{{URL::asset('/asset/img/pay-paypal.png')}}"  alt="{{$alt_name}}">
                     </button></li>
                     <input id="amount" type="hidden" class="form-control" name="amount" value="100" autofocus>&nbsp;
-                    <a href="{{url('/paywithpayeezy')}}"><img src="{{URL::asset('/asset/img/payeezy.png')}}"  alt=""></a>
+                    <a href="{{url('/paywithpayeezy')}}"><img src="{{URL::asset('/asset/img/payeezy.png')}}"  alt="{{$alt_name}}"></a>
                 </ul>
             </div>
         </div>
@@ -93,17 +93,17 @@
                    </tr>
                </thead>
                <tbody>
-                <?php 
+                <?php
                 $i=0;
                 $total=0;
                 $shipamt=0;
                 ?>
                 @foreach($cartdata as $cart)
-                @php 
+                @php
                 $i++
                 @endphp
 
-                <?php							
+                <?php
 
                 if($cart->product_type==0){
                     if($cart->cat_id==1){
@@ -140,7 +140,7 @@
                     $oprodType = App\Cart::cartdescnfo($cart->id,'oprodType');
 
                     $size=App\Cart::cartdescnfo($cart->id,'osizeFit');
-                    $fabno=App\Cart::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');								
+                    $fabno=App\Cart::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
 
                 }else{
 
@@ -148,7 +148,7 @@
                     $ocollarName='Model No : '.$procode;
                     $olapelN=App\Cart::cartdescnfo($cart->id,'ofabricType');
                     $olapelName='Fab Type : '.stripslashes($olapelN);
-                    $detailurl='productdetails';								
+                    $detailurl='productdetails';
 
                     $groupname = stripslashes(App\Cart::cartdescnfo($cart->id,'ofabricName'));
 
@@ -158,13 +158,13 @@
 
                     $size=App\Cart::cartdescnfo($cart->id,'osizeFit');
                     $fabno='';
-                    $productname = stripslashes(App\Cart::cartdescnfo($cart->id,'oprodName'));								
+                    $productname = stripslashes(App\Cart::cartdescnfo($cart->id,'oprodName'));
 
                     if(strlen($productname)>20){
                        $productname=substr($productname,0,25).'...';
                    }else{
                        $productname=$productname;
-                   }	
+                   }
 
                }
 
@@ -199,7 +199,7 @@
                <div class="cart-fabric-image">
                    <figure>
                     @if($cart->fabric_image!='')
-                    <img src="{{URL::asset('/storage/'.$cart->fabric_image)}}"  alt="" width="100px" height="100px">
+                    <img src="{{URL::asset('/storage/'.$cart->fabric_image)}}"  alt="{{$alt_name}}" width="100px" height="100px">
                     @endif
                 </figure>
             </div>
@@ -211,13 +211,13 @@
         <td class="item-total" align="center">$<?php $toamt=$cart->price*$cart->qty; echo number_format($toamt, 2);
            ?></td>
            <td class="item-trash" align="center"><a class="deleteCattItems" data-id="{{ $cart->id }}" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o" aria-hidden="true"></i>
-           </a></td> 
+           </a></td>
        </tr>
-       <?php 
-    //    $total=$toamt+$total; 
-    //    $shipamt=$shipamt+$cart->shipping;	
-       $total=$toamt+$total; 
-       $shipamt=(int)$shipamt+(int)$cart->shipping;							
+       <?php
+    //    $total=$toamt+$total;
+    //    $shipamt=$shipamt+$cart->shipping;
+       $total=$toamt+$total;
+       $shipamt=(int)$shipamt+(int)$cart->shipping;
        ?>
        @endforeach
    </tbody>
@@ -227,8 +227,8 @@
 function isMobile() { return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]); }
 if(isMobile()){
 $t=1;
- 
- } else { 
+
+ } else {
   $t=2;
   }
 
@@ -262,13 +262,13 @@ $t=1;
     <?php $taxcharge=0;?>
      <div class="pt-table-row"  style="display:none">
            <label>Tax :</label>
-          
+
            <span id="tax"></span>
        </div>
     @endif
-    
-    
-   
+
+
+
     <div class="pt-final-amount">
        <label>Total :</label>
        <span>${{number_format($total+$shipamt+$taxcharge,2)}}</span>
@@ -286,26 +286,26 @@ $t=1;
         <span class="text-center full-witdh"><a class="termShow" id="termShow" target="_blank"></a></span>
     </div>
 </div>
-  <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" > 
-   {{ csrf_field() }} 
+  <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" >
+   {{ csrf_field() }}
            <div class="pt-button-block et-right">
                <ul>
                    <!--<li><a class="pt-cart-btn" href="{{url('/designshirts')}}">Continue Shopping</a></li>-->
                    <li style="float:left">
                     <button type="submit" class="pt-cart-btn pt-paypal-button pay-by-paypal">
-                        <img src="{{URL::asset('/asset/img/pay-paypal.png')}}"  alt="">
+                        <img src="{{URL::asset('/asset/img/pay-paypal.png')}}"  alt="{{$alt_name}}">
                     </button></li>
                     <input id="amount" type="hidden" class="form-control" name="amount" value="100" autofocus>&nbsp;
-                    <a href="{{url('/paywithpayeezy')}}"><img src="{{URL::asset('/asset/img/payeezy.png')}}"  alt=""></a>
+                    <a href="{{url('/paywithpayeezy')}}"><img src="{{URL::asset('/asset/img/payeezy.png')}}"  alt="{{$alt_name}}"></a>
                 </ul>
             </div>
 </form>
-</div> 
+</div>
 <?php }?>
 <div class="col-md-8 fordescktop">
     <div class="et-advertisement">
     	<ul class="et-adv-list">
-        	
+
             <?php
             $shirtc = App\Http\Helpers::cartcrossspro(1);
 			?>
@@ -352,11 +352,11 @@ $t=1;
                 </div>
             </li>
            @endif
-          
-            
+
+
         </ul>
     </div>
-</div>  
+</div>
 </div>
 </div>
 <?php if($t==1){?>
@@ -388,13 +388,13 @@ $t=1;
     <?php $taxcharge=0;?>
      <div class="pt-table-row"  style="display:none">
            <label>Tax :</label>
-          
+
            <span id="tax"></span>
        </div>
     @endif
-    
-    
-   
+
+
+
     <div class="pt-final-amount">
        <label>Total :</label>
        <span>${{number_format($total+$shipamt+$taxcharge,2)}}</span>
@@ -413,15 +413,15 @@ $t=1;
     </div>
 </div>
 
-</div> 
+</div>
 <?php }?>
 
 <div class="col-md-8 formobile">
     <div class="et-advertisement">
     	<ul class="et-adv-list">
-        
-        
-        	
+
+
+
             <?php
             $shirtc = App\Http\Helpers::cartcrossspro(1);
 			?>
@@ -468,8 +468,8 @@ $t=1;
                 </div>
             </li>
            @endif
-          
-            
+
+
         </ul>
     </div>
 </div>
@@ -480,7 +480,7 @@ $t=1;
 </div>
 
 </div>
-<!-- DESIGN AREA ENDS -->  
+<!-- DESIGN AREA ENDS -->
 
 <!-- FOOTER SECTION -->
 @include('../layouts.inc.footer-desgin')
@@ -563,7 +563,7 @@ $(".coupanAdd").click(function(){
 <script type="text/javascript">
 $(".deleteCattItems").click(function(){
     var id = $(this).data("id");
-         
+
 
        var token = $(this).data("token");
 
@@ -580,12 +580,12 @@ $(".deleteCattItems").click(function(){
             },
             success: function (data)
             {
-            
+
                 var t=data['sum'];
                 var shp =data['shipping'];
 				var tax =data['tax'];
                 var sums = parseFloat(shp)+parseFloat(t)+parseFloat(tax);
-				//var tax = parseFloat(tax);                      
+				//var tax = parseFloat(tax);
                 $(".pt-cart-amount span#subttl").html("$"+(data['sum']));
                 $(".pt-cart-amount span#nitem").html(data['coun']);
                 $(".pt-table-row span#shipg").html("$"+(shp));
@@ -596,7 +596,7 @@ $(".deleteCattItems").click(function(){
                 $("#coupns span#dics").html("$0.00");
                 $("#coupns").css("display","none")
                 $("#coupon").val('');
-                $("#coupn").css("display","none");				
+                $("#coupn").css("display","none");
                 $("#errorMessage").html(" ");
                 $('#item_'+id).fadeOut();
                 $('#item_'+id).remove();
@@ -604,7 +604,7 @@ $(".deleteCattItems").click(function(){
                 $('.table-condensed tbody tr .item-sr').each(function(){
                     $(this).text('No.'+i);
                     i++;
-                   
+
                 });
 
                 $(".pt-table-row span#nitem").html(data['coun']);

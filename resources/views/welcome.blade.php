@@ -6,7 +6,7 @@
         <div class="et-fix-nav float-panel">
             <div class="container">
                <div class="row" id="row-menu">
-                  
+
                    <button class="et-menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
                         {!! TCG\Voyager\Models\Menu::display('page_menu') !!}
                  </div>
@@ -35,7 +35,7 @@
                     <!--========= Wrapper for slides =========-->
                     <div class="carousel-inner" role="listbox">
                         <!--========= 1st slide =========-->
-                         
+
                         <?php
 						$u=count($client);
 						$ip=0;
@@ -48,51 +48,51 @@
 							}else{
 								$ll='';
 							}
-							
+
 							if($ip%2==0 && $ip!=$u){
 								$bb='</div><div class="item">';
 							}else{
-								$bb=''; 
+								$bb='';
 							}
-								
-							
+
+
 						?>
-                        
+
                         <?php echo $ll;?>
                            <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="et-client-block">
                                     <div class="et-client-image">
-                                        <img src="{{asset('/storage/')}}/{{$t->image}}" alt="Duniyatailor Testimonial" />
+                                        <img src="{{asset('/storage/')}}/{{$t->image}}" alt="{{$alt_name}}"  />
                                     </div>
                                     <div class="et-client-caption">
                                         <h5>{{$t->name}}</h5>
                                         <p>{{$t->content}}</p>
                                         <ul>
-                                            <li><img src="{{asset('/storage/')}}/{{$t->country_flag}}" alt="Duniyatailor flag"></li>
+                                            <li><img src="{{asset('/storage/')}}/{{$t->country_flag}}" alt="{{$alt_name}}" ></li>
                                             <li>{{$t->country_name}}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <?php echo $bb;?>
-                         @endforeach  
+                         @endforeach
                          </div>
-                            
-                    </div>                        
+
+                    </div>
                     <!--======= Navigation Buttons =========-->
-        
+
                     <!--======= Left Button =========-->
                     <a class="left carousel-control gp_products_carousel_control_left" href="#et-testimonial" role="button" data-slide="prev">
                         <span class="fa fa-angle-left gp_products_carousel_control_icons" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-        
+
                     <!--======= Right Button =========-->
                     <a class="right carousel-control gp_products_carousel_control_right" href="#et-testimonial" role="button" data-slide="next">
                         <span class="fa fa-angle-right gp_products_carousel_control_icons" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-        
+
                 </div>
             </div>
         </div>
@@ -106,23 +106,23 @@
                <div class="col-md-4 col-sm-4">
                 <div class="col-md-12">
                     <div class="et-effect et-square">
-                        <img src="{{asset('/storage'.$i1->img)}}" alt="eTailor"/>
+                        <img src="{{asset('/storage'.$i1->img)}}" alt="{{$alt_name}}" />
                           <a href="{{Url('/'.$i1->url)}}">
                         <figcaption>
-                          
+
                                 <h2>{!! $i1->title_one !!}</h2>
                                 <p>
                                    {!! $i1->title_two !!}
                                     <span>${{$i1->rate}}</span>
                                 </p>
-                            
+
                         </figcaption></a>
                     </div>
                 </div>
                 <div class="col-md-12">
                      <?php $i2 = App\Http\Helpers::img_font_call(2); ?>
                     <div class="et-effect et-port">
-                        <img src="{{asset('/storage'.$i2->img)}}" alt="eTailor"/>
+                        <img src="{{asset('/storage'.$i2->img)}}" alt="{{$alt_name}}" />
                          <a href="{{Url('/'.$i2->url)}}">
                             <figcaption>
                                 <h2>{!! $i2->title_one !!}</h2>
@@ -133,18 +133,18 @@
                             </figcaption>
                         </a>
                     </div>
-                </div>  
-               </div> 
-               
+                </div>
+               </div>
+
                <div class="col-md-8 col-sm-8">
-               <div class="box-top"> 
- 
-               </div> 
-               <div class="box-bottom"> 
+               <div class="box-top">
+
+               </div>
+               <div class="box-bottom">
                 <div class="col-md-6">
                      <?php $i4 = App\Http\Helpers::img_font_call(4); ?>
                     <div class="et-effect et-last">
-                        <img src="{{asset('/storage'.$i4->img)}}" alt="eTailor"/>
+                        <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" />
                          <a href="{{Url('/'.$i4->url)}}">
                             <figcaption>
                                 <h2>{!! $i4->title_one !!}</h2>
@@ -159,10 +159,10 @@
                 <div class="col-md-6">
                     <?php $i5 = App\Http\Helpers::img_font_call(5); ?>
                     <div class="et-effect et-last">
-                         <img src="{{asset('/storage'.$i5->img)}}" alt="eTailor"/>
+                         <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" />
                          <a href="{{Url('/'.$i5->url)}}">
                             <figcaption>
-                          
+
                                 <h2>{!! $i5->title_one !!}</h2>
                                 <p>
                                    {!! $i5->title_two !!}
@@ -172,8 +172,8 @@
                         </a>
                     </div>
                 </div>
-               </div>   
-               </div> 
+               </div>
+               </div>
             </div>
         </div>
     </div>
@@ -184,7 +184,7 @@
             <div class="et-main-title et-fw">
                 {!! setting('site.section_heading_two') !!}
             </div>
-            
+
             <div class="et-main-count">
                 <div class="col-md-3 col-sm-3 et-f1">
                     <div class="et-upper-box">
@@ -227,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -238,17 +238,17 @@
                 {!! setting('site.section_heading_three') !!}
             </div>
             <?php $about = $data['about']; //print_r($about);?>
-            @foreach($about as $ab) @endforeach 
+            @foreach($about as $ab) @endforeach
             <div class="et-main-Online">
                 <div class="col-md-6 col-sm-6">
                   <div class="et-abt">
                     <h2>{!! $ab->title !!}</h2>
                     <P>{!! $ab->excerpt !!}</P>
-                    
+
                    <div class="et-default-read"> <a href="{{url('pages/about-us')}}" class="et-btn et-btn-default">Read More</a> </div>
                   </div>
                 </div>
-                
+
                 <div class="col-md-6 col-sm-6">
                   <div class="et-abt-slide">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -258,7 +258,7 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
                             </ol>
                             <div class="carousel-inner">
-                            
+
                                 <div class="item active">
                                     <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt.jpg')}});"></div></div>
                                 </div>
@@ -271,7 +271,7 @@
                              </div>
                         </div>
                     </div>
-                 </div>     
+                 </div>
              </div>
          </div>
     </div>

@@ -22,7 +22,7 @@
 <!-- Favicon
 ============================================ -->
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-<!-- CSS 
+<!-- CSS
 ============================================ -->
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/style.css')}}" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
@@ -54,7 +54,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
             if(i == 'chest') chest = i ;
 
             if(i == 'wasit') wasit = i ;
-            
+
             if(i == 'hip') hip = i ;
 
             if(i == 'lentgh') lentgh = i ;
@@ -64,7 +64,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
             if(i == 'sleev') sleev = i ;
             var doo = false;
             if(neck) if(chest) if(wasit) if(hip) if(lentgh) if(shoulder) if(sleev) doo = true;
-            
+
             if(doo) $('button[id="add_to_cart_by_input"]').css('display','block');
             else $('button[id="add_to_cart_by_input"]').css('display','none');
             return 0 ;
@@ -77,7 +77,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
        </script>
 <!-- Loader Ends -->
 </head>
-<body class="designshirt">  
+<body class="designshirt">
 <?php $myArray=$eTailorObj;?>
 <input type="hidden" name="loadme" id="loadme" value="<?php echo $activeload = isset($loadme) ? $loadme : '0'; ?>">
 <input type="hidden" name="tabActiveId" id="tabActiveId" value="<?php echo $activeTab = isset($mytab) ? $mytab : 'etfabric'; ?>">
@@ -101,7 +101,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
   	<div class="container">
 		<div class="row">
        		<div class="pt-top-menu">
-              
+
         		<div class="pt-left-p">
                 <div class="et-rating-exp"> <!--This Rating Part Moved here by Shahzeb-->
                 @include('../layouts.inc.rating')
@@ -112,13 +112,13 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
     	</div>
   	</div>
     <!-- DESIGN AREA -->
-  	<div class="pt-design">  
-    	<!-- Container Start -->     
+  	<div class="pt-design">
+    	<!-- Container Start -->
         <div class="container">
-            <!-- <div class="pt-customer"> 
+            <!-- <div class="pt-customer">
                 <p class="bd-pt">Tailormatic</p><p>CUSTOMIZER</p>
             </div> -->
-           
+
             <!-- TABS START -->
             <div class="row">
                 <div class="pt-tab">
@@ -141,7 +141,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                             <p>${{number_format($gr->fabric_rate,2)}}</P>
                                         </div>
                                         @endforeach
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="pt-customize">
                                     <div class="pt-men">
@@ -150,7 +150,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etfabric" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etfabric');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                                        <div class="pt-choose-right">                                     
+                                        <div class="pt-choose-right">
                                             <div class="pt-thumb-slider">
                                                 <div class="pt-pagination">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -167,7 +167,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                 					@foreach($fabriclst as $fablst)
                                                                     <?php if($ci==7){?></ul></div><div class="item"><ul class="et-item-list"><?php  $ci=1;}?>
                                                                     <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" title="{{ $fablst->fabric_name }}" data-title="{{ $fablst->fabric_name }}" onClick="javascript:getfab({{$fablst->id}},'etfabric');">
-                                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$fablst->fabric_img_s)}}" alt="{{ $fablst->fabric_name }}"></figure>
+                                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$fablst->fabric_img_s)}}" alt="{{$alt_name}}"></figure>
                                                                         @if($fablst->id==$eTailorObj['ofabric']) <div class="icon-check"></div> @endif
                                                                     </li>
                                                                     <?php $ci++;?>
@@ -206,7 +206,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <div class="modal-body"><figure class="et-fabric-big"><img src="{{asset('/storage/'.$eTailorObj['ofabricImage'])}}" alt="{{ $eTailorObj['ofabricName'] }}"></figure>
+                                                                <div class="modal-body"><figure class="et-fabric-big"><img src="{{asset('/storage/'.$eTailorObj['ofabricImage'])}}" alt="{{$alt_name}}"></figure>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -245,8 +245,8 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <?php $smi++;?>
                                         @endforeach
                                         @endif
-                                    </div> 
-                                </div>  
+                                    </div>
+                                </div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
@@ -254,7 +254,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etstyle" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etstyle');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                                        <div class="pt-choose-right">                                     
+                                        <div class="pt-choose-right">
                                             <div class="pt-thumb-slider">
                                                 <div class="pt-pagination">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -274,18 +274,18 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     <li class="et-item" id="optionlist-{{$mattr->id}}-{{$styllst->id}}" data-title="{{$styllst->style_name}}" title="{{$styllst->style_name}}" onClick="javascript:getstyles({{$styllst->id}},'{{$mattr->id}}','etstyle');">
                                                                     	<?php $styleimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObj['ofabric'])->get();?>
                                                                         @if($styllst->id == 37)
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/none/none.jpg')}}" alt="{{$styllst->style_name}}"></figure>
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/none/none.jpg')}}" alt="{{$alt_name}}"></figure>
                                                                             @if($styllst->id == $eTailorObj['opacket'])<div class="icon-check"></div>@endif
                                                                         @else
                                                                             @foreach($styleimglst as $ls)
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$ls->style_name}}">
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$alt_name}}">
                                                                             <?php $thrdimglst = App\ThreadStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('thrd_id' , '=' , $eTailorObj['obuttonHole'])->get();?>
                                                                             @foreach($thrdimglst as $thrdls)
-                                                                            @if($mattr->id!='5')<img src="{{asset('/storage/'.$thrdls->thrd_list_img)}}" alt="{{$ls->style_name}}">@endif
+                                                                            @if($mattr->id!='5')<img src="{{asset('/storage/'.$thrdls->thrd_list_img)}}" alt="{{$alt_name}}">@endif
                                                                             @endforeach
                                                                             <?php $buttimglst = App\ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObj['obutton'])->get();?>
                                                                             @foreach($buttimglst as $buttls)
-                                                                            @if($mattr->id!='4')<img src="{{asset('/storage/'.$buttls->button_list_img)}}" alt="{{$ls->style_name}}">@endif
+                                                                            @if($mattr->id!='4')<img src="{{asset('/storage/'.$buttls->button_list_img)}}" alt="{{$alt_name}}">@endif
                                                                             @endforeach
                                                                             </figure>
                                                                             @if($mattr->id==4)
@@ -311,7 +311,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                             @endif
                                                                             @endforeach
                                                                         @endif
-                                                                    </li> 
+                                                                    </li>
                                                                     <?php $stylci++;?>
                                                                     @endforeach
                                                                 </ul>
@@ -342,7 +342,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     </div>
                                                     <!-- Front -->
                                                     <div class="et-content-fab" id="miniview-etstyle-5" style="display:none">
-                                                    	<figure class="et-selected-img et-selected-full"><img src="{{asset('demo/img/product/pt-shirts.png')}}" alt="{{$eTailorObj['ofrontName']}}"></figure>
+                                                    	<figure class="et-selected-img et-selected-full"><img src="{{asset('demo/img/product/pt-shirts.png')}}" alt="{{$alt_name}}"></figure>
                                                         <div class="et-style-select">
                                                             <h2>Front Style</h2>
                                                             <span>{{$eTailorObj['ofrontName']}}</span>
@@ -375,7 +375,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     <!-- Collar -->
                                                     <div class="et-content-fab" id="miniview-etstyle-8" style="display:none">
                                                     	<figure class="et-selected-img">
-                                                        	<img src="{{asset('/storage/Shirts/Style/Collar/ItalianCollar1Button/List/1.png')}}" alt="{{$eTailorObj['ocollarName']}}">
+                                                        	<img src="{{asset('/storage/Shirts/Style/Collar/ItalianCollar1Button/List/1.png')}}" alt="{{$alt_name}}">
                                                             <img src="{{asset('/storage/Shirts/Style/Collar/ItalianCollar1Button/Thread/ListImg/3.png')}}" alt="">
                                                             <img src="{{asset('/storage/Shirts/Style/Collar/ItalianCollar1Button/Button/ListImg/1.png')}}" alt="">
                                                         </figure>
@@ -390,7 +390,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     <!-- Cuffs -->
                                                     <div class="et-content-fab" id="miniview-etstyle-9" style="display:none">
                                                     	<figure class="et-selected-img">
-                                                        	<img src="{{asset('/storage/Shirts/Style/Cuffs/1ButtonRound/List/1.png')}}" alt="{{$eTailorObj['ocuffName']}}">
+                                                        	<img src="{{asset('/storage/Shirts/Style/Cuffs/1ButtonRound/List/1.png')}}" alt="{{$alt_name}}">
                                                             <img src="{{asset('/storage/Shirts/Style/Cuffs/1ButtonRound/Thread/ListImg/3.png')}}" alt="">
                                                             <img src="{{asset('/storage/Shirts/Style/Cuffs/1ButtonRound/Button/ListImg/1.png')}}" alt="">
                                                         </figure>
@@ -402,7 +402,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     <!-- Pockets -->
                                                     <div class="et-content-fab" id="miniview-etstyle-10" style="display:none;">
                                                     	<figure class="et-selected-img">
-                                                        	<img src="{{asset('/storage/none/none.jpg')}}" alt="{{$eTailorObj['opacketName']}}">
+                                                        	<img src="{{asset('/storage/none/none.jpg')}}" alt="{{$alt_name}}">
                                                         </figure>
                                                         <div class="et-style-select">
                                                             <h2>Pocket Style</h2>
@@ -440,8 +440,8 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         </div>
                                         <?php $cmi++;?>
                                         @endforeach
-                            		</div> 
-                            	</div>  
+                            		</div>
+                            	</div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
@@ -449,7 +449,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etcontrast" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etcontrast');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                            			<div class="pt-choose-right">                                     
+                            			<div class="pt-choose-right">
                                 			<div class="pt-thumb-slider">
                                                 <div class="pt-pagination no-pad-left">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -467,7 +467,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cfablst->id}}" data-title="{{$cfablst->contrsfab_name}}" title="{{$cfablst->contrsfab_name}}" onClick="javascript:getcontrast({{$cfablst->id}},'etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/'.$cfablst->contrsfab_img)}}" alt="{{$cfablst->contrsfab_name}}"></figure>
                                                                 @if($cfablst->id==$eTailorObj['ocontrast'])<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -507,11 +507,11 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Vertical(V)" onClick="javascript:getthreadhole('V','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_vertical)}}" alt="Vertical(V)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='V')<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Horizontal(H)" onClick="javascript:getthreadhole('H','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_horizontal)}}" alt="Horizontal(H)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='H')<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Slanted(L)" onClick="javascript:getthreadhole('S','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_slanted)}}" alt="Slanted(L)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='S')<div class="icon-check"></div>@endif
@@ -520,7 +520,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                                @elseif($contlst->id == '13') 
+                                                @elseif($contlst->id == '13')
                                                 <div class="et-carousel" id="menu-opt-{{$contlst->id}}">
                                                     <div id="et-style-item" class="carousel slide  gp_products_carousel_wrapper" data-ride="carousel" data-interval="false">
                                                         <div class="carousel-inner" role="listbox">
@@ -529,14 +529,14 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                 	<li class="et-item" id="optionlist-{{$contlst->id}}-1" data-title="No Monogram" onClick="javascript:getmonogram('1','etcontrast');">
                                                                         <figure class="et-item-img"><img src="{{asset('/storage/none/none.jpg')}}" alt="No Monogram" title="No Monogram"></figure>
                                                                         @if($eTailorObj['omonogram']=='1')<div class="icon-check"></div>@endif
-                                                                    </li>  
+                                                                    </li>
                                                                 	<?php $contmonogrmlst = App\AttributeStyle::select('*')->where('attri_id','=','13')->get(); ?>
 																	@foreach($contmonogrmlst as $cmonolst)
 																	<?php $cmonoimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$cmonolst->id)->where('fab_id' , '=' , $eTailorObj['ofabric'])->get();?>
                                                                     @if($cmonolst->id==46)
                                                                         @foreach($cmonoimglst as $cmonols)
                                                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cmonolst->id}}" data-title="{{$cmonolst->style_name}}" onClick="javascript:getmonogram({{$cmonolst->id}},'etcontrast');">
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$cmonolst->style_name}}" title="{{$cmonolst->style_name}}">
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$alt_name}}" title="{{$cmonolst->style_name}}">
                                                                                 @if($cmonolst->id==46)<img src="{{asset('/storage/none/Waist.png')}}">@elseif($cmonolst->id==47)<img src="{{asset('/storage/none/Chest.png')}}">@elseif($cmonolst->id==48)<img src="{{asset('/storage/none/Pocket.png')}}">@elseif($cmonolst->id==49)<img src="{{asset('/storage/none/Cuff.png')}}">@endif
                                                                             </figure>
                                                                             @if($cmonolst->id==$eTailorObj['omonogram'])<div class="icon-check"></div>@endif
@@ -546,7 +546,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     	@if($eTailorObj['opacket']==37)
                                                                         @foreach($cmonoimglst as $cmonols)
                                                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cmonolst->id}}" data-title="{{$cmonolst->style_name}}" onClick="javascript:getmonogram({{$cmonolst->id}},'etcontrast');">
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$cmonolst->style_name}}" title="{{$cmonolst->style_name}}">
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$alt_name}}" title="{{$cmonolst->style_name}}">
                                                                                 @if($cmonolst->id==46)<img src="{{asset('/storage/none/Waist.png')}}">@elseif($cmonolst->id==47)<img src="{{asset('/storage/none/Chest.png')}}">@elseif($cmonolst->id==48)<img src="{{asset('/storage/none/Pocket.png')}}">@elseif($cmonolst->id==49)<img src="{{asset('/storage/none/Cuff.png')}}">@endif
                                                                             </figure>
                                                                             @if($cmonolst->id==$eTailorObj['omonogram'])<div class="icon-check"></div>@endif
@@ -557,7 +557,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     	@if($eTailorObj['opacket']!=37)
                                                                         @foreach($cmonoimglst as $cmonols)
                                                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cmonolst->id}}" data-title="{{$cmonolst->style_name}}" onClick="javascript:getmonogram({{$cmonolst->id}},'etcontrast');">
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$cmonolst->style_name}}" title="{{$cmonolst->style_name}}">
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$alt_name}}" title="{{$cmonolst->style_name}}">
                                                                                 @if($cmonolst->id==46)
                                                                                 <img src="{{asset('/storage/none/Waist.png')}}">
                                                                                 @elseif($cmonolst->id==47)
@@ -575,7 +575,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     	@if($eTailorObj['osleeve']!=3)
                                                                         @foreach($cmonoimglst as $cmonols)
                                                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cmonolst->id}}" data-title="{{$cmonolst->style_name}}" onClick="javascript:getmonogram({{$cmonolst->id}},'etcontrast');">
-                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$cmonolst->style_name}}" title="{{$cmonolst->style_name}}">
+                                                                            <figure class="et-item-img"><img src="{{asset('/storage/'.$cmonols->list_img)}}" alt="{{$alt_name}}" title="{{$cmonolst->style_name}}">
                                                                                 @if($cmonolst->id==46)<img src="{{asset('/storage/none/Waist.png')}}">@elseif($cmonolst->id==47)<img src="{{asset('/storage/none/Chest.png')}}">@elseif($cmonolst->id==48)<img src="{{asset('/storage/none/Pocket.png')}}">@elseif($cmonolst->id==49)<img src="{{asset('/storage/none/Cuff.png')}}">@endif
                                                                             </figure>
                                                                             @if($cmonolst->id==$eTailorObj['omonogram'])<div class="icon-check"></div>@endif
@@ -597,13 +597,13 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <?php $monothrdlst = App\Thread::select('*')->where('cat_id','=',1)->get(); ?>
                                                             @foreach($monothrdlst as $monothrdlst)
                                                             <li class="et-item" id="optionlist-thrdcolr-{{$monothrdlst->id}}" data-title="{{$monothrdlst->thrd_name}}({{$monothrdlst->thread_code}})" onClick="javascript:getmonotxtcolor({{$monothrdlst->id}},'etcontrast');">
-                                                                <figure class="et-item-img"><img src="{{asset('/storage/'.$monothrdlst->thrd_img)}}" alt="{{$monothrdlst->thrd_name}}({{$monothrdlst->thread_code}})"></figure>
+                                                                <figure class="et-item-img"><img src="{{asset('/storage/'.$monothrdlst->thrd_img)}}" alt="{{$alt_name}}"></figure>
                                                                 @if($monothrdlst->id==$eTailorObj['omonogramColor'])<div class="icon-check"></div>@endif
                                                             </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
-                                                    @endif     
+                                                    @endif
                                                 </div>
                                                 @endif
                                                 @endforeach
@@ -686,9 +686,9 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     </div>
                                                     <div class="et-content-fab" id="miniview-etcontrast-12" style="display:none;" >
                                                     	<figure class="et-selected-img">
-                                                        <img src="{{asset('storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" alt="">
-                                                        <img src="{{asset('storage/Shirts/Threads/'.$eTailorObj['obuttonHoleStyle'].'/'.$eTailorObj['obuttonHole'].'.png')}}" alt="" style="padding-left:18px; padding-top:20px;">
-                                                        <img src="{{asset('storage/Shirts/Buttons/'.$eTailorObj['obutton'].'.png')}}" alt="" style="padding-left:34px; padding-top:36px;"><img src="{{asset('storage/Shirts/Threads/C/'.$eTailorObj['obuttonHole'].'.png')}}" alt="" style="padding-left:17px; padding-top:18px;"></figure>
+                                                        <img src="{{asset('storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$alt_name}}" >
+                                                        <img src="{{asset('storage/Shirts/Threads/'.$eTailorObj['obuttonHoleStyle'].'/'.$eTailorObj['obuttonHole'].'.png')}}" alt="{{$alt_name}}" style="padding-left:18px; padding-top:20px;">
+                                                        <img src="{{asset('storage/Shirts/Buttons/'.$eTailorObj['obutton'].'.png')}}" alt="{{$alt_name}}"  style="padding-left:34px; padding-top:36px;"><img src="{{asset('storage/Shirts/Threads/C/'.$eTailorObj['obuttonHole'].'.png')}}" style="padding-left:17px; padding-top:18px;"></figure>
                                                         <div class="et-style-select">
                                                             <h2>Contrast & Threads</h2>
                                                             <span class="highlight">A. Button Color :</span>
@@ -702,18 +702,18 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                     <div class="et-content-fab" id="miniview-etcontrast-13" style="display:none;" >
                                                         <figure class="et-selected-img">
                                                         	@if($eTailorObj['omonogram']==1)
-                                                        	<img src="{{asset('/storage/none/none.jpg')}}" alt="{{$eTailorObj['omonogramName']}}">
+                                                        	<img src="{{asset('/storage/none/none.jpg')}}" alt="{{$alt_name}}">
                                                             @elseif($eTailorObj['omonogram']==46)
-                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnWaist/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$eTailorObj['omonogramName']}}">
+                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnWaist/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$alt_name}}">
                                                             <span style="color: {{$eTailorObj['omonogramtextColor']}};position: absolute;top: 0;width: 100%;left: 0;padding: 55px 0px;font-size:12px;font-style:italic;font-family: Mtcorsva;">{{$eTailorObj['omonogramText']}}</span>
                                                             @elseif($eTailorObj['omonogram']==47)
-                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnChest/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$eTailorObj['omonogramName']}}">
+                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnChest/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$alt_name}}">
                                                             <span style="color: {{$eTailorObj['omonogramtextColor']}};position: absolute;top: 0;width: 100%;left: 0;padding: 75px 0px 35px;font-size:12px;font-style:italic;font-family: Mtcorsva;">{{$eTailorObj['omonogramText']}}</span>
                                                             @elseif($eTailorObj['omonogram']==48)
-                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnPocket/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$eTailorObj['omonogramName']}}">
+                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnPocket/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$alt_name}}">
                                                             <span style="color: {{$eTailorObj['omonogramtextColor']}};position: absolute;top: 11px;width: 100%;left: 0;font-size:12px;font-style:italic;font-family: Mtcorsva;">{{$eTailorObj['omonogramText']}}</span>
                                                             @elseif($eTailorObj['omonogram']==49)
-                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnCuff(Right)/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$eTailorObj['omonogramName']}}">
+                                                            <img src="{{asset('/storage/Shirts/ColorContract/Monogram/MonogramOnCuff(Right)/List/'.$eTailorObj['ofabric'].'.jpg')}}" alt="{{$alt_name}}">
                                                             <span style="color: {{$eTailorObj['omonogramtextColor']}};position: absolute;top: 55px;width: 100%;left: 0;transform: rotate(65deg);;font-size:12px;font-style:italic;font-family: Mtcorsva;">{{$eTailorObj['omonogramText']}}</span>
                                                             @endif
                                                         </figure>
@@ -749,18 +749,18 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             	<div class="pt-variation-main">
                             		<div class="pt-variation">
                                         <div id="menu-bodysize" class="pt-box-square" onClick="javascript:showMeasureSect('bodysize');"><p>Body Size</p></div>
-                                        <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>                             
-                            		</div> 
-                            	</div>  
+                                        <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>
+                            		</div>
+                            	</div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
                                         <div id="menu-mesure-main" style="display:block;">
-                                        <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts.png')}}" width="340" height="417" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
-                                        <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts-back.png')}}"  width="340" height="417" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
+                                        <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts.png')}}" width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
+                                        <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts-back.png')}}"  width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                            			<div class="pt-choose-right et-measure-right">                                     
+                            			<div class="pt-choose-right et-measure-right">
                                 			<div class="pt-thumb-slider">
                                                 <div class="et-des-title"><h2>Great Choice!  Please Select Your Measurement Option</h2></div>
                                     			<div class="et-ment-option">
@@ -785,12 +785,12 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <!-- End Right Option Section -->
                                         </div>
                                         <!-- STANDARD SIZES -->
-                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">             
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
                                      		<div class="pt-thumb-slider">
                                             	<div class="et-des-title"><h2>SIZE CHART</h2></div>
                                                 <div class="et-main-measurement">
                                                 	<form class="et-shirt-measure" role="form" method="POST" >
-                                                    	
+
                                                         <div class="et-block no-pad">
                                                             <div class="et-block">
                                                             	<div class="et-setect-fit">
@@ -819,7 +819,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                                 <?php $stdchestSize=App\BodyMeasurment::select('*')->where('cat_id','=','1')->where('mer_id','=',$stdsizee->id)->get();?>
                                                                                 @foreach($stdchestSize as $chestsizelst)<td>{{$chestsizelst->chest}}</td>@endforeach
                                                                                 @endforeach
-                                                                            </tr>          
+                                                                            </tr>
                                                                 		</tbody>
                                                                     </table>
                                                                 </div>
@@ -830,7 +830,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                         <tbody>
                                                                         	<tr>
                     															<td data-lang="size">Size</td>
-                    															@foreach($stdsizelst as $stdsizee)<td>{{$stdsizee->name}}</td>@endforeach                
+                    															@foreach($stdsizelst as $stdsizee)<td>{{$stdsizee->name}}</td>@endforeach
                                                                           	</tr>
                 															<tr>
                                                                             	<td data-lang="neck">Neck</td>
@@ -848,7 +848,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                                 <td>{{round($f*2.54)}}-{{round($l*2.54)}}</td>
                                                                                 @endforeach
                                                                                 @endforeach
-                                                                            </tr>          
+                                                                            </tr>
                                                                 		</tbody>
                                                                     </table>
                                                                 </div>
@@ -903,7 +903,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                   		</div>
                                         <!-- STANDARD SIZES END -->
                                         <!-- BODY SIZES -->
-                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">                  
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">
                                      		<div class="pt-thumb-slider">
                                             	<div class="et-des-title"><h2>YOUR BODY SIZES</h2></div>
                                                 <div class="et-main-measurement">
@@ -961,7 +961,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     @endforeach
                                                                 </div>
                                                                 <div class="et-input" id="bdymsleeve">
-                                                                    <span>SLEEVE</span> 
+                                                                    <span>SLEEVE</span>
                                                                     @if($eTailorObj['osleeve']==3)
                                                                     <?php $measureshortsleevelst = App\MeasurmentVideo::select('*')->where('cat_id','=',1)->where('id','=',8)->get();?>
                                                                     @foreach($measureshortsleevelst as $mshrtslevlst)
@@ -974,7 +974,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     @endforeach
                                                                     @endif
                                                                 </div>
-                            									<div class="et-radio-check">                                                           
+                            									<div class="et-radio-check">
                                        								<div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" class="bsizetyp" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label></div>
                                                                     <div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" class="bsizetyp"  value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?> ><span class="cr"><i class="cr-icon"></i></span>Inch</label></div>
                             									</div>
@@ -995,7 +995,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                   <div id="et-body"  class="et-cart-brn" style="display:none; width:80px"><img src="{{URL::asset('asset/img/page-loader.gif')}}"></div>
                                                                 <button style="display:none;" type="sumbit" class="et-cart-brn" id="add_to_cart_by_input">Add To Cart</button>
                                                                <!-- <button type="sumbit" class="et-cart-brn">Add To Cart</button>-->
-                                                               
+
                                                                 <div class="et-btn-group">
                                                                 	@if($eTailorObj['ocartID']=="")
                                                                 	<span>Quantity :</span>
@@ -1026,19 +1026,19 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                 </div>
             </div>
             <!-- TABS ENDS -->
-        </div> 
+        </div>
         <!-- Container Ends-->
 	</div>
-	<!-- DESIGN AREA ENDS -->  
+	<!-- DESIGN AREA ENDS -->
     <!-- FOOTER SECTION -->
   <div class="pt-footer cart-page-footer">
         <div class="container">
             <div class="row">
                 <div class="pt-foot-ul">
     @include('../layouts.inc.footer-strkey')
-             </div>	 
+             </div>
             </div>
-        </div>   
+        </div>
 </div>
     <!-- FOOTER SECTION END -->
     <canvas id="frontcanvas" width="340" height="417" style="display:none"></canvas>
@@ -1064,57 +1064,57 @@ $(document).ready(function(){$(".et-ck-btn").click(function(){var cc=$("#crtcoun
 </script>
 
 <script type="text/javascript">
-$("#stand").click(function(){	
-	
+$("#stand").click(function(){
+
    var setarr = $('#setarr').val();
   // var frntviewfinal = $('#frntviewfinal').val();
   // var bkviewfinal = $('#bkviewfinal').val();
    var mpattern = $('#mpattern').val();
    var sizetyp = $('.sizetyp:checked').val();
-   var rndvalue = $('#rndvalue').val();   
-      
+   var rndvalue = $('#rndvalue').val();
+
       var selsize = [];
    $('.selsize').each(function(index,val){
-	 selsize[index] = $(this).val();   
+	 selsize[index] = $(this).val();
   })
-   
+
      var selstdqty = [];
    $('.selstdqty').each(function(index,val){
-	 selstdqty[index] = $(this).val();   
-  })   
-   
-  if (rndvalue!='') {      
+	 selstdqty[index] = $(this).val();
+  })
 
-	
-			
+  if (rndvalue!='') {
+
+
+
 			 $.ajax({
                type:'POST',
                url:'/designshirts/postcart',
                data:{setarr:setarr,mpattern:mpattern,selstdqty:selstdqty,selsize:selsize,sizetyp:sizetyp,rndvalue:rndvalue,},
 			   beforeSend: function() {
 				    $("#et-smallr").show();
-					$("#stand").hide(); 
+					$("#stand").hide();
 			    },
                headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
                success:function(data){
-				   
+
                   $("#msg").html(data.msg);
 				 window.location.href = "/cart";
                }
             });
-			
-			
+
+
     }
   return false;
   });
     </script>
-    
-<script type="text/javascript">
-$("#body").click(function(){	
 
-	
+<script type="text/javascript">
+$("#body").click(function(){
+
+
 	var bsizeNeck = $('#bsizeNeck').val();
 	var bsizeChest = $('#bsizeChest').val();
 	var bsizeWaist = $('#bsizeWaist').val();
@@ -1129,12 +1129,12 @@ $("#body").click(function(){
  //  var frntviewfinal = $('.bfrntviewfinal').val();
  //  var bkviewfinal = $('.bbkviewfinal').val();
    var mpattern = $('#bmpattern').val();
-   var selbodyqty = $('#selbodyqty').val();  
+   var selbodyqty = $('#selbodyqty').val();
    var rndvalue = $('#brndvalue').val();
-   
-   
-  if (rndvalue!='') {      	
-		
+
+
+  if (rndvalue!='') {
+
 
 			 $.ajax({
                type:'POST',
@@ -1142,23 +1142,23 @@ $("#body").click(function(){
                data:{bsizeNeck:bsizeNeck,bsizeChest:bsizeChest,bsizeWaist:bsizeWaist,bsizeHip:bsizeHip,bsizeLength:bsizeLength,bsizeShoulder:bsizeShoulder,bsizeSleeve:bsizeSleeve,bsizetyp:bsizetyp,fitstyle:fitstyle,setarr:setarr,mpattern:mpattern,selbodyqty:selbodyqty,rndvalue:rndvalue,},
 			    beforeSend: function() {
 				    $("#et-body").show();
-					$("#body").hide(); 
+					$("#body").hide();
 			    },
                headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
                success:function(data){
-				   
+
                   $("#msg").html(data.msg);
 				 window.location.href = "/cart";
                }
             });
-			
-			
+
+
     }
   return false;
   });
-    </script>  
-     
+    </script>
+
 
 </html>

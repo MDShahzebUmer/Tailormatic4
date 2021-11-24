@@ -13,25 +13,25 @@
 				?>
                     <li data-target="#et-banner" data-slide-to="<?php echo $dp;?>" <?php if($dp==0){?>class="active"<?php }?>></li>
                  <?php $dp++; }?>
-                </ol>                    
+                </ol>
                 <div class="carousel-inner" role="listbox"><!-- Wrapper For Slides -->
                    @foreach($slider as $s)
-                    <div @if($loop->first) class="item active" @else class="item" @endif ><!-- First Slide -->    
+                    <div @if($loop->first) class="item active" @else class="item" @endif ><!-- First Slide -->
                         <!-- Slide Background -->
-                        <img src="{{asset('/storage/')}}/{{$s->image}}" alt="eTailor Touch Slider"  class="slide-image"/>
+                        <img src="{{asset('/storage/')}}/{{$s->image}}" alt="{{$alt_name}}"  class="slide-image"/>
                         <!-- Slide Text Layer -->
                         <div class="et-slide-review">
-                            @include('../layouts.inc.rating') 
+                            @include('../layouts.inc.rating')
                         </div>
                         <div class="slide-text slide_style_left">
                             {!! $s->body !!}
                        <a href="{{ $s->tab_url_one }}" class="et-btn et-btn-default">{!! $s->tab_one !!}</a>
-                            <a href="{{ $s->tab_url_two }}" class="et-btn et-btn-default">{!! $s->tab_two !!}</a> 
+                            <a href="{{ $s->tab_url_two }}" class="et-btn et-btn-default">{!! $s->tab_two !!}</a>
                         </div>
                     </div><!-- End of Slide -->
-                    
-                    
-                     
+
+
+
                    @endforeach
 
                 </div><!-- End of Wrapper For Slides -->
