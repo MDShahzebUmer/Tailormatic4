@@ -5,13 +5,13 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-          
+
       </div>
     </div>
     <div class="row">
         <!-- <div class="col-sm-12">
           <div class="et-sub-title et-fw">
-            <h2>Order Detail</h2> 
+            <h2>Order Detail</h2>
           </div>
         </div> -->
         <?php $mcn = App\Category::get_ecollection_cat_name($catIds); ?>
@@ -24,12 +24,12 @@
                   @if($mcn != '')
                   @foreach($mcn as $ncm)
                   <dd><a href="{{$ncm->id}}">{{$ncm->name}}</a></dd>
-                  
+
                   @endforeach
                   @endif
                 </dl>
-                
-                  
+
+
                 </dl>
                 <?php  $cgory = App\Category::select('*')->get();  $newcat = App\Http\Helpers::get_parent($cgory,$catIds); ?>
 
@@ -53,10 +53,10 @@
                   <!-- <input id="scheckbox_{{$sd->id}}" type="checkbox" value="{{$sd->id}}"> -->
                 </dl>
                 @endif
-               
+
                 <dl class="dl-list-right-bar price-filter">
                   <dt>By Price</dt>
-                  
+
                   <dd class="type-price">
                     <div class="input-group">
                       <span>&#36; &nbsp;</span>
@@ -95,13 +95,13 @@
                   @endforeach
                   @endif
                </dl>
-              </div> 
+              </div>
             </div>
             <div class="col-sm-9 col-md-9 search-sec">
                 <div class="product-search-box full-width">
                     <div class="input-group">
-                     
-                      <input type="hidden" name="search_param" value="all" id="search_param">         
+
+                      <input type="hidden" name="search_param" value="all" id="search_param">
                       <input type="text" class="form-control" name="x" style="color:white;" placeholder="Search term...">
                       <span class="input-group-btn">
                           <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
@@ -116,7 +116,7 @@
               }
             </script>
             <div class="col-sm-9">
-              
+
                 <div class="row">
                   <div class="product-list full-width">
                     @if($productsh->isNotEmpty())
@@ -124,9 +124,15 @@
                     <div class="col-xs-12 col-sm-6 col-md-3">
                       <div class="product-list-box ">
                           @if($psh->product_new == 1)
-                          <a href="{{url('/productdetails')}}/{{$psh->id}}"><img src="{{url('/storage/none/tag.png')}}" class="new-tag tag-box"></a>
+                          <a href="{{url('/productdetails')}}/{{$psh->id}}">
+                            <img src="{{url('/storage/none/tag.png')}}" class="new-tag tag-box">
+                          </a>
                           @endif
-                          <figure class="figure-box"><img src="{{url('/storage').'/'.$psh->main_img}}"></figure>
+                          <figure class="figure-box">
+                              <a href="{{url('/productdetails')}}/{{$psh->id}}">
+                                  <img src="{{url('/storage').'/'.$psh->main_img}}">
+                              </a>
+                            </figure>
                           <p class="p-name" title="{{$psh->product_name}}">{{ Str::limit($psh->product_name,15) }}</p>
                           <p class="p-price">{{$psh->product_mrp}}</p>
                            @if($psh->product_offer_rate != 0 || $psh->product_offer_rate != '')
@@ -145,11 +151,11 @@
                      </div>
 
                     @endif
-                    
+
 
                   </div>
                 </div>
-               
+
             </div>
 
         </div>
@@ -176,31 +182,31 @@ $('.product-search-box button').click(function(){
 
 $( 'input[id^="checkbox_"]').click(function() {
 
-    var cat =   $('#cat_ids').val();  
-    var fullstring = filterdata();  
+    var cat =   $('#cat_ids').val();
+    var fullstring = filterdata();
     getAjaxVal(fullstring,cat);
 
 });
 
 $( '#fabric_type input[id^="checkboxt"]').click(function() {
 
-    var cat =   $('#cat_ids').val();  
-    var fullstring = filterdata();  
+    var cat =   $('#cat_ids').val();
+    var fullstring = filterdata();
     getAjaxVal(fullstring,cat);
 
 });
 
 $( '#fabric_patern input[id^="checkboxp"]').click(function() {
 
-    var cat =   $('#cat_ids').val();  
-    var fullstring = filterdata();  
+    var cat =   $('#cat_ids').val();
+    var fullstring = filterdata();
     getAjaxVal(fullstring,cat);
 
 });
 
 
   $('.type-price button').on('click',function(){
-      var cat =   $('#cat_ids').val(); 
+      var cat =   $('#cat_ids').val();
 
        var flag = 0;
       $('.type-price input').each(function(){
@@ -219,7 +225,7 @@ $( '#fabric_patern input[id^="checkboxp"]').click(function() {
       getAjaxVal(fullstring,cat);
 
   });
-  
+
 
   var sizeFilter =  $(".size-filter span");
   $(sizeFilter).click(function(){
@@ -232,7 +238,7 @@ $( '#fabric_patern input[id^="checkboxp"]').click(function() {
       $(this).attr('rel','unchecked');
     }
 
-    var cat =   $('#cat_ids').val();  
+    var cat =   $('#cat_ids').val();
     var fullstring = filterdata();
 
     getAjaxVal(fullstring,cat);
@@ -253,7 +259,7 @@ function filterdata(){
     $('input[id^="checkbox_"]:checked').each(function() {
        var temp = $(this).val();
 
-       color.push({ 
+       color.push({
            color: temp
         });
      });
@@ -261,7 +267,7 @@ function filterdata(){
       $('#fabric_patern input[id^="checkboxp"]:checked').each(function() {
        var temp = $(this).val();
 
-       febpatern.push({ 
+       febpatern.push({
            patern: temp
         });
      });
@@ -269,7 +275,7 @@ function filterdata(){
       $('#fabric_type input[id^="checkboxt"]:checked').each(function() {
        var temp = $(this).val();
 
-       febtype.push({ 
+       febtype.push({
            type: temp
         });
      });
@@ -279,7 +285,7 @@ function filterdata(){
 
       if($.trim(parseFloat(frompr))!='' && $.trim(parseFloat(topr))!='NaN'){
 
-        price.push({ 
+        price.push({
            from: frompr,
            to: topr,
            price: true,
@@ -292,14 +298,14 @@ function filterdata(){
         var rel = $(this).attr('rel');
         if(rel=='checked'){
            var temp = $(this).find('input').val();
-           size.push({ 
+           size.push({
                size: temp
             });
         }
 
     });
 
-      all_array.push({ 
+      all_array.push({
            color_data: color,
            price_data: price,
            size_data: size,
@@ -325,7 +331,7 @@ function filterdata(){
         var string = 'All';
       }else{
 
-        seen = []; 
+        seen = [];
         var replacer = function(key, value) {
           if (value != null && typeof value == "object") {
             if (seen.indexOf(value) >= 0) {
@@ -336,7 +342,7 @@ function filterdata(){
           return value;
         };
 
-        var string = JSON.stringify(string, replacer); 
+        var string = JSON.stringify(string, replacer);
 
       }
 
@@ -344,7 +350,7 @@ function filterdata(){
              type:"GET",
              dataType: "JSON",
              url:"{{ route('ecollection') }}/"+cat+'/'+string,
-             success:function(res){ 
+             success:function(res){
 
                var text = '';
                $.each(res.sum,function(i,v){
@@ -360,7 +366,7 @@ function filterdata(){
                     var offs = '&nbsp;';
                   }
 
-                  
+
                   //console.log(offrate);
                   if(title.length > 13) title = title.substring(0,15)+'...';
 
@@ -383,7 +389,7 @@ function filterdata(){
              type:"GET",
              dataType: "JSON",
              url:"{{ route('ecollection') }}/"+cat+'/'+s+'/'+string,
-             success:function(res){    
+             success:function(res){
 
                var text = '';
                $.each(res.sum,function(i,v){
@@ -395,7 +401,7 @@ function filterdata(){
                if(res.sum.length == 0){
                 text = 'No search result found.';
                }
-               
+
                $('.product-list').html(text);
 
           }
