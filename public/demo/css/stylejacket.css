@@ -58,3 +58,6 @@
 .checkbox label input[type="checkbox"]+.cr>.cr-icon {
     transform: scale(1.5) rotateZ(-0deg);
 }
+ul.et-payment-list>li {
+    width: 50px;
+}

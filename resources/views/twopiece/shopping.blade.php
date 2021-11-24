@@ -15,10 +15,10 @@
 <div class="et-ck-payment">
     <span>WORLDWIDE SHIPPING</span>
     <ul class="et-payment-list">
-        <li><i class="fa fa-cc-visa" aria-hidden="true"></i></li>
-        <li><i class="fa fa-cc-mastercard" aria-hidden="true"></i></li>
-        <li><i class="fa fa-cc-amex" aria-hidden="true"></i></li>
-        <li><i class="fa fa-cc-paypal" aria-hidden="true"></i></li>
-        <li><i class="fa fa-cc-discover" aria-hidden="true"></i></li>
+        <li><img src="{{asset('asset/img/product/o_visa.png')}}" class="visa" alt="visa" /></li>
+        <li><img src="{{asset('asset/img/product/o_mastercard.png')}}" class="mastercard" alt="mastercard" /></li>
+        <li><img src="{{asset('asset/img/product/o_amex.png')}}" class="amex" alt="amex" /></li>
+        <li><img src="{{asset('asset/img/product/o_paypal.png')}}" class="paypal" alt="paypal" /></li>
+        <li><img src="{{asset('asset/img/product/o_discover.png')}}" class="discover" alt="discover" /></li>
     </ul>
 </div>

@@ -301,7 +301,7 @@
 .pt-choose-right {
     float: left;
     width: 430px !important;
-    margin-bottom: 100px !important;
+    /*margin-bottom: 100px !important;*/
     margin-top: 0px !important;
 }
 .pt-customize,.pt-men {
@@ -335,8 +335,8 @@
     cusor: pointer;
 }
 .et-item-list>.et-item {
-    width: 35px !important;
-    height: 35px !important;
+    width: 50px;
+    height: 50px;
 }
 .et-ment-option .et-body-size {
     margin-right: 10px;
@@ -359,9 +359,9 @@
     font-size: 20px;
 }
 .fn-red {
-    color: #ae1c00 !important;
+    color: #ffffff !important;
     font-size: 18px;
-    background-color: #807a7a;
+    /*background-color: #807a7a;*/
 }
 .span-jack {
     color: #fff;
@@ -377,7 +377,7 @@ ul.et-payment-list>li {
 }
 
 .mb75 {
-    margin-bottom: 95px;
+    margin-bottom: 120px;
 }
 
 .et-check-box .checkbox label {
@@ -386,11 +386,28 @@ ul.et-payment-list>li {
 .checkbox label input[type="checkbox"]+.cr>.cr-icon {
     transform: scale(1.5) rotateZ(-0deg);
 }
+.et-carousel .gp_products_carousel_wrapper .carousel-control {
+    top: 13px !important;
+}
+#fullstyle .et-item-list>.et-item {
+    width: 70px !important;
+    height: 70px !important;
+}
 
+#fullstyle ul.et-item-list {
+    display: flex;
+}
 
+#fullstyle .et-carousel .gp_products_carousel_wrapper .carousel-control{
+    top: 21px !important;
+}
 
-
-
+.et-style-select {
+    color: #d7d7d7;
+}
+ul.et-payment-list>li{
+    height: 36px;
+}
 
 
 

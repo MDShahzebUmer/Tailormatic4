@@ -723,3 +723,6 @@ ul.add_other_size{padding-left:14%;margin-top:7px;width:100%;float:left}
 .checkbox label input[type="checkbox"]+.cr>.cr-icon {
     transform: scale(1.5) rotateZ(-0deg);
 }
+ul.et-payment-list>li {
+    width: 50px;
+}

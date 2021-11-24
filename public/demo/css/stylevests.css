@@ -44,3 +44,6 @@
     width:100% !important;
 }
 }
+ul.et-payment-list>li {
+    width: 50px;
+}
