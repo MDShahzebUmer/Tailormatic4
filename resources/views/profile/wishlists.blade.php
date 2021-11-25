@@ -8,7 +8,10 @@
     	<div class="row">
           <div class="col-sm-12">
               <div class="et-sub-title et-fw">
-                <h2>My Wish List</h2> 
+                @if (!auth()->user()->email_verified_at)
+                <div class="alert alert-danger" role="alert">please verify your email address</div>
+                @endif
+                <h2>My Wish List</h2>
               </div>
             </div>
         	<div class="et-block">
@@ -18,7 +21,7 @@
                   <ul >
                        @include('../layouts.inc.profile-menu')
                   </ul>
-                </div> 
+                </div>
               </div>
               <div class="col-md-9 dt-responsive st-pro-content-wrap">
                 @include('../layouts.inc.profile-menu-responsive')
@@ -48,14 +51,14 @@
                           </tfoot>
                           <tbody>
 							              @if($wishlists->isNotEmpty())
-                          <?php $i =1;?> 
+                          <?php $i =1;?>
 								             @foreach($wishlists as $wis)
-                            
+
                               <tr id="item_{{$wis->wishId}}">
                                   <td>{{$i++}}</td>
                                   <td class="item-desc">
                                     <img src="{{url('/storage/')}}/{{$wis->thumb_img}}" alt="">
-                                    
+
                                   </td>
                                   <!-- <td class="order-fabric-image">
                                     <img src="img/product/pt-thumb.png" alt=""> -->
@@ -63,9 +66,9 @@
                                   <td>{{$wis->product_name}}</td>
                                   <td>${{number_format($wis->product_mrp)}}</td><?php  ?>
                                   <td>${{number_format($wis->product_offer_rate)}}</td>
-                                  
-                                
-                                  <td> 
+
+
+                                  <td>
                                     @if($wis->initial_stock > 0)
                                     <a href="{{url('/productdetails')}}/{{$wis->product_id}}" class="btn btn-primary">
                                        View Product
@@ -81,11 +84,11 @@
                                     </a>
                                   </td>
                               </tr>
-                              
+
 								            @endforeach
                             @endif
-                              
-                              
+
+
                           </tbody>
                       </table>
                   </div>
@@ -96,7 +99,7 @@
 </section>
 
   @include('../profile.profile-footer')
-  
+
   <script type="text/javascript" src="{{asset('asset/js/jquery.dataTables.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('asset/js/dataTables.bootstrap.min.js')}}"></script>
   <script type="text/javascript">
@@ -128,10 +131,10 @@ $(".deletewishItems").click(function(){
                {
                 $('#item_'+id).fadeOut();
                }
-            
+
             }
         });
-       
+
     }
     return false;
   });

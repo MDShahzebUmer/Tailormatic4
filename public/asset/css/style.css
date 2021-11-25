@@ -5821,7 +5821,7 @@ figure.figure-box img {
     color: #fff;
 }
 .et-stuck-navbar {
-    background-color: #ca778fcc; 
+    background-color: #ca778fcc;
     top: -40px;
     padding-top: 6px;
 }
@@ -5841,7 +5841,7 @@ figure.figure-box img {
     font-weight: bold;
   }
   .ls-profiel input[type="text"] {
-    font-size: 14px;  
+    font-size: 14px;
   }
   #datepicker{
     border: 2px solid #e5e5e5;
@@ -5890,7 +5890,7 @@ figure.figure-box img {
     background: #00000082;
     padding: 2px;
     border-radius: 5px;
-} 
+}
 
 .hamburger {
     position: fixed;
@@ -5934,6 +5934,11 @@ figure.figure-box img {
     top: 48px;
     left: 16px;
 }
+
+.et-threed-pro {
+    display: none !important;
+}
+
 /*
 .hamburger .hamb-1 {
     top: 13px;
@@ -5979,11 +5984,11 @@ figure.figure-box img {
     width: 65%;
 }
 
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
 
     .top-logo {
         background-color: #0000 !important;
-        width: 300px !important; 
+        width: 250px !important;
         max-width: 400px !important;
     }
  }
@@ -6001,7 +6006,6 @@ figure.figure-box img {
 .indicators-line > .carousel-indicators {
 	max-width: 250px;
 }
- 
 
 /* @media only screen and (max-width: 1200px) {
     .col-lg-3.col-md-.profile-sidebar {

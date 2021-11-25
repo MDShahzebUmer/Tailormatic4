@@ -9,7 +9,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>eTailor clothes|| {{$seo['meta_title']}}</title>
+        <title>Dunia Tailor|| {{$seo['meta_title']}}</title>
         <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
         <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,31 +19,31 @@
         <meta property="og:description"  content="{{$seo['meta_desc']}}" />
         <meta property="og:image" content="http://etailorclothes.com/asset/img/fblogo.png" />
         <meta property="og:image:secure_url" content="http://etailorclothes.com/asset/img/fblogo.png" />
-      
-       
+
+
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-        <!-- CSS 
-        ============================================ -->            
+        <!-- CSS
+        ============================================ -->
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}" media="all">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap-touch-slider.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
-        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">       
-        
-	<?php  
-        $pro_pop = App\PromotionalPop::select('*')->first(); 
+        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
+
+	<?php
+        $pro_pop = App\PromotionalPop::select('*')->first();
         if($pro_pop->status==1){
-    ?>  
-        
-         <style type="text/css">			
+    ?>
+
+         <style type="text/css">
 			#demo_info p {margin: 0; padding: 0; font-size: 30px;}
-		</style> 
-        
+		</style>
+
  {{-- <script type="text/javascript" src="{{asset('asset/js/bioep.min.js')}}"></script>
-   
+
  <script type="text/javascript">
 			bioEp.init({
 				width: 394,
@@ -54,9 +54,9 @@
 		</script> --}}
         <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/983d1bb8f245a30763cd239a2/f245ab78133b3614469e853db.js");</script>
 
- 
-      <?php }?> 		
- 
+
+      <?php }?>
+
     </head>
 <body>
 <div id="fb-root"></div>
@@ -73,7 +73,7 @@
             <div id="et-wrapper" class="et-navbar"><!-- Navbar Start -->
                 <div class="et-logo">
                     <figure class="top-logo">
-                        
+
                        @if(setting('site.logo'))
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                         @endif
@@ -102,4 +102,3 @@
         </div>
     </div>
 </header><!-- Header End -->
- 

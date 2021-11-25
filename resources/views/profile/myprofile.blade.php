@@ -6,20 +6,23 @@
   <div class="container">
       <div class="row">
           <div class="col-sm-12">
+             @if (!auth()->user()->email_verified_at)
+                <div class="alert alert-danger" role="alert">please verify your email address</div>
+             @endif
               <div class="et-sub-title et-fw">
-                <h2>My Account</h2> 
+                <h2>My Account</h2>
               </div>
             </div>
           <div class="et-block">
               <div class="col-sm-3 st-pro-leftbar">
                 <div class=" profile-sidebar">
                    @include('../layouts.inc.profile-menu')
-                </div> 
+                </div>
               </div>
               <?php //print_r($data);?>
               <div class="col-md-9 dt-responsive st-pro-content-wrap">
                 @include('../layouts.inc.profile-menu-responsive')
-                
+
                   <div class="contact-box user-details full-witdh">
                       <ul>
                         <?php $cname = App\Country::get_country_name($data->country_id);
@@ -34,7 +37,7 @@
                         </li>
                       </ul>
                   </div>
-                  
+
               </div>
           </div>
         </div>

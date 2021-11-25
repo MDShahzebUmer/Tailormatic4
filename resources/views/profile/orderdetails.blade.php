@@ -7,8 +7,9 @@
 	<div class="container">
     	<div class="row">
           <div class="col-sm-12">
+
               <div class="et-sub-title et-fw">
-                <h2>Order Item List</h2> 
+                <h2>Order Item List</h2>
               </div>
             </div>
         	<div class="et-block">
@@ -17,7 +18,7 @@
                   <ul class="user-frofile-list">
                        @include('../layouts.inc.profile-menu')
                   </ul>
-                </div> 
+                </div>
               </div>
               <div class="col-md-9 dt-responsive st-pro-content-wrap">
                   <div class="contact-box full-witdh order-list-data-table">
@@ -49,35 +50,35 @@
                               </tr>
                           </tfoot>
                           <tbody>
-							<?php 
+							<?php
                                 $i=0;
                                 $total=0;
                                 $shipamt=0;
-								
+
 								//print_r($orderdata);
                             ?>
                             @foreach($orderdata as $cart)
-                                @php 
+                                @php
                                 $i++
                              	@endphp
-                                
+
 							<?php
-                               if($cart->product_type==0){	
+                               if($cart->product_type==0){
 									$groupname = App\OrderItem::groupinfo($cart->group_id,'fbgrp_name');
 									$oprodType = App\OrderItem::orderiteminfo($cart->id,'oprodType');
 									if($cart->cat_id==1){
 									$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ocollarName');
-									$olapelName='';	
-									$detailurl='itemdetail';					
+									$olapelName='';
+									$detailurl='itemdetail';
 									}elseif($cart->cat_id==2){
 									$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 									$olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
 									$olapelName=$olapelN;
 									$detailurl='jitemdetail';
 									}elseif($cart->cat_id==3){
-									$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');								
+									$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 									$olapelName='';
-									$detailurl='vitemdetail';	
+									$detailurl='vitemdetail';
                   }elseif($cart->cat_id==18){
                   $ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
                   $olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
@@ -87,35 +88,35 @@
                   $ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
                   $olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
                   $olapelName=$olapelN;
-                  $detailurl='twopcitemdetail';					
+                  $detailurl='twopcitemdetail';
 									}else{
 									$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 									$olapelN=App\OrderItem::orderiteminfo($cart->id,'opleatName');
 									$olapelName=$olapelN;
 									$detailurl='pitemdetail';
-									
+
 									}
 									//$canvasimg = App\Cart::cartdescnfo($cart->id,'ofrontView');
 									$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
 									$fabno=App\OrderItem::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
-									
+
 							   }else{
 									$groupname = App\OrderItem::orderiteminfo($cart->id,'ofabricName');
 									$oprodType = App\OrderItem::orderiteminfo($cart->id,'oprodName');
 									$procode = App\OrderItem::orderiteminfo($cart->id,'procode');
 									$ocollarName='Model No : '.$procode;
 									$olapelN=App\OrderItem::orderiteminfo($cart->id,'ofabricType');
-									$olapelName='Fab Type : '.stripslashes($olapelN);									
+									$olapelName='Fab Type : '.stripslashes($olapelN);
 									$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
-									$detailurl='productdetail';	
-									
-									
+									$detailurl='productdetail';
+
+
 							   }
 							   $canvasimg = App\OrderItem::allinfodes('order_items',$cart->id,'canvas_front_img');
 							  $requeststatus = App\Http\Helpers::itemorrequest($cart->item_cancel);
 							$c = App\Http\Helpers::cal_totalCanItems($cart->order_id);
-                 
-								
+
+
                             ?>
                               <tr>
                                   <td>{{$i}}</td>
@@ -142,7 +143,7 @@
 									echo number_format($toamt, 2);?></td>
 
                                   <td>
-                                   
+
                                     <?php  $ordersta = App\Http\Helpers::allItemsCancel($cart->order_id);
                                             $orderpro =    App\Order::select('orderstatus')->where('id','=',$cart->order_id)->first();
                                                         $orderpro->orderstatus;
@@ -153,20 +154,20 @@
                                     @elseif($ordersta == 1 || $ordersta == 3)
                                     <span class="pending pd-canceld" data-toggle="modal" data-id="{{$cart->id}}" id="delete-{{$cart->id}}" data-target="#requestCancel{{$cart->id}}">{{$requeststatus}}</span>
                                      @else
-                                       
+
                                      @endif
                                   </td>
                                   <td><a href="{{ url('/myaccount') }}/<?php echo $detailurl;?>/{{$cart->id}}" class="invoice-icon" title="Details"><i style="font-size:20px;color:#fff" class="fa fa-eye" aria-hidden="true"></i></a></td>
                               </tr>
-									             <?php 
+									             <?php
                                     $total=$toamt+$total;
-                                    $shipamt=$shipamt+$cart->shipping;            
+                                    $shipamt=$shipamt+$cart->shipping;
                                     ?>
 
-                                    
+
                                     <div class="modal fade requestCancel" id="requestCancel{{$cart->id}}" role="dialog">
                                      <div class="modal-dialog">
-                                      <?php 
+                                      <?php
 										$adata = App\Cancelorder::cancelitem_message_request_a($cart->id);
 										$udata = App\Cancelorder::cancelitem_message_request_u($cart->id);
                                       //print_r($udata);
@@ -189,7 +190,7 @@
              </div>
              </div>
 
-           
+
               <h4 class="">Admin</h4>
              @foreach($adata as $adc)
              <div class="form-group row">
@@ -198,22 +199,22 @@
              <div class="col-sm-8">
               <p><?php echo isset($adc->reason) ? $adc->reason : ''; ?></p>
              </div>
-             
+
                <label for="example-text-input" class="col-sm-4 col-form-label" > Message :</label>
-             
-             
+
+
              <div class="col-sm-8">
               <p><?php echo isset($adc->decs_reason) ? $adc->decs_reason : ''; ?></p>
              </div>
              </div>
-            
+
             @endforeach
-           
-        
+
+
        </div>
      </div>
 
-                                      
+
                                   <?php }else{ ?>
                                   <div class="modal-content">
                                        <div class="modal-header">
@@ -258,8 +259,8 @@
                                    </div>
 
                                 @endforeach
-                              
-                              
+
+
                           </tbody>
                       </table>
                   </div>
@@ -270,7 +271,7 @@
 </section>
 
   @include('../profile.profile-footer')
-  
+
   <script type="text/javascript" src="{{asset('asset/js/jquery.dataTables.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('asset/js/dataTables.bootstrap.min.js')}}"></script>
   <script type="text/javascript">

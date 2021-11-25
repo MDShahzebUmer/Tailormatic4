@@ -215,7 +215,7 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 Route::any('/order',['as' => 'order' , 'uses' => 'OrderController@order']);
 Route::get('/thankyou/{id?}',['as' => 'thankyou' , 'uses' => 'OrderController@thankyou']);
 /*Profile Section*/
-Route::group(['middleware' => 'verified'], function() {
+Route::group(['middleware' => 'auth'], function() {
 
 
         Route::get('/myaccount', ['as' => 'myaccount', 'uses' => 'MyAccount@myProfile']);
@@ -255,7 +255,7 @@ Route::group(['middleware' => 'verified'], function() {
 
         Route::get('paywithpaypal', array('as' => 'addmoney.paywithpaypal','uses' => 'AddMoneyController@payWithPaypal',));
         Route::post('paypal', array('as' => 'addmoney.paypal','uses' => 'AddMoneyController@postPaymentWithpaypal',));
-    
+
         Route::get('paypal', array('as' => 'payment.status','uses' => 'AddMoneyController@getPaymentStatus'));
 });
 /*Review*/

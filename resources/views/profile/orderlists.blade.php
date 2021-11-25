@@ -9,7 +9,10 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="et-sub-title et-fw">
-          <h2>Order List</h2> 
+            @if (!auth()->user()->email_verified_at)
+            <div class="alert alert-danger" role="alert">please verify your email address</div>
+            @endif
+          <h2>Order List</h2>
         </div>
       </div>
       <div class="et-block">
@@ -19,7 +22,7 @@
             {{-- <ul class="user-frofile-list"> --}}
              @include('../layouts.inc.profile-menu')
            </ul>
-         </div> 
+         </div>
        </div>
        <div class="col-md-9 dt-responsive st-pro-content-wrap">
         @include('../layouts.inc.profile-menu-responsive')
@@ -59,14 +62,14 @@
           <tbody>
             @foreach($orderdata as $ordata)
 
-            <?php             
+            <?php
             $shippinginfo = App\Http\Helpers::shippinginfo($ordata->ship_id);
             $requeststatus = App\Http\Helpers::orderrequest($ordata->request_status);
 
-            ?>  
+            ?>
             <?php  $dts = App\Http\Helpers::get_Oreder_ItemDetails($ordata->id);
-                   $odcun = App\Http\Helpers::cal_totalItems($ordata->id); 
-            ?>      
+                   $odcun = App\Http\Helpers::cal_totalItems($ordata->id);
+            ?>
             <tr>
               <td class="item-desc-list item-desc-list-pt">
                <ul class="st-dec-wrap-box-pro">
@@ -100,14 +103,14 @@
                  @else
                  <a href="{{ url('/myaccount/orderdetails') }}/{{$ordata->id}}" class="btn btn-block st-product-list-btn">Items Cancel</a>
                  @endif
-                
-                
+
+
 
                  <a target="_blank" href="{{ url('/myaccount/invoice') }}/{{$ordata->id}}" class="btn btn-block st-product-list-btn">Invoice</a>
                  <a target="_blank" href="{{ url('/storage/pdf') }}/{{$ordata->id}}-invoice.pdf" class="btn btn-block st-product-list-btn">Print</a>
                   <?php ?>
                   <a href="{{url('/myaccount/orderdetails')}}/{{$ordata->id}}" class="btn btn-block st-product-list-btn"> Items List({{$odcun}})</a>
-                </li>  
+                </li>
               </ul>
               <div class="st-date-total">
                 <p class="st-date-del"><strong>Order Id:</strong>#{{$ordata->id}}.<!--<strong>Tracking code:#{{ strtoupper(trans($ordata->tracking_code)) }}</strong>--></p>
@@ -117,7 +120,7 @@
 
 
 
-              </div> 
+              </div>
             </td>
             <td style="display:none"><?php echo date_format($ordata->created_at,"d-M-Y"); ?></td>
              <td style="display:none">{{$ordata->id}}</td>
@@ -127,10 +130,10 @@
 
              <!-- Modal content-->
              <?php $adata = App\Cancelorder::cancel_message_request_a($ordata->id);
-             $udata = App\Cancelorder::cancel_message_request_u($ordata->id); 
+             $udata = App\Cancelorder::cancel_message_request_u($ordata->id);
 
              ?>
-             <?php if($udata != '') 
+             <?php if($udata != '')
              {?>
              <div class="modal-content">
                <div class="modal-header">
@@ -165,7 +168,7 @@
                 <p><?php echo isset($adc->decs_reason) ? $adc->decs_reason : ''; ?></p>
               </div>
             </div>
-            
+
             @endforeach
           </div>
         </div>
@@ -239,7 +242,7 @@ $(document).ready(function() {
 $('#search_by_range').on('click',function(){
   var date1 = $("#from").val();
   var date2 = $("#to").val();
-  var flag = 0; 
+  var flag = 0;
 
   $('#daterange_div input').each(function(){
     flag = 0;
@@ -273,7 +276,7 @@ $( function() {
   .on( "change", function() {
     to.datepicker( "option", "minDate", getDate( this ) );
   }),
-  to = $( "#to" ).datepicker({ 
+  to = $( "#to" ).datepicker({
     dateFormat: "dd-M-yy",
       //  defaultDate: "+1w",
       changeMonth: true,
@@ -328,8 +331,8 @@ $.fn.dataTableExt.afnFiltering.push(
     }
 	$('#order-list-dt td:nth-child(2)').hide();
    $('#order-list-dt th:nth-child(2)').hide();
-	
-	
+
+
     return false;
   }
   );

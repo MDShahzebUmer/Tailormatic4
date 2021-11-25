@@ -22,7 +22,7 @@
             <span>Collection</span>
         </a>
     </li>
-                        
+
                         <li>
                             <a href="#tab4">
                                 <img src="{{asset('/asset/img/Menu_05.jpg')}}" alt="">
@@ -61,7 +61,7 @@
                                 <span>My Account</span>
                             </a>
                         </li>
-                       
+
                         <li>
                             <a  href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
@@ -81,13 +81,13 @@
                             <div id="et-replace" class="et-nav-content" style="background-image:url({{asset('/asset/img/et-dummy-bg-01.jpg')}})">
                                 <ul>
                                     <li>
-                                        
+
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="tab2">
-                            <div id="et-replace" class="et-nav-content" style="background-image:url({{asset('/asset/img/et-dummy-bg-02.jpg')}});">
+                            <div id="et-replace" class="et-nav-content" style="background-image:url({{asset('/asset/img/men_hover.jpg')}});">
                                <ul>
                                 <li>
                                     <a href="{{URL('/designshirts')}}"><span>Custom Shirts</span></a>
@@ -101,7 +101,7 @@
                                 <li>
                                     <a href="{{URL('/designpants')}}"><span>Custom Pants</span></a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                         <div id="et-replace" class="et-nav-content" style="background-image:url({{asset('/asset/img/et-dummy-bg-05.jpg')}});">
                             <ul>
                                 <li>
-                                   
+
                                 </li>
                             </ul>
                         </div>
@@ -141,7 +141,6 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            

@@ -119,6 +119,7 @@
                         </figcaption></a>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                      <?php $i2 = App\Http\Helpers::img_font_call(2); ?>
                     <div class="et-effect et-port">
@@ -134,6 +135,7 @@
                         </a>
                     </div>
                 </div>
+
                </div>
 
                <div class="col-md-8 col-sm-8">
@@ -156,6 +158,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <?php $i5 = App\Http\Helpers::img_font_call(5); ?>
                     <div class="et-effect et-last">
@@ -172,8 +175,50 @@
                         </a>
                     </div>
                 </div>
+
                </div>
                </div>
+
+               <div class="col-md-8 col-sm-8">
+                <div class="box-top">
+
+                </div>
+                <div class="box-bottom mt-10" style="margin-top: 50px">
+                 <div class="col-md-6">
+                      <?php $i4 = App\Http\Helpers::img_font_call(4); ?>
+                     <div class="et-effect et-last">
+                         <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" />
+                          <a href="{{Url('/'.$i4->url)}}">
+                             <figcaption>
+                                 <h2>{!! $i4->title_one !!}</h2>
+                                 <p>
+                                    {!! $i4->title_two !!}
+                                     <span>${{$i4->rate}}</span>
+                                 </p>
+                             </figcaption>
+                         </a>
+                     </div>
+                 </div>
+
+                 <div class="col-md-6">
+                     <?php $i5 = App\Http\Helpers::img_font_call(5); ?>
+                     <div class="et-effect et-last">
+                          <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" />
+                          <a href="{{Url('/'.$i5->url)}}">
+                             <figcaption>
+
+                                 <h2>{!! $i5->title_one !!}</h2>
+                                 <p>
+                                    {!! $i5->title_two !!}
+                                     <span>${{$i5->rate}}</span>
+                                 </p>
+                             </figcaption>
+                         </a>
+                     </div>
+                 </div>
+
+                </div>
+                </div>
             </div>
         </div>
     </div>
@@ -234,7 +279,7 @@
 <section class="et-Online"><!-- Section Start -->
     <div class="container">
         <div class="row">
-            <div class="et-main-title et-fw et-On">
+            <div class="et-main-title et-fw et-On" style="color: #fff">
                 {!! setting('site.section_heading_three') !!}
             </div>
             <?php $about = $data['about']; //print_r($about);?>
@@ -243,7 +288,7 @@
                 <div class="col-md-6 col-sm-6">
                   <div class="et-abt">
                     <h2>{!! $ab->title !!}</h2>
-                    <P>{!! $ab->excerpt !!}</P>
+                    <P style="color: #d9d9d9">{!! $ab->excerpt !!}</P>
 
                    <div class="et-default-read"> <a href="{{url('pages/about-us')}}" class="et-btn et-btn-default">Read More</a> </div>
                   </div>
