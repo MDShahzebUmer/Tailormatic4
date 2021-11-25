@@ -503,6 +503,10 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         <div class="radio">
                                                             <label><input type="radio" name="chkmonotxt" id="chkmonotxt2" value="true" <?php if($eTailorObj['omonogram']=="true"){?>checked<?php }?> onClick="javascript:getmonogram('true','etcontrast');"><span class="cr"><i class="cr-icon"></i></span>Inside Jacket</label>
                                                         </div>
+
+                                                        <div class="radio">
+                                                            <label><input type="radio" name="chkmonotxt" id="chkmonotxt3" value="3" <?php if($eTailorObj['omonogram']=="3"){?>checked<?php }?> onClick="javascript:getmonogram('3','etcontrast');"><span class="cr"><i class="cr-icon"></i></span>On Lapel</label>
+                                                        </div>
                                                     </div>
                                                     @if($eTailorObj['omonogram']=="true")
                                                     <div class="pt-pagination no-pad-left"><span>B. Choose Your Monogram color</span></div>
@@ -524,6 +528,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         </div>
                                                     </div>
                                                     @endif
+
                                                 </div>
                                                 @endif
                                                 @endforeach
@@ -614,12 +619,15 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <h2>Jacket Button</h2><p>{{$eTailorObj['obuttonName']}}</p>
                                                         </div>
                                                     </div>
+
                                                     <div class="et-content-fab jacket-monogram-bg" id="miniview-etcontrast-29" style="display:none; background-image:url({{asset('demo/img/product/blank.png')}});">
                                             			<div class="et-style-select">
-                                                            <h2>Inside View of Jacket</h2>
+
                                                             @if($eTailorObj['omonogram']=="true")
+                                                            <h2>Inside View of Jacket</h2>
                                                             <p>Monogram Color: {{$eTailorObj['omonogramHoleName']}}</p>
                                                             @endif
+
                                                         </div>
                                                         @if($eTailorObj['omonogram']=="true")
                                                         <div class="et-addtttext" style="color:{{$eTailorObj['omonogramtextColor']}}">
@@ -1072,5 +1080,8 @@ $("#body").click(function(){
 }
   return false;
   });
+
+
     </script>
+
 </html>
