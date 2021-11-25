@@ -403,7 +403,7 @@ ul.et-payment-list>li {
 }
 
 .et-style-select {
-    color: #d7d7d7;
+    text-shadow: 2px 1px #000;
 }
 ul.et-payment-list>li{
     height: 36px;
