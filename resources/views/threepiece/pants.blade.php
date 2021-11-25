@@ -33,7 +33,7 @@
                                 <p>${{number_format($frate,2)}}</P>
                             </div>
                             @endforeach
-                        </div> 
+                        </div>
                     </div>
                     <div class="pt-customize">
                         <div class="pt-men">
@@ -42,7 +42,7 @@
                             <div class="pt-men-left" id="main-back-etfabricpant" style="display:none;"><div class="m-image pt-pantimage-div">@include('pants.process')<img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><span class="pt-sht"> Pant {1 Pant} </span><br><span class="pt-dollor">${{$ePantTailorObj['ofabricPrice']}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFrontPant('etfabricpant');">FRONT VIEW</a></div></div>
                             <!-- End Main Preview -->
                             <!-- Right Option Section -->
-                            <div class="pt-choose-right">                                     
+                            <div class="pt-choose-right">
                                 <div class="pt-thumb-slider">
                                     <div class="pt-pagination">
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
                                         					@foreach($fabriclst as $fablst)
                                                             <?php if($ci==7){?></ul></div><div class="item"><ul class="et-item-list"><?php  $ci=1;}?>
                                                             <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" title="{{ $fablst->fabric_name }}" data-title="{{ $fablst->fabric_name }}" onClick="javascript:getpantfab({{$fablst->id}},'etfabricpant');">
-                                                                <figure class="et-item-img"><img src="{{asset('/storage/'.$fablst->fabric_img_s)}}" alt="{{ $fablst->fabric_name }}"></figure>
+                                                                <figure class="et-item-img"><img src="{{asset('/storage/'.$fablst->fabric_img_s)}}" alt="{{$alt_name}}" ></figure>
                                                                 @if($fablst->id==$ePantTailorObj['ofabric'])
                                                                 <div class="icon-check"></div>
                                                                 @endif
@@ -82,11 +82,11 @@
                                     <!--  Mini Preview Section -->
                                     <div class="et-progress-des" id="preview-etfabricpant">
                                         <div class="et-content-fab">
-                                            <figure class="et-fab-img"><img src="{{asset('/storage/'.$ePantTailorObj["ofabricImage"])}}" alt="{{ $ePantTailorObj['ofabricName']}}"></figure>
+                                            <figure class="et-fab-img"><img src="{{asset('/storage/'.$ePantTailorObj["ofabricImage"])}}" alt="{{$alt_name}}" ></figure>
                                             <div class="et-fab-box">
                                             	<h3>{{$ePantTailorObj['ofabricDesc']}}</h3>
                                                 <span>{{$ePantTailorObj['ofabricName']}}</span>
-                                                <span>Fit-Guaranteed Price<img src="{{asset('demo/img/product/info.png')}}" alt="info"></span>
+                                                <span>Fit-Guaranteed Price<img src="{{asset('demo/img/product/info.png')}}" alt="{{$alt_name}}" ></span>
                                                 <h3><a href="#" data-toggle="modal" data-target="#fabric-id">Zoom</a></h3>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                                 <div class="modal-content">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     <div class="modal-body">
-                                                        <figure class="et-fabric-big"><img src="{{asset('/storage/'.$ePantTailorObj['ofabricImage'])}}" alt="{{ $ePantTailorObj['ofabricName'] }}"></figure>
+                                                        <figure class="et-fabric-big"><img src="{{asset('/storage/'.$ePantTailorObj['ofabricImage'])}}" alt="{{$alt_name}}" ></figure>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,8 +128,8 @@
                             </div>
                             <?php $smi++;?>
                             @endforeach
-                        </div> 
-                    </div>  
+                        </div>
+                    </div>
                 	<div class="pt-customize">
                 		<div class="pt-men">
                         	<!-- Main Preview -->
@@ -137,7 +137,7 @@
                             <div class="pt-men-left" id="main-back-etstylepant" style="display:none;"><div class="m-image pt-pantimage-div">@include('pants.process')<img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><span class="pt-sht"> Pant {1 Pant} </span><br><span class="pt-dollor">${{$ePantTailorObj['ofabricPrice']}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFrontPant('etstylepant');">FRONT VIEW</a></div></div>
                             <!-- End Main Preview -->
                             <!-- Right Option Section -->
-                            <div class="pt-choose-right">                                     
+                            <div class="pt-choose-right">
                                 <div class="pt-thumb-slider">
                                     <div class="pt-pagination">
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -160,19 +160,19 @@
                                                             <li class="et-item" id="optionlist-{{$mattr->id}}-{{$styllst->id}}" data-title="{{$styllst->style_name}}" title="{{$styllst->style_name}}" onClick="javascript:getpantstyles({{$styllst->id}},'{{$mattr->id}}','etstylepant');">
                                                             	<?php $styleimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $ePantTailorObj['ofabric'])->get();?>
                                                                     @foreach($styleimglst as $ls)
-                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$ls->style_name}}"></figure>
+                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$alt_name}}" ></figure>
                                                                     @if($mattr->id==50)
                                                                     	@if($styllst->id == $ePantTailorObj['opacket'])
                                                                         <div class="icon-check"></div>
                                                                         @endif
                                                                     @endif
                                                                     @endforeach
-                                                            </li> 
+                                                            </li>
                                                             @elseif($styllst->id==108 || $styllst->id==109 || $styllst->id==110 || $styllst->id==111)
                                                             <li class="et-item" id="optionlist-{{$mattr->id}}-{{$styllst->id}}" data-title="{{$styllst->style_name}}" title="{{$styllst->style_name}}" onClick="javascript:getpantstyles({{$styllst->id}},'{{$mattr->id}}','etstylepant');">
                                                             	<?php $styleimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $ePantTailorObj['ofabric'])->get();?>
                                                                     @foreach($styleimglst as $ls)
-                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$ls->style_name}}"></figure>
+                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$alt_name}}" ></figure>
                                                                      @if($mattr->id==50)
                                                                     	@if($styllst->id == $ePantTailorObj['opacket'])
                                                                         <div class="icon-check"></div>
@@ -190,7 +190,7 @@
                                                             <li class="et-item" id="optionlist-{{$mattr->id}}-{{$styllst->id}}" data-title="{{$styllst->style_name}}" title="{{$styllst->style_name}}" onClick="javascript:getpantstyles({{$styllst->id}},'{{$mattr->id}}','etstylepant');">
                                                             	<?php $styleimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $ePantTailorObj['ofabric'])->get();?>
                                                                     @foreach($styleimglst as $ls)
-                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$ls->style_name}}"></figure>
+                                                                    <figure class="et-item-img"><img class="et-main-list-img" src="{{asset('/storage/'.$ls->list_img)}}" alt="{{$alt_name}}" ></figure>
                                                                     @if($mattr->id==48)
                                                                     	@if($styllst->id == $ePantTailorObj['ostyle'])
                                                                         <div class="icon-check"></div>
@@ -210,10 +210,10 @@
                                                                     @elseif($mattr->id==53)
                                                                     	@if($styllst->id == $ePantTailorObj['ocuff'])
                                                                         <div class="icon-check"></div>
-                                                                        @endif   
+                                                                        @endif
                                                                     @endif
                                                                     @endforeach
-                                                            </li> 
+                                                            </li>
                                                             <?php $stylci++;?>
                                                             @endforeach
                                                             @endif
@@ -329,8 +329,8 @@
                             </div>
                             <?php $cmi++;?>
                             @endforeach
-                		</div> 
-                	</div>  
+                		</div>
+                	</div>
                 	<div class="pt-customize">
                 		<div class="pt-men">
                         	<!-- Main Preview -->
@@ -340,7 +340,7 @@
                             <div class="pt-men-left" id="main-back-etcontrastpant" style="display:none;"><div class="m-image pt-pantimage-div">@include('pants.process')<img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><span class="pt-sht"> Pant {1 Pant} </span><br><span class="pt-dollor">${{$ePantTailorObj['ofabricPrice']}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFrontPant('etcontrastpant');">FRONT VIEW</a></div></div>
                             <!-- End Main Preview -->
                             <!-- Right Option Section -->
-                			<div class="pt-choose-right">                                     
+                			<div class="pt-choose-right">
                     			<div class="pt-thumb-slider">
                                     <div class="pt-pagination no-pad-left">
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -356,16 +356,16 @@
                                                 	<?php $contfablst = App\Contrast::select('*')->where('cat_id','=',4)->get(); ?>
     												@foreach($contfablst as $cfablst)
                                                     <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cfablst->id}}" data-title="{{$cfablst->contrsfab_name}}" title="{{$cfablst->contrsfab_name}}" onClick="javascript:getpantcontrast({{$cfablst->id}},'etcontrastpant');">
-                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$cfablst->contrsfab_img)}}" alt="{{$cfablst->contrsfab_name}}"></figure>
+                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$cfablst->contrsfab_img)}}" alt="{{$alt_name}}" ></figure>
                                                         @if($cfablst->id==$ePantTailorObj['ocontrast'])
                                                         <div class="icon-check"></div>
                                                         @endif
-                                                    </li>                                            
+                                                    </li>
                                                     @endforeach
                                                 </ul>
                                             </div>
                                         </div>
-                                        @elseif($contlst->id == '55') 
+                                        @elseif($contlst->id == '55')
                                         <div class="et-sm-carousel" id="menu-opt-{{$contlst->id}}" style="display:none">
                                 			<div class="et-contrast-list">
                                                 <ul class="et-item-list">
@@ -376,7 +376,7 @@
                                                         @if($bttnlst->id==$ePantTailorObj['obutton'])
                                                         <div class="icon-check"></div>
                                                         @endif
-                                                    </li>                                            
+                                                    </li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -387,7 +387,7 @@
                                                 	<?php $contthrdlst = App\Thread::select('*')->where('cat_id','=',4)->get(); ?>
     												@foreach($contthrdlst as $cthreadlst)
                                                     <li class="et-item" id="optionlist-thrd-{{$cthreadlst->id}}" data-title="{{$cthreadlst->thrd_name}}" title="{{$cthreadlst->thrd_name}}" onClick="javascript:getpantthread({{$cthreadlst->id}},'etcontrastpant');">
-                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$cthreadlst->thrd_img)}}" alt="{{$cthreadlst->thrd_name}}({{$cthreadlst->thread_code}})"></figure>
+                                                        <figure class="et-item-img"><img src="{{asset('/storage/'.$cthreadlst->thrd_img)}}" alt="{{$alt_name}}" ></figure>
                                                         @if($cthreadlst->id==$ePantTailorObj['obuttonHole'])
                                                         <div class="icon-check"></div>
                                                         @endif
@@ -440,9 +440,9 @@
                 	<div class="pt-variation-main">
                 		<div class="pt-variation">
                             <div id="menu-pant-bodysize" class="pt-box-square" onClick="javascript:showPantMeasureSect('bodysize');"><p>Body Size</p></div>
-                            <div id="menu-pant-standardsize" class="pt-box-square" onClick="javascript:showPantMeasureSect('standardsize');"><p>Standard Sizes</p></div>                             
-                		</div> 
-                	</div>  
+                            <div id="menu-pant-standardsize" class="pt-box-square" onClick="javascript:showPantMeasureSect('standardsize');"><p>Standard Sizes</p></div>
+                		</div>
+                	</div>
                 	<div class="pt-customize">
                 		<div class="pt-men">
                         	<!-- Main Preview -->
@@ -451,7 +451,7 @@
                             <div class="pt-men-left et-measure-left" id="main-back-etmeasurementpant" style="display:none;"><div class="m-image pt-pantimage-div"><img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFrontPant('etmeasurementpant');" >FRONT VIEW</a></div></div>
                             <!-- End Main Preview -->
                             <!-- Right Option Section -->
-                			<div class="pt-choose-right et-measure-right">                                     
+                			<div class="pt-choose-right et-measure-right">
                     			<div class="pt-thumb-slider">
                                     <div class="et-des-title">
                                         <h2>Great Choice!  Please Select Your Measurement Option</h2>
@@ -478,7 +478,7 @@
                             <!-- End Right Option Section -->
                             </div>
                             <!-- STANDARD SIZES -->
-                            <div class="pt-choose-right et-main-body-size" id="menu-mesure-pant-standardsize" style="display:none;">             
+                            <div class="pt-choose-right et-main-body-size" id="menu-mesure-pant-standardsize" style="display:none;">
                          		<div class="pt-thumb-slider">
                                 	<div class="et-des-title"><h2>STANDARD SIZES</h2></div>
                                     <div class="et-main-measurement">
@@ -550,7 +550,7 @@
                                                     <span>LENGTH</span>
                                                     <input type="text" name="sizeLength" id="sizelength" value="">
                                                     <p class="et-tsize">Inch</p>
-                                              	</div>                                                            
+                                              	</div>
                                             </div>
                                         </div>
                                         <div class="et-block et-form-btn">
@@ -575,7 +575,7 @@
                       		</div>
                             <!-- STANDARD SIZES END -->
                             <!-- BODY SIZES -->
-                            <div class="pt-choose-right et-main-body-size" id="menu-mesure-pant-bodysize" style="display:none;">                  
+                            <div class="pt-choose-right et-main-body-size" id="menu-mesure-pant-bodysize" style="display:none;">
                          		<div class="pt-thumb-slider">
                                 	<div class="et-des-title"><h2>YOUR BODY SIZES</h2></div>
                                     <div class="et-main-measurement">
@@ -613,7 +613,7 @@
                                                         @endforeach
                                                     </div>
                                                     <div class="et-input">
-                                                        <span>THIGH</span> 
+                                                        <span>THIGH</span>
                                                         <?php $measurethighlst = App\MeasurmentVideo::select('*')->where('cat_id','=',4)->where('id','=',23)->get();?>
                                                         @foreach($measurethighlst as $mthighlst)
                                                         <input type="text" data-title="{{$mthighlst->from_range}}-{{$mthighlst->to_range}}" name="bsizeThigh" id="bsizeThigh" onFocus="javascript:showPantRanges('{{$mthighlst->bodysize_type}}',{{$mthighlst->from_range}},{{$mthighlst->to_range}},'thigh');" onBlur="javascript:validatePantField(this.id,{{$mthighlst->from_range}},{{$mthighlst->to_range}});" value="<?php echo $ePantTailorObj['osizeThigh'];?>" >
@@ -626,7 +626,7 @@
                                                         <input type="text" data-title="{{$mlengthlst->from_range}}-{{$mlengthlst->to_range}}" name="bsizeLength" id="bsizeLength" onFocus="javascript:showPantRanges('{{$mlengthlst->bodysize_type}}',{{$mlengthlst->from_range}},{{$mlengthlst->to_range}},'length');" onBlur="javascript:validatePantField(this.id,{{$mlengthlst->from_range}},{{$mlengthlst->to_range}});" value="<?php echo $ePantTailorObj['osizeLength'];?>" >
                                                         @endforeach
                                                     </div>
-                									<div class="et-radio-check">                                                           
+                									<div class="et-radio-check">
                            								<div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" value="cm" <?php if($ePantTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label></div>
                                                         <div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" value="inch" <?php if($ePantTailorObj['osizeType']=="inch"){?>checked<?php } ?> ><span class="cr"><i class="cr-icon"></i></span>Inch</label></div>
                 									</div>
@@ -670,4 +670,3 @@
         </div>
     </div>
 </div>
-            

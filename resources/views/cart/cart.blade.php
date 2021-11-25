@@ -1,19 +1,19 @@
 <?php  $seo = App\Http\Helpers::page_seo_details(17);?>
 @include('layouts.inc.header-sub')
-<body class="designshirt">  
+<body class="designshirt">
 <section class="pt-bg">
 	<!-- TOP LINKS -->
   	<div class="container">
 		<div class="row">
        		<div class="pt-top-menu">
         		<div class="pt-left-p">
-                     @include('../layouts.inc.login') 
+                     @include('../layouts.inc.login')
     			</div>
        		</div>
     	</div>
   	</div>
     <!-- DESIGN AREA -->
-  	<div class="pt-design">       
+  	<div class="pt-design">
     	<div class="container">
         	<div class="row">
                 <div class="et-rating-exp">
@@ -56,7 +56,7 @@
 			<div class="row">
 		 		<div class="pt-cart-list et-fw">
             		<div class="pt-cart-style et-fw">
-                  
+
                         <table class="table table-condensed">
                         	<thead>
                               	<tr>
@@ -65,24 +65,24 @@
                                 	<th class="table-cell-3 text-center">Fabric</th>
                                     <th class="table-cell-4 text-center">Price</th>
                                 	<th class="table-cell-6 text-center">Quantity</th>
-                                   
+
                                     <th class="table-cell-7 text-center">Total</th>
                                 	<th class="table-cell-8 text-center">Edit / Delete</th>
                               	</tr>
                             </thead>
                             <tbody>
-                            <?php 
+                            <?php
                             $i=0;
                             $total=0;
                            ?>
                             @foreach($cartdata as $cart)
-                            @php 
+                            @php
                             $i++
                             @endphp
-                           
+
                             <?php
-							
-							
+
+
 							if($cart->product_type==0){
 								if($cart->cat_id==1){
     								$ocollarName = App\Cart::cartdescnfo($cart->id,'ocollarName');
@@ -116,43 +116,43 @@
                                 }
 								$groupname = App\Cart::groupinfo($cart->group_id,'fbgrp_name');
 								$oprodType = App\Cart::cartdescnfo($cart->id,'oprodType');
-								
+
 								$size=App\Cart::cartdescnfo($cart->id,'osizeFit');
 								$fabno=App\Cart::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
-								
-								
+
+
 							}else{
-								
+
 								$procode = App\Cart::cartdescnfo($cart->id,'procode');
 								$ocollarName='Model No : '.$procode;
 								$olapelN=App\Cart::cartdescnfo($cart->id,'ofabricType');
 								$olapelName='Fab Type : '.stripslashes($olapelN);
-								$detailurl='productdetails';								
-																
+								$detailurl='productdetails';
+
 								$groupname = stripslashes(App\Cart::cartdescnfo($cart->id,'ofabricName'));
-								
+
 								$oprodType = stripslashes(App\Cart::cartdescnfo($cart->id,'oprodType'));
 								$mainfab = stripslashes(App\Cart::cartdescnfo($cart->id,'subprotype'));
 								$oprodType=$mainfab.' - '.$oprodType;
-								
+
 								$size=App\Cart::cartdescnfo($cart->id,'osizeFit');
 								$fabno='';
-								$productname = stripslashes(App\Cart::cartdescnfo($cart->id,'oprodName'));								
-								
+								$productname = stripslashes(App\Cart::cartdescnfo($cart->id,'oprodName'));
+
 								if(strlen($productname)>20){
 									$productname=substr($productname,0,25).'...';
 								}else{
 									$productname=$productname;
 								}
-								
-									
-								
+
+
+
 							}
-							
-							
-							
+
+
+
                             ?>
-                            
+
                               	<tr id="item_{{$cart->id}}">
                                 	<td class="item-sr" align="center" >No.{{$i}}</td>
                                 	<td class="item-dis" align="left">
@@ -160,7 +160,7 @@
                                         	<figure>
                                             <img src="{{URL::asset('/storage/'.$cart->canvas_front_img)}}" width="100px" height="100px;">
                                             </figure>
-                                            
+
                                             <a href="{{url('cart/')}}/<?php echo $detailurl;?>/{{$cart->id}}">View Details</a>
                                         </div>
                                         <div class="cart-short-detail">
@@ -180,17 +180,17 @@
                                     	<div class="cart-fabric-image">
                                         	<figure>
                                             @if($cart->fabric_image!='')
-                                        <img src="{{URL::asset('/storage/'.$cart->fabric_image)}}"  alt="" width="100px" height="100px">
+                                        <img src="{{URL::asset('/storage/'.$cart->fabric_image)}}"  alt="{{$alt_name}}" width="100px" height="100px">
                                       		@endif
                                             </figure>
                                         </div>
                                         <span>{{$groupname}}</span>
-                                          
+
                                     </td>
                                     <td class="item-price" align="center">${{number_format($cart->price,2)}}</td>
                                 	<!--<td class="item-ship" align="center">$19.99</td>-->
                                     <td class="item-qty" align="center">{{$cart->qty}}</td>
-                                	
+
 
                                     <td class="item-total" align="center">$<?php $toamt=$cart->price*$cart->qty;
 									echo number_format($toamt, 2);?></td>
@@ -211,7 +211,7 @@
 									?>
                                 	<td class="item-trash" align="center">
                                     @if($cart->product_type==0 && $cart->cat_id != 18 && $cart->cat_id != 19)
-                                        <a href="{{url($editpath,$cart->id)}}" ><i class="fa fa-edit" aria-hidden="true"></i></a> 
+                                        <a href="{{url($editpath,$cart->id)}}" ><i class="fa fa-edit" aria-hidden="true"></i></a>
                                     @endif
                                     <a class="deleteCattItem" data-id="{{ $cart->id }}" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </a></td>
@@ -225,7 +225,7 @@
                             	<label><span id="nitem">{{$i}}</span> Item(s) Price :</label>
                                 <span id="subttl">${{number_format($total,2)}}</span>
                             </div>
-                            
+
                             <div class="pt-final-amount">
                             	<label>Total :</label>
                                 <span>${{number_format($total,2)}}</span>
@@ -238,7 +238,7 @@
                                 <label><span id="nitem">{{$i}}</span> Item(s) Price :</label>
                                 <span id="subttl">${{number_format($total,2)}}</span>
                             </div>
-                            
+
                             <div class="pt-final-amount">
                                 <label>Total :</label>
                                 <span>${{number_format($total,2)}}</span>
@@ -248,8 +248,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- DESIGN AREA ENDS -->  
-  	
+	<!-- DESIGN AREA ENDS -->
+
     <!-- FOOTER SECTION -->
     @include('../layouts.inc.footer-desgin')
     <!-- FOOTER SECTION END -->
@@ -272,7 +272,7 @@
 <script type="text/javascript">
 $(".deleteCattItem").click(function(){
         var id = $(this).data("id");
-        
+
         var token = $(this).data("token");
          if (confirm("Sure you want to delete this item? ")) {
         $.ajax(
@@ -302,7 +302,7 @@ $(".deleteCattItem").click(function(){
                 });
             }
         });
-       
+
     }
     return false;
   });
