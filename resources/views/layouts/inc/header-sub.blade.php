@@ -80,14 +80,14 @@
                             <div class="et-round-one">
                                 <div class="et-round-two">
                                     <span class="hamb-1"></span>
-                                    <span class="hamb-2"></span>
-                                    <span class="hamb-3"></span>
+                                    <!-- <span class="hamb-2"></span> -->
+                                    <!-- <span class="hamb-3"></span> -->
                                     <span class="hamb-4"></span>
-                                    <span class="hamb-5"></span>
-                                    <span class="hamb-6"></span>
+                                    <!-- <span class="hamb-5"></span> -->
+                                    <!-- <span class="hamb-6"></span> -->
                                     <span class="hamb-7"></span>
-                                    <span class="hamb-8"></span>
-                                    <span class="hamb-9"></span>
+                                    <!-- <span class="hamb-8"></span> -->
+                                    <!-- <span class="hamb-9"></span> -->
                                     <span class="hamb-top"></span>
                                     <span class="hamb-bottom"></span>
                                 </div>

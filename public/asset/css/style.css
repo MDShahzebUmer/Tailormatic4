@@ -5915,11 +5915,26 @@ figure.figure-box img {
     border: 4px solid #fff;
 }
 .hamburger .hamb-1, .hamburger .hamb-2, .hamburger .hamb-3, .hamburger .hamb-4, .hamburger .hamb-5, .hamburger .hamb-6, .hamburger .hamb-7, .hamburger .hamb-8, .hamburger .hamb-9 {
-    width: 10.5px;
-    height: 10.5px;
+    /*width: 10.5px;*/
+    /*height: 10.5px;*/
+    width: 42.5px;
+    height: 5.5px;
     background-color: #fff;
     position: absolute;
 }
+.hamburger .hamb-1 {
+    top: 21px;
+    left: 16px;
+}
+.hamburger .hamb-4 {
+    top: 35px;
+    left: 16px;
+}
+.hamburger .hamb-7 {
+    top: 48px;
+    left: 16px;
+}
+/*
 .hamburger .hamb-1 {
     top: 13px;
     left: 16px;
@@ -5956,6 +5971,7 @@ figure.figure-box img {
     top: 48px;
     left: 44px;
 }
+*/
 .hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom, .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-middle, .hamburger.is-open .hamb-bottom {
     position: absolute;
     left: 13px;

@@ -2697,8 +2697,10 @@ ul.et-payment-list>li {
 
 .et-rating-exp {
     position: absolute;
-    right: 30rem;
-    top: 1rem;
+    /*right: 30rem;
+    top: 1rem;*/
+    right: 37rem;
+    top: 5rem;
 }
 
 .et-rating-style>li {

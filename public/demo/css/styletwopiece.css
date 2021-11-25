@@ -390,7 +390,7 @@ ul.et-payment-list>li {
     top: 13px !important;
 }
 #fullstyle .et-item-list>.et-item {
-    width: 70px !important;
+    /*width: 70px !important;*/
     height: 70px !important;
 }
 
@@ -403,7 +403,7 @@ ul.et-payment-list>li {
 }
 
 .et-style-select {
-    text-shadow: 2px 1px #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 ul.et-payment-list>li{
     height: 36px;
