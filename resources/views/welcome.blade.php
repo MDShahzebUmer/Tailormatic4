@@ -17,7 +17,17 @@
         <div class="row">
             <div class="et-call-back et-fw">
                 <h2 class="et-left">CUSTOMER SERVICE 24/7</h2>
-                <span class="et-right"><a href="mailto:">{{ setting('site.web_email') }}</a></span>
+                {{-- <span class="et-right"><a href="mailto:">{{ setting('site.web_email') }}</a></span> --}}
+                @php
+                    $soc = App\SocialIcon::all();
+                @endphp
+                <div class="et--link">
+                    <ul>
+                        @foreach($soc as $s)
+                        <li><a href="{{$s->url}}" target="_blank"><i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -280,7 +290,7 @@
     <div class="container">
         <div class="row">
             <div class="et-main-title et-fw et-On" style="color: #fff">
-                {!! setting('site.section_heading_three') !!}
+                {{-- {!! setting('site.section_heading_three') !!} --}}
             </div>
             <?php $about = $data['about']; //print_r($about);?>
             @foreach($about as $ab) @endforeach

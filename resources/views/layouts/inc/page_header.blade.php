@@ -22,28 +22,28 @@
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- CSS 
-        ============================================ -->            
+        <!-- CSS
+        ============================================ -->
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
-        
+
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}" media="all">
-        {{-- <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen"> --}}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap-touch-slider.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
-        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/jquery-picZoomer.css')}}" media="screen">      
-     
-	  <?php  
-	  $pro_pop = App\PromotionalPop::select('*')->first(); 
+        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/jquery-picZoomer.css')}}" media="screen">
+
+	  <?php
+	  $pro_pop = App\PromotionalPop::select('*')->first();
 	   if($pro_pop->status==1){
 	  ?>
-	 <style type="text/css">			
+	 <style type="text/css">
 			#demo_info p {margin: 0; padding: 0; font-size: 30px;}
-		</style> 
- 
+		</style>
+
  <script type="text/javascript" src="{{asset('asset/js/bioep.min.js')}}"></script>
- 
+
  <script type="text/javascript">
 			bioEp.init({
 				width: 394,
@@ -73,9 +73,9 @@
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                         @endif
                     </figure>
-                </div>                
+                </div>
                 <div class="et-page-title">
-                    
+
                 </div>
                 <!-- Sidebar -->
                 <div class="et-icon">

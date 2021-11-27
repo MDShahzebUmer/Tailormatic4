@@ -101,11 +101,10 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
   	<div class="container">
 		<div class="row">
        		<div class="pt-top-menu">
-
         		<div class="pt-left-p">
-                <div class="et-rating-exp"> <!--This Rating Part Moved here by Shahzeb-->
-                @include('../layouts.inc.rating')
-            </div>
+                <div class="et-rating-exp" style="right: 7%; top: 7%;"> <!--This Rating Part Moved here by Shahzeb-->
+                    @include('../layouts.inc.rating')
+                </div>
                     @include('../layouts.inc.login')
     			</div>
        		</div>

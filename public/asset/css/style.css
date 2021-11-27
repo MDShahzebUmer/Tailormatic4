@@ -1073,7 +1073,7 @@ button.hamburger.is-open {
     color: #653a2a;
     font-size: 30px;
     text-transform: uppercase;
-    background: url(../img/after.png) left bottom no-repeat;
+    /* background: url(../img/after.png) left bottom no-repeat; */
     padding: 0 0 10px;
     margin-top: 0
 }
@@ -5982,6 +5982,19 @@ figure.figure-box img {
     left: 13px;
     height: 7px;
     width: 65%;
+}
+
+.et-effect.et-last {
+    height: 321px;
+}
+
+.et-abt > h2 {
+    color: #CCB802;
+    background: none;
+}
+
+.et-call-back > h2 {
+    color: #CCB802;
 }
 
 @media (min-width: 992px) {
