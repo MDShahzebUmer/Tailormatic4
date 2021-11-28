@@ -768,7 +768,7 @@ function frontProcessing() {
             fcanvas.add(oImg);
             cdata = fcanvas.toDataURL();
             if (retfrontsrc.length > 0) {
-                requestAnimationFrame(frontProcessing());
+                requestAnimationFrame(function() {frontProcessing()});
             } else {
                 $("div [id^='main-front-']").find("div.pt-image-div img").attr("src", cdata);
                 $("#miniview-etstyle-4").find("figure img").attr("src", cdata);
@@ -788,9 +788,9 @@ function backProcessing() {
         bcanvas.add(oImg);
         cdata = bcanvas.toDataURL();
         if (retbacksrc.length > 0) {
-           // requestAnimationFrame(backProcessing());
+           requestAnimationFrame(function() {backProcessing()});
         } else {
-            $("div [id^='main-back-']").find("div.pt-image-div img").attr("srcc", cdata);
+            $("div [id^='main-back-']").find("div.pt-image-div img").attr("src", cdata);
             $("#miniview-etstyle-6").find("figure img").attr("src", cdata);
             setTimeout($(".et-small-loader").fadeOut(), 1000);
         }
@@ -2054,25 +2054,25 @@ function getseloptions(id, opt, ctyp, otab) {
 
     var datacont_1 = '';
     datacont_1 += '<img src="'+url+'/Shirts/Fabric/C/'+arr['ofabric']+'.png">';
-    if(arr['ocollarCuffIn']=="true") { 
+    if(arr['ocollarCuffIn']=="true") {
         datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/LeftCollerIn/'+arr['ocontrast']+'.png" >';
     }
-    if(arr['ocollarCuffout']=="true") { 
+    if(arr['ocollarCuffout']=="true") {
         datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/LeftOutColler/'+arr['ocontrast']+'.png">';
     }
-    if(arr['ofrontPlacketIn']=="true"){ 
+    if(arr['ofrontPlacketIn']=="true"){
         datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/LeftFrontIn/'+arr['ocontrast']+'.png">';
     }
-    if(arr['ofrontPlacketOut']=="true"){ 
+    if(arr['ofrontPlacketOut']=="true"){
         datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/LeftFrontOut/'+arr['ocontrast']+'.png">';
     }
-    if(arr['ofrontBoxOut']=="true"){ 
+    if(arr['ofrontBoxOut']=="true"){
         datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/LeftBoxPlacket/'+arr['ocontrast']+'.png">';
     }
-    if(arr['ofront']==4){ 
+    if(arr['ofront']==4){
         datacont_1 += '<img src="'+url+'/Shirts/Style/Front/SinglePlacket/Thread/ContrastImg/'+arr['obuttonHole']+'.png">';
         datacont_1 += '<img src="'+url+'/Shirts/Style/Front/SinglePlacket/Button/ContrastImg/'+arr['obutton']+'.png">';
-    } else if(arr['ofront']==5){ 
+    } else if(arr['ofront']==5){
         datacont_1 += '<img src="'+url+'/Shirts/Style/Front/BoxPlacket/Thread/ContrastImg/'+arr['obuttonHole']+'.png">';
         datacont_1 += '<img src="'+url+'/Shirts/Style/Front/BoxPlacket/Button/ContrastImg/'+arr['obutton']+'.png">';
     }
@@ -2080,27 +2080,27 @@ function getseloptions(id, opt, ctyp, otab) {
     if(arr['osleeve']!=3){
         if(arr['ocuff']==34 || arr['ocuff']==35 || arr['ocuff']==36){
             if(arr['ocollarCuffIn']=="true"){
-                datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/CuffFrenchIn/'+arr['ocontrast']+'.png" class="menu-l-contrast-cuff ">'; 
-            } else { 
+                datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/CuffFrenchIn/'+arr['ocontrast']+'.png" class="menu-l-contrast-cuff ">';
+            } else {
                 datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/FrenchRound/Inner/'+arr['ofabric']+'.png" class="menu-l-contrast-cuff ">';
             }
-            if(arr['ocollarCuffout']=="true"){ 
+            if(arr['ocollarCuffout']=="true"){
                 datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/CuffFrenchOut/'+arr['ocontrast']+'.png" class="menu-l-contrast-cuff ">';
-            } else { 
+            } else {
                 datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/FrenchRound/Outer/'+arr['ofabric']+'.png" class="menu-l-contrast-cuff ">';
             }
             datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/FrenchRound/Button/ContrastImg/'+arr['obutton']+'.png" class="menu-l-contrast-cuff " >';
-        } else { 
-            if(arr['ocollarCuffIn']=="true") { 
+        } else {
+            if(arr['ocollarCuffIn']=="true") {
                 datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/RoundCuffIn/'+arr['ocontrast']+'.png" class="menu-l-contrast-cuff ">';
-            } else { 
+            } else {
                 datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/1ButtonRound/Inner/'+arr['ofabric']+'.png" class="menu-l-contrast-cuff ">';
-            }            
-            if(arr['ocollarCuffout']=="true") { 
+            }
+            if(arr['ocollarCuffout']=="true") {
                 datacont_1 += '<img src="'+url+'/Shirts/FabricContrasts/Mix/RoundCuffOut/'+arr['ocontrast']+'.png" class="menu-l-contrast-cuff ">';
-            } else { 
+            } else {
                 datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/1ButtonRound/Outer/'+arr['ofabric']+'.png" class="menu-l-contrast-cuff ">';
-            }            
+            }
             datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/1ButtonRound/Thread/ContrastImg/'+arr['obuttonHole']+'.png" class="menu-l-contrast-cuff ">';
             datacont_1 += '<img src="'+url+'/Shirts/Style/Cuffs/1ButtonRound/Button/ContrastImg/'+arr['obutton']+'.png" class="menu-l-contrast-cuff " >';
         }
