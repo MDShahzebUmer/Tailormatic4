@@ -146,7 +146,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                     <div class="pt-men">
                                     	<!-- Main Preview -->
                                         <div class="pt-men-left" id="main-front-etfabric"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/shirt_new_one.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etfabric');">BACK VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul></div></div>
-                                        <div class="pt-men-left" id="main-back-etfabric" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etfabric');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
+                                        <div class="pt-men-left" id="main-back-etfabric" style="display:none;"><div class="pt-image-div">@include('demo.process')<img id="shirt-back" src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etfabric');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
                                         <div class="pt-choose-right">
@@ -1158,6 +1158,14 @@ $("#body").click(function(){
   return false;
   });
     </script>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            $("#shirt-back").attr("src", "https://user-images.githubusercontent.com/51516043/143732878-4c702976-8529-4d20-866a-f20d29a8f898.png");
+        }, 2000);
+    })
+</script>
 
 
 </html>
