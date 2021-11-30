@@ -68,11 +68,18 @@
         <div class="row">
             <div id="et-wrapper" class="et-navbar"><!-- Navbar Start -->
                 <div class="et-logo">
-                    <figure class="top-logo">
+                    {{-- <figure class="top-logo">
                         @if(setting('site.logo') != '')
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                         @endif
+                    </figure> --}}
+
+                    <figure class="top-logo">
+
+                        <a href="{{url('/')}}"><img src="{{asset('asset/img/logo-2.png')}}" alt="{{ setting('site.site_image_name') }}"></a>
+
                     </figure>
+
                 </div>
                 <div class="et-page-title">
 
