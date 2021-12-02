@@ -12,8 +12,8 @@
     <li><a href="{{url('/design3pcsuits')}}">3Piece Suit</a></li>    
     <li>|</li>
     <li><a href="{{url('/design2pcsuits')}}">2Piece Suit</a></li>    
-    <li>|</li>
-    <li><a href="{{url('/designsuits')}}">WOMEN SUIT</a></li> 
+    <!-- <li>|</li>
+    <li><a href="{{url('/designsuits')}}">WOMEN SUIT</a></li>  -->
 </ul>     
 </div>
 <div class="pt-right-p">
