@@ -76,7 +76,7 @@
 
                     <figure class="top-logo">
 
-                        <a href="{{url('/')}}"><img src="{{asset('asset/img/logo-2.png')}}" alt="{{ setting('site.site_image_name') }}"></a>
+                        <a href="{{url('/')}}"><img src="{{asset( 'asset/img/logo-2.png' )}}" alt="{{ setting('site.site_image_name') }}"></a>
 
                     </figure>
 

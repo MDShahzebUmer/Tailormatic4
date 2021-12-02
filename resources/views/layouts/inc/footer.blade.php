@@ -2,8 +2,8 @@
 <section class="et-visa-section"><!-- Section Start -->
     <div class="container">
         <div class="row">
-            
-            
+
+
             <div class="et-visa-sec">
                <div class="col-md-6 col-sm-6">
                <div class="left-sil-area">
@@ -13,12 +13,12 @@
                 <div class="need-help">
                  <h4>Need Help? Call Us On: {{ setting('site.call_us') }}</h4>
                 </div>
-               </div> 
-               </div> 
-               
+               </div>
+               </div>
+
                <div class="col-md-6 col-sm-6">
                <div class="right-pay-area">
-               
+
                 <ul>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/visa.png')}}"/></li>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/master-card.png')}}"/></li>
@@ -26,9 +26,9 @@
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/paypal.png')}}"/></li>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/discover.png')}}"/></li>
                 </ul>
-                
-               </div>   
-               </div> 
+
+               </div>
+               </div>
             </div>
          </div>
     </div>
@@ -39,20 +39,20 @@
         <div class="row">
          <div class="et-sign-sec">
            <div class="et-sign-left">
-             <h2>SIGN UP FOR NEWSLETTER</h2><a name="news"></a> 
+             <h2>SIGN UP FOR NEWSLETTER</h2><a name="news"></a>
              <P>Get exclusive deals you wont find any where else straight to your inbox</P>
            </div>
            <div class="et-sign-right">
             @if ($message = Session::get('success'))
 <div class="alert alert-success alert-block">
- <button type="button" class="close" data-dismiss="alert">×</button> 
+ <button type="button" class="close" data-dismiss="alert">×</button>
        <strong>{{ $message }}</strong>
 </div>
 @endif
 
 @if ($message = Session::get('error'))
 <div class="alert alert-danger alert-block">
- <button type="button" class="close" data-dismiss="alert">×</button> 
+ <button type="button" class="close" data-dismiss="alert">×</button>
        <strong>{{ $message }}</strong>
 </div>
 @endif
@@ -87,7 +87,7 @@
 
 <!--End mc_embed_signup-->
            </div>
-                 
+
          </div>
        </div>
     </div>
@@ -98,20 +98,20 @@
     <div class="container">
         <div class="row">
          <div class="et-links">
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-4 col-sm-3">
              <div class="et-in-link">
-               <h2>World of Duniya Tailor</h2>
+               <h2>Custom Clothing</h2>
                <ul>
                  <li><a href="{{url('/designshirts')}}">Custom Shirts</a></li>
                  <li><a href="{{url('/designjackets')}}">Custom Jackets</a></li>
                  <li><a href="{{url('/designvests')}}">Custom Vests</a></li>
                  <li><a href="{{url('/designpants')}}">Custom Pants</a></li>
-                 
-                 
+
+
                </ul>
              </div>
             </div>
-            <div class="col-md-3 col-sm-3">
+            {{-- <div class="col-md-3 col-sm-3">
              <div class="et-in-link">
              <h2>Why Duniya Tailor</h2>
                <ul>
@@ -119,11 +119,11 @@
                  <li><a href="{{url('/ecollection/2')}}">Collection Jackets</a></li>
                  <li><a href="{{url('/ecollection/3')}}">Collection Vests</a></li>
                  <li><a href="{{url('/ecollection/4')}}">Collection Pants</a></li>
-                
+
                </ul>
              </div>
-            </div>
-            <div class="col-md-3 col-sm-3">
+            </div> --}}
+            <div class="col-md-4 col-sm-3">
              <div class="et-in-link">
                <h2>Customer Care</h2>
                <ul>
@@ -133,11 +133,11 @@
                  <li><a href="{{url('pages/delivery')}}">Delivery</a></li>
                  <li><a href="{{url('pages/privacy-policy')}}">Privacy Policy</a></li>
                  {{-- <li><a href="{{url('/b2b')}}">B2B / Reseller</a></li> --}}
-                
+
                </ul>
              </div>
             </div>
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-4 col-sm-3">
              <div class="et-in-link">
                <h2>About Us</h2>
                <ul>
@@ -147,9 +147,9 @@
                  <li><a href="{{url('pages/return-and-refund-policy')}}">Returns Policy</a></li>
                </ul>
              </div>
-            </div> 
-           
-                 
+            </div>
+
+
          </div>
        </div>
     </div>
@@ -173,20 +173,20 @@
                  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
                   <script type="IN/Share" data-url="{{$fburl}}" data-counter="right" ></script>
               </div>
-             
-            
-            
+
+
+
              </div>
             <div class="col-md-4 col-sm-4">
-                
+
              <div class="et--link">
-             
+
                <ul>
 <li class="st-follows-us">FOLLOW US</li>
                 @foreach($soc as $s)
                  <li><a href="{{$s->url}}" target="_blank"><i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
                  @endforeach
-                
+
                </ul>
              </div>
             </div>
@@ -225,29 +225,29 @@
           var trigger = $('.hamburger'),
               overlay = $('.overlay'),
              isClosed = false;
-        
+
             trigger.click(function () {
-              hamburger_cross();      
+              hamburger_cross();
             });
-        
+
             function hamburger_cross() {
-        
-              if (isClosed == true) {          
+
+              if (isClosed == true) {
                 overlay.hide();
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
-              } else {   
+              } else {
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
               }
           }
-          
+
           $('[data-toggle="offcanvas"]').click(function () {
                 $('#et-wrapper').toggleClass('toggled');
-          });  
+          });
         });
         $('.navbar-nav > li').mouseover( function(){
             $(this).find('a').tab('show');
@@ -274,7 +274,7 @@
       return false;
    });
 
-   
+
 </script>
 <!-- secondry nav script -->
 
@@ -321,7 +321,7 @@ function closepp()
   email : '{{auth()->user()->email}}',
   // hash : 'hash-value'
   };
-  
+
   var Tawk_LoadStart=new Date();
 
   (function(){

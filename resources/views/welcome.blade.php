@@ -19,7 +19,7 @@
                 <h2 class="et-left">CUSTOMER SERVICE 24/7</h2>
                 {{-- <span class="et-right"><a href="mailto:">{{ setting('site.web_email') }}</a></span> --}}
                 @php
-                    $soc = App\Models\SocialIcon::all();
+                    $soc = App\Models\Socialicon::all();
                 @endphp
                 <div class="et--link">
                     <ul>
@@ -194,7 +194,7 @@
 
                 </div>
                 <div class="box-bottom mt-10" style="margin-top: 50px">
-                 <div class="col-md-6">
+                 <div class="col-md-12">
                       <?php $i4 = App\Http\Helpers::img_font_call(4); ?>
                      <div class="et-effect et-last">
                          <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" />
@@ -210,7 +210,7 @@
                      </div>
                  </div>
 
-                 <div class="col-md-6">
+                 {{-- <div class="col-md-6">
                      <?php $i5 = App\Http\Helpers::img_font_call(5); ?>
                      <div class="et-effect et-last">
                           <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" />
@@ -225,7 +225,7 @@
                              </figcaption>
                          </a>
                      </div>
-                 </div>
+                 </div> --}}
 
                 </div>
                 </div>

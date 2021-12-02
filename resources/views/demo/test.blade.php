@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>eTailor clothes|| {{$seo['meta_title']}}</title>
+<title>Duniya Tailor || {{$seo['meta_title']}}</title>
 <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
 <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
 

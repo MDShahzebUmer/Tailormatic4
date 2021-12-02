@@ -5997,6 +5997,10 @@ figure.figure-box img {
     color: #CCB802;
 }
 
+.fa.fa-star {
+    color: #ccb802;
+}
+
 @media (min-width: 992px) {
 
     .top-logo {
