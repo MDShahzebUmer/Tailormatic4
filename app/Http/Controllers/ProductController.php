@@ -730,6 +730,9 @@ class ProductController extends Controller
 
           }
 
+         $cartDelete = EcollectionWishlist::where('product_id', $id);
+         $cartDelete->delete();
+
         return redirect('/cart');
     }
 
