@@ -270,6 +270,9 @@ Route::get('/ecollection/{id?}/{c?}', ['as' => 'ecollection', 'uses' => 'Product
 Route::get('/productdetails/{id?}', ['as' => 'productdetails', 'uses' => 'ProductController@productDetails']);
 Route::get('/ecollection/{id?}/{c?}/{s?}', ['as' => 'ecollection', 'uses' => 'ProductController@product_Search']);
 Route::post('/productdetails/{id?}', ['as' => 'productdetails', 'uses' => 'ProductController@productget']);
+
+Route::post('/wishtocart/{id?}', ['as' => 'wishtocart', 'uses' => 'ProductController@wishtocart']);
+
 Route::post('/sendlink/', ['as' => 'sendlink', 'uses' => 'ProductController@get_product_frientlink']);
 Route::get('/wishlistproduct/{id?}', ['as' => 'wishlistproduct', 'uses' => 'ProductController@save_wishlist']);
 /*Singal custom product*/

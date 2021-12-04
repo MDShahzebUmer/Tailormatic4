@@ -8,17 +8,17 @@
 				<?php //echo'<pre>'.print_r($proimg,true).'</pre>'; ?>
 				<div class="col-sm-12 col-md-4">
 					<ul class="piclist">
-						
+
                         @foreach($proimg as $timg)
                          @if($loop->first)
                          <?php $firstimg=$timg->main_img;?>
                          @endif
-                         
+
 						<li><img src="{{url('/storage')}}/{{$timg->main_img}}" alt=""></li>
 						@endforeach
 					</ul>
 					<div class="picZoomer">
-                    
+
 						<img src="{{url('/storage')}}/{{$firstimg}}"  alt="">
 					</div>
 				</div>
@@ -28,10 +28,10 @@
 					<div class="row">
 						<div class="col-sm-8">
 							<div class="product-detail-content">
-                          
+
 								<h3 class="product-head">{{$mpdata->product_name}}</h3>
 								<div class="sug-price">
-									
+
 									<input type="hidden" name="productid" value="{{$mpdata->id}}" id="idPD" data="" required>
 									  @if($mpdata->product_offer_rate == 0 || $mpdata->product_offer_rate == '')
 									<p class="sug-text">Suggested price: &#36; {{number_format($mpdata->product_mrp,2)}}</p>
@@ -43,24 +43,24 @@
                                      <input type="hidden" value="{{$mpdata->product_mrp}}" name="price" required>
 									@endif
 								</div>
-                                
+
               @if($mpdata->product_size!='')
-                                
-                     @if($mpdata->product_type==1) 
-                     <?php 
-							$cussize=unserialize($mpdata->product_size);							
+
+                     @if($mpdata->product_type==1)
+                     <?php
+							$cussize=unserialize($mpdata->product_size);
 					?>
                             <div class="product-desc" style="clear:both">
                            <p><strong>Size : </strong> <?php echo $cussize[0]; ?> </p>
-                             <input type="hidden" value="<?php echo $cussize[0]; ?>" name="size" required>  
-                             </div>    
+                             <input type="hidden" value="<?php echo $cussize[0]; ?>" name="size" required>
+                             </div>
                     @else
                     <div class="size-box">
-                      <div class="input-group"> 
-                        
+                      <div class="input-group">
+
                             <?php $prsize = App\MeasurmentSize::get_ecollection_size_dropdown($mpdata->product_size ,$mpdata->main_catid);?>
                             @if($mpdata->main_catid == 1)
-                            
+
                                 @if(count($prsize) > 1)
                                     <span class="input-group-btn">
                                         <p class="btn btn-secondary">Size : </p>
@@ -71,19 +71,19 @@
                                         <option value="<?php echo App\MeasurmentSize::ecollection_size_name($szi) ?>"><?php echo App\MeasurmentSize::ecollection_size_name($szi) ?></option>
                                         @endforeach
                                     </select>
-                                
+
                                 @else
                                     <p class="color-name">Size&nbsp;: <span><?php echo App\MeasurmentSize::ecollection_size_name($prsize[0]) ?></span></p>
                                      <input type="hidden" value="<?php echo App\MeasurmentSize::ecollection_size_name($prsize[0]) ?>" name="size" required>
                                 @endif
                             @elseif($mpdata->main_catid == 2 || $mpdata->main_catid == 3 || $mpdata->main_catid == 4)
-                            
+
                                 @if(count($prsize) > 1)
                                     <span class="input-group-btn">
                                         <p class="btn btn-secondary" type="button">Size : </p>
                                     </span>
                                     <select id="lunch" class="selectpicker form-control" data-live-search="true" name="size" required>
-                                        
+
                                         <option value="" selected="">Select</option>
                                         @foreach($prsize as $szi)
                                         <option value="<?php echo App\MeasurmentSize::ecollection_sizename($szi) ?>" ><?php echo App\MeasurmentSize::ecollection_sizename($szi) ?></option>
@@ -93,22 +93,22 @@
                                     <p class="color-name">Size&nbsp; <span><?php echo App\MeasurmentSize::ecollection_sizename($prsize[0]) ?></span></p>
                                      <input type="hidden" value="<?php echo App\MeasurmentSize::ecollection_sizename($prsize[0]) ?>" name="size" required>
                                 @endif
-                            
+
 
                             @else
                             <!-- Extra Category Size  -->
                            <input type="hidden" value="" name="size" required>
                             @endif
 
-                      
+
                       </div>
                     </div>
-                    
+
                     @endif
-                                
+
              @else
               <input type="hidden" value="" name="size" required>
-             @endif 
+             @endif
 								<div class="size-box">
 									<div class="input-group">
 										<span class="input-group-btn">
@@ -136,15 +136,15 @@
 											<option value="19">19</option>
 											<option value="20">20</option>
 										</select>
-										
+
 									</div>
 								</div>
 								<?php  ?>
-                                
-                                
+
+
 								<div class="product-desc">
 									<p><strong>Fabric Name : </strong> {{$mpdata->fabric_name}} </p>
-									
+
                                     @if($mpdata->fabric_brand!='')
 									<p><strong>Fabric Brand : </strong> {{$mpdata->fabric_brand}} </p>
                                     @endif
@@ -156,9 +156,9 @@
 									 @if($dp != '')
 									<p><strong>Product Pattern : </strong> {{$dp}} </p>
 									@endif
-                                    
+
                                     @if($mpdata->product_type==1)
-                                    
+
                                     <?php
                                     if($mpdata->cat_id==1){
 										$editpath='designshirts/sedit';
@@ -174,11 +174,11 @@
 										$detailpath='paintdetails';
 									}
 									?>
-                                    
-                                     
+
+
                                    <a href="{{url($detailpath,$mpdata->id)}}"><img alt="" src="{{url('asset/img/details1.png')}}"></a>&nbsp; <a href="{{url($editpath,$mpdata->id)}}"><img alt="" src="{{url('asset/img/customize1.png')}}"></a>
                                    @endif
-									
+
 										</div>
 									</div>
 								</div>
@@ -191,7 +191,7 @@
 										@else
 										<button type="sumbit" class="et-btn cart-btn" disabled><i class="fa fa-shopping-cart" aria-hidden="true" ></i>Out Of Stock</button>
 										@endif
-	                                </form>	
+	                                </form>
 	                                @if($wpm != '')
 	                                      <div class="message"></div>
 										<button type="button" class="et-btn cart-btn"  id="wishlist" data-toggle="tooltip" title="Product is already in wishlist!"><i class="fa fa-heart" aria-hidden="true" ></i>Add to Wish List</button>
@@ -212,7 +212,7 @@
 													 <a>
 													 <span>items:({{$cartcount}})</span>
 													</a>
-													
+
 												</div>
 											</div>
 											<a class="et-ck-btn pd-ck-btn" >Checkout</a>
@@ -232,7 +232,7 @@
            <li class="active"><a data-toggle="tab" href="#home">Fabric Description</a></li>
            <li><a data-toggle="tab" href="#menu1">Color Description</a></li>
            <li><a data-toggle="tab" href="#menu2">Quality Description</a></li>
-           
+
          </ul>
 
          <div class="tab-content">
@@ -248,7 +248,7 @@
              <h4>Quality Description</h4>
              <p>{{$mpdata->quality_desc}}</p>
            </div>
-           
+
          </div>
        </div>
      </div> <!-- end row product description tab menu -->
@@ -264,7 +264,7 @@
 			<div class="carousel-inner" role="listbox">
 
 				<!--========= 1st slide =========-->
-				
+
 
 				@if($reld != '')
 					<?php  $reld = App\EcollectionRelated::get_related_product_list_checkdata($reld);
@@ -282,9 +282,9 @@
 
 					if($p%6==0){
 
-					$cle='</div></div><div class="item">'; 
-					}else{ 
-					
+					$cle='</div></div><div class="item">';
+					}else{
+
 					$cle='</div>';
 
 					}
@@ -295,7 +295,7 @@
 					<div class="item active">
 						<?php }?>
 
-				
+
 					<div class="col-xs-12 col-sm-4 col-md-2 gp_products_item">
 						<div class="gp_products_inner">
 							<div class="gp_products_item_image">
@@ -309,7 +309,7 @@
 								<ul class="gp_products_caption_name">
 									<li style="text-align:center"><a href="{{URL('/productdetails')}}/{{$ecpd->id}}">{{ Str::limit($ecpd->product_name,15) }}</a></li>
 									<li style="text-align:center"><a>${{number_format($ecpd->product_mrp,2)}}</a></li>
-									
+
 								</ul>
 								@if($ecpd->product_offer_rate == 0)
 								<ul class="gp_products_caption_rating">
@@ -322,10 +322,10 @@
 								@endif
 							</div>
 						</div>
-					
-				
+
+
 					<?php echo $cle;?>
-				
+
 					<?php }}?>
 					@endif
 
@@ -345,7 +345,7 @@
 			</a>
 
 		</div>
-							
+
 </div>
 </div>
 </div><!-- end row -->
@@ -360,7 +360,7 @@
 
 
 
-<div class="modal fade send-link-modal" id="sendProductLink" tabindex="-1" role="dialog" 
+<div class="modal fade send-link-modal" id="sendProductLink" tabindex="-1" role="dialog"
 aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-dialog">
 	<div class="modal-content">
@@ -370,7 +370,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
 				<span class="sr-only">Close</span>
 			</button>
 			<h4 class="modal-title" id="myModalLabel">
-				Send Product Link Your Friend 
+				Send Product Link Your Friend
 			</h4>
 		</div>
 		<!-- Modal Body -->
@@ -385,7 +385,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
 					<input type="hidden" name="proID" value="{{$mpdata->id}}" required>
 				</div>
 				<button type="submit" class="et-btn cart-btn send-btn">Submit</button>
-			</form>    
+			</form>
 		</div>
 	</div>
 </div>
@@ -440,18 +440,18 @@ $("#wishlist").click(function(){
                   $a.attr("href",url);
                   $("body").append($a);
                   $a[0].click();
-                  $a.remove();	
+                  $a.remove();
             	}
             	else if(res.allready)
             	{
-                   
+
                    $('.message').text(res.allready);
             	}
             	else{
             		var sucess = res.sucess;
             		$('.message').text(sucess);
             	}
-            	 
+
             }
         });
     return false;
@@ -461,7 +461,7 @@ $("#wishlist").click(function(){
 $(document).ready(function(){
     $(".et-ck-btn").click(function(){
         var cc=$("#crtcount").val();
-       
+
         if(cc==0) { alert("No item in the cart, please add 1");} else{  $(".et-ck-btn").attr("href","{{url('/cart')}}");}
     });
 });
