@@ -19,7 +19,7 @@
                 <h2 class="et-left">CUSTOMER SERVICE 24/7</h2>
                 {{-- <span class="et-right"><a href="mailto:">{{ setting('site.web_email') }}</a></span> --}}
                 @php
-                    $soc = App\Models\Socialicon::all();
+                    $soc = App\Socialicon::all();
                 @endphp
                 <div class="et--link">
                     <ul>
