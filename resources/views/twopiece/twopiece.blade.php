@@ -81,7 +81,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                     $i++;
                 }
                 $first_price = 0;
-                if(!empty($fabric_ary[0]['jacket']->fabric_rate;)){
+                if(!empty($fabric_ary[0]['jacket']->fabric_rate)){
                     $first_price += $fabric_ary[0]['jacket']->fabric_rate;    
                 }
                 if(!empty($fabric_ary[0]['pant']->fabric_rate)){
