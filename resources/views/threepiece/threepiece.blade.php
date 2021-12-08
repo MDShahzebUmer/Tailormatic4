@@ -85,7 +85,17 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                     $fabric_ary[$i]['vest'] = $gr;
                     $i++;
                 }
-                $first_price = ($fabric_ary[0]['jacket']->fabric_rate + $fabric_ary[0]['pant']->fabric_rate + $fabric_ary[0]['vest']->fabric_rate);
+
+                $first_price = 0;
+                if(!empty($fabric_ary[0]['jacket']->fabric_rate)){
+                    $first_price += $fabric_ary[0]['jacket']->fabric_rate;    
+                }
+                if(!empty($fabric_ary[0]['pant']->fabric_rate)){
+                    $first_price += $fabric_ary[0]['pant']->fabric_rate;
+                }
+                if(!empty($fabric_ary[0]['vest']->fabric_rate)){
+                    $first_price += $fabric_ary[0]['vest']->fabric_rate;
+                }
             ?>
             <div class="row custom-main-content mb75">
                 <div class="col-md-4">
@@ -171,17 +181,25 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                 <?php
                                                 if($gr['jacket']->fabric_offer_price > 0 && $gr['jacket']->fabric_offer_price != '')
                                                 {
-                                                    $frate = $gr['jacket']->fabric_offer_price;
-                                                    if($gr['pant']->fabric_offer_price>0){
+                                                    $frate = 0;
+                                                    if(!empty($gr['jacket']->fabric_offer_price)){
+                                                        $frate += $gr['jacket']->fabric_offer_price;
+                                                    }
+                                                    if(!empty($gr['pant']->fabric_offer_price)){
                                                         $frate += $gr['pant']->fabric_offer_price;
                                                     }
-                                                    if($gr['vest']->fabric_offer_price>0){
+                                                    if(!empty($gr['vest']->fabric_offer_price)){
                                                         $frate += $gr['vest']->fabric_offer_price;
                                                     }
                                                 }else{
-                                                    $frate = $gr['jacket']->fabric_rate;
-                                                    $frate += $gr['pant']->fabric_rate;
-                                                    $frate += $gr['vest']->fabric_rate;
+                                                    $frate = 0;
+                                                    if(!empty($gr['jacket']->fabric_rate)){
+                                                        $frate += $gr['jacket']->fabric_rate;
+                                                    }
+                                                    if(!empty($gr['pant']->fabric_rate))
+                                                        $frate += $gr['pant']->fabric_rate;
+                                                    if(!empty($gr['vest']->fabric_rate))
+                                                        $frate += $gr['vest']->fabric_rate;
                                                 }
                                                 ?>
                                                 <p class="fabric-price">${{number_format($frate,2)}}</P>
