@@ -56,12 +56,29 @@ class TwoPieceController extends Controller
     {
         //jacket data ================================================================             
         $common_name1 = Helpers::get_jacket_FirstInfo(2);
+
+		$fb_group = Helpers::get_fabric_group_info(19);
+		$fabric_rate = $common_name1['fabric_rate'];
+		$fbgrp_name = $common_name1['fbgrp_name'];
+		foreach($fb_group as $row){
+			if($row->parent_id == $common_name1['fabric_gid']){
+				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
+				{
+					$fabric_rate = $row->fabric_offer_price;
+				}else{
+					$fabric_rate = $row->fabric_rate;
+				}
+				$fbgrp_name = $row->fbgrp_name;
+				break;
+			}
+		}
+
 		$eJacketTailorObj=[
 			'oprodType'=>'Jacket',
 			'ocatID'=>'2',
-			'ofabricGroup'=> $common_name1['fbgrp_name'],
+			'ofabricGroup'=> $fbgrp_name,
 			'ofabricType'=> $common_name1['fabric_gid'],
-			'ofabricPrice'=> $common_name1['fabric_rate'],
+			'ofabricPrice'=> $fabric_rate,
 			'ofabric'=> $common_name1['fabric_eid'],
 			'ofabricName'=> $common_name1['fabric_name'],
 			'ofabricImage'=> $common_name1['fabric_img_l'],
@@ -147,12 +164,28 @@ class TwoPieceController extends Controller
         
         //pants data ================================================================
         $common_name2 = Helpers::get_pants_FirstInfo(4); 
+
+		$fabric_rate = $common_name2['fabric_rate'];
+		$fbgrp_name = $common_name2['fbgrp_name'];
+		foreach($fb_group as $row){
+			if($row->parent_id == $common_name2['fabric_gid']){
+				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
+				{
+					$fabric_rate = $row->fabric_offer_price;
+				}else{
+					$fabric_rate = $row->fabric_rate;
+				}
+				$fbgrp_name = $row->fbgrp_name;
+				break;
+			}
+		}
+
 		$ePantTailorObj=[
 			'oprodType'=>'Pants',
 			'ocatID'=>'4',
-			'ofabricGroup'=>$common_name2['fbgrp_name'],
+			'ofabricGroup'=>$fbgrp_name,
 			'ofabricType'=>$common_name2['fabric_gid'],
-			'ofabricPrice'=>$common_name2['fabric_rate'],
+			'ofabricPrice'=>$fabric_rate,
 			'ofabric'=>$common_name2['fabric_eid'],
 			'ofabricName'=>$common_name2['fabric_name'],
 			'ofabricImage'=>$common_name2['fabric_img_l'],
@@ -213,7 +246,7 @@ class TwoPieceController extends Controller
 		$contrast_pant_record = MainAttribute::select('*')->where('cat_id', '=', $cat_id)->where('parent_id', '=', 46)->get();
 		
         return view('twopiece.twopiece')->with(
-        	compact('car_record','group_jacket_record','mainattr_jacket_record','contrast_jacker_record'
+        	compact('car_record','group_jacket_record','mainattr_jacket_record','contrast_jacker_record','fb_group'
         		,'eJacketTailorObj','mytabjacket','myjacketsubtab','loadme',
         		'group_pant_record','mainattr_pant_record','contrast_pant_record','ePantTailorObj','mypanttab','mypantsubtab'
         	));
@@ -351,11 +384,24 @@ class TwoPieceController extends Controller
 		
 		$fabgrup_record = FabricGroup::select('*')->where('id', '=', $fabgrp)->find($fabgrp);
 		
-		if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
-		{
-			  $frate = $fabgrup_record->fabric_offer_price;
-		}else{
-				$frate =    $fabgrup_record->fabric_rate;
+		// if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
+		// {
+		// 	  $frate = $fabgrup_record->fabric_offer_price;
+		// }else{
+		// 		$frate =    $fabgrup_record->fabric_rate;
+		// }
+		$fb_group = Helpers::get_fabric_group_info(19);	
+		$frate = 0;
+		foreach($fb_group as $row){
+			if($row->parent_id == $fabgrup_record->id){
+				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
+				{
+					$frate = $row->fabric_offer_price;
+				}else{
+					$frate = $row->fabric_rate;
+				}
+				break;
+			}
 		}
 			
 		$eTailorObjN['ofabricGroup']=$fabgrup_record->fbgrp_name;
@@ -1386,14 +1432,26 @@ class TwoPieceController extends Controller
 		
 		$fabgrup_record = FabricGroup::select('*')->where('id', '=', $fabgrp)->find($fabgrp);
 		
-		if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
-		{
-			  $frate = $fabgrup_record->fabric_offer_price;
-		}else{
-				$frate =    $fabgrup_record->fabric_rate;
+		// if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
+		// {
+		// 	  $frate = $fabgrup_record->fabric_offer_price;
+		// }else{
+		// 		$frate =    $fabgrup_record->fabric_rate;
+		// }
+		$fb_group = Helpers::get_fabric_group_info(19);	
+		$frate = 0;
+		foreach($fb_group as $row){
+			if($row->parent_id == $fabgrup_record->id){
+				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
+				{
+					$frate = $row->fabric_offer_price;
+				}else{
+					$frate = $row->fabric_rate;
+				}
+				break;
+			}
 		}
-		
-		
+				
 		$eTailorObjN['ofabricGroup']=$fabgrup_record->fbgrp_name;
 		$eTailorObjN['ofabricType']=$fabgrp;
 		$eTailorObjN['ofabricPrice']=$frate;

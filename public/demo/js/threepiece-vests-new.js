@@ -181,7 +181,8 @@ function getfab(id,otab){
 	arr=JSON.parse(arr);
     $.ajax({
        	type:'POST',
-       	url:'/getfabrics',
+       	// url:'/getfabrics',
+		url:'/getfabricsvest',
        	data:{fabid : id, carr : arr, rurl : url, t : otab},
        	async: false,
 	   	beforeSend: function() {

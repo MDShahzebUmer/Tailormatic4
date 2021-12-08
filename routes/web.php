@@ -154,6 +154,8 @@ Route::post('/measurpantsdtlsthree',['as' => 'measurpantsdtlsthree' , 'uses' => 
 Route::post('/measurpantidthree',['as' => 'measurpantidthree' , 'uses' => 'ThreePieceController@getPantBodyMeasurmentIdByJacket']);
 Route::post('/measurvestidthree',['as' => 'measurvestidthree' , 'uses' => 'ThreePieceController@getVestBodyMeasurmentIdByJacket']);
 
+Route::post('/getfabricsvest',['as' => 'getfabricsvest' , 'uses' => 'ThreePieceController@getfabvestdetails']);
+
 Route::post('/designthreepiece/postcart',['as' => 'designthreepiece.postcart' , 'uses' => 'ThreePieceController@get_item']);
 Route::get('/cart/threepiecedetails/{id?}',['as' => 'cart.threepiecedetails' , 'uses' => 'CartController@detailcart']);
 /* =================== 3Piece Suits End ===================*/

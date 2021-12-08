@@ -72,17 +72,41 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                 $fabric_ary = [];
                 foreach ($group_jacket_record as $gr) {
                     $fabric_ary[$i] = [];
-                    $fabric_ary[$i]['jacket'] = $gr;
+                    foreach($fb_group as $row){
+                        if($gr->id == $row->parent_id){
+                            $fabric_ary[$i]['jacket'] = $gr;
+                            $fabric_ary[$i]['jacket']['fabric_rate'] = $row->fabric_rate;
+                            $fabric_ary[$i]['jacket']['fabric_offer_price'] = $row->fabric_offer_price;
+                            break;
+                        }
+                    }
+                    // $fabric_ary[$i]['jacket'] = $gr;
                     $i++;
                 }
                 $i = 0;
                 foreach ($group_pant_record as $gr) {
-                    $fabric_ary[$i]['pant'] = $gr;
+                    foreach($fb_group as $row){
+                        if($gr->id == $row->parent_id){
+                            $fabric_ary[$i]['pant'] = $gr;
+                            $fabric_ary[$i]['pant']['fabric_rate'] = $row->fabric_rate;
+                            $fabric_ary[$i]['pant']['fabric_offer_price'] = $row->fabric_offer_price;
+                            break;
+                        }
+                    }
+                    // $fabric_ary[$i]['pant'] = $gr;
                     $i++;
                 }
                 $i = 0;
                 foreach ($group_record as $gr) {
-                    $fabric_ary[$i]['vest'] = $gr;
+                    foreach($fb_group as $row){
+                        if($gr->id == $row->parent_id){
+                            $fabric_ary[$i]['vest'] = $gr;
+                            $fabric_ary[$i]['vest']['fabric_rate'] = $row->fabric_rate;
+                            $fabric_ary[$i]['vest']['fabric_offer_price'] = $row->fabric_offer_price;
+                            break;
+                        }
+                    }
+                    // $fabric_ary[$i]['vest'] = $gr;
                     $i++;
                 }
 
@@ -179,25 +203,29 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                             <a class="link menu-link <?=$i==0?'active':'' ?>" id="sub_menu_{{$gr['jacket']->id}}" onClick="openPgContent(this,'menu-fabric{{$gr['jacket']->id}}','etfabricjacket','{{$gr['jacket']->id}}','menu-fabric','fabric');">
                                                 <p>{{$gr['jacket']->fbgrp_name}}</p>
                                                 <?php
-                                                if($gr['jacket']->fabric_offer_price > 0 && $gr['jacket']->fabric_offer_price != '')
-                                                {
-                                                    $frate = 0;
+                                                $frate = 0;
+                                                if($gr['jacket']->fabric_offer_price > 0 && $gr['jacket']->fabric_offer_price != '') {
                                                     if(!empty($gr['jacket']->fabric_offer_price)){
                                                         $frate += $gr['jacket']->fabric_offer_price;
                                                     }
+                                                }else{
+                                                    if(!empty($gr['jacket']->fabric_rate)){
+                                                        $frate += $gr['jacket']->fabric_rate;
+                                                    }
+                                                }
+                                                if($gr['pant']->fabric_offer_price > 0 && $gr['pant']->fabric_offer_price != ''){
                                                     if(!empty($gr['pant']->fabric_offer_price)){
                                                         $frate += $gr['pant']->fabric_offer_price;
                                                     }
+                                                }else{
+                                                    if(!empty($gr['pant']->fabric_rate))
+                                                        $frate += $gr['pant']->fabric_rate;
+                                                }
+                                                if($gr['vest']->fabric_offer_price > 0 && $gr['vest']->fabric_offer_price != ''){
                                                     if(!empty($gr['vest']->fabric_offer_price)){
                                                         $frate += $gr['vest']->fabric_offer_price;
                                                     }
                                                 }else{
-                                                    $frate = 0;
-                                                    if(!empty($gr['jacket']->fabric_rate)){
-                                                        $frate += $gr['jacket']->fabric_rate;
-                                                    }
-                                                    if(!empty($gr['pant']->fabric_rate))
-                                                        $frate += $gr['pant']->fabric_rate;
                                                     if(!empty($gr['vest']->fabric_rate))
                                                         $frate += $gr['vest']->fabric_rate;
                                                 }
@@ -336,7 +364,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
 <script type="text/javascript" src="{{asset('demo/js/bootstrap-touch-slider.js')}}"></script>
 <script type="text/javascript">var url = "{{asset('/storage/')}}";</script>
 <script type="text/javascript" src="{{asset('demo/js/fabric.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/threepieceprocessnew.js?v6')}}"></script>
+<script type="text/javascript" src="{{asset('demo/js/threepieceprocessnew.js?v0')}}"></script>
 <script type="text/javascript" src="{{asset('demo/js/threepiece-pants-new.js?v1')}}"></script>
 <script type="text/javascript" src="{{asset('demo/js/threepiece-vests-new.js?v1')}}"></script>
 <!-- Bootstrap Side Menu JS File -->

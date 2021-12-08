@@ -881,7 +881,14 @@ public static function itemorrequest($id)
                    return $collect_info;
 
         }
-   }
+    }
+   	public static function get_fabric_group_info($cat_id){
+		$fdata = FabricGroup::select('*')
+			->where('cat_id','=',$cat_id)
+			->where('fabric_status','=','ACTIVE')
+			->orderBy('id','asc')->get();
+		return $fdata;
+    }
    
    public static function get_jacket_FirstInfo($id = 2)
 	{

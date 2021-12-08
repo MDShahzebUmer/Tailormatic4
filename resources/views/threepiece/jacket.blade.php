@@ -23,12 +23,18 @@
                             <div id="menu-fabric{{$gr->id}}" class="pt-box-square <?php if($gr->id == $eJacketTailorObj['ofabricType']) {?>active<?php } ?>" onClick="javascript:getPgJacketOption(this.id,'etfabricjacket','{{$gr->id}}','menu-fabric');">
                                 <p>{{$gr->fbgrp_name}}</p>
                                 <?php
-                                if($gr->fabric_offer_price != 0 && $gr->fabric_offer_price != '')
-                                {
-                                    $frate = $gr->fabric_offer_price;
-                                }else{
-                                    $frate =    $gr->fabric_rate;
-                                }
+                                    $frate = 0;
+                                    foreach($fb_group as $row){
+                                        if($gr->id == $row->parent_id){
+                                            if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
+                                            {
+                                                $frate = $row->fabric_offer_price;
+                                            }else{
+                                                $frate = $row->fabric_rate;
+                                            }
+                                            break;
+                                        }
+                                    }
                                 ?>
                                 <p>${{number_format($frate,2)}}</P>
                             </div>
