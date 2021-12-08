@@ -125,7 +125,6 @@
                                    {!! $i1->title_two !!}
                                     <span>${{$i1->rate}}</span>
                                 </p>
-
                         </figcaption></a>
                     </div>
                 </div>
@@ -193,11 +192,13 @@
                 <div class="box-top">
 
                 </div>
+
                 <div class="box-bottom mt-10" style="margin-top: 50px">
                  <div class="col-md-12">
-                      <?php $i4 = App\Http\Helpers::img_font_call(4); ?>
+                      <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
                      <div class="et-effect et-last">
                          <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" />
+                         {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
                           <a href="{{Url('/'.$i4->url)}}">
                              <figcaption>
                                  <h2>{!! $i4->title_one !!}</h2>
