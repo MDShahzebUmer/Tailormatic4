@@ -101,7 +101,12 @@
                                 <li>
                                     <a href="{{URL('/designpants')}}"><span>Custom Pants</span></a>
                                 </li>
-
+                                <li>
+                                    <a href="{{URL('/design3pcsuits')}}"><span>CUSTOM 3Piece Suit</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL('/design2pcsuits')}}"><span>CUSTOM 2Piece Suit</span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
