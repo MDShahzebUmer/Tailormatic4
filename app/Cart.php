@@ -31,7 +31,9 @@ class Cart extends Model
 		{       
 				 $des = Cart::select('item_description')->where('id', '=' , $id)->value('item_description');
 				 $description=unserialize($des);
-				 
+				 if(!isset($description[$field]) || empty($description[$field])){
+					return "";
+				 }
 				 return $description[$field];
 		}
 		
