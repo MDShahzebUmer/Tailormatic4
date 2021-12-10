@@ -719,6 +719,10 @@ $("#stand").click(function(e){
             catId:18,// db categories table id : 18 (three piece suit) 
             totalPrice:total_price,
         },
+        beforeSend: function() {
+            $("#et-smallr").show();
+            $("#stand").hide(); 
+        },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -934,6 +938,10 @@ $("#temp_body_btn").click(function(e){
                 catId:18,// db categories table id : 18 (three piece suit) 
                 totalPrice:total_price,
             },
+            beforeSend: function() {
+				$("#et-body").show();
+				$("#temp_body_btn").hide();
+			},
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
