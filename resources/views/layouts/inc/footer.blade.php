@@ -66,7 +66,7 @@
              {!! Form::close() !!} -->
              <!-- Begin Mailchimp Signup Form -->
 <div id="mc_embed_signup">
-<form style="display:flex;" action="https://Israfil.us5.list-manage.com/subscribe/post?u=c6c222550f8e71f3bdb82f8b7&amp;id=65f089b56b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form style="display:flex;" action="https://lskit.us20.list-manage.com/subscribe/post?u=a11ea5af6ce297ee8e5962c4d&amp;id=abaced5eb4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div class="input-box" id="mc_embed_signup_scroll">
 	<!-- <h2>Subscribe</h2>
 <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
