@@ -5871,6 +5871,11 @@ figure.figure-box img {
     border-radius: 10px;
   }
 
+#myForm .btn.btn-dark {
+  background: #4d372f !important;
+  color: #fff !important;
+}
+
   .card-header.border-bottom.mb-3.d-md-none.d-sm-block {
     display: none;
 }

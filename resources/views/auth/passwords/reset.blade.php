@@ -3,7 +3,7 @@
 <body class="login-page et-bg">
 <div class="et-form-page">
     <div class="container">
-        <div class="row">           
+        <div class="row">
             <div class="et-form-header">
                 <figure class="et-form-logo">
                     <a href="#.">
@@ -19,8 +19,8 @@
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email">Email Address :</label>
-                                <input type="email" class="form-control" id="email" name="email" value="{ $email or old('email') }}" placeholder="Enter Email Address">
-                                
+                                <input type="email" class="form-control" id="email" name="email" value="{{  $email or old('email')  }}" placeholder="Enter Email Address">
+
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -35,7 +35,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                              
+
                             </div>
                             <div class="form-group {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                                 <label for="pwd">Confirm Password :</label>
@@ -45,15 +45,15 @@
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                 @endif
-                              
+
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default"> Reset Password</button> 
-                            </div>                       
-                            
+                                <button type="submit" class="btn btn-default"> Reset Password</button>
+                            </div>
+
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
