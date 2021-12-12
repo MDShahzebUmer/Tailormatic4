@@ -19,7 +19,7 @@
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email">Email Address :</label>
-                                <input type="email" class="form-control" id="email" name="email" value="{{  $email or old('email')  }}" placeholder="Enter Email Address">
+                                <input type="email" class="form-control" id="email" name="email" value="{{ $email }}" placeholder="Enter Email Address">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
