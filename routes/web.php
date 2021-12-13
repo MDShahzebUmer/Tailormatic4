@@ -25,7 +25,15 @@ use App\Mail\Refund;
 // });
 
 
+// clean route
+Route::get('clear_me', function () {
 
+    \Artisan::call('cache:clear');
+    \Artisan::call('optimize:clear');
+
+    dd("All cache is cleared");
+
+});
 
 Route::get('comingsoon', function () {
     return view('comingsoon');
