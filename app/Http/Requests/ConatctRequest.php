@@ -25,7 +25,7 @@ class ConatctRequest extends FormRequest
     {
         return [
             'con_subject' =>  'required',
-            'con_name'    =>  'required|alpha',
+            'con_name'    =>  'required|string',
             'con_email' =>    'required|email',
             'con_mobile' =>   'required|min:10|max:10',
             'con_message' =>  'required|max:255',

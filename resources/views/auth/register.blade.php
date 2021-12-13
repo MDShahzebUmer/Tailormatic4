@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="pt-top-menu">
                     <div class="pt-left-p">
-                        @include('../layouts.inc.login') 
+                        @include('../layouts.inc.login')
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <?php
         $cartcount = App\Http\Helpers::cartcount();
         ?>
-        <div class="pt-design">       
+        <div class="pt-design">
             <div class="container">
                 <div class="row">
                     <div class="pt-cart-header et-fw et-reg-title">
@@ -33,7 +33,7 @@
                 <div class="row">
                    <div class="col-md-8 col-md-offset-2">
                         <div class="et-form-style et-cart-form-style">
-                            <div class="et-form-inner">                     
+                            <div class="et-form-inner">
                                 <form class="" role="form" method="POST" action="{{ url('/register') }}">
                             {{ csrf_field() }}
                             <div class="et-form-hlf et-hide" id="Cars2">
@@ -64,7 +64,7 @@
                                         <strong id="ems">{{ $errors->first('email') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
                                 <div class="form-group et-form-address {{ $errors->has('address') ? ' has-error' : '' }}">
                                     <label for="address">Address</label>
                                     <textarea type="text" class="form-control" name="address" id="address"  placeholder="Enter Address"></textarea>
@@ -82,7 +82,7 @@
                                         <strong>{{ $errors->first('landmark') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
                                 <div class="form-group et-form-city {{ $errors->has('city') ? ' has-error' : '' }}">
                                     <label for="city">City</label>
                                     <input type="text" class="form-control" id="city" name="city"  placeholder="Enter City">
@@ -92,7 +92,7 @@
                                     </span>
                                     @endif
                                 </div>
-                                
+
                                 <?php $countrys = App\Country::get_country();?>
                                 <div class="form-group et-form-country {{ $errors->has('country_id') ? ' has-error' : '' }}">
                                     <label for="country">Select Country</label>
@@ -107,7 +107,7 @@
                                         <strong>{{ $errors->first('country_id') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
 
                                 <div class="form-group et-form-state {{ $errors->has('state') ? ' has-error' : '' }}">
                                     <label for="state">Select State</label>
@@ -118,7 +118,7 @@
                                         <strong>{{ $errors->first('state') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
                                 <div class="form-group et-form-city {{ $errors->has('zipcode') ? ' has-error' : '' }}">
                                     <label for="zip">Zip Code</label>
                                     <input type="text" class="form-control" id="zipcode" name="zipcode"  placeholder="Enter Zip Code" >
@@ -128,7 +128,7 @@
                                     </span>
                                     @endif
                                     <div class="msg"></div>
-                                </div>     
+                                </div>
                                 <div class="form-group et-form-phone {{ $errors->has('phone') ? ' has-error' : '' }}">
                                     <label for="phone">Telephone</label>
                                     <input type="text" class="form-control" id="phone" name="phone"  placeholder="Enter Telephone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
@@ -137,14 +137,14 @@
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
-                                
+                                </div>
+
                                 <div class="form-group has-feedback  {{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="pwd">Password(character limit between 6 to 12)</label>
+                                    <label for="pwd">Password(character limit between 6 to 16)</label>
                                     <input type="password" class="form-control" id="pwd" name="password"  placeholder="Enter Password" maxlength="12" minlength="6">
 
                                     <i id="pwdshow" style="right: 15px !important;" onclick="changePassword(this)" class="glyphicon  glyphicon-eye-open form-control-feedback"></i>
-                                    <i id="pwdclows" style="display:none; right: 15px !important; " onclick="changePassword(this)" class="glyphicon  glyphicon-eye-close form-control-feedback"></i>    
+                                    <i id="pwdclows" style="display:none; right: 15px !important; " onclick="changePassword(this)" class="glyphicon  glyphicon-eye-close form-control-feedback"></i>
 
 
                                     @if ($errors->has('password'))
@@ -152,21 +152,21 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
 
                                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                                     <label for="cpwd">Confirm Password</label>
                                     <input type="password" class="form-control" id="cpwd" name="password_confirmation"  placeholder="Enter Confirm Password" maxlength="12" minlength="6">
 
                                     <i id="pwdshoww" style="right: 15px !important; pointer-events: initial;" onclick="changeConfirmPassword(this)" class="glyphicon  glyphicon-eye-open form-control-feedback"></i>
-                                    <i id="pwdclowss" style="display:none; right: 15px !important; pointer-events: initial;" onclick="changeConfirmPassword(this)" class="glyphicon  glyphicon-eye-close form-control-feedback"></i>    
+                                    <i id="pwdclowss" style="display:none; right: 15px !important; pointer-events: initial;" onclick="changeConfirmPassword(this)" class="glyphicon  glyphicon-eye-close form-control-feedback"></i>
 
                                     @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                     @endif
-                                </div> 
+                                </div>
 
                                 <script type="text/javascript">
                                     function changePassword(t){
@@ -210,24 +210,24 @@
                                 <div class="form-group et-form-name">
                                     <label for="lname">Last Name</label>
                                     <input type="text" class="form-control" id="slname" name="slname"  placeholder="Enter Last Name">
-                                    
+
                                 </div>
                                 <div class="form-group et-form-address ">
                                     <label for="address">Address</label>
                                     <textarea type="text" class="form-control" id="saddress"  name="saddress"  placeholder="Enter Address"></textarea>
-                                    
+
                                 </div>
                                 <div class="form-group et-form-city ">
                                     <label for="slandmark">Landmark</label>
                                     <input type="text" class="form-control" id="slandmark" name="slandmark"  placeholder="Enter Landmark">
-                                    
-                                </div> 
+
+                                </div>
                                 <div class="form-group et-form-city ">
                                     <label for="city">City</label>
                                     <input type="text" class="form-control" id="scity" name="scity"  placeholder="Enter City">
-                                    
-                                </div>                            
-                                
+
+                                </div>
+
                                 <div class="form-group et-form-country ">
                                     <label for="country">Select Country</label>
                                     <select class="selectpicker form-control" id="scountry_id" name="scountry_id">
@@ -236,36 +236,36 @@
                                         <option value="{{$c->id}}">{{$c->name}}</option>
                                        @endforeach
                                     </select>
-                                    
-                                </div> 
+
+                                </div>
                                 <div class="form-group et-form-country ">
                                     <label for="country">Select State</label>
                                     <select class="selectpicker form-control" id="sstate" name="sstate">
                                         <option selected>Select Country</option>
                                       </select>
-                                    
-                                </div> 
+
+                                </div>
                                 <div class="form-group et-form-city ">
                                     <label for="zip">Zip Code</label>
                                     <input type="text" class="form-control" id="szipcode" name="szipcode" onkeypress='return event.charCode >= 46 && event.charCode <= 57'  placeholder="Enter Zip Code">
                                     <div class="msg"></div>
-                                </div>     
+                                </div>
                                 <div class="form-group et-form-phone ">
                                     <label for="phone">Telephone</label>
                                     <input type="text" class="form-control" id="sphone" name="sphone" onkeypress='return event.charCode >= 46 && event.charCode <= 57' placeholder="Enter Telephone Number">
-                                    
+
                                 </div>
                             </div>
-                            <div class="choiceoption">   
+                            <div class="choiceoption">
                                 <div class="et-left">
                                     <label>Make a Shipping Address</label>
                                     <ul>
-                                        <li><input type="radio" name="etform" checked="checked" value="2"  /> Yes</li>                        
+                                        <li><input type="radio" name="etform" checked="checked" value="2"  /> Yes</li>
                                         <li><input type="radio" name="etform" value="3" /> No</li>
                                     </ul>
                                 </div>
                                 <div class="et-right">
-                                    <button type="submit" class="btn btn-default">Continue</button> 
+                                    <button type="submit" class="btn btn-default">Continue</button>
                                 </div>
                             </div>
                         </form>
@@ -274,16 +274,16 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- Footer Section -->
        <div class="pt-footer">
         <div class="container">
             <div class="row">
                 <div class="pt-foot-ul">
                    @include('../layouts.inc.footer-strkey')
-               </div>   
+               </div>
            </div>
-       </div>   
+       </div>
    </div>
     </section>
 
@@ -300,21 +300,21 @@
     </script>
         <script>
     $('#country').change(function(){
-    var country = $(this).val();   
-     
+    var country = $(this).val();
+
     if(country){
         $.ajax({
            type:"GET",
            url:"{{ route('address.getstate') }}/"+country,
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#state").empty();
                 $("#state").append('<option value="">Select</option>');
                 $.each(res,function(key,value){
-                  
+
                     $("#state").append('<option value="'+res[key]['id']+'">'+res[key]['name']+'</option>');
                 });
-           
+
             }else{
                $("#state").empty();
             }
@@ -322,19 +322,19 @@
         });
     }else{
         $("#state").empty();
-       
-    }      
+
+    }
    });
   </script>
   <script>
     $('#scountry_id').change(function(){
-    var country = $(this).val();   
-   
+    var country = $(this).val();
+
     if(country){
         $.ajax({
            type:"GET",
            url:"{{ route('address.getstate') }}/"+country,
-           success:function(res){               
+           success:function(res){
             if(res){
                 $("#sstate").empty();
                 $("#sstate").append('<option value="">Select</option>');
@@ -342,7 +342,7 @@
                   //alert(res[key]['id'])
                     $("#sstate").append('<option value="'+res[key]['id']+'">'+res[key]['name']+'</option>');
                 });
-           
+
             }else{
                $("#sstate").empty();
             }
@@ -350,8 +350,8 @@
         });
     }else{
         $("#sstate").empty();
-       
-    }      
+
+    }
    });
   </script>
      <!-- Bootstrap Side Menu JS File -->
@@ -360,29 +360,29 @@
           var trigger = $('.hamburger'),
               overlay = $('.overlay'),
              isClosed = false;
-        
+
             trigger.click(function () {
-              hamburger_cross();      
+              hamburger_cross();
             });
-        
+
             function hamburger_cross() {
-        
-              if (isClosed == true) {          
+
+              if (isClosed == true) {
                 overlay.hide();
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
-              } else {   
+              } else {
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
               }
           }
-          
+
           $('[data-toggle="offcanvas"]').click(function () {
                 $('#et-wrapper').toggleClass('toggled');
-          });  
+          });
         });
         $('.navbar-nav > li').mouseover( function(){
             $(this).find('a').tab('show');
@@ -407,14 +407,14 @@
         $(document).ready(function() {
             $("input[name$='etform']").click(function() {
                 var test = $(this).val();
-        
+
                 $("div.et-hide").hide();
                 $("#Cars" + test).show();
             });
         });
     </script>
     <script type="text/javascript">
-    $('#emailcheck').on('blur',function(){ 
+    $('#emailcheck').on('blur',function(){
      var ids = $(this).val();
       var token = $('#emailcheck').data("token");
        $.ajax(
@@ -429,10 +429,10 @@
             },
             success: function (data)
             {
-               
+
                var ert  = "<sapn>Already a Member? <a href={{url('/logincart')}}>Login Here</a></span>";
               $("#ems").html(ert);
-               
+
             },
             error: function(data)
             {
@@ -458,8 +458,8 @@
                     flag = 1;
                     //$(this).parent().append('<span class="help-block">This field is .</span>');
                 }else{
-                    
-                    if($(this).attr('id') == 'country'){ 
+
+                    if($(this).attr('id') == 'country'){
                         var country = $('#Cars2 #country option:selected').text();
                         if($.trim(country) != 'Select Country'){
                             $(this).css('border-color','#cccccc');
@@ -468,18 +468,18 @@
                             $(this).css('border-color','#a94442');
                             flag = 1;
                         }
-                        
+
                     }else{
 
                         $(this).css('border-color','#cccccc');
                         //$(this).parent().find('.help-block').remove();
                     }
-                  if($(this).attr('id') == 'emailcheck' && !validateEmail($(this).val())){ 
+                  if($(this).attr('id') == 'emailcheck' && !validateEmail($(this).val())){
                             $(this).css('border-color','#a94442');
                             flag = 1;
                         }
 
-                    
+
                 }
             })
         }else{
@@ -490,7 +490,7 @@
                     //$(this).parent().append('<span class="help-block">This field is .</span>');
                 }else{
 
-                    if($(this).attr('id') == 'scountry_id'){ 
+                    if($(this).attr('id') == 'scountry_id'){
                         var country = $('#Cars3 #scountry_id option:selected').text();
                         if($.trim(country) != 'Select Country'){
                             $(this).css('border-color','#cccccc');
@@ -503,18 +503,18 @@
                         $(this).css('border-color','#cccccc');
                         //$(this).parent().find('.help-block').remove();
                     }
-                  
+
 
                 }
             })
         }
-        
+
         if(flag == '1'){
             return false;
         }
-        
+
     });
-    
+
 function validateEmail($email) {
   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
   return emailReg.test($email);
@@ -524,9 +524,9 @@ function validateEmail($email) {
         $('#'+div_id+' #'+zip_id).next('.msg').text('');
         var zipcode = $('#'+div_id+' #'+zip_id).val();
         var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+country;
-        
+
         $.getJSON(url, function(response) {
-              
+
               $.each(response.results,function(i,v){
                     var c_code = v.address_components[0].short_name;
                     $.ajax({
@@ -551,7 +551,7 @@ function validateEmail($email) {
        });
     }
 
-    
+
     </script>
 </body>
 </html>

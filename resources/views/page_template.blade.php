@@ -32,7 +32,7 @@ $data=$data['data'];
             	<div class="et-feature">
                 	<ul class="featured-img-list">
                         @foreach ($other_page as $op)
-                            
+
                         <li>
                             <div class="inner">
                                 <div class="img">
@@ -43,14 +43,14 @@ $data=$data['data'];
                                     <p class="small">{!! $op->subtitle !!}</p>
                                 </div>
                             </div>
-                        </li>  
-                       
-                        @endforeach					
+                        </li>
+
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <?php $ot_page = App\OthersPage::select('*')->where('page_id','=','1')->whereIn('id',[4,5,6])->get();?>
-          
+
             <div class="et-block">
                 @foreach($ot_page as $ots)
             	<div class="col-md-4 col-sm-6 col-xs-12">
@@ -73,7 +73,7 @@ $data=$data['data'];
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -100,7 +100,7 @@ $data=$data['data'];
                 <div class="et-form">
                     <div class="col-md-6 col-xs-12 {{ $errors->has('con_subject') ? ' has-error' : '' }}">
                        <span class="input input--hoshi">
-                       
+
                             <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Subject*" name="con_subject" required>
                             <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
                                 <span class="input__label-content input__label-content--hoshi"></span>
@@ -113,7 +113,7 @@ $data=$data['data'];
                         @endif
                     </div>
                     <div class="col-md-6 col-xs-12 {{ $errors->has('con_name') ? ' has-error' : '' }}">
-                       
+
                         <span class="input input--hoshi">
                             <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Full Name*" name="con_name" required>
                             <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="input-5">
@@ -128,7 +128,7 @@ $data=$data['data'];
 
                     </div>
                     <div class="col-md-6 col-xs-12 {{ $errors->has('con_email') ? ' has-error' : '' }}">
-                       
+
                         <span class="input input--hoshi">
                             <input class="input__field input__field--hoshi" type="email" id="any" placeholder="Email*" name="con_email" required>
                             <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
@@ -142,7 +142,7 @@ $data=$data['data'];
                         @endif
                     </div>
                     <div class="col-md-6 col-xs-12 {{ $errors->has('con_mobile') ? ' has-error' : '' }}">
-                      
+
                         <span class="input input--hoshi">
                             <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10">
                             <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="input-5">
@@ -157,7 +157,7 @@ $data=$data['data'];
                     </div>
                     <div class="col-md-12 col-xs-12 {{ $errors->has('con_message') ? ' has-error' : '' }}">
                         <span class="input input--hoshi">
-                           
+
                             <textarea class="input__field input__field--hoshi" type="message" id="any" placeholder="Write Your Message*" name="con_message" required></textarea>
                             <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="input-5">
                                 <span class="input__label-content input__label-content--hoshi"></span>
@@ -176,7 +176,7 @@ $data=$data['data'];
                 </div>
             </div>
           </form>
-         
+
         </div>
     </div>
 </section>
@@ -257,7 +257,7 @@ $data=$data['data'];
                 </div>
             </div>
           </form>
-         
+
         </div>
     </div>
 </section>
@@ -276,7 +276,7 @@ $data=$data['data'];
                     	<h3>{{$hww->title}}</h3>
                         <ul class="et-work-list">
                         	<li>{!! $hww->content !!}</li>
-                            
+
                         </ul>
                         <div class="et-work-block mix-n-match">
                         	<figure class="et-work-icon">
@@ -300,7 +300,7 @@ $data=$data['data'];
                         <h3>{{$wwh->title}}</h3>
                         <ul class="et-work-list">
                             <li>{!! $wwh->content !!}</li>
-                            
+
                         </ul>
                         <div class="et-work-block mix-n-match">
                             <figure class="et-work-icon">
@@ -309,8 +309,8 @@ $data=$data['data'];
                         </div>
                     </div>
                     @endforeach
-                   
-                    
+
+
                 </div>
             </div>
         </div>
@@ -327,11 +327,11 @@ $data=$data['data'];
         	<div class="et-block">
             	<div class="fancy-collapse-panel">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        
+
 <?php
 $ps=0;
 ?>
-@foreach($faq as $f)  
+@foreach($faq as $f)
 <?php
 $ps++;
 if($ps==1){
@@ -342,7 +342,7 @@ $contxt='class="panel-collapse collapse"';
 $contxtn='class="collapsed"';
 }
 ?>
-                       
+
 <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo<?php echo $ps;?>">
                                 <h4 class="panel-title">
@@ -357,7 +357,7 @@ $contxtn='class="collapsed"';
                             </div>
                         </div>
                         @endforeach
-                        
+
                     </div>
                 </div>
             </div>
@@ -416,7 +416,7 @@ $contxtn='class="collapsed"';
         </div>
     </div>
 </section>
-@elseif($d->slug == 'our-guarantee')
+@elseif($d->slug == 'garment-care')
 <section class="et-content">
     <div class="container">
         <div class="row">
@@ -428,7 +428,7 @@ $contxtn='class="collapsed"';
             </div>
         </div>
     </div>
-</section> 
+</section>
 @else
 
 
