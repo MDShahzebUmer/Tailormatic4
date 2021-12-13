@@ -31,8 +31,8 @@
                     <div class="panel-body" style="padding:0px;">
                        <?php $names = App\OptionTabel::select('name','id')->where('attri_id', '=', $attridata->id)->get();?>
                          @foreach($names as $ns)
-                        
-                        <a href="{{ route('voyager.contrastsdesign.fabric',$data->id)}}-{{$ns->id}}" class="btn btn-success @if($optdata==$ns->id) active @endif" title="Fabric Name" alt="Fabric Name">{{$ns->name}}</a>                   
+
+                        <a href="{{ route('voyager.contrastsdesign.fabric',$data->id)}}-{{$ns->id}}" class="btn btn-success @if($optdata==$ns->id) active @endif" title="Fabric Name" alt="Fabric Name">{{$ns->name}}</a>
                          @endforeach
                     </div>
                 </div>
@@ -40,7 +40,7 @@
             <!-- Second Button -->
                 <div class="col-md-12">
                     <?php $nam = App\OptionTabel::select('name','id')->where('attri_id', '=', $attridata->id)->first();?>
-                     
+
                     <a href="{{ route('voyager.contrastsdesign.option',$data->id)}}/{{$optdata}}" class="btn btn-success">
                     <i class="voyager-plus"></i> Add New
                    </a>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div><!-- First Close Div -->
-    <!-- Second Section -->   
+    <!-- Second Section -->
      <?php //echo '<pre>'.print_r($maindata,true).'</pre>';exit();?>
     <div class="page-content container-fluid">
         <div class="row">
@@ -74,10 +74,10 @@
                                    <?php $md->opt_id; ?>
                                     <?php $a = App\ContrastOptionIimgType::select('type_name')->where('opt_id','=',$md->opt_id)->where('id','=',$md->contrast_type_id)->first($md->opt_id,$md->contrast_type_id);?>
                                     <td><?php echo $a->type_name ?></td>
-                                    
+
                                     <td><img src="{{URL::asset('/storage/'.$md->main_img)}}" alt="profile Pic" height="100" width="100"></td>
                                     <th>{{$md->created_at}}</th>
-                                    
+
                                     <td class="no-sort no-click">
                                         <div class="btn-sm btn-danger pull-right delete" data-id="{{$md->id}}" id="delete-{{$md->id}}">
                                             <i class="voyager-trash"></i> Delete
@@ -110,7 +110,7 @@
                                         </div>
                                 @endforeach
                                 @endif
-                                
+
 
 
                                     </tbody>
@@ -120,18 +120,18 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-    <!-- End second Section -->    
+            </div>
+    <!-- End second Section -->
 @stop
 
 @section('javascript')
     <!-- DataTables -->
     <script>
-      
+
             $(document).ready(function () {
                 $('#dataTable').DataTable({ "order": [] });
             });
-        
+
 
         $('td').on('click', '.delete', function (e) {
             var form = $('#delete_form')[0];
