@@ -144,7 +144,18 @@ $data=$data['data'];
                     <div class="col-md-6 col-xs-12 {{ $errors->has('con_mobile') ? ' has-error' : '' }}">
 
                         <span class="input input--hoshi">
-                            <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10">
+                            <div class="" style="display: flex">
+                                <?php $postids = App\Country::select('phonecode')->get();?>
+                                {{-- <input class="" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10"> --}}
+                                <select style="width: 103px;" name="con_country_code" id="" class="input__field input__field--hoshi" required>
+                                    <option value="">select</option>
+                                   @foreach ($postids as $code)
+                                   <option value="{{ $code->phonecode }}">{{ $code->phonecode }}</option>
+                                   @endforeach
+                                </select>
+                                <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10">
+                            </div>
+
                             <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="input-5">
                                 <span class="input__label-content input__label-content--hoshi"></span>
                             </label>
@@ -152,6 +163,11 @@ $data=$data['data'];
                         @if ($errors->has('con_mobile'))
                         <span class="help-block ">
                             <strong>{{ $errors->first('con_mobile') }}</strong>
+                        </span>
+                        @endif
+                        @if ($errors->has('con_country_code'))
+                        <span class="help-block ">
+                            <strong>{{ $errors->first('con_country_code') }}</strong>
                         </span>
                         @endif
                     </div>

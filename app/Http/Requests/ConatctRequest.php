@@ -28,6 +28,7 @@ class ConatctRequest extends FormRequest
             'con_name'    =>  'required|string',
             'con_email' =>    'required|email',
             'con_mobile' =>   'required|min:10|max:10',
+            'con_country_code' =>   'required',
             'con_message' =>  'required|max:255',
         ];
     }
