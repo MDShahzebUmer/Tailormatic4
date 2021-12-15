@@ -98,8 +98,8 @@
                                     <label for="country">Select Country</label>
                                     <select class="selectpicker form-control" id="country" name="country_id" >
                                         <option selected>Select Country</option>
-                                        @foreach($countrys   as $c)
-                                        <option value="{{$c->id}}">{{$c->name}}</option>
+                                        @foreach($countrys as $c)
+                                        <option id="{{ $c->phonecode }}" value="{{$c->id}}">{{$c->name}}</option>
                                        @endforeach
                                     </select>
                                     @if ($errors->has('country_id'))
@@ -131,13 +131,20 @@
                                 </div>
                                 <div class="form-group et-form-phone {{ $errors->has('phone') ? ' has-error' : '' }}">
                                     <label for="phone">Telephone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone"  placeholder="Enter Telephone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    <div class="row" style="display: flex;
+                                    margin-left: 3px;">
+                                        <select name="country_code" id="country-code" class="form-control" style="width: 80px" >
+                                            <option value="">code</option>
+                                        </select>
+                                        <input type="text" class="form-control" id="phone" name="phone"  placeholder="Enter Telephone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                    </div>
                                     @if ($errors->has('phone'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>
+
 
                                 <div class="form-group has-feedback  {{ $errors->has('password') ? ' has-error' : '' }}">
                                     <label for="pwd">Password(character limit between 6 to 16)</label>
@@ -301,6 +308,9 @@
         <script>
     $('#country').change(function(){
     var country = $(this).val();
+    var country_code = $(this).find(':selected').attr('id')
+    $("#country-code").append('<option selected value="'+country_code+'">'+country_code+'</option>');
+    // console.log(country_code);
 
     if(country){
         $.ajax({
@@ -311,7 +321,6 @@
                 $("#state").empty();
                 $("#state").append('<option value="">Select</option>');
                 $.each(res,function(key,value){
-
                     $("#state").append('<option value="'+res[key]['id']+'">'+res[key]['name']+'</option>');
                 });
 
@@ -329,6 +338,8 @@
   <script>
     $('#scountry_id').change(function(){
     var country = $(this).val();
+    // var tel_id = $(this).attr("data-id");
+    // $("#country-code").append('<option selected value="'+tel_id+'">'+tel_id+'</option>');
 
     if(country){
         $.ajax({
