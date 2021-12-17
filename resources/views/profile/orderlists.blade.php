@@ -118,7 +118,7 @@
 
 
                  <a target="_blank" href="{{ url('/myaccount/invoice') }}/{{$ordata->id}}" class="btn btn-block st-product-list-btn">Invoice</a>
-                 <a target="_blank" href="{{ url('/storage/pdf') }}/{{$ordata->id}}-invoice.pdf" class="btn btn-block st-product-list-btn">Print</a>
+                 <a target="_blank" href="{{ url('/storage/pdf') }}/{{$ordata->id}}-invoice.pdf" class="btn btn-block st-product-list-btn">Print Invoice</a>
                   <?php ?>
                   <a href="{{url('/myaccount/orderdetails')}}/{{$ordata->id}}" class="btn btn-block st-product-list-btn"> Items List({{$odcun}})</a>
                 </li>
