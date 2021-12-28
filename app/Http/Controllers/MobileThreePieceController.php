@@ -31,7 +31,7 @@ use App\ShippingsAddr;
 use App\CanvasDataurl;
 
 
-class ThreePieceController extends Controller
+class MobileThreePieceController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -54,6 +54,11 @@ class ThreePieceController extends Controller
 
     public function index()
     {
+		$device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='MOBILE'){
+			return redirect(route('design3pcsuits'));
+		} 
         //jacket data ================================================================             
         $common_name1 = Helpers::get_jacket_FirstInfo(2);
 
@@ -330,7 +335,7 @@ class ThreePieceController extends Controller
 		/* Contrast */
 		$contrast_record = MainAttribute::select('*')->where('cat_id', '=', $cat_id)->where('parent_id', '=', 33)->get();
 
-        return view('threepiece.threepiece')->with(
+        return view('threepiece.mobilethreepiece')->with(
         	compact('car_record','group_jacket_record','mainattr_jacket_record','contrast_jacker_record','fb_group'
         		,'eJacketTailorObj','mytabjacket','myjacketsubtab','loadme',
         		'group_pant_record','mainattr_pant_record','contrast_pant_record','ePantTailorObj','mypanttab','mypantsubtab',
@@ -369,9 +374,7 @@ class ThreePieceController extends Controller
 		$filename_pant_backimg = $rnd_val.'_3piece_2_back';
 		$filename_vest_frontimg = $rnd_val.'_3piece_3_front';
 		$filename_vest_backimg = $rnd_val.'_3piece_3_back';
-
-		// $finalarr = $eTailorObj;
-				
+								
 		$ppt = $eTailorObj;												
 		$cartSet = [
 			'cart_sessionid' => $cartsess,
@@ -388,10 +391,16 @@ class ThreePieceController extends Controller
 			'created_at' => date('y-m-d H:i:s'),
 			'updated_at' => date('y-m-d H:i:s'),
 		];
-					
+
+		// $result = array('result' => $cartSet);
+		// return json_encode($result);
+
+		$cartId = 0;
+							
 		//Insert if record is new ot
 		if($eTailorObj['ocartID']==''){
 			$ids = DB::table('carts')->insert($cartSet);
+			
 			$cartId = DB::getPdo()->lastInsertId();	
 			/* insert canvas dataurl*/
 			$canvasSet = [
@@ -425,7 +434,6 @@ class ThreePieceController extends Controller
 			$canvasids = DB::table('canvas_dataurls')->where('cart_id', $cartId)->update($canvasSet);
 		}		 
 		
-
 		Helpers::dataurltoimg2($request['frntviewfinal'],$cartId,$filename_frontimg);
 		Helpers::dataurltoimg2($request['bkviewfinal'],$cartId,$filename_backimg);
 		Helpers::dataurltoimg2($request['pant_frntviewfinal'],$cartId,$filename_pant_frontimg);
@@ -440,6 +448,9 @@ class ThreePieceController extends Controller
 		$pant_backimg = $path_prev.$filename_pant_backimg.'.png';
 		$vest_frontimg = $path_prev.$filename_vest_frontimg.'.png';
 		$vest_backimg = $path_prev.$filename_vest_backimg.'.png';
+
+		// $result = array('result' => $request['pant_frntviewfinal']);
+		// return json_encode($result);
 
 		$ppt['pant_frntviewfinal']= $pant_frontimg;
 		$ppt['pant_bkviewfinal']= $pant_backimg;
@@ -709,7 +720,7 @@ class ThreePieceController extends Controller
 		}
 		$datacont=$datacont.'</ul></div></div>';
 		
-		$datacont=$datacont.'<div class="et-content-fab jacket-backcollr-bg" id="miniview-etcontrastjacket-27" style="display:none;" ><figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: 0px;left: 137px;"></figure><div class="et-style-select"><h2>Back Collar</h2></div></div>';
+		$datacont=$datacont.'<div class="et-content-fab jacket-backcollr-bg" id="miniview-etcontrastjacket-27" style="display:none;" ><figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: -2px;left: 138px;width: 80%;"></figure><div class="et-style-select"><h2>Back Collar</h2></div></div>';
 		
 		$datacont=$datacont.'<div class="et-content-fab" id="miniview-etcontrastjacket-28" style="display:none;"><figure class="et-sleevebuttonds"><img class="et-main-sleeve" src="'.$paths.'/Jacket/Fabric/ImageIn/'.$eTailorObjN['ofabric'].'.png">';
 		if($eTailorObjN['osleeveButn']=="73"){
@@ -1527,7 +1538,7 @@ class ThreePieceController extends Controller
 		$style_record = Colorcoller::select('*')->where('id', '=', $ff)->find($ff);
 		$eTailorObjN['obackCollarName']=$style_record->name;
 		
-		$data=$data.'<figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: 0px;left: 137px;"></figure><div class="et-style-select"><h2>Back Collar</h2></div>';
+		$data=$data.'<figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: -2px;left: 138px;width: 80%;"></figure><div class="et-style-select"><h2>Back Collar</h2></div>';
 		
 		$data = ['1' => $data,'2' => $_POST['t'],'3' => $attrbid,'4' => $eTailorObjN];
 		return $data;

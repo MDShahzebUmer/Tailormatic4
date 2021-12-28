@@ -87,6 +87,10 @@
     background-size: 100%;
 }
 
+#container_pants .jacket-pocket-bg {
+    background-position: 114px 38px;
+}
+
 /* ========================================= */
 
 .threepiece-content {
@@ -409,6 +413,24 @@ ul.et-payment-list>li{
     height: 36px;
 }
 
+#etstylejacket .et-progress-des,
+#etstylepant .et-progress-des {
+    top: -90px;
+}
+
+#etstylejacket .et-bag-box,
+#etstylepant .et-bag-box {
+    margin-top: -15px;
+}
+
+#etcontrastjacket .et-progress-des,
+#etcontrastpant .et-progress-des {
+    top: 45px;
+}
+#etcontrastjacket .et-bag-box,
+#etcontrastpant .et-bag-box {
+    margin-top: 13px;
+}
 
 
 

@@ -55,7 +55,7 @@ Route::get('pages/{slug?}', 'HomeController@pages');
 Route::post('/contact', ['as' => 'contact-us', 'uses' => 'HomeController@inquirypost']);
 Route::post('/referto', ['as' => 'referto', 'uses' => 'HomeController@refertofriend']);
 
-
+/* ============================== shirt ======================================= */
 Route::get('/designshirts' ,['as' => 'designshirts' , 'uses' => 'DemoController@index']);
 Route::post('/designshirts',['as' => 'designshirts' , 'uses' => 'DemoController@index']);
 Route::post('/getshirtfabrics',['as' => 'getshirtfabrics' , 'uses' => 'DemoController@getfabdetails']);
@@ -72,9 +72,11 @@ Route::post('/designshirts/postcart',['as' => 'designshirts.postcart' , 'uses' =
 Route::get('/designshirts/edit/{data?}' ,['as' => 'designshirts/edit' , 'uses' => 'DemoController@editcartshirt']);
 /*Singal product edit*/
 Route::get('/designshirts/sedit/{data?}' ,['as' => 'designshirts/edit' , 'uses' => 'DemoController@editcustomshirt']);
+
+Route::get('/mobileshirts' ,['as' => 'mobileshirts' , 'uses' => 'MobileShirtController@index']);
 /*Singal product edit end*/
 
-/*Jacket*/
+/* ============================== Jacket ======================================= */
 Route::get('/designjackets' ,['as' => 'designjackets' , 'uses' => 'JacketController@index']);
 Route::post('/designjackets',['as' => 'designjackets' , 'uses' => 'JacketController@index']);
 Route::post('/getjktfabrics',['as' => 'getjktfabrics' , 'uses' => 'JacketController@getfabdetails']);
@@ -97,9 +99,16 @@ Route::get('/designjackets/sedit/{data?}' ,['as' => 'designshirts/edit' , 'uses'
 
 Route::post('/measurjackets',['as' => 'measurjackets' , 'uses' => 'JacketController@measurestd']);
 Route::post('/measurjacketdtls',['as' => 'measurjacketdtls' , 'uses' => 'JacketController@measurestddetls']);
+
+Route::get('/mobilejackets' ,['as' => 'mobilejackets' , 'uses' => 'MobileJacketController@index']);
+Route::post('/getjktfabrics2',['as' => 'getjktfabrics2' , 'uses' => 'MobileJacketController@getfabdetails']); //158->138px
+Route::post('/getjktbckcollar2',['as' => 'getjktbckcollar2' , 'uses' => 'MobileJacketController@getbackcollardetails']); 
+Route::post('/getjktstyle2',['as' => 'getjktstyle' , 'uses' => 'MobileJacketController@getstyledetails']);
+Route::post('/getsetjktoptions2',['as' => 'getsetjktoptions' , 'uses' => 'MobileJacketController@getjktoptiondetails']);
+
 /*Jacket End*/
 
-/*Vests*/
+/* ============================== Vests ======================================= */
 
 Route::get('/designvests' ,['as' => 'designvests' , 'uses' => 'VestController@index']);
 Route::post('/designvests',['as' => 'designvests' , 'uses' => 'VestController@index']);
@@ -118,9 +127,12 @@ Route::get('/designvests/sedit/{data?}' ,['as' => 'designshirts/edit' , 'uses' =
 /*Singal product edit end*/
 Route::post('/measurvests',['as' => 'measurvests' , 'uses' => 'VestController@measurestd']);
 Route::post('/measurvestdtls',['as' => 'measurvestdtls' , 'uses' => 'VestController@measurestddetls']);
+
+Route::get('/mobilevests' ,['as' => 'mobilevests' , 'uses' => 'MobileVestController@index']);
+Route::post('/designvests/postcart2',['as' => 'designvests.postcart2' , 'uses' => 'MobileVestController@get_item']);
 /*Vests End*/
 
-/*Pants*/
+/* ============================= Pants ========================================= */
 
 Route::get('/designpants' ,['as' => 'designpants' , 'uses' => 'PantController@index']);
 Route::post('/designpants',['as' => 'designpants' , 'uses' => 'PantController@index']);
@@ -137,6 +149,9 @@ Route::get('/designpants/sedit/{data?}' ,['as' => 'designshirts/edit' , 'uses' =
 /*Singal product edit end*/
 Route::post('/measurpants',['as' => 'measurpants' , 'uses' => 'PantController@measurestd']);
 Route::post('/measurpantsdtls',['as' => 'measurpantsdtls' , 'uses' => 'PantController@measurestddetls']);
+
+Route::get('/mobilepants' ,['as' => 'mobilepants' , 'uses' => 'MobilePantController@index']);
+Route::post('/designpants/postcart2',['as' => 'designpants.postcart2' , 'uses' => 'MobilePantController@get_item']);
 /*Pants End*/
 
 /* =================== 3Piece Suits =======================*/
@@ -166,6 +181,11 @@ Route::post('/getfabricsvest',['as' => 'getfabricsvest' , 'uses' => 'ThreePieceC
 
 Route::post('/designthreepiece/postcart',['as' => 'designthreepiece.postcart' , 'uses' => 'ThreePieceController@get_item']);
 Route::get('/cart/threepiecedetails/{id?}',['as' => 'cart.threepiecedetails' , 'uses' => 'CartController@detailcart']);
+
+Route::get('/mobile3pcsuits' ,['as' => 'mobile3pcsuits' , 'uses' => 'MobileThreePieceController@index']);
+Route::post('/getfabricsjacket32',['as' => 'getfabricsjacket32' , 'uses' => 'MobileThreePieceController@getfabjacketdetails']);
+Route::post('/getjktbckcollarthree2',['as' => 'getjktbckcollarthree2' , 'uses' => 'MobileThreePieceController@getbackcollardetails']);
+Route::post('/designthreepiece/postcart2',['as' => 'designthreepiece.postcart2' , 'uses' => 'MobileThreePieceController@get_item']);
 /* =================== 3Piece Suits End ===================*/
 
 /* =================== 2Piece Suits =======================*/
@@ -191,6 +211,11 @@ Route::post('/measurpantid2',['as' => 'measurpantid2' , 'uses' => 'TwoPieceContr
 
 Route::post('/designtwopiece/postcart',['as' => 'designtwopiece.postcart' , 'uses' => 'TwoPieceController@get_item']);
 Route::get('/cart/twopiecedetails/{id?}',['as' => 'cart.twopiecedetails' , 'uses' => 'CartController@detailcart']);
+
+Route::get('/mobile2pcsuits' ,['as' => 'mobile2pcsuits' , 'uses' => 'MobileTwoPieceController@index']);
+Route::post('/getfabricsjacket22',['as' => 'getfabricsjacket22' , 'uses' => 'MobileTwoPieceController@getfabjacketdetails']);
+Route::post('/getjktbckcollartwo2',['as' => 'getjktbckcollartwo2' , 'uses' => 'MobileTwoPieceController@getbackcollardetails']);
+Route::post('/designtwopiece/postcart2',['as' => 'designtwopiece.postcart2' , 'uses' => 'MobileTwoPieceController@get_item']);
 /* =================== 2Piece Suits End ===================*/
 
 Route::group(['prefix' => 'admin'], function () {

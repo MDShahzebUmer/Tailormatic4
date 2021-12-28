@@ -16,7 +16,7 @@
                 </ol>
                 <div class="carousel-inner" role="listbox"><!-- Wrapper For Slides -->
                    @foreach($slider as $s)
-                    <div @if($loop->first) class="item active" @else class="item" @endif ><!-- First Slide -->
+                    <div @if($loop->first) class="item banner-slide-div banner-slide-{{$s->id}} active" @else class="item banner-slide-div banner-slide-{{$s->id}}" @endif ><!-- First Slide -->    
                         <!-- Slide Background -->
                         <img src="{{asset('/storage/')}}/{{$s->image}}" alt="{{$alt_name}}"  class="slide-image"/>
                         <!-- Slide Text Layer -->

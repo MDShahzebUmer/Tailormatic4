@@ -23,7 +23,8 @@
 .bs-slider > .carousel-inner > .item > img,
 .bs-slider > .carousel-inner > .item > a > img {
     margin: auto;
-    width: 100% !important;
+    /*width: 100% !important;*/
+    width: 100%;
 }
 
 /********************

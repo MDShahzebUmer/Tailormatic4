@@ -1,17 +1,21 @@
+<?php  
+    $device_info = App\Http\Helpers::systemInfo(); 
+    $device = $device_info['device'];   // 'MOBILE','SYSTEM'
+?>
 <ul>
     <li><a href="{{url('/')}}">HOME</a></li>
     <li>|</li>
-    <li><a href="{{url('/designshirts')}}">SHIRTS</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobileshirts'):URL('/designshirts')}}">SHIRTS</a></li> 
     <li>|</li>
-    <li><a href="{{url('/designjackets')}}">JACKETS</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobilejackets'):URL('/designjackets')}}">JACKETS</a></li>
     <li>|</li>
-    <li><a href="{{url('/designvests')}}">VESTS</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobilevests'):URL('/designvests')}}">VESTS</a></li>  
     <li>|</li>
-    <li><a href="{{url('/designpants')}}">PANTS</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobilepants'):URL('/designpants')}}">PANTS</a></li>    
     <li>|</li>
-    <li><a href="{{url('/design3pcsuits')}}">3 PIECE SUIT</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobile3pcsuits'):URL('/design3pcsuits')}}">3Piece Suit</a></li>    
     <li>|</li>
-    <li><a href="{{url('/design2pcsuits')}}">2 PIECE SUIT</a></li>
+    <li><a href="{{$device=='MOBILE'?URL('/mobile2pcsuits'):URL('/design2pcsuits')}}">2Piece Suit</a></li>    
     <!-- <li>|</li>
     <li><a href="{{url('/designsuits')}}">WOMEN SUIT</a></li>  -->
 </ul>

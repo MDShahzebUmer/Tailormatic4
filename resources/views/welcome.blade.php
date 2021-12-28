@@ -1,4 +1,171 @@
 <?php  $seo = App\Http\Helpers::page_seo_details(32);?>
+
+<style>
+@media only screen and (min-width: 0px) and (max-width: 667px){
+    #mibew-agent-button {
+        display: none !important;
+    }
+    .et-testimonials .gp_products_carousel_wrapper {
+        overflow: hidden !important;
+    }
+    #et-header .et-logo {
+        width: 95% !important;
+    }
+    #et-header .et-logo > .top-logo {
+        background-color: #ffffff00 !important;
+        border: none;
+        width: 100px !important;
+        height: 100px !important;
+    }
+    /* ---------------- menu -------------------------- */
+    #et-header .hamburger {
+        top: 0px;
+        right: 0px;
+        transform: scale(0.4);
+    }
+    .hamburger .hamb-1, 
+    .hamburger .hamb-4, 
+    .hamburger .hamb-7 {
+        width: 42px !important;
+        height: 7px;
+    }
+
+    .et-navbar .navbar-nav {
+        background-color: #ffffff !important;
+    }
+
+    #sidebar-wrapper ul a, #sidebar-wrapper ul span {
+        color: #242424 !important;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.2rem;
+    }
+
+    #sidebar-wrapper .et-tab-content ul a {
+        text-align: end;
+    }
+    #et-wrapper .et-tab-content .tab-pane.active {
+        background-color: #efefef !important;
+    }
+    .et-nav-content:before {
+        background: -webkit-linear-gradient(right, rgb(20 14 10 / 23%) 0, rgb(16 11 8 / 9%) 20%, rgb(10 7 5 / 0%) 50%, rgba(0, 0, 0, .06) 100%) !important;
+    }
+    .et-nav-content:after {
+        background: none !important;
+    }
+
+    #et-wrapper .et-tab-content {
+        width: 100%;
+        float: left;
+    }
+
+    .et-navbar .navbar-nav>li>a>img {
+        top: 11px;
+    }
+    #et-wrapper .et-tab-content .tab-pane,
+    .et-nav-content {
+        min-height: 685px;
+    }
+    /* ---------------- rating (five star) ------------ */
+    .et-slide-review ul>li>span {
+        color: #ffd407 !important;
+    }
+    /* ---------------- home banner ------------------- */
+    .bs-slider{
+        max-height: 850px !important;
+    }
+    .banner-slide-div img {
+        max-width: 300% !important;
+        height: auto !important;
+    }
+    .banner-slide-1 img {
+        width: 200% !important;
+        transform: translate(-15%, 0%) !important;
+    }
+    .banner-slide-2 img {
+        width: 185% !important;
+        transform: translate(-28%, 0%) !important;
+    }
+    .banner-slide-3 img {
+        width: 270% !important;
+        transform: translate(-30%, 0%) !important;
+    }
+    .banner-slide-4 img {
+        width: 270% !important;
+        transform: translate(-37%, 0%) !important;
+    }
+    .banner-slide-5 img {
+        width: 270% !important;
+        transform: translate(-33%, 0%) !important;
+    }
+    .banner-slide-6 img {
+        width: 200% !important;
+        transform: translate(-40%, 0%) !important;
+    }
+    .banner-slide-div .slide-text{
+        display: grid;
+    }
+    .banner-slide-div .slide-text > h2>span,
+    .banner-slide-div .slide-text > h2 {
+        color: #f70303 !important;
+        text-shadow: 0px 1px 3px #ffffff;
+        margin: auto !important;
+    }
+    .banner-slide-div .slide-text > h1>span {
+        color: #ffffff !important;
+    }
+    .banner-slide-div .slide-text > .et-btn-default {
+        background-color: #4d372f87 !important;
+        opacity: 0 !important;
+    }
+
+    .banner-slide-div.active .et-btn-default {
+        opacity: 1 !important;
+        -webkit-transition: opacity ease-in-out 2s;
+        -moz-transition: opacity ease-in-out 2s;
+        -ms-transition: opacity ease-in-out 2s;
+        -o-transition: opacity ease-in-out 2s;
+        transition: opacity ease-in-out 2s;
+    }
+
+    .et-call-back>h2, .et-call-back>span>a {
+        color: #b38d7f !important;
+    }
+    .et-effect h2{
+        font-size: 30px !important;
+        text-shadow: 3px -1px 1px #000 !important;
+    }
+    
+}
+@media only screen and (min-width: 333px) and (max-width: 667px){
+    .banner-slide-div .slide-text{
+        top: 50% !important;
+    }
+    .banner-slide-div .slide-text > h2>span,
+    .banner-slide-div .slide-text > h2 {
+        font-size: 35px !important;
+    }
+    .banner-slide-div .slide-text > .et-btn-default {
+        margin: 5px 20% !important;
+        font-size: 20px !important;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 332px){
+    .banner-slide-div .slide-text{
+        top: 40% !important;
+    }
+    .banner-slide-div .slide-text > h2>span,
+    .banner-slide-div .slide-text > h2 {
+        font-size: 25px !important;
+        
+    }
+    .banner-slide-div .slide-text > .et-btn-default {
+        margin: 1px 25% !important;
+        font-size: 12px !important;
+    }
+}
+</style>
+
 @include('layouts.inc.header')
 @include('layouts.inc.slider')
 <section class="et-serivces"><!-- Service Section Start -->

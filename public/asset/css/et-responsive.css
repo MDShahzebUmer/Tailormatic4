@@ -600,7 +600,8 @@ ul.featured-img-list li .content p, .fancy-collapse-panel .panel-title{font-size
 .et-nav-content > ul > li > a{font-size:12px;text-align: left;font-family: "Proxima Nova bold";}
 .et-home-slider .bs-slider > .carousel-inner > .item > img {
     height: 280px;
-    width: auto !important;
+    /*width: auto !important;*/
+    width: auto;
     max-width: inherit;
 }
 .et-home-slider .slide-text {

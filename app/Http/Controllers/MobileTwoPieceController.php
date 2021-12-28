@@ -31,7 +31,7 @@ use App\ShippingsAddr;
 use App\CanvasDataurl;
 
 
-class ThreePieceController extends Controller
+class MobileTwoPieceController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -54,10 +54,15 @@ class ThreePieceController extends Controller
 
     public function index()
     {
+		$device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='MOBILE'){
+			return redirect(route('design2pcsuits'));
+		} 
         //jacket data ================================================================             
         $common_name1 = Helpers::get_jacket_FirstInfo(2);
 
-		$fb_group = Helpers::get_fabric_group_info(18);
+		$fb_group = Helpers::get_fabric_group_info(19);
 		$fabric_rate = $common_name1['fabric_rate'];
 		$fbgrp_name = $common_name1['fbgrp_name'];
 		foreach($fb_group as $row){
@@ -244,97 +249,11 @@ class ThreePieceController extends Controller
 		
 		/* Contrast */
 		$contrast_pant_record = MainAttribute::select('*')->where('cat_id', '=', $cat_id)->where('parent_id', '=', 46)->get();
-
-		// vests data ===================================================================================
-		$common_name = Helpers::get_vests_FirstInfo(3);
-
-		$fabric_rate = $common_name['fabric_rate'];
-		$fbgrp_name = $common_name['fbgrp_name'];
-		foreach($fb_group as $row){
-			if($row->parent_id == $common_name['fabric_gid']){
-				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
-				{
-					$fabric_rate = $row->fabric_offer_price;
-				}else{
-					$fabric_rate = $row->fabric_rate;
-				}
-				$fbgrp_name = $row->fbgrp_name;
-				break;
-			}
-		}
-
-		$eTailorObj=[
-			'oprodType'=>'Vests',
-			'ocatID'=>'3',
-			'ofabricGroup'=>$fbgrp_name,
-			'ofabricType'=>$common_name['fabric_gid'],
-			'ofabricPrice'=>$fabric_rate,
-			'ofabric'=>$common_name['fabric_eid'],
-			'ofabricName'=>$common_name['fabric_name'],
-			'ofabricImage'=>$common_name['fabric_img_l'],
-			'ofabricList'=>$common_name['fabric_img_s'],
-			'ofabricDesc'=>$common_name['fabric_desc'],
-			'ostyle'=>'85',
-			'ostyleName'=>'V Neck',
-			'obuttonstyle'=>'89',
-			'obuttonstyleName'=>'6 Buttons',
-			'opacket'=>'92', 
-			'opacketName'=>'Single Opening',
-			'obottom'=>'95',
-			'obottomName'=>'Angle Cut',
-			'oback'=>'97',
-			'obackName'=>'Plain',
-			'ocontrast'=>'33',
-			'ocontrastName'=>'Houndstooth',
-			'ocontlapel'=>'false',
-			'ocontpockets'=>'false',
-			'olining'=>'2',
-			'oliningName'=>'DARK Grey',
-			'opiping'=>'1',
-			'opipingName'=>'lvory',
-			'obutton'=>'16',
-			'obuttonName'=>'White',
-			'obuttonCode'=>'S1',
-			'obuttonHole'=>'22',
-			'obuttonHoleName'=>'Black',
-			'obuttonHoleCode'=>'A6',
-			'osizePattern'=>'Body',
-			'osizeStyle'=>'Comfortable',
-			'osizeType'=>'inch',
-			'osizeFit'=>'',
-			'osizeChest'=>'',
-			'osizeWaist'=>'',
-			'osizeHip'=>'',
-			'osizeLength'=>'',
-			'osizeShoulder'=>'',
-			'oqty'=>'1',
-			'ofrontView'=>'',
-			'obackView'=>'',
-			'ocartID'=>''
-		];
 		
-		$mytab="etfabric";
-		$mysubtab="fabric".$common_name['fabric_gid'];
-		$loadme="0";
-
-		/* Fabric */
-		$id=$eTailorObj['ocatID'];
-		$car_record = Category::select('*')->where('id', '=', 3)->first($id);
-		$cat_id = $car_record->id;
-		$group_record = FabricGroup::select('*')->where('cat_id', '=', $cat_id)->where('fabric_status','=','ACTIVE')->get();
-		//echo '<pre>'.print_r($group_record,true).'</pre>';
-		
-		/* Attribute Style */
-		$mainattr_record = MainAttribute::select('*')->where('cat_id', '=', $cat_id)->where('parent_id', '=', 32)->get();
-		
-		/* Contrast */
-		$contrast_record = MainAttribute::select('*')->where('cat_id', '=', $cat_id)->where('parent_id', '=', 33)->get();
-
-        return view('threepiece.threepiece')->with(
+        return view('twopiece.mobiletwopiece')->with(
         	compact('car_record','group_jacket_record','mainattr_jacket_record','contrast_jacker_record','fb_group'
         		,'eJacketTailorObj','mytabjacket','myjacketsubtab','loadme',
-        		'group_pant_record','mainattr_pant_record','contrast_pant_record','ePantTailorObj','mypanttab','mypantsubtab',
-        		'group_record','mainattr_record','contrast_record','eTailorObj','mytab','mysubtab'
+        		'group_pant_record','mainattr_pant_record','contrast_pant_record','ePantTailorObj','mypanttab','mypantsubtab'
         	));
     } 
 
@@ -363,12 +282,10 @@ class ThreePieceController extends Controller
 
 		/*Update front image and back image*/
 		$rnd_val = rand(9,999);
-		$filename_frontimg = $rnd_val.'_3piece_1_front';
-		$filename_backimg = $rnd_val.'_3piece_1_back';
-		$filename_pant_frontimg = $rnd_val.'_3piece_2_front';
-		$filename_pant_backimg = $rnd_val.'_3piece_2_back';
-		$filename_vest_frontimg = $rnd_val.'_3piece_3_front';
-		$filename_vest_backimg = $rnd_val.'_3piece_3_back';
+		$filename_frontimg = $rnd_val.'_2piece_1_front';
+		$filename_backimg = $rnd_val.'_2piece_1_back';
+		$filename_pant_frontimg = $rnd_val.'_2piece_2_front';
+		$filename_pant_backimg = $rnd_val.'_2piece_2_back';
 
 		// $finalarr = $eTailorObj;
 				
@@ -429,30 +346,20 @@ class ThreePieceController extends Controller
 		Helpers::dataurltoimg2($request['frntviewfinal'],$cartId,$filename_frontimg);
 		Helpers::dataurltoimg2($request['bkviewfinal'],$cartId,$filename_backimg);
 		Helpers::dataurltoimg2($request['pant_frntviewfinal'],$cartId,$filename_pant_frontimg);
-		Helpers::dataurltoimg2($request['pant_bkviewfinal'],$cartId,$filename_pant_backimg);	
-		Helpers::dataurltoimg2($request['vest_frntviewfinal'],$cartId,$filename_vest_frontimg);
-		Helpers::dataurltoimg2($request['vest_bkviewfinal'],$cartId,$filename_vest_backimg);
+		Helpers::dataurltoimg2($request['pant_bkviewfinal'],$cartId,$filename_pant_backimg);
 
 		$path_prev = 'Orderimg/'.$cartId;
 		$frontimg = $path_prev.$filename_frontimg.'.png';
 		$backimg = $path_prev.$filename_backimg.'.png';	
 		$pant_frontimg = $path_prev.$filename_pant_frontimg.'.png';
 		$pant_backimg = $path_prev.$filename_pant_backimg.'.png';
-		$vest_frontimg = $path_prev.$filename_vest_frontimg.'.png';
-		$vest_backimg = $path_prev.$filename_vest_backimg.'.png';
 
 		$ppt['pant_frntviewfinal']= $pant_frontimg;
-		$ppt['pant_bkviewfinal']= $pant_backimg;
-		$ppt['vest_frntviewfinal']= $vest_frontimg;
-		$ppt['vest_bkviewfinal']= $vest_backimg;	 
+		$ppt['pant_bkviewfinal']= $pant_backimg;	 
 		
 		$cartimgSet = [					
 			'canvas_front_img' => $frontimg,
 			'canvas_back_img' => $backimg,	
-			// 'canvas_pant_front_img' => $pant_frontimg,
-			// 'canvas_pant_back_img' => $pant_backimg,
-			// 'canvas_vest_front_img' => $vest_frontimg,
-			// 'canvas_vest_back_img' => $vest_backimg,
 			'item_description' => serialize($ppt),				 
 		];
 		DB::table('carts')->where('id', $cartId)->update($cartimgSet);
@@ -481,14 +388,14 @@ class ThreePieceController extends Controller
             ->get();
 		
 		$fabgrup_record = FabricGroup::select('*')->where('id', '=', $fabgrp)->find($fabgrp);
+		
 		// if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
 		// {
 		// 	  $frate = $fabgrup_record->fabric_offer_price;
 		// }else{
 		// 		$frate =    $fabgrup_record->fabric_rate;
 		// }
-
-		$fb_group = Helpers::get_fabric_group_info(18);	
+		$fb_group = Helpers::get_fabric_group_info(19);	
 		$frate = 0;
 		foreach($fb_group as $row){
 			if($row->parent_id == $fabgrup_record->id){
@@ -514,58 +421,58 @@ class ThreePieceController extends Controller
 		$datastyle=$datastyle.'<div class="carousel-container">';
 		$mainattr_record = MainAttribute::select('*')->where('cat_id', '=', 2)->where('parent_id', '=', 16)->get();
 		foreach($mainattr_record as $mattr){
-			$datastyle=$datastyle.'<div class="et-carousel" id="menu-opt-'.$mattr->id.'"><div id="et-style-item-'.$mattr->id.'" class="carousel slide  gp_products_carousel_wrapper" data-ride="carousel" data-interval="false"><div class="carousel-inner" role="listbox"><div class="item active"><ul class="et-item-list">';
-			if($mattr->id==21){
-				$stylci=1; $stylelst = AttributeStyle::select('*')->where('attri_id','=',$mattr->id)->get();
-				foreach($stylelst as $styllst){
-					if($stylci==7){$datastyle=$datastyle.'</ul></div><div class="item"><ul class="et-item-list">'; $stylci=1;}
-					if(($eTailorObjN['ostyle']==54 || $eTailorObjN['ostyle']==55 || $eTailorObjN['ostyle']==56 || $eTailorObjN['ostyle']==57 || $eTailorObjN['ostyle']==58) && ($styllst->id==130)) {
-						$datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getjackstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstylejacket\');">';
-						$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
-						foreach($styleimglst as $ls){
-							$datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
-							$buttimglst = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
-							foreach($buttimglst as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'">';}
-							$datastyle=$datastyle.'</figure>';
-							if($mattr->id==21){ if($styllst->id == $eTailorObjN['obottom']){$datastyle=$datastyle.'<div class="icon-check"></div>';}}
-						}
-						$datastyle=$datastyle.'</li>'; 
-					} elseif(($eTailorObjN['ostyle']==50 || $eTailorObjN['ostyle']==51 || $eTailorObjN['ostyle']==52 || $eTailorObjN['ostyle']==53) && ($styllst->id==63 || $styllst->id==64 || $styllst->id==65)){
-						$datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getjackstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstylejacket\');">';
-						$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
-						foreach($styleimglst as $ls){
+		$datastyle=$datastyle.'<div class="et-carousel" id="menu-opt-'.$mattr->id.'"><div id="et-style-item-'.$mattr->id.'" class="carousel slide  gp_products_carousel_wrapper" data-ride="carousel" data-interval="false"><div class="carousel-inner" role="listbox"><div class="item active"><ul class="et-item-list">';
+		if($mattr->id==21){
+			$stylci=1; $stylelst = AttributeStyle::select('*')->where('attri_id','=',$mattr->id)->get();
+			foreach($stylelst as $styllst){
+				if($stylci==7){$datastyle=$datastyle.'</ul></div><div class="item"><ul class="et-item-list">'; $stylci=1;}
+				if(($eTailorObjN['ostyle']==54 || $eTailorObjN['ostyle']==55 || $eTailorObjN['ostyle']==56 || $eTailorObjN['ostyle']==57 || $eTailorObjN['ostyle']==58) && ($styllst->id==130)) {
+					$datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getjackstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstylejacket\');">';
+					$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
+					foreach($styleimglst as $ls){
 						$datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
 						$buttimglst = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
 						foreach($buttimglst as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'">';}
 						$datastyle=$datastyle.'</figure>';
 						if($mattr->id==21){ if($styllst->id == $eTailorObjN['obottom']){$datastyle=$datastyle.'<div class="icon-check"></div>';}}
-						}
-						$datastyle=$datastyle.'</li>';
 					}
-					$stylci++;
-				}
-			} else{
-				$stylci=1; $stylelst = AttributeStyle::select('*')->where('attri_id','=',$mattr->id)->get();
-				foreach($stylelst as $styllst){
-					if($stylci==7){$datastyle=$datastyle.'</ul></div><div class="item"><ul class="et-item-list">'; $stylci=1;}
+					$datastyle=$datastyle.'</li>'; 
+				} elseif(($eTailorObjN['ostyle']==50 || $eTailorObjN['ostyle']==51 || $eTailorObjN['ostyle']==52 || $eTailorObjN['ostyle']==53) && ($styllst->id==63 || $styllst->id==64 || $styllst->id==65)){
 					$datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getjackstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstylejacket\');">';
 					$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
 					foreach($styleimglst as $ls){
-						$datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
-						$buttimglstt = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
-						foreach($buttimglstt as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'">';}
-						$datastyle=$datastyle.'</figure>';
-						if($mattr->id==19){ if($styllst->id == $eTailorObjN['ostyle']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-						} elseif($mattr->id==20){ if($styllst->id == $eTailorObjN['olapel']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-						} elseif($mattr->id==22){ if($styllst->id == $eTailorObjN['opacket']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-						} elseif($mattr->id==23){ if($styllst->id == $eTailorObjN['osleeveButn']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-						} elseif($mattr->id==24){ if($styllst->id == $eTailorObjN['ovent']){$datastyle=$datastyle.'<div class="icon-check"></div>';}}
+					$datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
+					$buttimglst = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
+					foreach($buttimglst as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'">';}
+					$datastyle=$datastyle.'</figure>';
+					if($mattr->id==21){ if($styllst->id == $eTailorObjN['obottom']){$datastyle=$datastyle.'<div class="icon-check"></div>';}}
 					}
 					$datastyle=$datastyle.'</li>';
-				$stylci++;
 				}
+				$stylci++;
 			}
-			$datastyle=$datastyle.'</ul></div></div><a class="left carousel-control gp_products_carousel_control_left" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="prev"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-left.png"></span><span class="sr-only">Previous</span></a><a class="right carousel-control gp_products_carousel_control_right" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="next"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-right.png"></span><span class="sr-only">Next</span></a></div></div>';
+		} else{
+			$stylci=1; $stylelst = AttributeStyle::select('*')->where('attri_id','=',$mattr->id)->get();
+			foreach($stylelst as $styllst){
+				if($stylci==7){$datastyle=$datastyle.'</ul></div><div class="item"><ul class="et-item-list">'; $stylci=1;}
+				$datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getjackstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstylejacket\');">';
+				$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
+				foreach($styleimglst as $ls){
+					$datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
+					$buttimglstt = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
+					foreach($buttimglstt as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'">';}
+					$datastyle=$datastyle.'</figure>';
+					if($mattr->id==19){ if($styllst->id == $eTailorObjN['ostyle']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
+					} elseif($mattr->id==20){ if($styllst->id == $eTailorObjN['olapel']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
+					} elseif($mattr->id==22){ if($styllst->id == $eTailorObjN['opacket']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
+					} elseif($mattr->id==23){ if($styllst->id == $eTailorObjN['osleeveButn']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
+					} elseif($mattr->id==24){ if($styllst->id == $eTailorObjN['ovent']){$datastyle=$datastyle.'<div class="icon-check"></div>';}}
+				}
+				$datastyle=$datastyle.'</li>';
+			$stylci++;
+			}
+		}
+		$datastyle=$datastyle.'</ul></div></div><a class="left carousel-control gp_products_carousel_control_left" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="prev"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-left.png"></span><span class="sr-only">Previous</span></a><a class="right carousel-control gp_products_carousel_control_right" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="next"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-right.png"></span><span class="sr-only">Next</span></a></div></div>';
 		}
 		$datastyle=$datastyle.'</div>';
 		$datastyle=$datastyle.'<div class="et-progress-des et-style-bg">';
@@ -682,7 +589,6 @@ class ThreePieceController extends Controller
 			}
 		}
 		$datacont=$datacont.'</div>';
-		
 		$datacont=$datacont.'<div class="et-progress-des et-style-bg">';
 		$datacont=$datacont.'<div class="et-content-fab" id="miniview-etcontrastjacket-25" ><figure class="et-selected-img et-selected-full"><img src="" alt=""></figure><div class="et-style-select"><h2>Contrast Fabric</h2><div class="et-check-box"><div class="checkbox"><label>';
 		if($eTailorObjN['olapelupper']=="true"){$datacont=$datacont.'<input type="checkbox" name="lapeluppertxt" id="lapeluppertxt" value="true" checked onClick="javascript:getjacketseloptions('.$eTailorObjN['olapelupper'].',\'LapelUpper\',\'25\',\'etcontrastjacket\');">';} else{$datacont=$datacont.'<input type="checkbox" name="lapeluppertxt" id="lapeluppertxt" value="true" onClick="javascript:getjacketseloptions('.$eTailorObjN['olapelupper'].',\'LapelUpper\',\'25\',\'etcontrastjacket\');">';}
@@ -709,7 +615,7 @@ class ThreePieceController extends Controller
 		}
 		$datacont=$datacont.'</ul></div></div>';
 		
-		$datacont=$datacont.'<div class="et-content-fab jacket-backcollr-bg" id="miniview-etcontrastjacket-27" style="display:none;" ><figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: 0px;left: 137px;"></figure><div class="et-style-select"><h2>Back Collar</h2></div></div>';
+		$datacont=$datacont.'<div class="et-content-fab jacket-backcollr-bg" id="miniview-etcontrastjacket-27" style="display:none;" ><figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: -2px;left: 138px;width: 80%;"></figure><div class="et-style-select"><h2>Back Collar</h2></div></div>';
 		
 		$datacont=$datacont.'<div class="et-content-fab" id="miniview-etcontrastjacket-28" style="display:none;"><figure class="et-sleevebuttonds"><img class="et-main-sleeve" src="'.$paths.'/Jacket/Fabric/ImageIn/'.$eTailorObjN['ofabric'].'.png">';
 		if($eTailorObjN['osleeveButn']=="73"){
@@ -1527,12 +1433,11 @@ class ThreePieceController extends Controller
 		$style_record = Colorcoller::select('*')->where('id', '=', $ff)->find($ff);
 		$eTailorObjN['obackCollarName']=$style_record->name;
 		
-		$data=$data.'<figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: 0px;left: 137px;"></figure><div class="et-style-select"><h2>Back Collar</h2></div>';
+		$data=$data.'<figure><img src="'.$paths.'/Jacket/BackColler/'.$eTailorObjN['obackCollar'].'.png" style="position: absolute;top: -2px;left: 138px;width: 80%;"></figure><div class="et-style-select"><h2>Back Collar</h2></div>';
 		
 		$data = ['1' => $data,'2' => $_POST['t'],'3' => $attrbid,'4' => $eTailorObjN];
 		return $data;
 	}
-
 	// =================================== for pants ===============================================
 	public function getfabpantdetails(){
 		$data='';
@@ -1555,7 +1460,7 @@ class ThreePieceController extends Controller
 		// }else{
 		// 		$frate =    $fabgrup_record->fabric_rate;
 		// }
-		$fb_group = Helpers::get_fabric_group_info(18);	
+		$fb_group = Helpers::get_fabric_group_info(19);	
 		$frate = 0;
 		foreach($fb_group as $row){
 			if($row->parent_id == $fabgrup_record->id){
@@ -1568,7 +1473,7 @@ class ThreePieceController extends Controller
 				break;
 			}
 		}
-		
+				
 		$eTailorObjN['ofabricGroup']=$fabgrup_record->fbgrp_name;
 		$eTailorObjN['ofabricType']=$fabgrp;
 		$eTailorObjN['ofabricPrice']=$frate;
@@ -1885,95 +1790,6 @@ class ThreePieceController extends Controller
 			->where('standardsize_id','=',$measure_jacket->standardsize_id)
 			->first();
 		$data=$measure_pant->id;
-		return $data;
-	}
-
-	public function getVestBodyMeasurmentIdByJacket(){
-		$measure_jacket = BodyMeasurment::select('*')->where('id','=',$_POST['sizeid'])->first();
-		$measure_vest = BodyMeasurment::select('*')
-			->where('cat_id','=',3)
-			->where('country_id','=',$_POST['cntryid'])
-			->where('standardsize_id','=',$measure_jacket->standardsize_id)
-			->first();
-		$data=$measure_vest->id;
-		return $data;
-	}
-
-	// ================================= for vests ==================================================
-	public function getfabvestdetails(){
-		$data='';
-		$datastyle='';
-		$carray=$_POST['carr'];
-		$ff=$_POST['fabid'];
-		$paths=$_POST['rurl'];
-		$p=explode('/',$paths);
-		$eTailorObjN=$carray;
-		$eTailorObjN['ofabric']=$ff;
-		$fabric_record = Etfabric::select('*')->where('id', '=', $ff)->find($ff);
-		$fabgrp=$fabric_record->fbgrp_id;
-		
-		$fabgrup_record = FabricGroup::select('*')->where('id', '=', $fabgrp)->find($fabgrp);
-		
-		// if($fabgrup_record->fabric_offer_price != 0 && $fabgrup_record->fabric_offer_price != '')
-		// {
-		// 	  $frate = $fabgrup_record->fabric_offer_price;
-		// }else{
-		// 		$frate =    $fabgrup_record->fabric_rate;
-		// }
-		$fb_group = Helpers::get_fabric_group_info(18);	
-		$frate = 0;
-		foreach($fb_group as $row){
-			if($row->parent_id == $fabgrup_record->id){
-				if($row->fabric_offer_price != 0 && $row->fabric_offer_price != '')
-				{
-					$frate = $row->fabric_offer_price;
-				}else{
-					$frate = $row->fabric_rate;
-				}
-				break;
-			}
-		}
-		
-		$eTailorObjN['ofabricGroup']=$fabgrup_record->fbgrp_name;
-		$eTailorObjN['ofabricType']=$fabgrp;
-		$eTailorObjN['ofabricPrice']=$frate;
-		$eTailorObjN['ofabricName']=$fabric_record->fabric_name;
-		$eTailorObjN['ofabricImage']=$fabric_record->fabric_img_l;
-		$eTailorObjN['ofabricList']=$fabric_record->fabric_img_s;
-		$eTailorObjN['ofabricDesc']=$fabric_record->fabric_desc;
-		
-		$data=$data.'<div class="et-content-fab"><figure class="et-fab-img"><img src="'.$paths.'/'.$fabric_record->fabric_img_l.'" alt="'.$fabric_record->fabric_name.'"></figure><div class="et-fab-box"><h3>'.$fabric_record->fabric_desc.'</h3><span>'.$fabric_record->fabric_name.'</span><span>Fit-Guaranteed Price <img src="'.$p[0].'/demo/img/product/info.png" alt="info"></span><h1>$'.$fabgrup_record->fabric_rate.'</h1><h3><a href="#" data-toggle="modal" data-target="#fabric-id">Zoom</a></h3></div></div><div class="et-next-back"><ul><li class="et-prev"><a href="#" onClick="javascript:navigateback();">Back</a></li><li class="et-next"><a href="#" onClick="javascript:navigatenext();">Next</a></li></ul></div><div class="modal fade et-fabric-modal" id="fabric-id" tabindex="-1" role="dialog" aria-labelledby="fabric-modal"><div class="modal-dialog" role="document"><div class="modal-content"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="modal-body"><figure class="et-fabric-big"><img src="'.$paths.'/'.$fabric_record->fabric_img_l.'" alt="'.$fabric_record->fabric_name.'"></figure></div></div></div></div>';
-		
-		$datastyle=$datastyle.'<div class="carousel-container">';
-		$mainattr_record = MainAttribute::select('*')->where('cat_id', '=', 3)->where('parent_id', '=', 32)->get();
-		foreach($mainattr_record as $mattr) {
-        $datastyle=$datastyle.'<div class="et-carousel" id="menu-opt-'.$mattr->id.'"><div id="et-style-item-'.$mattr->id.'" class="carousel slide gp_products_carousel_wrapper" data-ride="carousel" data-interval="false"><div class="carousel-inner" role="listbox"><div class="item active"><ul class="et-item-list">';
-        
-		$stylci=1; $stylelst = AttributeStyle::select('*')->where('attri_id','=',$mattr->id)->get();
-        foreach($stylelst as $styllst) {
-        if($stylci==7){ $datastyle=$datastyle.'</ul></div><div class="item"><ul class="et-item-list">'; $stylci=1;}
-        $datastyle=$datastyle.'<li class="et-item" id="optionlist-'.$mattr->id.'-'.$styllst->id.'" data-title="'.$styllst->style_name.'" title="'.$styllst->style_name.'" onClick="javascript:getstyles('.$styllst->id.',\''.$mattr->id.'\',\'etstyle\');">';
-        
-		$styleimglst = Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObjN['ofabric'])->get();
-        foreach($styleimglst as $ls){
-        $datastyle=$datastyle.'<figure class="et-item-img"><img class="et-main-list-img" src="'.$paths.'/'.$ls->list_img.'" alt="'.$ls->style_name.'">';
-        
-		$buttimglst = ButtonStyleImage::select('*')->where('attri_sty_id' ,'=' ,$styllst->id)->where('attri_id' , '=' , $styllst->attri_id)->where('but_id' , '=' , $eTailorObjN['obutton'])->get();
-       foreach($buttimglst as $buttls){ $datastyle=$datastyle.'<img src="'.$paths.'/'.$buttls->button_list_img.'" alt="'.$ls->style_name.'"></figure>';}}
-	   if($mattr->id==35) { if($styllst->id == $eTailorObjN['ostyle']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-	   } elseif($mattr->id==36){ if($styllst->id == $eTailorObjN['obuttonstyle']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-	   } elseif($mattr->id==37){ if($styllst->id == $eTailorObjN['opacket']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-	   } elseif($mattr->id==38){ if($styllst->id == $eTailorObjN['obottom']){$datastyle=$datastyle.'<div class="icon-check"></div>';}
-	   } elseif($mattr->id==39){ if($styllst->id == $eTailorObjN['oback']){$datastyle=$datastyle.'<div class="icon-check"></div>';} }
-	   $datastyle=$datastyle.'</li> ';
-       $stylci++;
-	   }
-	    $datastyle=$datastyle.'</ul></div></div><a class="left carousel-control gp_products_carousel_control_left" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="prev"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-left.png"></span><span class="sr-only">Previous</span></a><a class="right carousel-control gp_products_carousel_control_right" href="#et-style-item-'.$mattr->id.'" role="button" data-slide="next"><span class="gp_products_carousel_control_icons" aria-hidden="true"><img src="'.$p[0].'/demo/img/ar-right.png"></span><span class="sr-only">Next</span></a></div></div>';
-		}
-		$datastyle=$datastyle.'</div>';
-        $datastyle=$datastyle.'<div class="et-progress-des et-style-bg"><div class="et-content-fab jacket-lapel-bg" id="miniview-etstyle-35"><div class="et-style-select"><h2>'.$eTailorObjN['ostyleName'].'</h2></div></div><div class="et-content-fab" id="miniview-etstyle-36" style="display:none;"><figure class="et-selected-img et-selected-full"><img src="" alt=""></figure><div class="et-style-select"><h2>'.$eTailorObjN['obuttonstyleName'].'</h2></div></div><div class="et-content-fab jacket-bottom-bg" id="miniview-etstyle-37" style="display:none;"><div class="et-style-select"><h2>'.$eTailorObjN['opacketName'].'</h2></div></div><div class="et-content-fab jacket-bottom-bg" id="miniview-etstyle-38" style="display:none;"><div class="et-style-select"><h2>'.$eTailorObjN['obottomName'].'</h2></div></div><div class="et-content-fab" id="miniview-etstyle-39" style="display:none;"><figure class="et-selected-img et-selected-full"><img src="" alt=""></figure><div class="et-style-select"><h2>'.$eTailorObjN['obackName'].'</h2></div></div><div class="et-next-back"><ul><li class="et-prev"><a href="#" onClick="javascript:navigateback();">Back</a></li><li class="et-next"><a href="#" onClick="javascript:navigatenext();">Next</a></li></ul></div></div>';
-		
-		$data = ['1' => $data,'2' => $_POST['t'],'3' => $fabgrp,'4' => $eTailorObjN,'5' => $datastyle];
 		return $data;
 	}
 
