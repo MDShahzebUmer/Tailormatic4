@@ -125,7 +125,7 @@
 <div id="tailor_content" class="tailor-content">
     <!-- ========================== header =============================== -->
     <div class="row t-header">
-        <div class="col-md-11">
+        <div class="col-md-11 left-h">
             <div class="pt-right-p">
                 <ul>
                     <li class=""> 
@@ -159,7 +159,7 @@
             </ul>
             </div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 right-h">
             <header id="et-header"><!-- Header Start -->
                 <div class="container">
                     <div class="row">

@@ -52,7 +52,12 @@ class VestController extends Controller
 
     public function index()
     {
-         $common_name = Helpers::get_vests_FirstInfo(3);
+		$device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='SYSTEM'){
+			return redirect(route('mobilevests'));
+		}
+        $common_name = Helpers::get_vests_FirstInfo(3);
 		$eTailorObj=[
 			'oprodType'=>'Vests',
 			'ocatID'=>'3',

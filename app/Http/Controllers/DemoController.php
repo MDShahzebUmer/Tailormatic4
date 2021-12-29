@@ -59,7 +59,11 @@ class DemoController extends Controller
     /*Welcome blade call*/
     public function index()
     {
-        		
+        $device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='SYSTEM'){
+			return redirect(route('mobileshirts'));
+		}
 		$common_name = Helpers::get_degine_FirstInfo(1);
 		$eTailorObj=[
 			'oprodType'=>'Shirts',

@@ -47,6 +47,11 @@ class PantController extends Controller
 
     public function index()
     {
+		$device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='SYSTEM'){
+			return redirect(route('mobilepants'));
+		}
         $common_name = Helpers::get_pants_FirstInfo(4); 
 		$eTailorObj=[
 			'oprodType'=>'Pants',

@@ -54,7 +54,11 @@ class JacketController extends Controller
 
     public function index()
     {
-                     
+        $device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='SYSTEM'){
+			return redirect(route('mobilejackets'));
+		}             
         $common_name = Helpers::get_jacket_FirstInfo(2);
 		$eTailorObj=[
 			'oprodType'=>'Jacket',

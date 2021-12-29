@@ -19,8 +19,8 @@
     }
     /* ---------------- menu -------------------------- */
     #et-header .hamburger {
-        top: 0px;
-        right: 0px;
+        top: -25px;
+        right: -20px;
         transform: scale(0.4);
     }
     .hamburger .hamb-1, 
@@ -32,6 +32,7 @@
 
     .et-navbar .navbar-nav {
         background-color: #ffffff !important;
+        max-width: 200px !important;
     }
 
     #sidebar-wrapper ul a, #sidebar-wrapper ul span {
@@ -57,6 +58,7 @@
     #et-wrapper .et-tab-content {
         width: 100%;
         float: left;
+        padding-right: 200px !important;
     }
 
     .et-navbar .navbar-nav>li>a>img {
@@ -65,6 +67,22 @@
     #et-wrapper .et-tab-content .tab-pane,
     .et-nav-content {
         min-height: 685px;
+    }
+    #sidebar-wrapper {
+        background:none !important;
+    }
+    .et-navbar .navbar-nav > li > a {
+        padding: 10px 15px 10px 30px !important;
+        height: 55px;
+        align-items: center;
+        display: flex !important;
+    }
+
+    .et-serivces {
+        padding:0px !important;
+    }
+    .et-serivces .customer-service-w{
+        display:none;
     }
     /* ---------------- rating (five star) ------------ */
     .et-slide-review ul>li>span {
@@ -180,7 +198,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container customer-service-w">
         <div class="row">
             <div class="et-call-back et-fw">
                 <h2 class="et-left">CUSTOMER SERVICE 24/7</h2>

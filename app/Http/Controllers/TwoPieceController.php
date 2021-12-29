@@ -54,6 +54,11 @@ class TwoPieceController extends Controller
 
     public function index()
     {
+		$device_info = Helpers::systemInfo(); 
+		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
+		if($device!='SYSTEM'){
+			return redirect(route('mobile2pcsuits'));
+		}
         //jacket data ================================================================             
         $common_name1 = Helpers::get_jacket_FirstInfo(2);
 
