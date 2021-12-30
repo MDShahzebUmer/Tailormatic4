@@ -6124,4 +6124,11 @@ figure.figure-box img {
     .t-header .right-h {
         padding-left:0px;
     }
+    /* ------------ myaccount page -------------- */
+    .c-page-h-row {
+        margin:0px !important;
+    }
+    /* .et-account-content .dataTables_wrapper .dataTable {
+        width: 100% !important;
+    } */
 }

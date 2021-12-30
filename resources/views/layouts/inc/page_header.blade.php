@@ -65,7 +65,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 <header id="et-header" class="et-page-header" style="background-image:url({{asset('/asset/img/page-header.jpg')}});"><!-- Header Start -->
     <div class="container">
-        <div class="row">
+        <div class="row c-page-h-row">
             <div id="et-wrapper" class="et-navbar"><!-- Navbar Start -->
                 <div class="et-logo">
                     {{-- <figure class="top-logo">
