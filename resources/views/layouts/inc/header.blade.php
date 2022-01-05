@@ -11,7 +11,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
         <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-        <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+        <meta name="description" content="{{ setting('site.description') }} || {{$seo['meta_desc']}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{url('/')}}" />
         <meta property="og:type" content="website" />
