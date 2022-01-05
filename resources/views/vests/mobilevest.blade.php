@@ -1,4 +1,4 @@
-<?php  
+<?php
 $seo = App\Http\Helpers::page_seo_details(16);
 $cartcount = App\Http\Helpers::cartcount();
 ?>
@@ -13,7 +13,7 @@ $cartcount = App\Http\Helpers::cartcount();
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
- <title>eTailor clothes|| {{$seo['meta_title']}}</title>
+ <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
 <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
 <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -110,23 +110,23 @@ $(document).ready(function() {
         <div class="col-md-11 left-h">
             <div class="pt-right-p">
                 <ul>
-                    <li class=""> 
-                        <a class="cart-checkout"> 
-                            <figure class="t-cart-figure"> 
-                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}"> 
-                                <figcaption>{{$cartcount}}</figcaption> 
-                            </figure> 
+                    <li class="">
+                        <a class="cart-checkout">
+                            <figure class="t-cart-figure">
+                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}">
+                                <figcaption>{{$cartcount}}</figcaption>
+                            </figure>
                         </a>
-                        <input type="hidden" id="crtcount" value="{{$cartcount}}"> 
+                        <input type="hidden" id="crtcount" value="{{$cartcount}}">
                     </li>
                     <li>|</li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">MY ACCOUNT</a></li>
                         <li>|</li>
-                        <li><a href="{{ url('/login') }}">LOGIN </a></li> 
+                        <li><a href="{{ url('/login') }}">LOGIN </a></li>
                     @else
                         <li><a href="{{ url('/myaccount') }}">MY ACCOUNT</a></li>
-                        <li>|</li> 
+                        <li>|</li>
                         <li>
                         <a href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
@@ -137,7 +137,7 @@ $(document).ready(function() {
                         {{ csrf_field() }}
                     </form>
              </li>
-             @endif 
+             @endif
             </ul>
             </div>
         </div>
@@ -258,9 +258,9 @@ $(document).ready(function() {
                                             <ul class="et-item-list">
                                                 <?php $fabriclst = App\Etfabric::select('*')->where('fbgrp_id','=',$gr->id)->where('fabric_status','=','1')->whereRaw('fabric_qty > fabric_min_qty')->get();?>
                                                 @foreach($fabriclst as $fablst)
-                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" 
-                                                    title="{{ $fablst->fabric_name }}" 
-                                                    data-title="{{ $fablst->fabric_name }}" 
+                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}"
+                                                    title="{{ $fablst->fabric_name }}"
+                                                    data-title="{{ $fablst->fabric_name }}"
                                                     onClick="javascript:getfab({{$fablst->id}},'etfabric');"
                                                     style="background:url('/storage/{{$fablst->fabric_img_l}}');">
                                                     <figure class="et-item-img">
@@ -277,7 +277,7 @@ $(document).ready(function() {
                                                             $rec_frate =    $gr->fabric_rate;
                                                         }
                                                         ?>
-                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p> 
+                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p>
                                                     </div>
                                                 </li>
                                                 @endforeach
@@ -812,54 +812,54 @@ $(document).ready(function() {
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etfabric') ? 'active' : '' ?>" >
                 <a href="#etfabric" class="fabric-link" aria-controls="fabric" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etfabric');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Fabric</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Fabric</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etstyle') ? 'active' : '' ?>" >
                 <a href="#etstyle" class="style-link" aria-controls="style" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etstyle');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Style</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Style</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etcontrast') ? 'active' : '' ?>" >
                 <a href="#etcontrast" class="contrast-link" aria-controls="contrast" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etcontrast');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Contrast</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Contrast</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etmeasurement') ? 'active' : '' ?>" >
                 <a href="#etmeasurement" class="measurement-link" aria-controls="settings" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etmeasurement');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Measurement</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Measurement</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
         </ul>
-    </div>  
+    </div>
 </div>
 
 <canvas id="frontcanvas" width="313" height="421" style="display:none"></canvas>
@@ -880,14 +880,14 @@ $(document).ready(function() {
 <!-- Bootstrap Side Menu JS File -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function(e) {
-    var stid="menu-"+$('#tabSActiveId').val(); 
-    var stab=$('#tabSActiveId').val(); 
-    var newarr=$('#harr').val(); 
-    // getTabSect($('#tabActiveId').val()); 
+    var stid="menu-"+$('#tabSActiveId').val();
+    var stab=$('#tabSActiveId').val();
+    var newarr=$('#harr').val();
+    // getTabSect($('#tabActiveId').val());
     getPgOption(stid,$('#tabActiveId').val(),$('#tabSActiveId').val(),'');
-    frontdesignProcess(JSON.parse(newarr)); 
-    backdesignProcess(JSON.parse(newarr)); 
-    sidedesignProcess(JSON.parse(newarr)); 
+    frontdesignProcess(JSON.parse(newarr));
+    backdesignProcess(JSON.parse(newarr));
+    sidedesignProcess(JSON.parse(newarr));
     changeSizeDetails();
 });
 
@@ -898,26 +898,26 @@ $(document).ready(function () {
     isClosed = false;
 
     trigger.click(function () {
-        hamburger_cross();      
+        hamburger_cross();
     });
 
     function hamburger_cross() {
-        if (isClosed == true) {          
+        if (isClosed == true) {
             overlay.hide();
             trigger.removeClass('is-open');
             trigger.addClass('is-closed');
             isClosed = false;
-        } else {   
+        } else {
             overlay.show();
             trigger.removeClass('is-closed');
             trigger.addClass('is-open');
             isClosed = true;
         }
     }
-  
+
     $('[data-toggle="offcanvas"]').click(function () {
         $('#et-wrapper').toggleClass('toggled');
-    });  
+    });
 });
 $('.navbar-nav > li').mouseover( function(){
     $(this).find('a').tab('show');
@@ -934,13 +934,13 @@ function hideTabContent(){
 $(document).ready(function(){
     $(".cart-checkout").click(function(){
         var cc=$("#crtcount").val();
-        if(cc==0) { 
+        if(cc==0) {
             alert("No item in the cart, please add 1");
-        } else{  
+        } else{
             $(".cart-checkout").attr("href","{{url('/cart')}}");
         }
     });
-}); 
+});
 </script>
 <script>
    $(document).ready(function(){

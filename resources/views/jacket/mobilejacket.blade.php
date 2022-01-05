@@ -1,4 +1,4 @@
-<?php  
+<?php
     $seo = App\Http\Helpers::page_seo_details(14);
     $cartcount = App\Http\Helpers::cartcount();
 ?>
@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTailor clothes|| {{$seo['meta_title']}}</title>
+    <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
     <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
     <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,10 +25,10 @@
     <meta property="og:image:secure_url" content="http://etailorclothes.com/asset/img/fblogo.png" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-    <!-- CSS -->            
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
 
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">       
+    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobilejacket.css?v1')}}" media="all">
 
     <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
@@ -128,23 +128,23 @@
         <div class="col-md-11 left-h">
             <div class="pt-right-p">
                 <ul>
-                    <li class=""> 
-                        <a class="cart-checkout"> 
-                            <figure class="t-cart-figure"> 
-                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}"> 
-                                <figcaption>{{$cartcount}}</figcaption> 
-                            </figure> 
+                    <li class="">
+                        <a class="cart-checkout">
+                            <figure class="t-cart-figure">
+                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}">
+                                <figcaption>{{$cartcount}}</figcaption>
+                            </figure>
                         </a>
-                        <input type="hidden" id="crtcount" value="{{$cartcount}}"> 
+                        <input type="hidden" id="crtcount" value="{{$cartcount}}">
                     </li>
                     <li>|</li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">MY ACCOUNT</a></li>
                         <li>|</li>
-                        <li><a href="{{ url('/login') }}">LOGIN </a></li> 
+                        <li><a href="{{ url('/login') }}">LOGIN </a></li>
                     @else
                         <li><a href="{{ url('/myaccount') }}">MY ACCOUNT</a></li>
-                        <li>|</li> 
+                        <li>|</li>
                         <li>
                         <a href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
@@ -155,7 +155,7 @@
                         {{ csrf_field() }}
                     </form>
              </li>
-             @endif 
+             @endif
             </ul>
             </div>
         </div>
@@ -203,7 +203,7 @@
         </div>
     </div>
     <!-- ================================== preview image ================================ -->
-    <div class="design-prev-div"> 
+    <div class="design-prev-div">
         <!-- Main Preview -->
         <div class="pt-men-left" id="main-front">
             <div class="pt-image-div">@include('jacket.process')
@@ -256,12 +256,12 @@
                         <p class="sub-fabric-price">${{number_format($frate,2)}}</P>
                     </div>
                     @endforeach
-                </div> 
+                </div>
             </div>
             <div class="pt-customize">
                 <div class="pt-men">
                     <!-- Right Option Section -->
-                    <div class="pt-choose-right">                                     
+                    <div class="pt-choose-right">
                         <div class="pt-thumb-slider">
                             <div class="pt-pagination">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -276,9 +276,9 @@
                                             <ul class="et-item-list">
                                                 <?php $fabriclst = App\Etfabric::select('*')->where('fbgrp_id','=',$gr->id)->where('fabric_status','=','1')->whereRaw('fabric_qty > fabric_min_qty')->get();?>
                                                 @foreach($fabriclst as $fablst)
-                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" 
-                                                    title="{{ $fablst->fabric_name }}" 
-                                                    data-title="{{ $fablst->fabric_name }}" 
+                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}"
+                                                    title="{{ $fablst->fabric_name }}"
+                                                    data-title="{{ $fablst->fabric_name }}"
                                                     onClick="javascript:getfab({{$fablst->id}},'etfabric');"
                                                     style="background:url('/storage/{{$fablst->fabric_img_l}}');">
                                                     <figure class="et-item-img">
@@ -295,7 +295,7 @@
                                                             $rec_frate =    $gr->fabric_rate;
                                                         }
                                                         ?>
-                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p> 
+                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p>
                                                     </div>
                                                 </li>
                                                 @endforeach
@@ -322,12 +322,12 @@
                     </div>
                     <?php $smi++;?>
                     @endforeach
-                </div> 
-            </div> 
+                </div>
+            </div>
             <div class="pt-customize">
                 <div class="pt-men">
                     <!-- Right Option Section -->
-                    <div class="pt-choose-right">                                     
+                    <div class="pt-choose-right">
                         <div class="pt-thumb-slider">
                             <div class="pt-pagination">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -360,7 +360,7 @@
                                                             @if($styllst->id == $eTailorObj['obottom'])<div class="icon-check"></div>@endif
                                                         @endif
                                                         @endforeach
-                                                </li> 
+                                                </li>
                                                 @elseif(($eTailorObj['ostyle']==50 || $eTailorObj['ostyle']==51 || $eTailorObj['ostyle']==52 || $eTailorObj['ostyle']==53) && ($styllst->id==63 || $styllst->id==64 || $styllst->id==65))
                                                 <li class="et-item" id="optionlist-{{$mattr->id}}-{{$styllst->id}}" data-title="{{$styllst->style_name}}" title="{{$styllst->style_name}}" onClick="javascript:getstyles({{$styllst->id}},'{{$mattr->id}}','etstyle');">
                                                     <?php $styleimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$styllst->id)->where('fab_id' , '=' , $eTailorObj['ofabric'])->get();?>
@@ -406,7 +406,7 @@
                                                             @if($styllst->id == $eTailorObj['ovent'])<div class="icon-check"></div>@endif
                                                         @endif
                                                         @endforeach
-                                                </li> 
+                                                </li>
                                                 <?php $stylci++;?>
                                                 @endforeach
                                                 @endif
@@ -510,7 +510,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
         <!-- ======= Style End Here ========= -->
         <!-- ======= Contrast Start Here ========= -->
@@ -524,12 +524,12 @@
                     </div>
                     <?php $cmi++;?>
                     @endforeach
-                </div> 
-            </div>  
+                </div>
+            </div>
             <div class="pt-customize">
                 <div class="pt-men">
                     <!-- Right Option Section -->
-                    <div class="pt-choose-right">                                     
+                    <div class="pt-choose-right">
                         <div class="pt-thumb-slider">
                             <div class="pt-pagination no-pad-left">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -547,7 +547,7 @@
                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cfablst->id}}" data-title="{{$cfablst->contrsfab_name}}" title="{{$cfablst->contrsfab_name}}" onClick="javascript:getcontrast({{$cfablst->id}},'etcontrast');">
                                             <figure class="et-item-img"><img src="{{asset('/storage/'.$cfablst->contrsfab_img)}}" alt="{{$cfablst->contrsfab_name}}"></figure>
                                             @if($cfablst->id==$eTailorObj['ocontrast'])<div class="icon-check"></div>@endif
-                                        </li>                                            
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -561,12 +561,12 @@
                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$lngfablst->id}}" data-title="{{$lngfablst->fabric_name}}" title="{{$lngfablst->fabric_name}}" onClick="javascript:getlining({{$lngfablst->id}},'etcontrast')">
                                             <figure class="et-item-img"><img src="{{asset('/storage/'.$lngfablst->lining_img)}}" alt="{{$lngfablst->fabric_name}}"></figure>
                                             @if($lngfablst->id==$eTailorObj['olining'])<div class="icon-check"></div>@endif
-                                        </li>                                            
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
                             </div>
-                            @elseif($contlst->id == '27') 
+                            @elseif($contlst->id == '27')
                             <div class="et-sm-carousel" id="menu-opt-{{$contlst->id}}" style="display:none">
                                 <div class="et-contrast-list">
                                     <ul class="et-item-list">
@@ -575,12 +575,12 @@
                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$bkcfablst->id}}" data-title="{{$bkcfablst->name}}" title="{{$bkcfablst->name}}" onClick="javascript:getbackcollar({{$bkcfablst->id}},'etcontrast')">
                                             <figure class="et-item-img"><img src="{{asset('/storage/'.$bkcfablst->color_img)}}" alt="{{$bkcfablst->name}}"></figure>
                                             @if($bkcfablst->id==$eTailorObj['obackCollar'])<div class="icon-check"></div>@endif
-                                        </li>                                            
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
                             </div>
-                            @elseif($contlst->id == '28') 
+                            @elseif($contlst->id == '28')
                             <div class="et-sm-carousel" id="menu-opt-{{$contlst->id}}" style="display:none">
                                 <div class="et-contrast-list">
                                     <ul class="et-item-list">
@@ -589,7 +589,7 @@
                                         <li class="et-item" id="optionlist-{{$contlst->id}}-{{$bttnlst->id}}" data-title="{{$bttnlst->button_name}}" title="{{$bttnlst->button_name}}" onClick="javascript:getbuttons({{$bttnlst->id}},'etcontrast')">
                                             <figure class="et-item-img"><img src="{{asset('/storage/'.$bttnlst->button_img)}}" alt="{{$bttnlst->button_name}}"></figure>
                                             @if($bttnlst->id==$eTailorObj['obutton'])<div class="icon-check"></div>@endif
-                                        </li>                                            
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -609,7 +609,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            @elseif($contlst->id == '29') 
+                            @elseif($contlst->id == '29')
                             <div class="et-sm-carousel" id="menu-opt-{{$contlst->id}}" style="display:none">
                                 <div class="et-radio-block">
                                     <div class="radio">
@@ -678,7 +678,7 @@
                                             <li class="et-item" id="optionlist-pip-{{$pipfablst->id}}" data-title="{{$pipfablst->name}}" title="{{$pipfablst->name}}" onClick="javascript:getpiping({{$pipfablst->id}},'etcontrast')">
                                                 <figure class="et-item-img"><img src="{{asset('/storage/'.$pipfablst->piping_img)}}" alt="{{$pipfablst->name}}"></figure>
                                                 @if($pipfablst->id==$eTailorObj['opiping'])<div class="icon-check"></div>@endif
-                                            </li>                                            
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -766,14 +766,14 @@
                     </div>
                     <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');">
                         <p>Standard Sizes</p>
-                    </div>                             
-                </div> 
-            </div>  
+                    </div>
+                </div>
+            </div>
             <div class="pt-customize">
                 <div class="pt-men">
                     <div id="menu-mesure-main" style="display:block;">
                         <!-- Right Option Section -->
-                        <div class="pt-choose-right et-measure-right">                                     
+                        <div class="pt-choose-right et-measure-right">
                             <div class="pt-thumb-slider">
                                 <div class="et-des-title"><h2>Great Choice!  Please Select Your Measurement Option</h2></div>
                                 <div class="et-ment-option">
@@ -796,7 +796,7 @@
                     </div>
                 </div>
                 <!-- STANDARD SIZES -->
-                <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">             
+                <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
                     <div class="pt-thumb-slider">
                         <div class="et-des-title"><h2>STANDARD SIZES</h2></div>
                         <div class="et-main-measurement">
@@ -858,7 +858,7 @@
                                     </div>
                                     <div class="et-input">
                                         <span>LENGTH</span><input type="text" name="sizeLength" id="sizelength" value=""><p class="et-tsize">Inch</p>
-                                    </div>                                                            
+                                    </div>
                                 </div>
                             </div>
                             <div class="et-block et-form-btn">
@@ -883,7 +883,7 @@
                 </div>
                 <!-- STANDARD SIZES END -->
                 <!-- BODY SIZES -->
-                <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">                  
+                <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">
                     <div class="pt-thumb-slider">
                         <div class="et-des-title"><h2>YOUR BODY SIZES</h2></div>
                         <div class="et-main-measurement">
@@ -932,7 +932,7 @@
                                             @endforeach
                                         </div>
                                         <div class="et-input">
-                                            <span>SLEEVE</span> 
+                                            <span>SLEEVE</span>
                                             <?php $measuresleevelst = App\MeasurmentVideo::select('*')->where('cat_id','=',2)->where('id','=',13)->get();?>
                                             @foreach($measuresleevelst as $msleevlst)
                                             <input type="text" data-title="{{$msleevlst->from_range}}-{{$msleevlst->to_range}}" name="bsizeSleeve" id="bsizeSleeve" onFocus="javascript:showRanges('{{$msleevlst->bodysize_type}}',{{$msleevlst->from_range}},{{$msleevlst->to_range}},'sleeve');" onBlur="javascript:validateField(this.id,{{$msleevlst->from_range}},{{$msleevlst->to_range}});" value="<?php echo $eTailorObj['osizeSleeve'];?>" >
@@ -945,7 +945,7 @@
                                             <input type="text" data-title="{{$mlengthlst->from_range}}-{{$mlengthlst->to_range}}" name="bsizeLength" id="bsizeLength" onFocus="javascript:showRanges('{{$mlengthlst->bodysize_type}}',{{$mlengthlst->from_range}},{{$mlengthlst->to_range}},'length');" onBlur="javascript:validateField(this.id,{{$mlengthlst->from_range}},{{$mlengthlst->to_range}});" value="<?php echo $eTailorObj['osizeLength'];?>" >
                                             @endforeach
                                         </div>
-                                        <div class="et-radio-check">                                                           
+                                        <div class="et-radio-check">
                                             <div class="radio">
                                                 <label><input type="radio" name="bsizetyp" id="bsizetyp" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label>
                                             </div>
@@ -993,59 +993,59 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etfabric') ? 'active' : '' ?>" >
                 <a href="#etfabric" class="fabric-link" aria-controls="fabric" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etfabric');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Fabric</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Fabric</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etstyle') ? 'active' : '' ?>" >
                 <a href="#etstyle" class="style-link" aria-controls="style" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etstyle');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Style</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Style</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etcontrast') ? 'active' : '' ?>" >
                 <a href="#etcontrast" class="contrast-link" aria-controls="contrast" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etcontrast');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Contrast</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Contrast</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etmeasurement') ? 'active' : '' ?>" >
                 <a href="#etmeasurement" class="measurement-link" aria-controls="settings" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etmeasurement');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Measurement</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Measurement</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
         </ul>
-    </div>     
+    </div>
 </div>
 <canvas id="frontcanvas" width="313" height="421" style="display:none"></canvas>
 <canvas id="backcanvas" width="313" height="421" style="display:none"></canvas>
-<canvas id="sidecanvas" width="313" height="421" style="display:none"></canvas> 
- 
+<canvas id="sidecanvas" width="313" height="421" style="display:none"></canvas>
+
 <!-- ======================================================= -->
 </body>
 <!-- =================== script ============================ -->
@@ -1093,26 +1093,26 @@ $(document).ready(function () {
     isClosed = false;
 
     trigger.click(function () {
-        hamburger_cross();      
+        hamburger_cross();
     });
 
     function hamburger_cross() {
-        if (isClosed == true) {          
+        if (isClosed == true) {
             overlay.hide();
             trigger.removeClass('is-open');
             trigger.addClass('is-closed');
             isClosed = false;
-        } else {   
+        } else {
             overlay.show();
             trigger.removeClass('is-closed');
             trigger.addClass('is-open');
             isClosed = true;
         }
     }
-  
+
     $('[data-toggle="offcanvas"]').click(function () {
         $('#et-wrapper').toggleClass('toggled');
-    });  
+    });
 });
 $('.navbar-nav > li').mouseover( function(){
     $(this).find('a').tab('show');
@@ -1126,18 +1126,18 @@ $('.navbar-nav > li').mouseout( function(){
 $(document).ready(function(){
     $(".cart-checkout").click(function(){
         var cc=$("#crtcount").val();
-        if(cc==0) { 
+        if(cc==0) {
             alert("No item in the cart, please add 1");
-        } else{  
+        } else{
             $(".cart-checkout").attr("href","{{url('/cart')}}");
         }
     });
-}); 
-</script> 
+});
+</script>
 
 <script type="text/javascript">
-$("#stand").click(function(){   
-    
+$("#stand").click(function(){
+
     var cntrysize = $('#cntrysize').val();
     var sizefit = $('#sizefit').val();
     var sizetyp = $('#sizetyp:checked').val();
@@ -1153,18 +1153,18 @@ $("#stand").click(function(){
     var mpattern = $('#mpattern').val();
     var selstdqty = $('#selstdqty').val();
     var hsizefit = $('#hsizefit').val();
-    var rndvalue = $('#rndvalue').val();   
-    
-    if (rndvalue!='') {      
+    var rndvalue = $('#rndvalue').val();
+
+    if (rndvalue!='') {
         $.ajax({
             type:'POST',
             url:'/designjackets/postfdataurl',
             data:{frntviewfinal:frntviewfinal,rndvalue:rndvalue,},
             beforeSend: function() {
                $("#et-smallr").show();
-               $("#stand").hide(); 
+               $("#stand").hide();
             },
-            
+
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -1172,7 +1172,7 @@ $("#stand").click(function(){
                 postbdataurl();
             }
         });
-            
+
         function postbdataurl(){
             $.ajax({
                 type:'POST',
@@ -1186,7 +1186,7 @@ $("#stand").click(function(){
                }
             });
         }
-            
+
         function postcart(){
             $.ajax({
                 type:'POST',
@@ -1207,8 +1207,8 @@ $("#stand").click(function(){
 </script>
 
 <script type="text/javascript">
-$("#body").click(function(){    
-    
+$("#body").click(function(){
+
     var bsizetyp = $('#bsizetyp:checked').val();
     var fitstyle = $('#fitstyle:checked').val();
     var bsizechest = $('#bsizeChest').val();
@@ -1221,21 +1221,21 @@ $("#body").click(function(){
     var frntviewfinal = $('.bfrntviewfinal').val();
     var bkviewfinal = $('.bbkviewfinal').val();
     var mpattern = $('#bmpattern').val();
-    var selstdqty = $('#bselbodyqty').val();    
-    var rndvalue = $('#brndvalue').val();  
-   
+    var selstdqty = $('#bselbodyqty').val();
+    var rndvalue = $('#brndvalue').val();
+
     if(bsizechest) if(bsizewaist) if(bsizehip) if(bsizeshoulder) if(bsizesleeve) if(bsizelength) valuCheck = true;
 
     if(valuCheck){
-      
-    if (rndvalue!='') {      
+
+    if (rndvalue!='') {
         $.ajax({
             type:'POST',
             url:'/designjackets/postfdataurl',
             data:{frntviewfinal:frntviewfinal,rndvalue:rndvalue,},
             beforeSend: function() {
                 $("#et-body").show();
-                $("#body").hide();  
+                $("#body").hide();
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1244,7 +1244,7 @@ $("#body").click(function(){
                 postbdataurl();
             }
         });
-            
+
         function postbdataurl(){
             $.ajax({
                 type:'POST',
@@ -1258,7 +1258,7 @@ $("#body").click(function(){
                 }
             });
         }
-            
+
         function postcart(){
             $.ajax({
                 type:'POST',
