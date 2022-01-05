@@ -22,11 +22,11 @@ class Invoice extends Mailable
     public function __construct($orderdata,$invoicedata,$pdfurl)
     {
        $this->orderdata = $orderdata;
-     $this->invoicedata = $invoicedata; 
-	   $this->pdfurl = $pdfurl; 
-          
-	   
-	
+     $this->invoicedata = $invoicedata;
+	   $this->pdfurl = $pdfurl;
+
+
+
     }
 
     /**
@@ -37,11 +37,11 @@ class Invoice extends Mailable
     public function build()
     {
        return  $this->from(setting('site.server_web_email')
-       ,'EtailorClothes.com')
+       ,'Duniyatailor.com')
                    ->attach($this->pdfurl)
                    ->view('emails.invoice')
                    ->with('orderdata', $this->orderdata)
 				           ->with('invoicedata', $this->invoicedata);
     }
-                   
+
 }

@@ -145,12 +145,13 @@ $data=$data['data'];
 
                         <span class="input input--hoshi">
                             <div class="" style="display: flex">
-                                <?php $postids = App\Country::select('phonecode')->get();?>
+                                <?php $postids = App\Country::select('phonecode', 'name')->get();?>
                                 {{-- <input class="" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10"> --}}
-                                <select style="width: 103px;" name="con_country_code" id="" class="input__field input__field--hoshi" required>
+                                <select style="width: 150px;" name="con_country_code" id="" class="input__field input__field--hoshi" required>
                                     <option value="">select</option>
                                    @foreach ($postids as $code)
-                                   <option value="{{ $code->phonecode }}">{{ $code->phonecode }}</option>
+
+                                   <option value="{{ $code->phonecode }}">{{ $code->name }}  ( {{ $code->phonecode }} )</option>
                                    @endforeach
                                 </select>
                                 <input class="input__field input__field--hoshi" type="text" id="any" placeholder="Mobile Number*" name="con_mobile" required maxlength="12" minlength="10">

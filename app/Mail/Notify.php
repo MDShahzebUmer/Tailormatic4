@@ -34,10 +34,10 @@ class Notify extends Mailable
     public function build()
     {
        return  $this->from(setting('site.server_web_email')
-       ,'EtailorClothes.com')
+       ,'Duniyatailor.com')
                    ->subject('Wishlist Notification')
                    ->view('emails.notifymail')
                    ->with('data', $this->data);
     }
-                   
+
 }
