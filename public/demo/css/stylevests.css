@@ -47,3 +47,8 @@
 ul.et-payment-list>li {
     width: 50px;
 }
+
+.et-rating-style > li > span {
+    display: inline-block;
+    color: #ffe600 !important;
+  }

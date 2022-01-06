@@ -726,3 +726,7 @@ ul.add_other_size{padding-left:14%;margin-top:7px;width:100%;float:left}
 ul.et-payment-list>li {
     width: 50px;
 }
+.et-rating-style > li > span {
+    display: inline-block;
+    color: #ffe600 !important;
+  }

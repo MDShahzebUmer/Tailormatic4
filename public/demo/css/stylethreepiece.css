@@ -439,3 +439,8 @@ ul.et-payment-list>li{
 #etcontrast .et-bag-box{
     margin-top: 13px;
 }
+
+.et-rating-style > li > span {
+    display: inline-block;
+    color: #ffe600 !important;
+  }

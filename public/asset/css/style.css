@@ -5880,6 +5880,10 @@ figure.figure-box img {
     color: #ffe600 !important;
   }
 
+  .fa.fa-star {
+    color: #ffe600 !important;
+  }
+
   .card-header.border-bottom.mb-3.d-md-none.d-sm-block {
     display: none;
 }
