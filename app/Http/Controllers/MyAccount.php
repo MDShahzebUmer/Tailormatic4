@@ -323,7 +323,7 @@ class MyAccount extends Controller
 
             $co->save();
             Mail::to($email)->send(new Ucancleorder($u));
-            Mail::to(Voyager::setting('web-email'))->send(new Acancleorder($u));
+            Mail::to(setting('site.web_email'))->send(new Acancleorder($u));
 
             return redirect()->back();
           }
