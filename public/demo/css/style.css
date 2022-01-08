@@ -4040,3 +4040,8 @@ ul.add_other_size {
 ul.et-payment-list>li {
     width: 50px;
 }
+
+.et--link a {
+    display: block;
+    margin-top: 10px !important;
+  }
