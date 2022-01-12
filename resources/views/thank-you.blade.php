@@ -10,23 +10,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-          <title>eTailor clothes|| {{$seo['meta_title']}}</title>
+          <title>Duniya Tailor || {{$seo['meta_title']}}</title>
         <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
         <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- CSS 
-        ============================================ -->            
+        <!-- CSS
+        ============================================ -->
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
-        
+
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}" media="all">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap-touch-slider.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
-        
+
     </head>
 <body>
 <header id="et-header" class="et-page-header" style="background-image:url({{asset('/asset/img/page-header.jpg')}});"><!-- Header Start -->
@@ -37,7 +37,7 @@
                     <figure class="top-logo">
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                     </figure>
-                </div>                
+                </div>
                 <div class="et-page-title">
                     <div class="et-title">
                      <!-- somthing was here -->
@@ -83,13 +83,13 @@
       	     <div class="col-sm-12 text-center">
                 <div class="et-thank-you">
                     <h1 class="text-center">
-                   
+
                     You're all set!
                     </h1>
                     <p><strong>Transaction Number : </strong> {{$transactionId}}</p>
                     <h3>Thanks for being awesome, <br> we hope you enjoy your purchase!</h3> <br>
                     <a href="{{url('/')}}"  class="et-btn">Continue ></a>
-                </div> 
+                </div>
              </div>
         </div>
     </div>

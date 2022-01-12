@@ -23,8 +23,8 @@
         right: -20px;
         transform: scale(0.4);
     }
-    .hamburger .hamb-1, 
-    .hamburger .hamb-4, 
+    .hamburger .hamb-1,
+    .hamburger .hamb-4,
     .hamburger .hamb-7 {
         width: 42px !important;
         height: 7px;
@@ -153,7 +153,7 @@
         font-size: 30px !important;
         text-shadow: 3px -1px 1px #000 !important;
     }
-    
+
 }
 @media only screen and (min-width: 333px) and (max-width: 667px){
     .banner-slide-div .slide-text{
@@ -175,7 +175,7 @@
     .banner-slide-div .slide-text > h2>span,
     .banner-slide-div .slide-text > h2 {
         font-size: 25px !important;
-        
+
     }
     .banner-slide-div .slide-text > .et-btn-default {
         margin: 1px 25% !important;
@@ -379,10 +379,11 @@
                 </div>
 
                 <div class="box-bottom mt-10" style="margin-top: 50px">
-                 <div class="col-md-12">
+                 <div class="col-md-6">
                       <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
                      <div class=" et-last">
-                         <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" />
+                         {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
+                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
                          {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
                           <a href="{{Url('/'.$i4->url)}}">
                              {{-- <figcaption>
@@ -396,22 +397,23 @@
                      </div>
                  </div>
 
-                 {{-- <div class="col-md-6">
-                     <?php $i5 = App\Http\Helpers::img_font_call(5); ?>
+                 <div class="col-md-6">
+                     <?php $i5 = App\Http\Helpers::img_font_call(4); ?>
                      <div class="et-effect et-last">
-                          <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" />
+                          {{-- <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" /> --}}
+                          <img src="//www.duniyatailor.com/storage/FrontProductImg/9.jpeg" alt="{{$alt_name}}" />
                           <a href="{{Url('/'.$i5->url)}}">
-                             <figcaption>
+                             {{-- <figcaption>
 
                                  <h2>{!! $i5->title_one !!}</h2>
                                  <p>
                                     {!! $i5->title_two !!}
                                      <span>${{$i5->rate}}</span>
                                  </p>
-                             </figcaption>
+                             </figcaption> --}}
                          </a>
                      </div>
-                 </div> --}}
+                 </div>
 
                 </div>
                 </div>
