@@ -381,18 +381,18 @@
                 <div class="box-bottom mt-10" style="margin-top: 50px">
                  <div class="col-md-6">
                       <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
-                     <div class=" et-last">
+                     <div class=" et-effect et-last">
                          {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
                          <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
                          {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
-                          <a href="{{Url('/'.$i4->url)}}">
-                             {{-- <figcaption>
-                                 <h2>{!! $i4->title_one !!}</h2>
+                          <a href="/design3pcsuits">
+                             <figcaption>
+                                 <h2>3 Piece Suit</h2>
                                  <p>
-                                    {!! $i4->title_two !!}
-                                     <span>${{$i4->rate}}</span>
+                                    {{-- {!! $i4->title_two !!}
+                                     <span>${{$i4->rate}}</span> --}}
                                  </p>
-                             </figcaption> --}}
+                             </figcaption>
                          </a>
                      </div>
                  </div>
@@ -402,15 +402,15 @@
                      <div class="et-effect et-last">
                           {{-- <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" /> --}}
                           <img src="//www.duniyatailor.com/storage/FrontProductImg/9.jpeg" alt="{{$alt_name}}" />
-                          <a href="{{Url('/'.$i5->url)}}">
-                             {{-- <figcaption>
+                          <a href="/design2pcsuits">
+                             <figcaption>
 
-                                 <h2>{!! $i5->title_one !!}</h2>
+                                 <h2>2 Piece Suit</h2>
                                  <p>
-                                    {!! $i5->title_two !!}
-                                     <span>${{$i5->rate}}</span>
+                                    {{-- {!! $i5->title_two !!}
+                                     <span>${{$i5->rate}}</span> --}}
                                  </p>
-                             </figcaption> --}}
+                             </figcaption>
                          </a>
                      </div>
                  </div>
