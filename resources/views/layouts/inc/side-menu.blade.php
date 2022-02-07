@@ -1,6 +1,6 @@
 <?php  $cartcount = App\Http\Helpers::cartcount(); ?>
-<?php  
-    $device_info = App\Http\Helpers::systemInfo(); 
+<?php
+    $device_info = App\Http\Helpers::systemInfo();
     $device = $device_info['device'];   // 'MOBILE','SYSTEM'
 ?>
 <ul class="nav navbar-nav">
@@ -105,10 +105,10 @@
                     <a href="{{$device=='MOBILE'?URL('/mobilepants'):URL('/designpants')}}"><span>CUSTOM Pants</span></a>
                 </li>
                 <li>
-                    <a href="{{$device=='MOBILE'?URL('/mobile3pcsuits'):URL('/design3pcsuits')}}"><span>CUSTOM 3Pc Suit</span></a>
+                    <a href="{{$device=='MOBILE'?URL('/mobile3pcsuits'):URL('/design3pcsuits')}}"><span>CUSTOM 3PC SUIT</span></a>
                 </li>
                 <li>
-                    <a href="{{$device=='MOBILE'?URL('/mobile2pcsuits'):URL('/design2pcsuits')}}"><span>CUSTOM 2Pc Suit</span></a>
+                    <a href="{{$device=='MOBILE'?URL('/mobile2pcsuits'):URL('/design2pcsuits')}}"><span>CUSTOM 2PC SUIT</span></a>
                 </li>
 
             </ul>

@@ -3,10 +3,10 @@
 <body class="login-page et-bg">
 <div class="et-form-page">
     <div class="container">
-        <div class="row">           
+        <div class="row">
             <div class="et-form-header">
                 <figure class="et-form-logo">
-                    <a href="#.">
+                    <a href="/">
                         <img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}">
                     </a>
                 </figure>
@@ -30,7 +30,7 @@
                             <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label for="pwd">Password :</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter Password" />
-                                
+
                                 <i id="pwdshow" onclick="changePassword(this)" class="glyphicon  glyphicon-eye-open form-control-feedback"></i>
                                 <i id="pwdclows" style="display:none" onclick="changePassword(this)" class="glyphicon  glyphicon-eye-close form-control-feedback"></i>
 
@@ -74,13 +74,13 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default">Login</button> 
-                            </div>  
-                            <br> 
+                                <button type="submit" class="btn btn-default">Login</button>
+                            </div>
+                            <br>
                             <div class="form-group">
                             <a href="{{ url('/register') }}"><button type="button" class="btn btn-default">Don't have an account? Register now</button>
-                            </a>  
-                            </div> 
+                            </a>
+                            </div>
 
                             <!-- <div class="checkbox">
                                 <label><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> kepp me signed in.</label>
@@ -88,7 +88,7 @@
                         </form>
                         <!-- <div class="et-extra-block">
                             <a href="{{ url('/register') }}" class="btn btn-default ragister-btn">"Create your e-Tailor account"</a>
-                          
+
                         </div> -->
                     </div>
                 </div>
@@ -114,29 +114,29 @@
           var trigger = $('.hamburger'),
               overlay = $('.overlay'),
              isClosed = false;
-        
+
             trigger.click(function () {
-              hamburger_cross();      
+              hamburger_cross();
             });
-        
+
             function hamburger_cross() {
-        
-              if (isClosed == true) {          
+
+              if (isClosed == true) {
                 overlay.hide();
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
-              } else {   
+              } else {
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
               }
           }
-          
+
           $('[data-toggle="offcanvas"]').click(function () {
                 $('#et-wrapper').toggleClass('toggled');
-          });  
+          });
         });
         $('.navbar-nav > li').mouseover( function(){
             $(this).find('a').tab('show');
@@ -162,13 +162,13 @@
       $("html, body").animate({ scrollTop: 0 }, 600);
       return false;
    });
-   
+
 </script>
 <script language="javascript">
         $(document).ready(function() {
             $("input[name$='etform']").click(function() {
                 var test = $(this).val();
-        
+
                 $("div.et-hide").hide();
                 $("#Cars" + test).show();
             });

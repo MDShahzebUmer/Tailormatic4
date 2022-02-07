@@ -11,13 +11,17 @@
                         <li> | </li>
                         <li><a href="{{url('/designvests')}}">CUSTOM VESTS</a></li>
                         <li> | </li>
+                        <li><a href="{{url('/designvests')}}">CUSTOM 3 PIECE SUIT</a></li>
+                        <li> | </li>
+                        <li><a href="{{url('/designvests')}}">CUSTOM 2 PIECE SUIT</a></li>
+                        <li> | </li>
                         <li><a href="{{url('pages/about-us')}}">ABOUT US</a></li>
                         <li> | </li>
                         <li><a href="{{url('/review')}}">REVIEW</a></li>
                         <li> | </li>
                         <li><a href="{{url('pages/contact-us')}}">CONTACT US</a></li>
                     </ul>
-                </div>	 
+                </div>
             </div>
-        </div>   
+        </div>
 </div>
