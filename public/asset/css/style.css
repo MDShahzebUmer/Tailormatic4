@@ -1337,7 +1337,7 @@ button.hamburger.is-open {
     justify-content: center;
     flex-direction: row;
     height: 33px;
-    /* line-height: 34px; */
+    line-height: 34px;
     margin-right: 5px;
     text-align: center;
     width: 32px
