@@ -1331,12 +1331,17 @@ button.hamburger.is-open {
     background: #fff;
     border-radius: 20px;
     color: #fff;
-    float: left;
+    /* float: left; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
     height: 33px;
     /* line-height: 34px; */
     margin-right: 5px;
     text-align: center;
     width: 32px
+    /* padding: 30px; */
 }
 
 .et-linkspow {
@@ -1352,7 +1357,7 @@ button.hamburger.is-open {
 .et--link a {
     display: block;
     align-items: center;
-    padding: 10px;
+    /* padding: 10px; */
     /* margin-top: 10px; */
 }
 
@@ -1369,12 +1374,19 @@ button.hamburger.is-open {
     
 }
 
+.et--link > ul {
+display: flex;
+align-items: center;
+}
+
 .et--link {
     float: right
 }
 
 .et--link>ul {
     margin: 0
+    display: flex;
+    
 }
 
 .et-footer {
@@ -5702,6 +5714,9 @@ figure.figure-box img {
 
 .et--link li.st-follows-us {
     background: none;
+    display: flex;
+    align-items:center;
+    justify-content: center;
     border-radius: 0;
     width: auto;
     padding-top: 10px;
