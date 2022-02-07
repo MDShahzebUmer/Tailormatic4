@@ -29,7 +29,7 @@
     <li>
         <a href="#tab4">
             <img src="{{asset('/asset/img/Menu_05.jpg')}}" alt="">
-            <a href="{{ url('/blog') }}"><span>Blog</span></a>
+            <a href="{{'https://blog.duniyatailor.com' }}"><span>Blog</span></a>
         </a>
     </li>
         @if($cartcount > 0)

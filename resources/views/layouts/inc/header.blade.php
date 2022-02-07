@@ -7,18 +7,28 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
+    <meta name="google-site-verification" content="BumvrIGn5r8haa5F9dx8llA8PM5t8wVKURSerqzoYnQ" />
+    <meta name="p:domain_verify" content="81cbbb5e2d5826c00a5fe173b132c21c"/>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KPBC6RT');</script>
+<!-- End Google Tag Manager -->
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
-        <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
+        <meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
         <meta name="description" content="{{ setting('site.description') }} || {{$seo['meta_desc']}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{url('/')}}" />
         <meta property="og:type" content="website" />
         <meta property="og:title"  content="{{$seo['meta_title']}}" />
         <meta property="og:description"  content="{{$seo['meta_desc']}}" />
-        <meta property="og:image" content="http://etailorclothes.com/asset/img/fblogo.png" />
-        <meta property="og:image:secure_url" content="http://etailorclothes.com/asset/img/fblogo.png" />
+        <meta property="og:image" content="http://duniyatailor.com/asset/img/fblogo.png" />
+        <meta property="og:image:secure_url" content="http://duniyatailor.com/asset/img/fblogo.png" />
 
 
         <!-- Favicon
