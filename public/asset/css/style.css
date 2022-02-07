@@ -1333,7 +1333,7 @@ button.hamburger.is-open {
     color: #fff;
     float: left;
     height: 33px;
-    line-height: 34px;
+    /* line-height: 34px; */
     margin-right: 5px;
     text-align: center;
     width: 32px
@@ -5704,6 +5704,7 @@ figure.figure-box img {
     background: none;
     border-radius: 0;
     width: auto;
+    padding-top: 10px;
     padding-right: 10px;
     font-weight: 700;
 }

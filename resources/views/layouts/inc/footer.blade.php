@@ -184,7 +184,9 @@
                <ul>
 <li class="st-follows-us">FOLLOW US</li>
                 @foreach($soc as $s)
-                 <li><a href="{{$s->url}}" target="_blank"><i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
+                 <li >
+                     <a href="{{$s->url}}" target="_blank">
+                        <i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
                  @endforeach
 
                </ul>
