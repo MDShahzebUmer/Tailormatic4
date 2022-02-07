@@ -1347,9 +1347,17 @@ button.hamburger.is-open {
     width: 100%
 }
 
+
+
 .et--link a {
     display: block;
-    margin-top: 10px;
+    align-items: center;
+    padding: 10px;
+    /* margin-top: 10px; */
+}
+
+#duniya-link-footer-icons-social{
+    
 }
 
 .et-Copyright p {
@@ -1358,6 +1366,7 @@ button.hamburger.is-open {
 
 .et--link i {
     color: #19120e
+    
 }
 
 .et--link {

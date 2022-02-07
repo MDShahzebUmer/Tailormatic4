@@ -199,7 +199,8 @@
     <div class="container">
         <div class="row">
          <div class="et-foot">
-         @include('layouts.inc.footer-strkey')
+         @include('layouts.inc.footer-desgin')
+         {{-- @include('layouts.inc.footer-strkey') --}}
         </div>
             </div>
            </div>
