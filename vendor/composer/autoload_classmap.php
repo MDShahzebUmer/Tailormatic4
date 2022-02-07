@@ -5832,6 +5832,7 @@ return array(
     'TCG\\Voyager\\Http\\Controllers\\ContentTypes\\Timestamp' => $vendorDir . '/tcg/voyager/src/Http/Controllers/ContentTypes/Timestamp.php',
     'TCG\\Voyager\\Http\\Controllers\\Controller' => $vendorDir . '/tcg/voyager/src/Http/Controllers/Controller.php',
     'TCG\\Voyager\\Http\\Controllers\\FabricDesignController' => $vendorDir . '/tcg/voyager/src/Http/Controllers/FabricDesignController.php',
+    'TCG\\Voyager\\Http\\Controllers\\JVContrastController' => $vendorDir . '/tcg/voyager/src/Http/Controllers/JVContrastController.php',
     'TCG\\Voyager\\Http\\Controllers\\MeasurmentController' => $vendorDir . '/tcg/voyager/src/Http/Controllers/MeasurmentController.php',
     'TCG\\Voyager\\Http\\Controllers\\ProductsController' => $vendorDir . '/tcg/voyager/src/Http/Controllers/ProductsController.php',
     'TCG\\Voyager\\Http\\Controllers\\ReviewController' => $vendorDir . '/tcg/voyager/src/Http/Controllers/ReviewController.php',

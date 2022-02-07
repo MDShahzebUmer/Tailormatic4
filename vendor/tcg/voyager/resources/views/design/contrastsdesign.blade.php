@@ -72,7 +72,15 @@
                                 @foreach($maindata as $md)
                                 <tr>
                                    <?php $md->opt_id; ?>
-                                    <?php $a = App\ContrastOptionIimgType::select('type_name')->where('opt_id','=',$md->opt_id)->where('id','=',$md->contrast_type_id)->first($md->opt_id,$md->contrast_type_id);?>
+                                    <?php 
+                                        // $a = App\ContrastOptionIimgType::select('type_name')
+                                        //         ->where('opt_id','=',$md->opt_id)
+                                        //         ->where('id','=',$md->contrast_type_id)
+                                        //         ->first($md->opt_id,$md->contrast_type_id);
+                                        $a = App\ContrastOptionIimgType::select('*')
+                                                ->where('id','=',$md->contrast_type_id)
+                                                ->first();
+                                    ?>
                                     <td><?php echo $a->type_name ?></td>
 
                                     <td><img src="{{URL::asset('/storage/'.$md->main_img)}}" alt="profile Pic" height="100" width="100"></td>

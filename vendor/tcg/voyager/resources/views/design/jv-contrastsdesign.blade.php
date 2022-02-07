@@ -42,7 +42,7 @@
                     <?php $nam = App\OptionTabel::select('name','id')->where('attri_id', '=', $attridata->id)->first();?>
                      
                     <a href="{{ route('voyager.contrast.add')}}/{{$data->id}}/{{$optdata}}" class="btn btn-success">
-       <i class="voyager-plus"></i> Add New
+                        <i class="voyager-plus"></i> Add New
                    </a>
                 </div>
                 <!-- end second -->
@@ -71,54 +71,54 @@
 
                                 @if(!empty($maindata))
                                 @foreach($maindata as $md)
-                                <tr>
-                                   <?php $md->opt_id; ?>
-                                    <?php $main = App\AttributeStyle::select('style_name')->where('id','=',$md->main_type_id)->first($md->main_type_id);?>
-                                    <td><?php if($main!=''){ echo $main->style_name; }?></td>
-                                    <?php $sub = App\AttributeStyle::select('style_name')->where('id','=',$md->sub_type_id)->first($md->sub_type_id);?>
-                                    <td>
-									<?php if($sub!=''){
-									echo $sub->style_name;
-									}?>
-                                    </td>
-                                    
-                                    <td>
-                                    @if($md->front_img!='')
-                                    <img src="{{URL::asset('/storage/'.$md->front_img)}}" alt="profile Pic" height="100" width="100">
-                                    @endif
-                                    </td>
-                                    <th>{{$md->created_at}}</th>
-                                    
-                                    <td class="no-sort no-click">
-                                        <div class="btn-sm btn-danger pull-right delete" data-id="{{$md->id}}" id="delete-{{$md->id}}">
-                                            <i class="voyager-trash"></i> Delete
-                                        </div>
-                                        <a href="{{route('voyager.editcontrast.edit',$md->id)}}" class="btn-sm btn-primary pull-right edit">
-                                            <i class="voyager-edit"></i> Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                                    aria-hidden="true">&times;</span></button>
+                                    <tr>
+                                       <?php $md->opt_id; ?>
+                                        <?php $main = App\AttributeStyle::select('style_name')->where('id','=',$md->main_type_id)->first($md->main_type_id);?>
+                                        <td><?php if($main!=''){ echo $main->style_name; }?></td>
+                                        <?php $sub = App\AttributeStyle::select('style_name')->where('id','=',$md->sub_type_id)->first($md->sub_type_id);?>
+                                        <td>
+    									<?php if($sub!=''){
+    									echo $sub->style_name;
+    									}?>
+                                        </td>
+                                        
+                                        <td>
+                                        @if($md->front_img!='')
+                                        <img src="{{URL::asset('/storage/'.$md->front_img)}}" alt="profile Pic" height="100" width="100">
+                                        @endif
+                                        </td>
+                                        <th>{{$md->created_at}}</th>
+                                        
+                                        <td class="no-sort no-click">
+                                            <div class="btn-sm btn-danger pull-right delete" data-id="{{$md->id}}" id="delete-{{$md->id}}">
+                                                <i class="voyager-trash"></i> Delete
+                                            </div>
+                                            <a href="{{route('voyager.editcontrast.edit',$md->id)}}" class="btn-sm btn-primary pull-right edit">
+                                                <i class="voyager-edit"></i> Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
                                                     <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete
                                                         this </h4>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form action="{{ route('voyager.contrastsdel.del',$md->id) }}" id="delete_form" method="POST">
-                                                            {{ method_field("DELETE") }}
-                                                            {{ csrf_field() }}
-                                                            <input type="submit" class="btn btn-danger pull-right delete-confirm"
-                                                            value="Yes, Delete This ">
-                                                        </form>
-                                                        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
-                                                    </div>
-                                                </div><!-- /.modal-content -->
-                                            </div><!-- /.modal-dialog -->
-                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('voyager.contrastsdel.del',$md->id) }}" id="delete_form" method="POST">
+                                                        {{ method_field("DELETE") }}
+                                                        {{ csrf_field() }}
+                                                        <input type="submit" class="btn btn-danger pull-right delete-confirm"
+                                                        value="Yes, Delete This ">
+                                                    </form>
+                                                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div>
                                 @endforeach
                                 @endif
                                 

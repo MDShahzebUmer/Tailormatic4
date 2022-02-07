@@ -75,17 +75,17 @@
                                     </a>
                                     <!-- Contrasts id 11 default -->
                                     @if($const->cat_id==1)
-                                  <a href="{{ route('voyager.contrastsdesign.collar',$const->id)}}" class="btn-sm btn-cont pull-right" style="background-color: #3F51B5;color: #fff; margin-left:5px;">
+                                    <a href="{{ route('voyager.contrastsdesign.collar',$const->id)}}" class="btn-sm btn-cont pull-right" style="background-color: #3F51B5;color: #fff; margin-left:5px;">
                                         <i class="voyager-eye"></i> Contrasts Collar Design
                                     </a>
                                     @endif
-                                      @if($const->cat_id==2 || $const->cat_id==3 || $const->cat_id==4)
-          <a href="{{ route('voyager.jvContrast',$const->id)}}" class="btn-sm btn-cont pull-right" style="background-color: #3F51B5;color: #fff;">
+                                    @if($const->cat_id==2 || $const->cat_id==3 || $const->cat_id==4)
+                                        <a href="{{ route('voyager.jvContrast',$const->id)}}" class="btn-sm btn-cont pull-right" style="background-color: #3F51B5;color: #fff;">
                                         <i class="voyager-eye"></i> Contrasts Design</a>
-                                        @else
+                                    @else
                                          <a href="{{ route('voyager.contrastsdesign.fabric',$const->id)}}" class="btn-sm btn-cont pull-right" style="background-color: #3F51B5;color: #fff;">
                                         <i class="voyager-eye"></i> Contrasts Design</a>
-                                        @endif                                    
+                                    @endif                                    
                                       
                                 </td>
                             </tr>

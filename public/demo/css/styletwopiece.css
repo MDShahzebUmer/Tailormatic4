@@ -438,3 +438,14 @@ ul.et-payment-list>li{
     display: inline-block;
     color: #ffe600 !important;
   }
+
+#etcontrastpant .et-progress-des {
+    top:-120px;
+}
+#etcontrastpant .et-bag-box {
+    margin-top: -43px;
+    margin-left: 2px;
+}
+#etcontrastpant .et-ck-payment {
+    left: -205px;
+}

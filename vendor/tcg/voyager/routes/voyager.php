@@ -359,6 +359,10 @@ Route::group(['as' => 'voyager.'], function () {
        Route::get('fabricdesignedit/{id?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@editdata', 'as' => 'editdata']);
        Route::post('fabricdesignedit/{id?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@editfabimglist', 'as' => 'editfabimglist']);
        Route::delete('fabricdesigndelete/{id?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@deletedata', 'as' => 'deletedata']);
+
+        // fabric auto create
+        Route::get('fabricdesignautocreate/{id}/{fb?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@autocreatedata', 'as' => 'autocreatedata']);
+        Route::post('fabricdesignautocreate/{id}/{fb?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@autoaddfabimglist', 'as' => 'autoaddfabimglist']);
        
               //option image of fabric
        Route::get('fabricdesignoption/{id?}/{fb?}', ['uses' => $namespacePrefix.'VoyagerFabricDesignController@createoption', 'as' => 'createoption']);
@@ -379,7 +383,8 @@ Route::group(['as' => 'voyager.'], function () {
        Route::get('jacketcollar/edit/{id?}', ['uses' => $namespacePrefix.'JacketController@editcollardata', 'as' => 'editcollardata']);
        Route::post('jacketcollar/edit/{id?}', ['uses' => $namespacePrefix.'JacketController@editjacketcollarlist', 'as' => 'editjacketcollarlist']);
        Route::delete('jacketcollar/delete/{id?}', ['uses' => $namespacePrefix.'JacketController@deletejacketcollarlist', 'as' => 'deletejacketcollarlist']);
-               //JV Contrast Collar
+
+       //JV Contrast Collar
        Route::get('contrast/{cid?}/{id?}', ['uses' => $namespacePrefix.'JVContrastController@jvContrast', 'as' => 'jvContrast']);
        Route::get('contrast/add/{cid?}/{id?}', ['uses' => $namespacePrefix.'JVContrastController@addContrast', 'as' => 'contrast.add']);
        Route::post('contrast/add/{cid?}/{id?}', ['uses' => $namespacePrefix.'JVContrastController@addcontrastdata', 'as' => 'contrastdata.add']);

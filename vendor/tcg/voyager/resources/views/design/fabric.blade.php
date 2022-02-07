@@ -92,7 +92,8 @@
                                         <i class="voyager-edit"></i> Edit
                                     </a>
                                     <?php
-                                    if($fgroup->cat_id==2){ $designpath='admin/jacketdesign';}else if($fgroup->cat_id==4){$designpath='admin/fabricdesign';}else{$designpath='admin/fabricdesign';}
+                                    // if($fgroup->cat_id==2){ $designpath='admin/jacketdesign';}else if($fgroup->cat_id==4){$designpath='admin/fabricdesign';}else{$designpath='admin/fabricdesign';}
+                                    if($fgroup->cat_id==2){ $designpath='admin/fabricdesign';}else if($fgroup->cat_id==4){$designpath='admin/fabricdesign';}else{$designpath='admin/fabricdesign';}
 									?>
                                     <a href="<?php echo url($designpath);?>/{{ $f->id}}" class="btn-sm btn-primary pull-right edit">
                                         <i class="voyager-settings"></i> Fabric Design

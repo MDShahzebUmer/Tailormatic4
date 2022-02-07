@@ -23,6 +23,8 @@ use Redirect;
 use TCG\Voyager\Models\Permission;
 use DB;
 use Illuminate\Http\File;
+use ZipArchive;
+
 class VoyagerFabricDesignController extends Controller
 {
    /* public function __construct($id,)
@@ -105,62 +107,373 @@ class VoyagerFabricDesignController extends Controller
           } 
         }
      }
-     public function addfabimglist(Request $request)
-     {
-      
-        $stylelist   = new Stylefabimglist;
-         $stylelist->attri_id   = $request->input('attri_id');
-         $stylelist->fab_id     = $request->input(['fab_id']);
-         $stylelist->style_id = $request->input(['style_id']);
-		 $stylelist->style_name = $this->sluget('attribute_styles',$stylelist->style_id,'style_name');
-         $stylelist->style_code = $request->input(['style_code']);
-         $stylelist->inside_view = $request->input(['inside_view']);
-         $stylelist->opt_id      = $request->input(['opt_id']);
-         $a=$stylelist->attri_id;
-         $f=$stylelist->fab_id;
-         $stylelist->status   = '1';
-		 
-		 //Slug creation
-		 $catID=$this->sluget('main_attributes',$stylelist->attri_id,'cat_id');
-		 $catname=$this->sluget('categories',$catID,'name');
-		 $attname= trim(str_replace(' ','', $this->sluget('main_attributes',$a,'attribute_name')));
-		 $parentId= $this->sluget('main_attributes',$a,'parent_id');
-		 $attMainname= str_replace(' ', '', $this->sluget('main_attributes',$parentId,'attribute_name'));
-		 $stltype= str_replace(' ', '', $stylelist->style_name);
-		 $slug_type=$catname.'/'.$attMainname.'/'.$attname.'/'.$stltype;
-		 
-				 
-         for($t=1;$t<=5;$t++){
-              if($request->hasFile('img'.$t)) {
-             $file = $request->file('img'.$t);
-			 
-			
-            if($t==1){  
-                $stylelist->list_img = $name=$this->saveimgfab($file,$slug_type.'/List',1800,$f);
-              }elseif($t==2){
-               $stylelist->show_img = $name=$this->saveimgfab($file,$slug_type.'/Show',1800,$f);
-             }elseif($t==3){
-               $stylelist->front_img = $name=$this->saveimgfab($file,$slug_type.'/Front',1800,$f);
-             }elseif($t==4){
-              $stylelist->back_img = $name=$this->saveimgfab($file,$slug_type.'/Back',1800,$f);
-            }elseif($t==5){
-              $stylelist->buttons_img = $name=$this->saveimgfab($file,$slug_type.'/ButtonsImg',1800,$f);
-            }elseif($t==6){
-              $stylelist->img_inner = $name=$this->saveimgfab($file,$slug_type.'/Inner',1800,$f);
-            }else{
-              $stylelist->img_outer = $name=$this->saveimgfab($file,$slug_type.'/Outer',1800,$f);
-            }
-            //$file->move(public_path().'/storage/faddesign/', $name);
-          }
+    public function autocreatedata($fab_id) {
+        if($fab_id != '') {
+            return view('voyager::design.auto-add')->with(compact('fab_id'));
         }
-		
-	
-         $stylelist->save();
-		 
-        return Redirect::to('/admin/fabricdesign/'.$f.'-'.$a);
-        
     }
+    public function addfabimglist(Request $request) {
+    
+        $stylelist   = new Stylefabimglist;
+        $stylelist->attri_id   = $request->input('attri_id');
+        $stylelist->fab_id     = $request->input(['fab_id']);
+        $stylelist->style_id = $request->input(['style_id']);
+        $stylelist->style_name = $this->sluget('attribute_styles',$stylelist->style_id,'style_name');
+        $stylelist->style_code = $request->input(['style_code']);
+        $stylelist->inside_view = $request->input(['inside_view']);
+        $stylelist->opt_id      = $request->input(['opt_id']);
+        $a=$stylelist->attri_id;
+        $f=$stylelist->fab_id;
+        $stylelist->status   = '1';
+	 
+        //Slug creation
+        $catID=$this->sluget('main_attributes',$stylelist->attri_id,'cat_id');
+        $catname=$this->sluget('categories',$catID,'name');
+        $attname= trim(str_replace(' ','', $this->sluget('main_attributes',$a,'attribute_name')));
+        $parentId= $this->sluget('main_attributes',$a,'parent_id');
+        $attMainname= str_replace(' ', '', $this->sluget('main_attributes',$parentId,'attribute_name'));
+        $stltype= str_replace(' ', '', $stylelist->style_name);
+        $stltype= str_replace(',', '', $stltype);
+        if($catID == 2){ //Jacket
+            if($stylelist->style_id == 50) {
+                $stltype = '1Button';
+            } else if($stylelist->style_id == 51) {
+                $stltype = '2Button';
+            } else if($stylelist->style_id == 52) {
+                $stltype = '3Button';
+            } else if($stylelist->style_id == 53) {
+                $stltype = '4Button';
+            } else if($stylelist->style_id == 54) {
+                $stltype = '4ButtonD2';
+            } else if($stylelist->style_id == 55) {
+                $stltype = '4ButtonD1';
+            } else if($stylelist->style_id == 56) {
+                $stltype = '6ButtonD2';
+            } else if($stylelist->style_id == 57) {
+                $stltype = '6ButtonD3';
+            } else if($stylelist->style_id == 58) {
+                $stltype = '6ButtonD1';
+            } else if($stylelist->style_id == 59) {
+                $stltype = 'PeakLapel';
+            } else if($stylelist->style_id == 60) {
+                $stltype = 'NotchLapel';
+            } else if($stylelist->style_id == 61) {
+                $stltype = 'RoundNotch';
+            } else if($stylelist->style_id == 62) {
+                $stltype = 'ShawlLapel';
+            } else if($stylelist->style_id == 63) {
+                $stltype = 'Straight';
+            } else if($stylelist->style_id == 64) {
+                $stltype = 'Curved';
+            } else if($stylelist->style_id == 65) {
+                $stltype = 'SlightlyCurved';
+            } else if($stylelist->style_id == 66) {
+                $stltype = 'JP1';
+            } else if($stylelist->style_id == 67) {
+                $stltype = 'JP2';
+            } else if($stylelist->style_id == 68) {
+                $stltype = 'JP3';
+            } else if($stylelist->style_id == 69) {
+                $stltype = 'JP4';
+            } else if($stylelist->style_id == 70) {
+                $stltype = 'JP5';
+            } else if($stylelist->style_id == 71) {
+                $stltype = 'JP6';
+            } else if($stylelist->style_id == 72) {
+                $stltype = 'JP7';
+            } else if($stylelist->style_id == 73) {
+                $stltype = '3StandardButtons';
+            } else if($stylelist->style_id == 74) {
+                $stltype = '3WorkingButtons';
+            } else if($stylelist->style_id == 75) {
+                $stltype = '3KissingButtons';
+            } else if($stylelist->style_id == 76) {
+                $stltype = '4StandardButtons';
+            } else if($stylelist->style_id == 77) {
+                $stltype = '4WorkingButtons';
+            } else if($stylelist->style_id == 78) {
+                $stltype = '4KissingButtons';
+            } else if($stylelist->style_id == 79) {
+                $stltype = '5StandardButtons';
+            } else if($stylelist->style_id == 80) {
+                $stltype = '5WorkingButtons';
+            } else if($stylelist->style_id == 81) {
+                $stltype = '5KissingButtons';
+            } else if($stylelist->style_id == 82) {
+                $stltype = 'NoVent';
+            } else if($stylelist->style_id == 83) {
+                $stltype = 'CenterVent';
+            } else if($stylelist->style_id == 84) {
+                $stltype = 'SideVent';
+            } else if($stylelist->style_id == 130) {
+                $stltype = 'DoubleSlightlyCurved';
+            }
+        }
+	      $slug_type=$catname.'/'.$attMainname.'/'.$attname.'/'.$stltype;
+			 
+        for($t=1;$t<=5;$t++){
+            if($request->hasFile('img'.$t)) {
+                $file = $request->file('img'.$t);
+                if($t==1){  
+                    $stylelist->list_img = $name=$this->saveimgfab($file,$slug_type.'/List',1800,$f);
+                }elseif($t==2){
+                    $stylelist->show_img = $name=$this->saveimgfab($file,$slug_type.'/Show',1800,$f);
+                }elseif($t==3){
+                    $stylelist->front_img = $name=$this->saveimgfab($file,$slug_type.'/Front',1800,$f);
+                }elseif($t==4){
+                    $stylelist->back_img = $name=$this->saveimgfab($file,$slug_type.'/Back',1800,$f);
+                }elseif($t==5){
+                    $stylelist->buttons_img = $name=$this->saveimgfab($file,$slug_type.'/ButtonsImg',1800,$f);
+                }elseif($t==6){
+                    $stylelist->img_inner = $name=$this->saveimgfab($file,$slug_type.'/Inner',1800,$f);
+                }else{
+                    $stylelist->img_outer = $name=$this->saveimgfab($file,$slug_type.'/Outer',1800,$f);
+                }
+                //$file->move(public_path().'/storage/faddesign/', $name);
+            }
+        }
+        $stylelist->save();
+        return Redirect::to('/admin/fabricdesign/'.$f.'-'.$a);
+    }
+    public function autoaddfabimglist(Request $request) {
+        $file = $request->file('fab_images');
+        if( $file && $file->extension() == 'zip') {
+            // copy all images -----------------------------------------
+            $fab_id = $request->input(['fab_id']);
+            $etfab = Etfabric::select("*")->where('id','=',$fab_id)->first();
+            $fabgrp = FabricGroup::select("*")->where('id','=',$etfab->fbgrp_id)->first();
 
+            $fileName = "temp.zip"; 
+            $upload_path = public_path().'/upload/temp';  // public/upload/temp
+            $zip_file = $upload_path."/".$fileName;       // public/upload/temp/temp.zip
+            $dest_path = public_path()."/storage";        // public/storage
+            $cat_dir = "temp";
+            if($fabgrp->cat_id == 1) {
+              $cat_dir = "Shirts";
+            } else if($fabgrp->cat_id == 2) {
+              $cat_dir = "Jacket";
+            } else if($fabgrp->cat_id == 3) {
+              $cat_dir = "Vests";
+            } else if($fabgrp->cat_id == 4) {
+              $cat_dir = "Pants";
+            }
+       
+            $file->move($upload_path, $fileName);
+            $zip = new ZipArchive();  
+            if($zip->open($zip_file)) {  
+                $zip->extractTo($upload_path);  
+                $zip->close();  
+            } 
+
+            if(file_exists($upload_path."/".$cat_dir)){
+                \File::copyDirectory($upload_path."/".$cat_dir, $dest_path."/".$cat_dir);
+            }
+
+            $main_attr   =   MainAttribute::select('id','attribute_name')->where('cat_id','=' ,$fabgrp->cat_id)->where('parent_id' ,'=' , 0)->first();
+            $sub_attr = MainAttribute::select('attribute_name','id')->where('parent_id', '=' ,$main_attr->id)->get();
+            foreach($sub_attr as $attr) {
+                $attribute_styles = AttributeStyle::select('*')->where('attri_id', '=' ,$attr->id)->get();
+                foreach ($attribute_styles as $attr_style) {
+                    $old_stylelist = Stylefabimglist::select('id','style_name')
+                                        ->where('attri_id','=' ,$attr->id)
+                                        ->where('fab_id','=' ,$fab_id)
+                                        ->where('style_id','=' ,$attr_style->id)
+                                        ->first();
+                    if($old_stylelist){
+                        $save_flag = false;
+                    }else{
+                        $save_flag = true;
+                    }
+
+                    if($save_flag) {
+                        $stylelist   = new Stylefabimglist;
+                        $stylelist->attri_id    = $attr->id;
+                        $stylelist->fab_id      = $fab_id;
+                        $stylelist->style_id    = $attr_style->id;
+                        $stylelist->style_name  = $attr_style->style_name;
+                        // $stylelist->style_name = $this->sluget('attribute_styles',$stylelist->style_id,'style_name');
+                        $stylelist->style_code  = 0;
+                        $stylelist->inside_view = 0;
+                        $stylelist->opt_id      = 0;
+
+                        $catname=$this->sluget('categories',$fabgrp->cat_id,'name');
+                        $attname= trim(str_replace(' ', '',  $attr->attribute_name));
+                        $attMainname= str_replace(' ', '', $main_attr->attribute_name);
+                        $stltype= str_replace(' ', '', $stylelist->style_name);
+                        $stltype= str_replace(',', '', $stltype);
+                        if($fabgrp->cat_id == 2){ //Jacket
+                            if($stylelist->style_id == 50) {
+                                $stltype = '1Button';
+                            } else if($stylelist->style_id == 51) {
+                                $stltype = '2Button';
+                            } else if($stylelist->style_id == 52) {
+                                $stltype = '3Button';
+                            } else if($stylelist->style_id == 53) {
+                                $stltype = '4Button';
+                            } else if($stylelist->style_id == 54) {
+                                $stltype = '4ButtonD2';
+                            } else if($stylelist->style_id == 55) {
+                                $stltype = '4ButtonD1';
+                            } else if($stylelist->style_id == 56) {
+                                $stltype = '6ButtonD2';
+                            } else if($stylelist->style_id == 57) {
+                                $stltype = '6ButtonD3';
+                            } else if($stylelist->style_id == 58) {
+                                $stltype = '6ButtonD1';
+                            } else if($stylelist->style_id == 59) {
+                                $stltype = 'PeakLapel';
+                            } else if($stylelist->style_id == 60) {
+                                $stltype = 'NotchLapel';
+                            } else if($stylelist->style_id == 61) {
+                                $stltype = 'RoundNotch';
+                            } else if($stylelist->style_id == 62) {
+                                $stltype = 'ShawlLapel';
+                            } else if($stylelist->style_id == 63) {
+                                $stltype = 'Straight';
+                            } else if($stylelist->style_id == 64) {
+                                $stltype = 'Curved';
+                            } else if($stylelist->style_id == 65) {
+                                $stltype = 'SlightlyCurved';
+                            } else if($stylelist->style_id == 66) {
+                                $stltype = 'JP1';
+                            } else if($stylelist->style_id == 67) {
+                                $stltype = 'JP2';
+                            } else if($stylelist->style_id == 68) {
+                                $stltype = 'JP3';
+                            } else if($stylelist->style_id == 69) {
+                                $stltype = 'JP4';
+                            } else if($stylelist->style_id == 70) {
+                                $stltype = 'JP5';
+                            } else if($stylelist->style_id == 71) {
+                                $stltype = 'JP6';
+                            } else if($stylelist->style_id == 72) {
+                                $stltype = 'JP7';
+                            } else if($stylelist->style_id == 73) {
+                                $stltype = '3StandardButtons';
+                            } else if($stylelist->style_id == 74) {
+                                $stltype = '3WorkingButtons';
+                            } else if($stylelist->style_id == 75) {
+                                $stltype = '3KissingButtons';
+                            } else if($stylelist->style_id == 76) {
+                                $stltype = '4StandardButtons';
+                            } else if($stylelist->style_id == 77) {
+                                $stltype = '4WorkingButtons';
+                            } else if($stylelist->style_id == 78) {
+                                $stltype = '4KissingButtons';
+                            } else if($stylelist->style_id == 79) {
+                                $stltype = '5StandardButtons';
+                            } else if($stylelist->style_id == 80) {
+                                $stltype = '5WorkingButtons';
+                            } else if($stylelist->style_id == 81) {
+                                $stltype = '5KissingButtons';
+                            } else if($stylelist->style_id == 82) {
+                                $stltype = 'NoVent';
+                            } else if($stylelist->style_id == 83) {
+                                $stltype = 'CenterVent';
+                            } else if($stylelist->style_id == 84) {
+                                $stltype = 'SideVent';
+                            } else if($stylelist->style_id == 130) {
+                                $stltype = 'DoubleSlightlyCurved';
+                            }
+                        }
+                        $slug_type=$catname.'/'.$attMainname.'/'.$attname.'/'.$stltype;
+                        // List, Show, Front, Back, ButtonsImg, Inner, Outer,
+                        $path_1 = $slug_type."/List/".$fab_id.".";
+                        $path_2 = $slug_type."/Show/".$fab_id.".";
+                        $path_3 = $slug_type."/Front/".$fab_id.".";
+                        $path_4 = $slug_type."/Back/".$fab_id.".";
+                        $path_5 = $slug_type."/ButtonsImg/".$fab_id.".";
+                        $path_6 = $slug_type."/Inner/".$fab_id.".";
+                        $path_7 = $slug_type."/Outer/".$fab_id.".";
+                        // print("================================");print("</br>");
+                        // print_r("path_1:");print_r($path_1);print("</br>");
+                        // print_r("path_2:");print_r($path_2);print("</br>");
+                        // print_r("path_3:");print_r($path_3);print("</br>");
+                        // print_r("path_4:");print_r($path_4);print("</br>");
+                        // print_r("path_5:");print_r($path_5);print("</br>");
+                        // print_r("path_6:");print_r($path_6);print("</br>");
+                        // print_r("path_7:");print_r($path_7);print("</br>");
+
+                        if(file_exists($dest_path."/".$path_1.'png')) {
+                           $stylelist->list_img = $path_1.'png';
+                        } else if(file_exists($dest_path."/".$path_1.'jpg')) {
+                           $stylelist->list_img = $path_1.'jpg';
+                        } else if(file_exists($dest_path."/".$path_1.'jpeg')) {
+                           $stylelist->list_img = $path_1.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_1.'gif')) {
+                           $stylelist->list_img = $path_1.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_2.'png')) {
+                           $stylelist->show_img = $path_2.'png';
+                        } else if(file_exists($dest_path."/".$path_2.'jpg')) {
+                           $stylelist->show_img = $path_2.'jpg';
+                        } else if(file_exists($dest_path."/".$path_2.'jpeg')) {
+                           $stylelist->show_img = $path_2.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_2.'gif')) {
+                           $stylelist->show_img = $path_2.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_3.'png')) {
+                           $stylelist->front_img = $path_3.'png';
+                        } else if(file_exists($dest_path."/".$path_3.'jpg')) {
+                           $stylelist->front_img = $path_3.'jpg';
+                        } else if(file_exists($dest_path."/".$path_3.'jpeg')) {
+                           $stylelist->front_img = $path_3.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_3.'gif')) {
+                           $stylelist->front_img = $path_3.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_4.'png')) {
+                           $stylelist->back_img = $path_4.'png';
+                        } else if(file_exists($dest_path."/".$path_4.'jpg')) {
+                           $stylelist->back_img = $path_4.'jpg';
+                        } else if(file_exists($dest_path."/".$path_4.'jpeg')) {
+                           $stylelist->back_img = $path_4.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_4.'gif')) {
+                           $stylelist->back_img = $path_4.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_5.'png')) {
+                           $stylelist->buttons_img = $path_5.'png';
+                        } else if(file_exists($dest_path."/".$path_5.'jpg')) {
+                           $stylelist->buttons_img = $path_5.'jpg';
+                        } else if(file_exists($dest_path."/".$path_5.'jpeg')) {
+                           $stylelist->buttons_img = $path_5.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_5.'gif')) {
+                           $stylelist->buttons_img = $path_5.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_6.'png')) {
+                           $stylelist->img_inner = $path_6.'png';
+                        } else if(file_exists($dest_path."/".$path_6.'jpg')) {
+                           $stylelist->img_inner = $path_6.'jpg';
+                        } else if(file_exists($dest_path."/".$path_6.'jpeg')) {
+                           $stylelist->img_inner = $path_6.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_6.'gif')) {
+                           $stylelist->img_inner = $path_6.'gif';
+                        }
+
+                        if(file_exists($dest_path."/".$path_7.'png')) {
+                           $stylelist->img_outer = $path_7.'png';
+                        } else if(file_exists($dest_path."/".$path_7.'jpg')) {
+                           $stylelist->img_outer = $path_7.'jpg';
+                        } else if(file_exists($dest_path."/".$path_7.'jpeg')) {
+                           $stylelist->img_outer = $path_7.'jpeg';
+                        } else if(file_exists($dest_path."/".$path_7.'gif')) {
+                           $stylelist->img_outer = $path_7.'gif';
+                        }
+                        $stylelist->save();
+                    }
+                }
+            }
+
+            if(file_exists($upload_path)){
+                \File::deleteDirectory($upload_path);
+            }
+        }
+        return Redirect::to('/admin/fabricdesign/'.$fab_id);
+    }
     public function editdata($idst=null)
     {
          if($idst != '')    
@@ -565,7 +878,9 @@ class VoyagerFabricDesignController extends Controller
                 $constraint->upsize();
             }) 
                ->encode($file->getClientOriginalExtension(), 75);
-                if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                $dest_path = public_path()."/storage/".$fullPath;
+                // if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                if($image->save($dest_path))
                 {
                    return $fullPath;
                 }

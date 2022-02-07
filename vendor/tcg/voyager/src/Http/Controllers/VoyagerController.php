@@ -167,7 +167,9 @@ class VoyagerController extends Controller
                         $constraint->upsize();
                     })
                     ->encode($file->getClientOriginalExtension(), 75);
-                if (Storage::put(config('voyager.storage.subfolder') . $fullPath, (string) $image, 'public')) {
+                $dest_path = public_path()."/storage/".$fullPath;
+                // if (Storage::put(config('voyager.storage.subfolder') . $fullPath, (string) $image, 'public')) {
+                if($image->save($dest_path)) {
                     return $fullPath;
                 } else {
                     $status = 'Upload Fail: Unknown error occurred!';
@@ -195,7 +197,9 @@ class VoyagerController extends Controller
                         $constraint->upsize();
                     })
                     ->encode($file->getClientOriginalExtension(), 75);
-                if (Storage::put(config('voyager.storage.subfolder') . $fullPath, (string) $image, 'public')) {
+                $dest_path = public_path()."/storage/".$fullPath;
+                // if (Storage::put(config('voyager.storage.subfolder') . $fullPath, (string) $image, 'public')) {
+                if($image->save($dest_path)) {
                     return $fullPath;
                 } else {
                     $status = 'Upload Fail: Unknown error occurred!';
@@ -349,6 +353,7 @@ class VoyagerController extends Controller
             return redirect()->back();
         }
     }
+
     public function contrasts_otion_create($id = Null, $ids = Null)
     {
         if ($id != '' && $ids) {

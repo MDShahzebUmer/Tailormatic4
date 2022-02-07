@@ -63,7 +63,7 @@ class FabricDesignController extends Controller
        
         $update_img = [
         'fabric_img_s' => $this->save_img($request->file('fabric_img_l'),$name.'/'.'S',130,$ids),
-        'fabric_img_l' => $this->large_img($request->file('fabric_img_l'),$name.'/'.'L',436,$ids),
+        'fabric_img_l' => $this->large_img($request->file('fabric_img_l'),$name.'/'.'L',500,$ids), //436
         'fabric_contrast_img' => $this->save_img($request->file('fabric_contrast_img'),$name.'/'.'C',200,$ids),
         'basic_img_f' =>  $this->save_img($request->file('basic_img_f'),$name.'/'.'Front',500,$ids),
         'basic_img_b' =>  $this->save_img($request->file('basic_img_b'),$name.'/'.'Back',500,$ids),
@@ -192,7 +192,9 @@ class FabricDesignController extends Controller
                 $constraint->upsize();
             }) 
                ->encode($file->getClientOriginalExtension(), 75);
-                if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                $dest_path = public_path()."/storage/".$fullPath;
+                // if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                if($image->save($dest_path))
                 {
                    return $fullPath;
                 }
@@ -231,7 +233,9 @@ class FabricDesignController extends Controller
                 $constraint->upsize();
             }) 
                ->encode($file->getClientOriginalExtension(), 75);
-                if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                $dest_path = public_path()."/storage/".$fullPath;
+                // if(Storage::put(config('voyager.storage.subfolder').$fullPath, (string) $image, 'public'))
+                if($image->save($dest_path))
                 {
                    return $fullPath;
                 }

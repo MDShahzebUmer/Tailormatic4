@@ -57,6 +57,9 @@
 <div class="col-md-12">
 
 
+    <a href="{{ url('admin/fabricdesignautocreate/') }}/{{$data->id}}/<?php echo $addid;?>" class="btn btn-success">
+        <i class="voyager-plus"></i> Add Automatic All
+    </a>
     <a href="{{ url('admin/fabricdesigncreate/') }}/{{$data->id}}/<?php echo $addid;?>" class="btn btn-success">
         <i class="voyager-plus"></i> Add New
     </a>

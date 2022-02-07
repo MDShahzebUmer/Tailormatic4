@@ -6436,6 +6436,7 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'TCG\\Voyager\\Http\\Controllers\\ContentTypes\\Timestamp' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/ContentTypes/Timestamp.php',
         'TCG\\Voyager\\Http\\Controllers\\Controller' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/Controller.php',
         'TCG\\Voyager\\Http\\Controllers\\FabricDesignController' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/FabricDesignController.php',
+        'TCG\\Voyager\\Http\\Controllers\\JVContrastController' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/JVContrastController.php',
         'TCG\\Voyager\\Http\\Controllers\\MeasurmentController' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/MeasurmentController.php',
         'TCG\\Voyager\\Http\\Controllers\\ProductsController' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/ProductsController.php',
         'TCG\\Voyager\\Http\\Controllers\\ReviewController' => __DIR__ . '/..' . '/tcg/voyager/src/Http/Controllers/ReviewController.php',
