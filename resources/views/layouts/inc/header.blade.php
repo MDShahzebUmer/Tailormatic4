@@ -95,9 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <button type="button" class="hamburger is-closed " data-toggle="offcanvas">
                             <div class="et-round-one">
                                 <div class="et-round-two">
-                                    <span class="hamb-1"></span>
-                                    <span class="hamb-4"></span>
-                                    <span class="hamb-7"></span>
+                                    <div class="hamb-nav"></div>
+                                    <div class="hamb-nav"></div>
+                                    <div class="hamb-nav"></div>
                                     <span class="hamb-top"></span>
                                     <span class="hamb-bottom"></span>
                                 </div>

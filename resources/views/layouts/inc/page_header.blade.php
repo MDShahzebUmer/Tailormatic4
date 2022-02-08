@@ -99,8 +99,8 @@
                                     <span class="hamb-7"></span>
                                     <!-- <span class="hamb-8"></span> -->
                                     <!-- <span class="hamb-9"></span> -->
-                                    <span class="hamb-top"></span>
-                                    <span class="hamb-bottom"></span>
+                                    <div class="hamb-top"></div>
+                                    <div class="hamb-bottom"></div>
                                 </div>
                             </div>
                         </button>

@@ -452,12 +452,13 @@ section.et-serivces.et-page-navbar {
 
 .hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom, .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-middle, .hamburger.is-open .hamb-bottom {
     position: absolute;
-    left: 8px;
-    height: 7px;
+    /* left: 8px; */
+    height: 4.2px;
     width: 65%
+    
 }
 
-.hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom {
+.hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom  {
     background-color: #fff;
     opacity: 0
 }
@@ -511,20 +512,22 @@ button.hamburger.is-open {
 }
 
 .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-bottom {
-    top: 47%;
+    /* top: 47%; */
     margin-top: -2px
 }
 
 .hamburger.is-open .hamb-top {
+    border-radius: 10px;
     -webkit-transform: rotate(45deg);
     -webkit-transition: -webkit-transform .2s cubic-bezier(.73, 1, .28, .08)
 }
 
-.hamburger.is-open .hamb-middle {
+.hamburger.is-open .hamb-nav {
     display: none
 }
 
 .hamburger.is-open .hamb-bottom {
+    border-radius: 10px;
     -webkit-transform: rotate(-45deg);
     -webkit-transition: -webkit-transform .2s cubic-bezier(.73, 1, .28, .08)
 }
@@ -571,7 +574,7 @@ button.hamburger.is-open {
     border: 4px solid #fff
 }
 
-.hamburger.is-open .hamb-1, .hamburger.is-open .hamb-2, .hamburger.is-open .hamb-3, .hamburger.is-open .hamb-4, .hamburger.is-open .hamb-5, .hamburger.is-open .hamb-6, .hamburger.is-open .hamb-7, .hamburger.is-open .hamb-8, .hamburger.is-open .hamb-9 {
+.hamburger.is-open  .hamb-1, .hamburger.is-open .hamb-2, .hamburger.is-open .hamb-3, .hamburger.is-open .hamb-4, .hamburger.is-open .hamb-5, .hamburger.is-open .hamb-6, .hamburger.is-open .hamb-nav, .hamburger.is-open .hamb-8, .hamburger.is-open .hamb-9 {
     opacity: 0
 }
 
@@ -580,6 +583,15 @@ button.hamburger.is-open {
     height: 7px;
     background-color: #fff;
     position: absolute
+}
+
+.hamb-nav {
+    width: 42.5px;
+    height: 4.5px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 4px;
 }
 
 .hamburger .hamb-1 {
@@ -5946,13 +5958,18 @@ figure.figure-box img {
 }
 .hamburger .et-round-two {
     position: absolute;
-    width: 82.5px;
-    height: 82.5px;
+    width: 60.5px;
+    height: 60.5px;
     background-color: #3d2a1e;
     border-radius: 65px;
     left: 8px;
     top: 8px;
-    border: 4px solid #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: center;
+    flex-direction: column;
 }
 .hamburger .hamb-1, .hamburger .hamb-2, .hamburger .hamb-3, .hamburger .hamb-4, .hamburger .hamb-5, .hamburger .hamb-6, .hamburger .hamb-7, .hamburger .hamb-8, .hamburger .hamb-9 {
     /*width: 10.5px;*/
@@ -6019,8 +6036,8 @@ figure.figure-box img {
 */
 .hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom, .hamburger.is-open .hamb-top, .hamburger.is-open .hamb-middle, .hamburger.is-open .hamb-bottom {
     position: absolute;
-    left: 13px;
-    height: 7px;
+    /* left: 13px; */
+    height: 4.2px;
     width: 65%;
 }
 
