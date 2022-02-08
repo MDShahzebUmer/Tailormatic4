@@ -91,6 +91,7 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
             'Symfony\\Component\\Console\\' => 26,
             'Svg\\' => 4,
             'Srmklive\\PayPal\\' => 16,
+            'Spatie\\Newsletter\\' => 18,
         ),
         'R' => 
         array (
@@ -163,6 +164,7 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         ),
         'D' => 
         array (
+            'DrewM\\MailChimp\\' => 16,
             'Dotenv\\' => 7,
             'Dompdf\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
@@ -344,6 +346,10 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         array (
             0 => __DIR__ . '/..' . '/srmklive/paypal/src',
         ),
+        'Spatie\\Newsletter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-newsletter/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -502,6 +508,10 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
         ),
+        'DrewM\\MailChimp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drewm/mailchimp-api/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -659,6 +669,12 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\JacketController' => __DIR__ . '/../..' . '/app/Http/Controllers/JacketController.php',
         'App\\Http\\Controllers\\MailChimpController' => __DIR__ . '/../..' . '/app/Http/Controllers/MailChimpController.php',
+        'App\\Http\\Controllers\\MobileJacketController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobileJacketController.php',
+        'App\\Http\\Controllers\\MobilePantController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobilePantController.php',
+        'App\\Http\\Controllers\\MobileShirtController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobileShirtController.php',
+        'App\\Http\\Controllers\\MobileThreePieceController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobileThreePieceController.php',
+        'App\\Http\\Controllers\\MobileTwoPieceController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobileTwoPieceController.php',
+        'App\\Http\\Controllers\\MobileVestController' => __DIR__ . '/../..' . '/app/Http/Controllers/MobileVestController.php',
         'App\\Http\\Controllers\\MyAccount' => __DIR__ . '/../..' . '/app/Http/Controllers/MyAccount.php',
         'App\\Http\\Controllers\\NotifyController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotifyController.php',
         'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
@@ -667,6 +683,7 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Controllers\\ReviewController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReviewController.php',
         'App\\Http\\Controllers\\ShippingAddress' => __DIR__ . '/../..' . '/app/Http/Controllers/ShippingAddress.php',
+        'App\\Http\\Controllers\\SitemapXmlController' => __DIR__ . '/../..' . '/app/Http/Controllers/SitemapXmlController.php',
         'App\\Http\\Controllers\\SuitController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuitController.php',
         'App\\Http\\Controllers\\ThreeDController' => __DIR__ . '/../..' . '/app/Http/Controllers/ThreeDController.php',
         'App\\Http\\Controllers\\ThreePieceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ThreePieceController.php',
@@ -1433,6 +1450,9 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'Dotenv\\Util\\Regex' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Regex.php',
         'Dotenv\\Util\\Str' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Util/Str.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'DrewM\\MailChimp\\Batch' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/Batch.php',
+        'DrewM\\MailChimp\\MailChimp' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/MailChimp.php',
+        'DrewM\\MailChimp\\Webhook' => __DIR__ . '/..' . '/drewm/mailchimp-api/src/Webhook.php',
         'Egulias\\EmailValidator\\EmailLexer' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailLexer.php',
         'Egulias\\EmailValidator\\EmailParser' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailParser.php',
         'Egulias\\EmailValidator\\EmailValidator' => __DIR__ . '/..' . '/egulias/email-validator/src/EmailValidator.php',
@@ -1996,6 +2016,7 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
+        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',
@@ -5455,6 +5476,14 @@ class ComposerStaticInit8d102ef7250faaf6f59ce528373083c0
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Spatie\\Newsletter\\Exceptions\\InvalidNewsletterList' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/Exceptions/InvalidNewsletterList.php',
+        'Spatie\\Newsletter\\Newsletter' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/Newsletter.php',
+        'Spatie\\Newsletter\\NewsletterFacade' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterFacade.php',
+        'Spatie\\Newsletter\\NewsletterList' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterList.php',
+        'Spatie\\Newsletter\\NewsletterListCollection' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterListCollection.php',
+        'Spatie\\Newsletter\\NewsletterPermissions' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterPermissions.php',
+        'Spatie\\Newsletter\\NewsletterServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NewsletterServiceProvider.php',
+        'Spatie\\Newsletter\\NullDriver' => __DIR__ . '/..' . '/spatie/laravel-newsletter/src/NullDriver.php',
         'Srmklive\\PayPal\\Facades\\PayPal' => __DIR__ . '/..' . '/srmklive/paypal/src/Facades/PayPal.php',
         'Srmklive\\PayPal\\PayPalFacadeAccessor' => __DIR__ . '/..' . '/srmklive/paypal/src/PayPalFacadeAccessor.php',
         'Srmklive\\PayPal\\Providers\\PayPalServiceProvider' => __DIR__ . '/..' . '/srmklive/paypal/src/Providers/PayPalServiceProvider.php',

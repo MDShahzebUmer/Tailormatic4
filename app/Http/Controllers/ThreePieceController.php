@@ -1330,7 +1330,7 @@ class ThreePieceController extends Controller
 		$p=explode('/',$paths);
 		$eTailorObjN=$carray;
 		
-		// switch($options){
+		 switch($options){
 		// 	case "Special":
 		// 		if($ff=="true"){ $eTailorObjN['omonogramSpecial']="false"; } else { $eTailorObjN['omonogramSpecial']="true"; }
 		// 		break;
@@ -1343,9 +1343,9 @@ class ThreePieceController extends Controller
 		// 			$eTailorObjN['olapelHoleName']="With Lapel Buttonhole";
 		// 		}
 		// 		break;
-		// 	case "BreastPocket":
-		// 		if($ff=="true"){ $eTailorObjN['obreastPacket']="false"; } else { $eTailorObjN['obreastPacket']="true"; }
-		// 		break;
+			case "BreastPocket":
+			if($ff=="true"){ $eTailorObjN['obreastPacket']="false"; } else { $eTailorObjN['obreastPacket']="true"; }
+			break;
 		// 	case "LapelUpper":
 		// 		if($ff=="true"){ $eTailorObjN['olapelupper']="false"; } else { $eTailorObjN['olapelupper']="true"; }
 		// 		break;
@@ -1361,7 +1361,7 @@ class ThreePieceController extends Controller
 		// 	case "ElbowMix":
 		// 		if($ff=="true"){ $eTailorObjN['ocontelbowmix']="false"; } else { $eTailorObjN['ocontelbowmix']="true"; }
 		// 		break;
-		// }
+		 }
 		
 		/*Style*/
 		$datastyle=$datastyle.'<div class="carousel-container">';
