@@ -4,10 +4,6 @@
  * ----------------------------------------------------------------
  */
 
-window.onbeforeunload = function(e){
-                //action here
-                e.returnValue =  "Changes may not be saved";
-            }
 
 
 
