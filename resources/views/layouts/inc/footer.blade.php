@@ -168,15 +168,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
              <div class="col-md-3 col-sm-3 etfbklike">
                <?php $fburl =Request::url(); ?>
-              <div class="et-fblike">
+              {{-- <div class="et-fblike">
                    <iframe src="https://www.facebook.com/plugins/like.php?href={{$fburl}}&width=100&layout=button&action=like&layout=button_count&size=small&show_faces=true&height=65&appId" width="94" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 </div><div class="et-fbshare">
                  <iframe src="https://www.facebook.com/plugins/share_button.php?href={{$fburl}}&layout=button_count&size=small&mobile_iframe=true&width=86&height=20&appId" width="86" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-              </div>
-              <div class="et-likshare">
+              </div> --}}
+              {{-- <div class="et-likshare">
                  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
                   <script type="IN/Share" data-url="{{$fburl}}" data-counter="right" ></script>
-              </div>
+              </div> --}}
 
 
 
