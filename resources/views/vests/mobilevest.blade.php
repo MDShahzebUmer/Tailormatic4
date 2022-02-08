@@ -46,6 +46,11 @@ $cartcount = App\Http\Helpers::cartcount();
 <!-- Loader -->
 <script type="text/javascript" src="{{asset('demo/js/jquery.DEPreLoad.js')}}"></script>
 <script type="text/javascript">
+    window.onbeforeunload = function() {
+        return 'Your progress will be lost';
+    }
+</script>
+<script type="text/javascript">
 $(document).ready(function() {
     var l=$("#loadme").val();
     if(l==0){

@@ -52,8 +52,15 @@ class JacketController extends Controller
 
     }
 
+	
+
+
+
     public function index()
     {
+
+		
+    
         $device_info = Helpers::systemInfo(); 
 		$device = $device_info['device'];   // 'MOBILE','SYSTEM'
 		if($device!='SYSTEM'){
@@ -1491,5 +1498,6 @@ class JacketController extends Controller
 						
 		 return response()->json(array('mes'=>'sucess')); 	
 	}
+
        
 }

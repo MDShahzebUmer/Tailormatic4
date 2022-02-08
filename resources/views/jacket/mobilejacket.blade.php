@@ -40,10 +40,16 @@
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobilejacket.css?v1')}}" media="all">
 
     <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
+    <script type="text/javascript">
+    window.onbeforeunload = function() {
+        return 'Your progress will be lost';
+    }
+</script>
     <script type="text/javascript" src="{{asset('demo/js/jquery-1.11.3.min.js')}}"></script>
 
     <!-- Loader -->
     <script type="text/javascript" src="{{asset('demo/js/jquery.DEPreLoad.js')}}"></script>
+
     <script type="text/javascript">
     $(document).ready(function() {
         var l=$("#loadme").val();
@@ -80,7 +86,9 @@
         }
     });
     </script>
+
     <!-- Loader Ends -->
+    
 
 </head>
 <body class="designshirt">

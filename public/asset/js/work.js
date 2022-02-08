@@ -3,6 +3,14 @@
  * PAGE LOADING
  * ----------------------------------------------------------------
  */
+
+window.onbeforeunload = function(e){
+                //action here
+                e.returnValue =  "Changes may not be saved";
+            }
+
+
+
 window.addEventListener('DOMContentLoaded', function() {
     var images = document.getElementsByTagName('img')
       , html = document.getElementsByTagName("html")[0]

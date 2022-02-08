@@ -30,6 +30,11 @@
 <!-- Loader -->
 <script type="text/javascript" src="{{asset('demo/js/jquery.DEPreLoad.js')}}"></script>
 <script type="text/javascript">
+    window.onbeforeunload = function() {
+        return 'Your progress will be lost';
+    }
+</script>
+<script type="text/javascript">
 $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(function(){$("#depreload .wrapper").animate({ opacity: 1 });}, 40);setTimeout(function(){$("#depreload .logo").animate({ opacity: 1 });}, 600);var canvas  = $("#depreload .line")[0],context = canvas.getContext("2d");context.beginPath();context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * 1.6);context.strokeStyle = '#9e792b';context.lineWidth = 5;context.stroke();var loader = $("html").DEPreLoad({OnStep: function(percent) {console.log(percent + '%');$("#depreload .line").animate({ opacity: 1 });$("#depreload .perc").text(percent + "%");if (percent > 5) {context.clearRect(0, 0, canvas.width, canvas.height);context.beginPath();context.arc(280, 280, 260, Math.PI * 1.5, Math.PI * (1.5 + percent / 50), false);context.stroke();}},OnComplete: function() {console.log('Everything loaded!');$("#depreload").hide(100);$("#depreload .perc").text("done");$("#depreload .loading").animate({ opacity: 0 });}});}});
 </script>
 <!-- Loader Ends -->
@@ -899,7 +904,9 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
     <!-- FOOTER SECTION END -->
     <canvas id="frontcanvas" width="313" height="421" style="display:none"></canvas><canvas id="backcanvas" width="313" height="421" style="display:none"></canvas><canvas id="sidecanvas" width="313" height="421" style="display:none"></canvas>
 </section>
+
 </body>
+
 <!-- Bootstrap Main JS File -->
 <script type="text/javascript" src="{{asset('demo/js/bootstrap.min.js')}}"></script>
 <!-- Bootstrap bootstrap-touch-slider Slider Main JS File -->

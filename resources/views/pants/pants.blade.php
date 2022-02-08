@@ -25,6 +25,11 @@
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
 <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
+<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return 'Your progress will be lost';
+    }
+</script>
 <script type="text/javascript" src="{{asset('demo/js/jquery-1.11.3.min.js')}}"></script>
 <!-- Loader -->
 <script type="text/javascript" src="{{asset('demo/js/jquery.DEPreLoad.js')}}"></script>
