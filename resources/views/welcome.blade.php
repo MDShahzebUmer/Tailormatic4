@@ -381,9 +381,10 @@
                 <div class="box-bottom mt-10" style="margin-top: 50px">
                  <div class="col-md-6">
                       <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
+                   
                      <div class=" et-effect et-last">
                          {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
-                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.png" alt="{{$alt_name}}" />
+                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
                          {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
                           <a href="/design3pcsuits">
                              <figcaption>
@@ -401,7 +402,7 @@
                      <?php $i5 = App\Http\Helpers::img_font_call(4); ?>
                      <div class="et-effect et-last">
                           {{-- <img src="{{asset('/storage'.$i5->img)}}" alt="{{$alt_name}}" /> --}}
-                          <img src="//www.duniyatailor.com/storage/FrontProductImg/9.jpeg" alt="{{$alt_name}}" />
+                          <img src="//www.duniyatailor.com/storage/FrontProductImg/9.png" alt="{{$alt_name}}" />
                           <a href="/design2pcsuits">
                              <figcaption>
 
