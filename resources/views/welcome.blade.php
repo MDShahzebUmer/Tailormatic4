@@ -383,7 +383,7 @@
                       <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
                      <div class=" et-effect et-last">
                          {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
-                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
+                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.png" alt="{{$alt_name}}" />
                          {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
                           <a href="/design3pcsuits">
                              <figcaption>

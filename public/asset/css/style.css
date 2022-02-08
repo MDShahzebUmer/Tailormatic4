@@ -70,7 +70,8 @@ a, a:hover {
 section {
     width: 100%;
     float: left;
-    position: relative
+    position: relative;
+    /* min-height: 100%; */
 }
 
 .et-left {
