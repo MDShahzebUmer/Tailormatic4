@@ -37,19 +37,19 @@ class Helpers {
      $alltebinfo = DB::table($table)->where('id','=',$id)->value($fieldname);
       return $alltebinfo;
     }
-	
+
 	public static function optionval($fieldname){
 		if($fieldname=='true'){
 			$fieldresponse='Yes';
 		}else{
 			$fieldresponse='No';
 		}
-     
+
       return $fieldresponse;
     }
-	
+
 	public static function shippingamt($countryid,$cat_id){
-		
+
 		$shipamt=ShippingRate::select('*')->where('country_id', '=',  $countryid)->first();
 		if($cat_id==1){
 			$shipingamt=$shipamt->shirt_amt;
@@ -62,12 +62,12 @@ class Helpers {
 		}else{
 			$shipingamt=$shipamt->other_cat_amt;
 		}
-	     
+
       return $shipingamt;
     }
-	
+
 	public static function cartcount(){
-		
+
 		if(Auth::check())
 		{
 			 $id = Auth::user()->id;
@@ -77,108 +77,108 @@ class Helpers {
 			}else{
 				$count = Cart::select('*')->where('user_id', '=',  $id)->count();
 			}
-		    
+
 
 		}elseif (Session::has('carts')) {
-					
+
 		$cartsess=Session::get('carts');
 		$count = Cart::select('*')->where('cart_sessionid', '=',  $cartsess)->count();
 		}else{
 			$count=0;
 		}
-	     
+
       return $count;
     }
-	
-	
+
+
 	public static function producttotal($cartsess){
-		
-		$pricecount = Cart::select('price')->where('cart_sessionid', '=',  $cartsess)->sum('price');		
-	     
+
+		$pricecount = Cart::select('price')->where('cart_sessionid', '=',  $cartsess)->sum('price');
+
       return $pricecount;
     }
 	public static function shiptotal($cartsess){
-		
-		$shiptotal = Cart::select('shipping')->where('cart_sessionid', '=',  $cartsess)->sum('shipping');		
-	     
+
+		$shiptotal = Cart::select('shipping')->where('cart_sessionid', '=',  $cartsess)->sum('shipping');
+
       return $shiptotal;
     }
-	
-	
-	
-	public static function catcarttotal($catId='',$cartsess){
-		
+
+
+
+	public static function catcarttotal($cartsess, $catId=''){
+
 		if($catId!=''){
 			$catcarttotal = Cart::select('id')->where('cat_id', '=',  $catId)->where('cart_sessionid', '=',  $cartsess)->count();
 		}else{
 			$catcarttotal=0;
 		}
-	     
+
       return $catcarttotal;
     }
-	
+
 	public static function maxamt($promocode){
-		
+
 		$maxamount = CamaignPromoCode::select('max_amount')->where('promo_code', '=',  $promocode)->first();
 		if($maxamount->max_amount==''){
 			$maxcouamt=5000000000;//Assume amount is 0
 		}else{
 			$maxcouamt=$maxamount->max_amount;
 		}
-	     
+
       return $maxamount;
     }
-	
-	
-	
-	public static function ordusercount($userid){		
-		$ordusercount = Order::select('id')->where('user_id', '=',  $userid)->count();	     
+
+
+
+	public static function ordusercount($userid){
+		$ordusercount = Order::select('id')->where('user_id', '=',  $userid)->count();
       return $ordusercount;
     }
-	
-	
-	public static function regionchk($address='',$shipaddid){		
-		
-		if($address!=''){				
-									
+
+
+	public static function regionchk($shipaddid, $address=''){
+
+		if($address!=''){
+
 		$regionchk = ShippingsAddr::select('id')->where('id', '=',  $shipaddid)->where('saddress', 'LIKE', '%' .$address. '%')->count();
 		}else{
 			$regionchk=0;
 		}
-		
-     	return $regionchk;	  
+
+     	return $regionchk;
     }
-	
-	public static function citychk($city,$shipaddid){		
+
+	public static function citychk($city,$shipaddid){
 		$userid=Auth::user()->id;
-		if($city!=''){						
+		if($city!=''){
 		$citychk = ShippingsAddr::select('id')->where('id', '=',  $shipaddid)->where('scity', 'LIKE', '%' .$city. '%')->count();
 		}else{
 			$citychk=0;
 		}
-     	return $citychk;	  
+     	return $citychk;
     }
-	
-	public static function statechk($state,$shipaddid){		
+
+	public static function statechk($state,$shipaddid){
 		$userid=Auth::user()->id;
-		if($state!=''){						
+		if($state!=''){
 		$statechk = ShippingsAddr::select('id')->where('id', '=',  $shipaddid)->where('sstate', '=',  $state)->count();
 		}else{
 			$statechk=0;
 		}
-     	return $statechk;	  
+     	return $statechk;
     }
-	
-	public static function countrychk($country,$shipaddid){		
+
+	public static function countrychk($country,$shipaddid){
 		$userid=Auth::user()->id;
-		if($country!=''){						
+		if($country!=''){
 		$countrychk = ShippingsAddr::select('id')->where('id', '=',  $shipaddid)->where('scountry_id', '=',  $country)->count();
 		}else{
 			$countrychk=0;
 		}
      	return $countrychk;
     }
-	
+
 	 public static function chkcartinfo($table,$sessid,$fieldname){
 
       $slugname = DB::table($table)->where('cart_sessionid','=',$sessid)->value($fieldname);
@@ -186,7 +186,7 @@ class Helpers {
 
       return $slugname;
     }
-	
+
 	public static function shippinginfo($id){
 
       $shippinginfo = ShippingsAddr::select('*')->where('id', '=',  $id)->find($id);
@@ -194,11 +194,11 @@ class Helpers {
 
       return $shippinginfo;
     }
-	
+
 	public static function orderrequest($id)
     {
-		
-		
+
+
 		switch ($id) {
 			case '0':
 			return "Cancel Order";
@@ -215,7 +215,7 @@ class Helpers {
 			case '4':
 			return "Refund";
 			break;
-						
+
 			default:
 			return "";
 			break;
@@ -223,8 +223,8 @@ class Helpers {
     }
 public static function itemorrequest($id)
     {
-		
-		
+
+
 		switch ($id) {
 			case '0':
 			return "Cancel Item";
@@ -241,15 +241,15 @@ public static function itemorrequest($id)
 			case '4':
 			return "Refund";
 			break;
-						
+
 			default:
 			return "";
 			break;
 		}
     }
-		
-	
-	
+
+
+
 	public static function dataurltoimg($imgurl,$catid,$imgview)
 	{
 		$path=public_path().'/storage/';
@@ -258,10 +258,10 @@ public static function itemorrequest($id)
 		list($type, $imgurl) = explode(';', $imgurl);
 		list(, $imgurl)      = explode(',', $imgurl);
 		$data = base64_decode($imgurl);
-		
+
 		$file = $path.$imgpath;
 		$success = file_put_contents($file, $data);
-		
+
 		return $imgpath;
 	}
 
@@ -273,10 +273,10 @@ public static function itemorrequest($id)
 		list($type, $imgurl) = explode(';', $imgurl);
 		list(, $imgurl)      = explode(',', $imgurl);
 		$data = base64_decode($imgurl);
-		
+
 		$file = $path.$imgpath;
 		$success = file_put_contents($file, $data);
-		
+
 		return $imgpath;
 	}
 
@@ -310,7 +310,7 @@ public static function itemorrequest($id)
                             '/webos/i'              =>  'Mobile');
     	$found = false;
     	$device = '';
-    	foreach ($os_array as $regex => $value) { 
+    	foreach ($os_array as $regex => $value) {
 	        if($found){
 	         	break;
 	        } else if (preg_match($regex, $user_agent)) {
@@ -345,25 +345,25 @@ public static function itemorrequest($id)
 			$lining_path = $storage_path.'/Jacket/ColorContrast/Lining/6ButtonD3/'.$image_id.'.png';
 		} else if($ostyle == '58'){
 			$lining_path = $storage_path.'/Jacket/ColorContrast/Lining/6ButtonD1/'.$image_id.'.png';
-		} 
+		}
 		if(file_exists($lining_path)){
         	$ret_id = $image_id;
     	}
 
 		return $ret_id;
 	}
-	
+
 	public static function imggdelete($imgurl)
 	{
 		$path=public_path().'/storage/'.$imgurl;
-		
+
 		if(file_exists($path)){
         	@unlink($path);
     	}
-		
-		
+
+
 	}
-	
+
 	public static function canvasdataurl($id){
 
       $canvasdataurl = CanvasDataurl::select('*')->where('cart_id', '=',  $id)->first();
@@ -371,7 +371,7 @@ public static function itemorrequest($id)
 
       return $canvasdataurl;
     }
-	
+
 	 public static function get_user_request_status($id = null)
     {
         $req = Order::select('request_status')->where('id' , '=' , $id)->first($id);
@@ -408,7 +408,7 @@ public static function itemorrequest($id)
              return 0;
          }
     }
-	
+
 	public static function get_user_order_sms($id = null)
 	{
        if($id != '')
@@ -424,7 +424,7 @@ public static function itemorrequest($id)
 
 	public static function get_bulk_sms()
 	{
-        //$data = OrderSmss::select('user_id')->where('type' , '=' ,'1')->where('status_sms' , '=' ,'1')->get(); 
+        //$data = OrderSmss::select('user_id')->where('type' , '=' ,'1')->where('status_sms' , '=' ,'1')->get();
         $data = DB::table('order_smss')
                 ->where('type' ,'=' ,1)
                 ->where('status_sms' ,'=' ,1)
@@ -440,7 +440,7 @@ public static function itemorrequest($id)
        $id =$pn->country_id;
        $code = Country::select('phonecode')->where('id' ,'=' ,$id)->find($id);
        $phone = '+'.$code->phonecode.$phone;
-      
+
        return $phone;
 	}
 
@@ -474,7 +474,7 @@ public static function itemorrequest($id)
 
 	public static function img_font_call($id)
 	{
-		 $data  = ProductImg::select('*')->where('id' ,'=' ,$id)->first($id); 
+		 $data  = ProductImg::select('*')->where('id' ,'=' ,$id)->first($id);
 		  if($data != '')
 		  {
 		  	return $data;
@@ -484,24 +484,24 @@ public static function itemorrequest($id)
 		  	return false;
 		  }
 	}
-	
+
 	public static function reviewperavg($id)
 	{
-		 $data  = OrderReview::select('*')->where('id' ,'=' ,$id)->first(); 
-		 
+		 $data  = OrderReview::select('*')->where('id' ,'=' ,$id)->first();
+
 		 $total=$data->fabric_rate+$data->price_rate+$data->delivery_rate+$data->fitting_rate;
-		 
+
 		 $avg=($total/20)*100;
-		 
+
 		if($avg<20){
 			$f=1;
 		}elseif($avg<40){
 			$f=2;
 		}elseif($avg<60){
 			$f=3;
-		}elseif($avg<80){  
+		}elseif($avg<80){
 			$f=4;
-		}elseif($avg<100){ 
+		}elseif($avg<100){
 			$f=5;
 		}else{
 		$f=5;
@@ -510,14 +510,14 @@ public static function itemorrequest($id)
 		$b=$r-$f;
 		$data['full']=$f;
 		$data['blan']=$b;
-		 
-		 
+
+
 		return $data;
 	}
 
 	public static function total_avg_revview($id = nulll)
 	{
-		 $data  = OrderReview::select('*')->where('id' ,'=' ,$id)->first(); 
+		 $data  = OrderReview::select('*')->where('id' ,'=' ,$id)->first();
 		 $total=$data->fabric_rate+$data->price_rate+$data->delivery_rate+$data->fitting_rate;
 		 $avg=($total/20)*100;
 		 return $avg;
@@ -539,17 +539,17 @@ public static function itemorrequest($id)
              	$f=2;
              }elseif($total_review<60){
              	$f=3;
-             }elseif($total_review<80){  
+             }elseif($total_review<80){
              	$f=4;
-             }elseif($total_review<100){ 
+             }elseif($total_review<100){
              	$f=5;
-             } 
+             }
              $r=5;
              $b=$r-$f;
             $ry['full'] = $f;
             $ry['blan'] = $b;
-            return $ry;  
-            
+            return $ry;
+
 	}
 
 	public static function total_based_review()
@@ -563,7 +563,7 @@ public static function itemorrequest($id)
 		 {
 		 	return 0;
 		 }
-		
+
 	}
 	public static function get_cal_discount($m,$o)
 	{
@@ -571,7 +571,7 @@ public static function itemorrequest($id)
         {
         	 $d = 100-(($o*100)/$m);
         	return  round($d);
-        	 
+
         }
 	}
 
@@ -580,30 +580,30 @@ public static function itemorrequest($id)
 		$sizeno = StandardSize::select('*')->get();
 		return $sizeno;
 	}
-	
+
 	public static function get_pattern($id = null)
 	{
 		$patname = EcollectionPattern::select('name')->where('id' , '=' ,$id)->find($id);
 		return $patname->name;
 	}
-	
+
 	public static function get_fabtype($id = null)
 	{
 		$typename = EcollectionFabrictype::select('type_name')->where('id' , '=' ,$id)->find($id);
 		return $typename->type_name;
-	} 
-	
+	}
+
 	public static function get_proimg($id = null)
 	{
 		$proimg = EcollectionProimg::select('*')->where('product_id' , '=' ,$id)->orderBy('id', 'asc')->limit(2)->get();
-		
+
 		foreach($proimg as $imgpro){
 			$imgdata[]=$imgpro->main_img;
 		}
-		
-		
+
+
 		return $imgdata;
-	} 
+	}
 
 	public static function get_count_customer_served()
 	{
@@ -617,7 +617,7 @@ public static function itemorrequest($id)
 	}
 	public static function get_count_countery_served()
 	{
-	
+
 		$ccs = DB::table('orders')
                 ->where('orders.orderstatus' ,'=' ,5)
                 ->join('shippings-addrs', 'orders.ship_id', '=', 'shippings-addrs.id')
@@ -630,7 +630,7 @@ public static function itemorrequest($id)
               }else{
               	return 0;
               }
-              
+
 
      }
      public static function get_count_efabric()
@@ -652,7 +652,7 @@ public static function itemorrequest($id)
 		{
 			return $id;
 		}
-		else 
+		else
 		{
 			return $_this->get_parent($arr, $arr[$key]['parent_id']);
 		}
@@ -671,20 +671,20 @@ public static function itemorrequest($id)
 
 	public static function get_ItemMailDetails($cart)
 	{
-		if($cart->product_type==0){	
+		if($cart->product_type==0){
 		$groupname = OrderItem::groupinfo($cart->group_id,'fbgrp_name');
 		$oprodType = OrderItem::orderiteminfo($cart->id,'oprodType');
 			if($cart->cat_id==1){
 				$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ocollarName');
-				$olapelName='';	
-				$detailurl='itemdetail';					
+				$olapelName='';
+				$detailurl='itemdetail';
 				}elseif($cart->cat_id==2){
 					$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ostyleName');
 					$olapelN=OrderItem::orderiteminfo($cart->id,'olapelName');
 					$olapelName=$olapelN;
 					$detailurl='jitemdetail';
 				}elseif($cart->cat_id==3){
-					$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ostyleName');								
+					$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ostyleName');
 					$olapelName='';
 					$detailurl='vitemdetail';
 				}elseif($cart->cat_id==18){
@@ -696,26 +696,26 @@ public static function itemorrequest($id)
 					$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ostyleName');
 					$olapelN=OrderItem::orderiteminfo($cart->id,'olapelName');
 					$olapelName=$olapelN;
-					$detailurl='twopcitemdetail';						
+					$detailurl='twopcitemdetail';
 				}else{
 					$ocollarName = $oprodType.' - '.OrderItem::orderiteminfo($cart->id,'ostyleName');
 					$olapelN=OrderItem::orderiteminfo($cart->id,'opleatName');
 					$olapelName=$olapelN;
 					$detailurl='pitemdetail';
-									
+
 				     }
-									
+
 					$size= OrderItem::orderiteminfo($cart->id,'osizeFit');
 					$fabno= OrderItem::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
 
-									
+
 				}else{
-					$groupname = OrderItem::orderiteminfo($cart->id,'ofabricName');										
+					$groupname = OrderItem::orderiteminfo($cart->id,'ofabricName');
 					$ocollarName=OrderItem::orderiteminfo($cart->id,'oprodName');
 					$olapelN=OrderItem::orderiteminfo($cart->id,'ofabricType');
-					$olapelName='Fab Type : '.stripslashes($olapelN);									
+					$olapelName='Fab Type : '.stripslashes($olapelN);
 					$size=OrderItem::orderiteminfo($cart->id,'osizeFit');
-					$detailurl='productdetail';	
+					$detailurl='productdetail';
 					$fabno = OrderItem::orderiteminfo($cart->id,'procode');
 			   }
 			   $canvasimg = OrderItem::allinfodes('order_items',$cart->id,'canvas_front_img');
@@ -727,7 +727,7 @@ public static function itemorrequest($id)
 	                   'size' => $size,
 	                   'ptype' => $cart->product_type,
 
-	                   
+
 			     ];
 			     return $mail_data;
 	}
@@ -747,17 +747,17 @@ public static function itemorrequest($id)
            else{
            	return 3;
            }
-	} 
+	}
 
 	public static function cal_totalItems($id)
 	{
-       $total_item = OrderItem::select('order_id')->where('order_id','=',$id)->count(); 
-       return $total_item;  
+       $total_item = OrderItem::select('order_id')->where('order_id','=',$id)->count();
+       return $total_item;
 	}
 	public static function cal_totalCanItems($id)
 	{
-       $total_canitem = OrderItem::select('id')->where('order_id','=',$id)->where('item_cancel','>',0)->count(); 
-        return $total_canitem;   
+       $total_canitem = OrderItem::select('id')->where('order_id','=',$id)->where('item_cancel','>',0)->count();
+        return $total_canitem;
 	}
 
 	public static function get_Oreder_ItemDetails($odId)
@@ -802,18 +802,18 @@ public static function itemorrequest($id)
 	public static function page_seo_details($id = null)
 	{
 		if($id != '')
-		{    
+		{
              $seo_data = Page::select('*')->where('id','=',$id)->first();
             // print_r($seo_data->title);
              //exit();
              if($seo_data != '')
-               { 
+               {
                	$seo = [
                	'meta_title' => $seo_data->title,
                	'meta_keyword' => $seo_data->meta_keywords,
                	'meta_desc' => $seo_data->meta_description
-               	]; 
-               	return  $seo; 
+               	];
+               	return  $seo;
 
                }else{
                	$seo = [
@@ -833,11 +833,11 @@ public static function itemorrequest($id)
             ];
             return $seo;
 		}
-        
+
 
 	}
-	
-	
+
+
 	public static function product_outofstock($id)
 	{
 		if($id != ''){
@@ -845,28 +845,28 @@ public static function itemorrequest($id)
 		 if($data != '')
 		 {
 			return 1;
-		 }else{ 
+		 }else{
 		 return 0;}
-		
+
 		}else{
 			return 0;
 		}
 	}
-	
+
 	public static function cartcrossspro($id)
 	{
-	
+
 		$cartsess=Session::get('carts');
-		$cartitems = Cart::select('cat_id')->where('cart_sessionid', '=',  $cartsess)->where('cat_id', '=',  $id)->count();		
-		
+		$cartitems = Cart::select('cat_id')->where('cart_sessionid', '=',  $cartsess)->where('cat_id', '=',  $id)->count();
+
 		if($cartitems>0){
 			$itc=1;
 		}else{
 			$itc=0;
 		}
 		return $itc;
-			
-		
+
+
 	}
 
         public static function get_degine_FirstInfo($id = 1)
@@ -907,7 +907,7 @@ public static function itemorrequest($id)
                   'fabric_eid'         => '1',
                   ];
                   return $collect_info;
-                    
+
         	}
 
         }else{
@@ -932,7 +932,7 @@ public static function itemorrequest($id)
 			->orderBy('id','asc')->get();
 		return $fdata;
     }
-   
+
    public static function get_jacket_FirstInfo($id = 2)
 	{
 	     $frate = '';
@@ -973,7 +973,7 @@ public static function itemorrequest($id)
                   'fabric_eid'         => '51',
                   ];
                   return $collect_info;
-                    
+
         	}
 
         }else{
@@ -992,7 +992,7 @@ public static function itemorrequest($id)
 
         }
    }
-   
+
  public static function get_vests_FirstInfo($id = 3)
 	{
 	     $frate = '';
@@ -1033,7 +1033,7 @@ public static function itemorrequest($id)
                   'fabric_eid'         => '78',
                   ];
                   return $collect_info;
-                    
+
         	}
 
         }else{
@@ -1052,7 +1052,7 @@ public static function itemorrequest($id)
 
         }
    }
-   
+
     public static function get_pants_FirstInfo($id = 4)
 	{
 	     $frate = '';
@@ -1093,7 +1093,7 @@ public static function itemorrequest($id)
                   'fabric_eid'         => '97',
                   ];
                   return $collect_info;
-                    
+
         	}
 
         }else{
@@ -1112,26 +1112,26 @@ public static function itemorrequest($id)
 
         }
    }
-   
+
 
    public static function get_standersize_value_SML($sname = null)
    {
    	  $sizedata = '';
       if($sname != ''){
-    
+
         $ids = MeasurmentSize::select('id')->where('name','=',$sname)->first();
         $sizedata=  BodyMeasurment::select('*')->where('mer_id','=',$ids->id)->where('cat_id','=',1)->first();
         return $sizedata;
 
       }else{
-         
+
         return $sizedata;
       }
    }
-   
+
    public static function convertinch($size){
-	   
-	 if($size!='' || $size!=0){ 
+
+	 if($size!='' || $size!=0){
 		  $sizearr=explode("-",$size);
 		  $sizcount=count($sizearr);
 		  if($sizcount==1){
@@ -1139,19 +1139,19 @@ public static function itemorrequest($id)
 		  }else{
 			  $a=$sizearr[0]*2.54;
 			  $b=$sizearr[1]*2.54;
-			  $sizeres=$a.'-'.$b;		  
+			  $sizeres=$a.'-'.$b;
 		  }
-		  
+
 		  return $sizeres;
-		  
+
 	 }else{
-		 
+
 		 $sizeres='';
 		 return $sizeres;
 	 }
-	  
-	   
-	   
+
+
+
 	 }
 
         public static  function b2b_page_content($id=null){
@@ -1163,9 +1163,9 @@ public static function itemorrequest($id)
          }else{
             return false;
          }
-        
-	 } 
-	
-	
+
+	 }
+
+
 }
 ?>

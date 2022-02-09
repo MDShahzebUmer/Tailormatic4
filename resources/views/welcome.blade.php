@@ -1,7 +1,7 @@
 <?php  $seo = App\Http\Helpers::page_seo_details(32);?>
 
 <style>
-@media only screen and (min-width: 0px) and (max-width: 667px){
+@media only screen and (min-width: 0px) and (max-width: 992px){
     #mibew-agent-button {
         display: none !important;
     }
@@ -89,6 +89,8 @@
         color: #ffd407 !important;
     }
     /* ---------------- home banner ------------------- */
+
+
     .bs-slider{
         max-height: 850px !important;
     }
@@ -156,6 +158,7 @@
 
 }
 @media only screen and (min-width: 333px) and (max-width: 667px){
+
     .banner-slide-div .slide-text{
         top: 50% !important;
     }
@@ -169,6 +172,7 @@
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 332px){
+
     .banner-slide-div .slide-text{
         top: 40% !important;
     }
@@ -183,10 +187,11 @@
     }
 }
 </style>
-
+<section class="centering-body">
+<section class="body">
 @include('layouts.inc.header')
 @include('layouts.inc.slider')
-<section class="et-serivces"><!-- Service Section Start -->
+<section class="et-serivces" ><!-- Service Section Start -->
     <div class="et-stuck-navbar">
         <div class="et-fix-nav float-panel">
             <div class="container">
@@ -381,7 +386,7 @@
                 <div class="box-bottom mt-10" style="margin-top: 50px">
                  <div class="col-md-6">
                       <?php $i4 = App\Http\Helpers::img_font_call(3); ?>
-                   
+
                      <div class=" et-effect et-last">
                          {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
                          <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
@@ -520,5 +525,9 @@
          </div>
     </div>
 </section>
+
 <?php $soc =  $data['soc'];?>
 @include('layouts.inc.footer')
+</section>
+
+</section>

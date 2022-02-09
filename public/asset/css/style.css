@@ -39,6 +39,21 @@
 
 /*----------------------------------------*/
 
+/*  Bootstrap Mixin                         */
+
+/*----------------------------------------*/
+
+
+html {
+    height: 100%;
+}
+
+
+
+
+
+/*----------------------------------------*/
+
 /*  Global Styles                         */
 
 /*----------------------------------------*/
@@ -74,6 +89,11 @@ section {
     /* min-height: 100%; */
 }
 
+
+.et-serivces {
+/* height: 60%; */
+}
+
 .et-left {
     float: left
 }
@@ -86,6 +106,9 @@ section {
     width: 100%;
     float: left
 }
+
+
+
 
 a, li, ol, ul, span, button, div, img, section, h1, h2, h3, h4, h5, h6 {
     transition: all ease-in-out .4s;
@@ -172,9 +195,9 @@ a, li, ol, ul, span, button, div, img, section, h1, h2, h3, h4, h5, h6 {
     left: 15px;
     width: 185px;
     height: 185px;
-    background-color: #19120e;
+    /* background-color: #19120e; */
     border-radius: 100%;
-    border: 2px solid #cec15f;
+    /* border: 2px solid #cec15f; */
     padding: 35px 25px;
 }
 
@@ -455,7 +478,7 @@ section.et-serivces.et-page-navbar {
     /* left: 8px; */
     height: 4.2px;
     width: 65%
-    
+
 }
 
 .hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom  {
@@ -561,6 +584,23 @@ button.hamburger.is-open {
     top: 0;
     border-radius: 65px;
     left: 0
+}
+
+
+
+
+.body{
+    width: 1920px;
+}
+
+
+
+.centering-body {
+
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hamburger .et-round-two {
@@ -1375,7 +1415,7 @@ button.hamburger.is-open {
 }
 
 #duniya-link-footer-icons-social{
-    
+
 }
 
 .et-Copyright p {
@@ -1384,7 +1424,7 @@ button.hamburger.is-open {
 
 .et--link i {
     color: #19120e
-    
+
 }
 
 .et--link > ul {
@@ -1399,7 +1439,7 @@ align-items: center;
 .et--link>ul {
     margin: 0
     display: flex;
-    
+
 }
 
 .et-footer {
@@ -5842,7 +5882,7 @@ figure.figure-box img {
 /*////////*/
 /*for main logo customize start*/
 .et-logo > .top-logo {
-    background-color: #0000003d;
+    /* background-color: #0000003d; */
     border: none;
     display: flex;
     align-items: center;
@@ -6097,7 +6137,7 @@ figure.figure-box img {
 
     .top-logo {
         background-color: #0000 !important;
-        width: 250px !important;
+        width: 200px !important;
         max-width: 400px !important;
     }
  }
@@ -6128,7 +6168,7 @@ figure.figure-box img {
 .et-powered .et--link a {
     display: list-item;
 }
-@media only screen and (min-width: 0px) and (max-width: 667px){
+@media only screen and (min-width: 0px) and (max-width: 992px){
     .hamburger {
         top: -25px !important;
         right: -20px !important;

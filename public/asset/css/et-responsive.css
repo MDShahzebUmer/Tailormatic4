@@ -1,5 +1,8 @@
 .formobile{display:none;}
 @media only screen and (max-width: 1199px) {
+    .bs-slider {
+        height: 100%;
+    }
 .dt-responsive{overflow-x:scroll}
 .et-fix-nav ul > li > a{font-size:15px;padding:0 20px}
 .et-client-block>.et-client-caption{max-width:275px}
@@ -50,6 +53,9 @@ ul.featured-img-list li .content {
 }
 }
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .bs-slider {
+        height: 100%;
+    }
 .pt-responsive-design .pt-order-preview .pt-men-left{width:30%}
 .pt-responsive-design .pt-choose-right.pt-item-preview{width:70%;margin-left:0}
 .pt-responsive-design .pt-mf-list [class*="pt-mf-"] span{width:175px}
@@ -57,6 +63,9 @@ ul.featured-img-list li .content {
 .col-md-9.dt-responsive.st-pro-content-wrap {overflow-x: inherit;}
 }
 @media only screen and (min-width: 993px) and (max-width: 1199px) {
+    .bs-slider {
+        height: 100%;
+    }
 .ec-product-details .et-block>.col-sm-12.col-md-4 {max-width: 400px;}
 .ec-product-details .et-block>form>.col-sm-12.col-md-8 .col-sm-8 {
     width: auto;
@@ -72,7 +81,11 @@ ul.featured-img-list li .content {
     font-size:13px;
 }
 }
+
 @media only screen and (max-width: 992px) {
+    .bs-slider {
+        height: 100%;
+    }
 .pt-responsive-design .pt-item-preview [class*="pt-block-"]{width:100%}
 .user-frofile-list{width:100%;float:left;margin-bottom:30px}
 .user-frofile-list li{float:left}
@@ -319,7 +332,27 @@ ul.featured-img-list li .content p{font-size:14px;}
 }
 .et-content{padding: 45px 15px 0;}
 }
-@media only screen and (max-width: 767px) {
+
+@media only screen and (min-width: 1922px) {
+.bs-slider {
+    height: 900px !important;
+}
+}
+
+ @media only screen and (max-width: 992px) {
+
+.body{
+    width: auto;
+}
+.bs-slider {
+    height: 100%;
+}
+.et-home-slider .slide-text > .et-btn-default {
+    padding: 6px 10px;
+}
+
+.et-home-slider .indicators-line > .carousel-indicators {right:35%;width: 100%;text-align:center;margin-left:0;}
+
 .pt-responsive-design .pt-tab{padding:0px;width:100%}
 .pt-item-preview .pt-button-block {width: 100%;text-align: center;color: #fff;}
 .pt-button-block .pt-cart-btn:hover, .pt-button-block .pt-cart-btn:focus{color:#fff;}
@@ -330,9 +363,9 @@ ul.featured-img-list li .content p{font-size:14px;}
 .pt-responsive-design .pt-mg-item .pt-small-box{width:84px}
 .pt-responsive-design .pt-order-preview .pt-men-left{display:block;float:none;margin:0 auto;max-width:100%}
 .pt-responsive-design .cross-btn{position:absolute;right:30px;top:32px}
-.add-review-content-box{padding:30px 0px}
+.add-review-content-box{padding:30px 0px; }
 .add-review-content-box .col-sm-6{margin-bottom:15px}
-.et-navbar .navbar-nav{max-width:280px}
+.et-navbar .navbar-nav{max-width:280px; }
 #et-wrapper .et-tab-content{padding-right:280px}
 .et-navbar .navbar-nav > li > a{padding:10px 15px 10px 30px;height:45px}
 .et-navbar .navbar-nav > li > a > span{font-size:15px;line-height:22px}
@@ -342,12 +375,12 @@ ul.featured-img-list li .content p{font-size:14px;}
     left: 15px;
     width: 100px;
     height: 100px;
-    background-color: #19120e;
+    /* background-color: #19120e; */
     border-radius: 100%;
-    border: 2px solid #cec15f;
+    /* border: 2px solid #cec15f; */
     padding: 20px 15px;
 }
-.et-home-slider .slide-text{top:60px;}
+.et-home-slider .slide-text{top:250px;}
 .et-call-back{text-align:center;}
 .et-call-back>h2 {
     font-size: 24px;
@@ -357,7 +390,7 @@ ul.featured-img-list li .content p{font-size:14px;}
     width: 100%;
 }
 .et-call-back>span>a{font-size:18px;}
-.et-serivces{padding:15px;}
+.et-services{padding:15px; }
 .et-main-title>h1{font-size:24px;margin-bottom:10px;}
 .et-main-title>p{font-size:12px;}
 .et-client-block>.et-client-image{width:140px;}
@@ -502,6 +535,7 @@ ul.featured-img-list li .content p, .fancy-collapse-panel .panel-title{font-size
     padding-left: 15px;
 }
 }
+
 @media only screen and (max-width: 667px){
 .et-home-slider .indicators-line > .carousel-indicators {display: none;}
 .et-home-slider .slide-text h1, .et-home-slider .slide-text > h2{font-size:20px;}
@@ -601,6 +635,7 @@ ul.featured-img-list li .content p, .fancy-collapse-panel .panel-title{font-size
 .et-home-slider .bs-slider > .carousel-inner > .item > img {
     height: 280px;
     /*width: auto !important;*/
+
     width: auto;
     max-width: inherit;
 }
@@ -684,3 +719,5 @@ ul.featured-img-list li .content p, .fancy-collapse-panel .panel-title{font-size
 .pt-top-menu ul>li>a{font-size: 12px;}
 .pt-top-menu ul>li{padding: 0 2px;}
 }
+
+
