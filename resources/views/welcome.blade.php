@@ -427,10 +427,11 @@
         </div>
     </div>
 </section><!-- Collection Section End -->
-<section class="et-world" style="background-image: url({{asset('/asset/img/girl-bg.jpg')}});background-repeat:no-repeat;"><!-- Section Start -->
+<section class="et-world shahzeb-section">
+    {{-- <section class="et-world" style="background-image: url({{asset('/asset/img/girl-bg.jpg')}});background-repeat:no-repeat;"><!-- Section Start --> --}}
     <div class="container">
         <div class="row">
-            <div class="et-main-title et-fw">
+            <div class="et-main-title et-fw duniya-tailor-title">
                 {!! setting('site.section_heading_two') !!}
             </div>
 
@@ -512,10 +513,10 @@
                                     <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt.jpg')}});"></div></div>
                                 </div>
                                 <div class="item">
-                                    <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt.jpg')}});"></div></div>
+                                    <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt1.jpg')}});"></div></div>
                                 </div>
                                 <div class="item">
-                                    <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt.jpg')}});"></div></div>
+                                    <div class="dot-border"><div class="fill" style="background: url({{asset('/asset/img/slide-abt2.jpg')}});"></div></div>
                                 </div>
                              </div>
                         </div>

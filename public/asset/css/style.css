@@ -13,6 +13,42 @@
 
 /*----------------------------------------*/
 
+
+@font-face {
+    font-family: "NotoSerif-Bold";
+
+    src: url(../fonts/NotoSerif-Bold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "NotoSerif-BoldItalic";
+
+    src: url(../fonts/NotoSerif-BoldItalic.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal
+}
+
+
+@font-face {
+    font-family: "NotoSerif-Italic";
+
+    src: url(../fonts/NotoSerif-Italic.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal
+}
+
+
+@font-face {
+    font-family: "NotoSerif-Regular";
+
+    src: url(../fonts/NotoSerif-Regular.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal
+}
+
+
 @font-face {
     font-family: "Proxima Nova Light";
     src: url(../fonts/ProximaNova-Light.eot);
@@ -177,7 +213,7 @@ a, li, ol, ul, span, button, div, img, section, h1, h2, h3, h4, h5, h6 {
     color: #fff;
     font-size: 50px;
     margin: 0;
-    font-family: "Proxima Nova Light";
+    font-family: "NotoSerif-Regular";
     text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25)
 }
 
@@ -1066,9 +1102,17 @@ button.hamburger.is-open {
     padding: 100px 0;
     width: 100%;
     color: #fff!important;
-    background-size: cover;
+
+    /* background-size: cover;
     background-position: top;
-    background-attachment: fixed
+    background-attachment: fixed */
+}
+
+
+
+
+.shahzeb-section{
+    background-color: #19120e;
 }
 
 .et-inner-box {
