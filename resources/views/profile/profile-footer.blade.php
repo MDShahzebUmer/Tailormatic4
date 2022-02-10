@@ -10,12 +10,12 @@
                 <div class="need-help">
                  <h4>Need Help? Call Us On: {{setting('site.call_us')}}</h4>
                 </div>
-               </div> 
-               </div> 
-               
+               </div>
+               </div>
+
                <div class="col-md-6 col-sm-6">
                <div class="right-pay-area">
-               
+
                 <ul>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/visa.png')}}"/></li>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/master-card.png')}}"/></li>
@@ -23,9 +23,9 @@
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/paypal.png')}}"/></li>
                   <li><img width="72px" height="52px" src="{{asset('/asset/img/discover.png')}}"/></li>
                 </ul>
-                
-               </div>   
-               </div> 
+
+               </div>
+               </div>
             </div>
          </div>
     </div>
@@ -40,7 +40,7 @@
             </div>
              <div class="col-md-3 col-sm-3 etfbklike">
                <?php $fburl =Request::url(); ?>
-              <div class="et-fblike">
+              {{-- <div class="et-fblike">
                    <iframe src="https://www.facebook.com/plugins/like.php?href={{$fburl}}&width=100&layout=button&action=like&layout=button_count&size=small&show_faces=true&height=65&appId" width="94" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 </div><div class="et-fbshare">
                  <iframe src="https://www.facebook.com/plugins/share_button.php?href={{$fburl}}&layout=button_count&size=small&mobile_iframe=true&width=86&height=20&appId" width="86" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
@@ -49,13 +49,13 @@
                  <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
                   <script type="IN/Share" data-url="{{$fburl}}" data-counter="right" ></script>
               </div>
-             
-            
-            
+              --}}
+
+
              </div>
             <div class="col-md-4 col-sm-4">
              <div class="et--link">
-             
+
                <ul>
                 @foreach($soc as $s)
                  <li><a href="{{$s->url}}" target="_blank"><i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
@@ -96,29 +96,29 @@
 		  var trigger = $('.hamburger'),
 			  overlay = $('.overlay'),
 			 isClosed = false;
-		
+
 			trigger.click(function () {
-			  hamburger_cross();      
+			  hamburger_cross();
 			});
-		
+
 			function hamburger_cross() {
-		
-			  if (isClosed == true) {          
+
+			  if (isClosed == true) {
 				overlay.hide();
 				trigger.removeClass('is-open');
 				trigger.addClass('is-closed');
 				isClosed = false;
-			  } else {   
+			  } else {
 				overlay.show();
 				trigger.removeClass('is-closed');
 				trigger.addClass('is-open');
 				isClosed = true;
 			  }
 		  }
-		  
+
 		  $('[data-toggle="offcanvas"]').click(function () {
 				$('#et-wrapper').toggleClass('toggled');
-		  });  
+		  });
 		});
 		$('.navbar-nav > li').mouseover( function(){
 			$(this).find('a').tab('show');
