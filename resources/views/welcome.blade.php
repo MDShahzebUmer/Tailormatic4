@@ -389,7 +389,7 @@
 
                      <div class=" et-effect et-last">
                          {{-- <img src="{{asset('/storage'.$i4->img)}}" alt="{{$alt_name}}" /> --}}
-                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpeg" alt="{{$alt_name}}" />
+                         <img style="height: 321px" src="//www.duniyatailor.com/storage/FrontProductImg/8.jpg" alt="{{$alt_name}}" />
                          {{-- <img src="{{asset('/storage/')}}" alt="" /> --}}
                           <a href="/design3pcsuits">
                              <figcaption>
