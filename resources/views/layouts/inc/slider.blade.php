@@ -3,7 +3,7 @@
  ?>
 <section id="et-slider" class="et-home-slider"><!-- Slider Section Start -->
     <div class="container-xl">
-        <div class="row">
+        <div class="row shahzeb">
             <div id="et-banner" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="false" >
                 <!-- Indicators -->
                 <ol class="carousel-indicators">

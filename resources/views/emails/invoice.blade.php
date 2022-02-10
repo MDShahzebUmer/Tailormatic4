@@ -4,32 +4,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Email Invoice</title>
 	<?php
-	
+
 	//print_r($invoicedata);
-	
-	
+
+
 	foreach($orderdata as $ordata){
 	}
-	
-	 $shippinginfo = App\Http\Helpers::shippinginfo($ordata->ship_id);	 
+
+	 $shippinginfo = App\Http\Helpers::shippinginfo($ordata->ship_id);
 	 $shipcountry = App\Country::get_country_name($shippinginfo->scountry_id);
 	 $shippncode = App\Country::get_country_ph($shippinginfo->scountry_id);
-	 	 
-	 $shipstate = App\State::get_state_name($shippinginfo->sstate);	
+
+	 $shipstate = App\State::get_state_name($shippinginfo->sstate);
 	$useremail=Auth::user()->email;
-	
+
 	$usercountry = App\Country::get_country_name(Auth::user()->country_id);
 	$userstate = App\State::get_state_name(Auth::user()->state);
-	
+
 	$cntryphncode = App\Country::get_country_ph(Auth::user()->country_id);
-	
+
 
 $style = [
     /* Layout ------------------------------ */
 
     'body' => 'margin: 0; padding: 0; width: 100%;',
     'table-body' => 'width: 100%; max-width: 790px; margin: 0 auto;border: 2px solid #212325; color: #333;',
-    'invoice-header' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; background: #212325; text-align: center;',
+    'invoice-header' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; background: #00000; text-align: center;',
     'logo-img' => 'max-width: 260px;',
     'invoice-header-title' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; border-top: 1px solid #ddd; font-style: italic;background: #593A2E; font-size: 15px; letter-spacing: 1px; color: #fff; font-family: "Proxima Nova Regular"; height:25px;',
     'td-contents' => 'padding: 8px;  vertical-align: top; border-top: 1px solid #ddd;',
@@ -98,56 +98,56 @@ $style = [
                 <th style="{{ $style['td-contents'] }}">Quantity</th>
 	            <td style="{{ $style['td-contents'] }}" align="right"><strong>Total</strong></td>
 	        </tr>
-				<?php 
+				<?php
 					$i=0;
 					$total=0;
 					$shipamt=0;
                 ?>
                 @foreach($invoicedata as $cart)
-                    @php 
+                    @php
                     $i++
                     @endphp
-                    
-					<?php										
-						if($cart->product_type==0){							
+
+					<?php
+						if($cart->product_type==0){
 							$groupname = App\OrderItem::groupinfo($cart->group_id,'fbgrp_name');
 							$oprodType = App\OrderItem::orderiteminfo($cart->id,'oprodType');
 							if($cart->cat_id==1){
 							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ocollarName');
-							$olapelName='';						
+							$olapelName='';
 							}elseif($cart->cat_id==2){
 							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 							$olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
 							$olapelName=$olapelN;
 							}elseif($cart->cat_id==3){
-							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');						
-							$olapelName='';						
+							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
+							$olapelName='';
 							}elseif($cart->cat_id==4){
 								$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 								$olapelN=App\OrderItem::orderiteminfo($cart->id,'opleatName');
-								$olapelName=$olapelN;						
+								$olapelName=$olapelN;
 							}elseif($cart->cat_id==18){
 								$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 								$olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
-								$olapelName=$olapelN;						
+								$olapelName=$olapelN;
 							}elseif($cart->cat_id==19){
 								$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 								$olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
-								$olapelName=$olapelN;						
+								$olapelName=$olapelN;
 							}
-							
+
 							//$canvasimg = App\Cart::cartdescnfo($cart->id,'ofrontView');
 							$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
 							$fabno=App\OrderItem::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
-							
+
 						}else{
 							$groupname = App\OrderItem::orderiteminfo($cart->id,'ofabricName');
 							$oprodType = App\OrderItem::orderiteminfo($cart->id,'oprodName');
 							$procode = App\OrderItem::orderiteminfo($cart->id,'procode');
 							$ocollarName='Model No : '.$procode;
 							$olapelN=App\OrderItem::orderiteminfo($cart->id,'ofabricType');
-							$olapelName='Fab Type : '.stripslashes($olapelN);					
-							
+							$olapelName='Fab Type : '.stripslashes($olapelN);
+
 							$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
 						}
                     ?>
@@ -156,13 +156,13 @@ $style = [
 	            	<p style="{{ $style['p-margin0'] }}">{{$oprodType}}</p>
                 	<p style="{{ $style['p-margin0'] }}">{{$ocollarName}}</p>
                      {{$olapelName}}
-                     @if($cart->product_type==0)	
+                     @if($cart->product_type==0)
                     <p style="{{ $style['p-margin0'] }}">Fabric No : {{$fabno}}</p>
                     @endif
                     <p style="{{ $style['p-margin0'] }}">Size : {{$size}}</p>
                  </td>
 	            <td align="center" style="{{ $style['td-contents'] }}">
-                @if($cart->fabric_image!='')	
+                @if($cart->fabric_image!='')
                 <img src="{{URL::asset('/storage/'.$cart->fabric_image)}}" width="50"  alt="">@endif <br><span>{{$groupname}}</span></td>
 	            <td align="center" style="{{ $style['td-contents'] }}">${{number_format($cart->price,2)}}</td>
                 <td align="center" style="{{ $style['td-contents'] }}">${{number_format($cart->shipping,2)}}</td>
@@ -171,12 +171,12 @@ $style = [
 									echo number_format($toamt, 2);?>
 	            </td>
 	        </tr>
-	        <?php 
+	        <?php
 				$total=$toamt+$total;
-				$shipamt=$shipamt+$cart->shipping;            
+				$shipamt=$shipamt+$cart->shipping;
             ?>
 	        @endforeach
-            
+
             <?php
 			$grtotal=$total+$shipamt;
             $orderid=$cart->order_id;

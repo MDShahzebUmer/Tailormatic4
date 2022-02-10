@@ -325,8 +325,20 @@ a, li, ol, ul, span, button, div, img, section, h1, h2, h3, h4, h5, h6 {
     position: relative
 }
 
+.shahzeb{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+
 .container-l{
     padding-left: 10em;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 400px) {
+    .container-l{
+        padding-left: 0em;
+    }
 }
 
 
