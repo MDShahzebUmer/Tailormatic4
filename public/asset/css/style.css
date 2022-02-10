@@ -1235,8 +1235,8 @@ button.hamburger.is-open {
 }
 
 .et-abt-slide .carousel-indicators .active {
-    background-color: #4d372f;
-    border: 2px solid #8c8c92;
+    background-color: #fc696e;
+    border: 2px solid #fff;
     height: 10px;
     margin: 0;
     width: 10px
