@@ -1,4 +1,4 @@
-<?php  
+<?php
     $seo = App\Http\Helpers::page_seo_details(14);
     $cartcount = App\Http\Helpers::cartcount();
 ?>
@@ -13,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTailor clothes|| {{$seo['meta_title']}}</title>
-    <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-    <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+    <title>Duniya Tailor|| {{$seo['meta_title']}}</title>
+    <meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+    <meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url" content="{{url('/')}}" />
     <meta property="og:type" content="website" />
@@ -25,10 +25,10 @@
     <meta property="og:image:secure_url" content="http://etailorclothes.com/asset/img/fblogo.png" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-    <!-- CSS -->            
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
     <!-- <link rel="stylesheet" type="text/css" href="{{asset('demo/css/style.css')}}" media="all"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">       
+    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobileshirt.css')}}" media="all">
 
     <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
@@ -118,23 +118,23 @@
         <div class="col-md-11 left-h">
             <div class="pt-right-p">
                 <ul>
-                    <li class=""> 
-                        <a class="cart-checkout"> 
-                            <figure class="t-cart-figure"> 
-                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}"> 
-                                <figcaption>{{$cartcount}}</figcaption> 
-                            </figure> 
+                    <li class="">
+                        <a class="cart-checkout">
+                            <figure class="t-cart-figure">
+                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}">
+                                <figcaption>{{$cartcount}}</figcaption>
+                            </figure>
                         </a>
-                        <input type="hidden" id="crtcount" value="{{$cartcount}}"> 
+                        <input type="hidden" id="crtcount" value="{{$cartcount}}">
                     </li>
                     <li>|</li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">MY ACCOUNT</a></li>
                         <li>|</li>
-                        <li><a href="{{ url('/login') }}">LOGIN </a></li> 
+                        <li><a href="{{ url('/login') }}">LOGIN </a></li>
                     @else
                         <li><a href="{{ url('/myaccount') }}">MY ACCOUNT</a></li>
-                        <li>|</li> 
+                        <li>|</li>
                         <li>
                         <a href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
@@ -145,7 +145,7 @@
                         {{ csrf_field() }}
                     </form>
              </li>
-             @endif 
+             @endif
             </ul>
             </div>
         </div>
@@ -193,7 +193,7 @@
         </div>
     </div>
     <!-- ================================== preview image ================================ -->
-    <div class="design-prev-div"> 
+    <div class="design-prev-div">
         <!-- Main Preview -->
         <div class="pt-men-left" id="main-front">
             <div class="pt-image-div">@include('jacket.process')
@@ -222,9 +222,9 @@
         <div class="pt-bottom-thumb">
             <ul>
                 <li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"></a></li>
-                <?php 
-                if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 
-                && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 
+                <?php
+                if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22
+                && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26
                 && $eTailorObj['ocollar']!=27){?>
                     <li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li>
                 <?php } ?>
@@ -243,9 +243,9 @@
             <div class="pt-bottom-thumb">
                 <ul>
                     <li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"></a></li>
-                    <?php 
-                    if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 
-                    && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 
+                    <?php
+                    if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22
+                    && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26
                     && $eTailorObj['ocollar']!=27){?>
                         <li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li>
                     <?php } ?>
@@ -264,9 +264,9 @@
             <div class="pt-bottom-thumb">
                 <ul>
                     <li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li>
-                    <?php 
-                    if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 
-                    && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 
+                    <?php
+                    if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22
+                    && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26
                     && $eTailorObj['ocollar']!=27){?>
                         <li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li>
                     <?php } ?>
@@ -320,9 +320,9 @@
                                             <ul class="et-item-list">
                                                 <?php $fabriclst = App\Etfabric::select('*')->where('fbgrp_id','=',$gr->id)->where('fabric_status','=','1')->whereRaw('fabric_qty > fabric_min_qty')->get();?>
                                                 @foreach($fabriclst as $fablst)
-                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" 
-                                                    title="{{ $fablst->fabric_name }}" 
-                                                    data-title="{{ $fablst->fabric_name }}" 
+                                                <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}"
+                                                    title="{{ $fablst->fabric_name }}"
+                                                    data-title="{{ $fablst->fabric_name }}"
                                                     onClick="javascript:getfab({{$fablst->id}},'etfabric');"
                                                     style="background:url('/storage/{{$fablst->fabric_img_l}}');">
                                                     <figure class="et-item-img">
@@ -339,7 +339,7 @@
                                                             $rec_frate =    $gr->fabric_rate;
                                                         }
                                                         ?>
-                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p> 
+                                                        <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p>
                                                     </div>
                                                 </li>
                                                 @endforeach
@@ -908,8 +908,8 @@
                                                     <li>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="sizetyp" id="sizetyp" 
-                                                                class="sizetyp" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?> 
+                                                                <input type="radio" name="sizetyp" id="sizetyp"
+                                                                class="sizetyp" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>
                                                                 onClick="javascript:changeMview(this.value)"><span class="cr"><i class="cr-icon"></i></span>Cm
                                                             </label>
                                                         </div>
@@ -917,8 +917,8 @@
                                                     <li>
                                                         <div class="radio">
                                                             <label>
-                                                                <input type="radio" name="sizetyp" class="sizetyp" id="sizetyp" 
-                                                                value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?> 
+                                                                <input type="radio" name="sizetyp" class="sizetyp" id="sizetyp"
+                                                                value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?>
                                                                 onClick="javascript:changeMview(this.value)"><span class="cr"><i class="cr-icon"></i></span>Inch
                                                             </label>
                                                         </div>
@@ -1154,59 +1154,59 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etfabric') ? 'active' : '' ?>" >
                 <a href="#etfabric" class="fabric-link" aria-controls="fabric" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etfabric');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Fabric</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Fabric</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etstyle') ? 'active' : '' ?>" >
                 <a href="#etstyle" class="style-link" aria-controls="style" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etstyle');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Style</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Style</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etcontrast') ? 'active' : '' ?>" >
                 <a href="#etcontrast" class="contrast-link" aria-controls="contrast" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etcontrast');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Contrast</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Contrast</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li role="presentation" class="<?php echo (isset($mytab)&& $mytab == 'etmeasurement') ? 'active' : '' ?>" >
                 <a href="#etmeasurement" class="measurement-link" aria-controls="settings" role="tab" data-toggle="tab" onClick="javascript:getTabSect('etmeasurement');">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Measurement</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Measurement</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
         </ul>
-    </div>     
+    </div>
 </div>
 <canvas id="frontcanvas" width="340" height="417" style="display:none"></canvas>
 <canvas id="backcanvas" width="340" height="417" style="display:none"></canvas>
-<canvas id="sidecanvas" width="340" height="417" style="display:none"></canvas>  
-<input type="hidden" name="sview" id="sview" value="open">    
+<canvas id="sidecanvas" width="340" height="417" style="display:none"></canvas>
+<input type="hidden" name="sview" id="sview" value="open">
 <!-- ======================================================= -->
 </body>
 <!-- =================== script ============================ -->
@@ -1236,10 +1236,10 @@ $(document).ready(function(){
 
 $(document).ready(function(e){
     var stid="menu-"+$('#tabSActiveId').val();
-    var stab=$('#tabSActiveId').val(); 
-    var newarr=$('#harr').val(); 
+    var stab=$('#tabSActiveId').val();
+    var newarr=$('#harr').val();
     // getTabSect($('#tabActiveId').val());
-    getPgOption(stid,$('#tabActiveId').val(),$('#tabSActiveId').val(),''); 
+    getPgOption(stid,$('#tabActiveId').val(),$('#tabSActiveId').val(),'');
     designOpenProcessing(JSON.parse(newarr));
 });
 // side bar menu --------------------------
@@ -1249,26 +1249,26 @@ $(document).ready(function () {
     isClosed = false;
 
     trigger.click(function () {
-        hamburger_cross();      
+        hamburger_cross();
     });
 
     function hamburger_cross() {
-        if (isClosed == true) {          
+        if (isClosed == true) {
             overlay.hide();
             trigger.removeClass('is-open');
             trigger.addClass('is-closed');
             isClosed = false;
-        } else {   
+        } else {
             overlay.show();
             trigger.removeClass('is-closed');
             trigger.addClass('is-open');
             isClosed = true;
         }
     }
-  
+
     $('[data-toggle="offcanvas"]').click(function () {
         $('#et-wrapper').toggleClass('toggled');
-    });  
+    });
 });
 $('.navbar-nav > li').mouseover( function(){
     $(this).find('a').tab('show');
@@ -1282,14 +1282,14 @@ $('.navbar-nav > li').mouseout( function(){
 $(document).ready(function(){
     $(".cart-checkout").click(function(){
         var cc=$("#crtcount").val();
-        if(cc==0) { 
+        if(cc==0) {
             alert("No item in the cart, please add 1");
-        } else{  
+        } else{
             $(".cart-checkout").attr("href","{{url('/cart')}}");
         }
     });
-}); 
-</script> 
+});
+</script>
 
 <script type="text/javascript">
 $("#stand").click(function(){

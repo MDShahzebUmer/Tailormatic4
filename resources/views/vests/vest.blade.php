@@ -11,8 +11,8 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
  <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
-<meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-<meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+<meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+<meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon
 ============================================ -->

@@ -14,15 +14,15 @@
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>eTailor clothes|| {{$seo['meta_title']}}</title>
-<meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-<meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+<title>Duniya Tailor|| {{$seo['meta_title']}}</title>
+<meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+<meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon
 ============================================ -->
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-<!-- CSS 
+<!-- CSS
 ============================================ -->
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/style.css')}}" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
@@ -38,7 +38,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
 </script>
 <!-- Loader Ends -->
 </head>
-<body class="designshirt">  
+<body class="designshirt">
 <?php $myArray=$eTailorObj;?>
 <input type="hidden" name="loadme" id="loadme" value="<?php echo $activeload = isset($loadme) ? $loadme : '0'; ?>">
 <input type="hidden" name="tabActiveId" id="tabActiveId" value="<?php echo $activeTab = isset($mytab) ? $mytab : 'etfabric'; ?>">
@@ -62,7 +62,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
   	<div class="container">
 		<div class="row">
        		<div class="pt-top-menu">
-              
+
         		<div class="pt-left-p">
                 <div class="et-rating-exp"> <!--This Rating Part Moved here by Shahzeb-->
                 @include('../layouts.inc.rating')
@@ -73,13 +73,13 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
     	</div>
   	</div>
     <!-- DESIGN AREA -->
-  	<div class="pt-design">  
-    	<!-- Container Start -->     
+  	<div class="pt-design">
+    	<!-- Container Start -->
         <div class="container">
-            <!-- <div class="pt-customer"> 
+            <!-- <div class="pt-customer">
                 <p class="bd-pt">Tailormatic</p><p>CUSTOMIZER</p>
             </div> -->
-           
+
             <!-- TABS START -->
             <div class="row">
                 <div class="pt-tab">
@@ -102,7 +102,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                             <p>${{number_format($gr->fabric_rate,2)}}</P>
                                         </div>
                                         @endforeach
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="pt-customize">
                                     <div class="pt-men">
@@ -111,7 +111,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etfabric" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etfabric');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                                        <div class="pt-choose-right">                                     
+                                        <div class="pt-choose-right">
                                             <div class="pt-thumb-slider">
                                                 <div class="pt-pagination">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -206,8 +206,8 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <?php $smi++;?>
                                         @endforeach
                                         @endif
-                                    </div> 
-                                </div>  
+                                    </div>
+                                </div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
@@ -215,7 +215,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etstyle" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etstyle');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                                        <div class="pt-choose-right">                                     
+                                        <div class="pt-choose-right">
                                             <div class="pt-thumb-slider">
                                                 <div class="pt-pagination">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -272,7 +272,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                             @endif
                                                                             @endforeach
                                                                         @endif
-                                                                    </li> 
+                                                                    </li>
                                                                     <?php $stylci++;?>
                                                                     @endforeach
                                                                 </ul>
@@ -401,8 +401,8 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         </div>
                                         <?php $cmi++;?>
                                         @endforeach
-                            		</div> 
-                            	</div>  
+                            		</div>
+                            	</div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
@@ -410,7 +410,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left" id="main-back-etcontrast" style="display:none;"><div class="pt-image-div">@include('demo.process')<img src="{{asset('demo/img/product/pt-shirts-back.png')}}"/></div><div class="pt-price-shirt"><span class="pt-sht"> Shirt {1 Shirt} </span><br><span class="pt-dollor">${{number_format($eTailorObj['ofabricPrice'],2)}}</span><br><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etcontrast');">FRONT VIEW</a></div><div class="pt-bottom-thumb"><ul><li><a href="javascript:designProcessing();"><img src="{{asset('demo/img/product/view-normal.png')}}"/></a></li><?php if($eTailorObj['ocollar']!=21 && $eTailorObj['ocollar']!=22 && $eTailorObj['ocollar']!=23 && $eTailorObj['ocollar']!=26 && $eTailorObj['ocollar']!=27){?><li><a href="javascript:designOpenProcessing();"><img src="{{asset('demo/img/product/view-advanced.png')}}"/></a></li><?php } ?></ul><a href="{{url('/')}}/advance3D" class="et-threed-pro" >3D PRO<span>Advanced Designing</span></a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                            			<div class="pt-choose-right">                                     
+                            			<div class="pt-choose-right">
                                 			<div class="pt-thumb-slider">
                                                 <div class="pt-pagination no-pad-left">
                                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -428,7 +428,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <li class="et-item" id="optionlist-{{$contlst->id}}-{{$cfablst->id}}" data-title="{{$cfablst->contrsfab_name}}" title="{{$cfablst->contrsfab_name}}" onClick="javascript:getcontrast({{$cfablst->id}},'etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/'.$cfablst->contrsfab_img)}}" alt="{{$cfablst->contrsfab_name}}"></figure>
                                                                 @if($cfablst->id==$eTailorObj['ocontrast'])<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -468,11 +468,11 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Vertical(V)" onClick="javascript:getthreadhole('V','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_vertical)}}" alt="Vertical(V)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='V')<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Horizontal(H)" onClick="javascript:getthreadhole('H','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_horizontal)}}" alt="Horizontal(H)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='H')<div class="icon-check"></div>@endif
-                                                            </li>                                            
+                                                            </li>
                                                             <li class="et-item" id="optionlist-thrdstyl-{{$cthrdstyllst->id}}" data-title="Slanted(L)" onClick="javascript:getthreadhole('S','etcontrast');">
                                                                 <figure class="et-item-img"><img src="{{asset('/storage/Shirts/Fabric/S/'.$eTailorObj['ofabric'].'.jpg')}}" ><img src="{{asset('/storage/'.$cthrdstyllst->thrd_hole_slanted)}}" alt="Slanted(L)"></figure>
                                                                 @if($eTailorObj['obuttonHoleStyle']=='S')<div class="icon-check"></div>@endif
@@ -481,7 +481,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                                @elseif($contlst->id == '13') 
+                                                @elseif($contlst->id == '13')
                                                 <div class="et-carousel" id="menu-opt-{{$contlst->id}}">
                                                     <div id="et-style-item" class="carousel slide  gp_products_carousel_wrapper" data-ride="carousel" data-interval="false">
                                                         <div class="carousel-inner" role="listbox">
@@ -490,7 +490,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                 	<li class="et-item" id="optionlist-{{$contlst->id}}-1" data-title="No Monogram" onClick="javascript:getmonogram('1','etcontrast');">
                                                                         <figure class="et-item-img"><img src="{{asset('/storage/none/none.jpg')}}" alt="No Monogram" title="No Monogram"></figure>
                                                                         @if($eTailorObj['omonogram']=='1')<div class="icon-check"></div>@endif
-                                                                    </li>  
+                                                                    </li>
                                                                 	<?php $contmonogrmlst = App\AttributeStyle::select('*')->where('attri_id','=','13')->get(); ?>
 																	@foreach($contmonogrmlst as $cmonolst)
 																	<?php $cmonoimglst = App\Stylefabimglist::select('*')->where('style_id' ,'=' ,$cmonolst->id)->where('fab_id' , '=' , $eTailorObj['ofabric'])->get();?>
@@ -564,7 +564,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                             @endforeach
                                                         </ul>
                                                     </div>
-                                                    @endif     
+                                                    @endif
                                                 </div>
                                                 @endif
                                                 @endforeach
@@ -710,9 +710,9 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             	<div class="pt-variation-main">
                             		<div class="pt-variation">
                                         <div id="menu-bodysize" class="pt-box-square" onClick="javascript:showMeasureSect('bodysize');"><p>Body Size</p></div>
-                                        <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>                             
-                            		</div> 
-                            	</div>  
+                                        <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>
+                            		</div>
+                            	</div>
                             	<div class="pt-customize">
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
@@ -721,7 +721,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts-back.png')}}"  width="340" height="417" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
                                         <!-- End Main Preview -->
                                         <!-- Right Option Section -->
-                            			<div class="pt-choose-right et-measure-right">                                     
+                            			<div class="pt-choose-right et-measure-right">
                                 			<div class="pt-thumb-slider">
                                                 <div class="et-des-title"><h2>Great Choice!  Please Select Your Measurement Option</h2></div>
                                     			<div class="et-ment-option">
@@ -746,12 +746,12 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         <!-- End Right Option Section -->
                                         </div>
                                         <!-- STANDARD SIZES -->
-                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">             
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
                                      		<div class="pt-thumb-slider">
                                             	<div class="et-des-title"><h2>SIZE CHART</h2></div>
                                                 <div class="et-main-measurement">
                                                 	<form class="et-shirt-measure" role="form" method="POST" >
-                                                    	
+
                                                         <div class="et-block no-pad">
                                                             <div class="et-block">
                                                             	<div class="et-setect-fit">
@@ -780,7 +780,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                                 <?php $stdchestSize=App\BodyMeasurment::select('*')->where('cat_id','=','1')->where('mer_id','=',$stdsizee->id)->get();?>
                                                                                 @foreach($stdchestSize as $chestsizelst)<td>{{$chestsizelst->chest}}</td>@endforeach
                                                                                 @endforeach
-                                                                            </tr>          
+                                                                            </tr>
                                                                 		</tbody>
                                                                     </table>
                                                                 </div>
@@ -791,7 +791,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                         <tbody>
                                                                         	<tr>
                     															<td data-lang="size">Size</td>
-                    															@foreach($stdsizelst as $stdsizee)<td>{{$stdsizee->name}}</td>@endforeach                
+                    															@foreach($stdsizelst as $stdsizee)<td>{{$stdsizee->name}}</td>@endforeach
                                                                           	</tr>
                 															<tr>
                                                                             	<td data-lang="neck">Neck</td>
@@ -809,7 +809,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                                 <td>{{round($f*2.54)}}-{{round($l*2.54)}}</td>
                                                                                 @endforeach
                                                                                 @endforeach
-                                                                            </tr>          
+                                                                            </tr>
                                                                 		</tbody>
                                                                     </table>
                                                                 </div>
@@ -864,12 +864,12 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                   		</div>
                                         <!-- STANDARD SIZES END -->
                                         <!-- BODY SIZES -->
-                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">                  
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-bodysize" style="display:none;">
                                      		<div class="pt-thumb-slider">
                                             	<div class="et-des-title"><h2>YOUR BODY SIZES</h2></div>
                                                 <div class="et-main-measurement">
                                                 	<form class="et-shirt-measure" role="form" method="POST"  onSubmit="javascript:return validatebodyform();">
-                                                    
+
                                                     	<div class="et-block">
                                                         	<div class="et-measure-image"><figure><img src="{{asset('/storage/Measurment/Shirts/neck/neck.jpg')}}" alt=""></figure></div>
                                                             <div class="et-measure-video"><video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.ogv')}}" type="video/ogg"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.mp4')}}" type="video/mp4"><object data="{{asset('/storage/Measurment/Shirts/neck/neck.swf')}}" type="application/x-shockwave-flash" width="300" height="220"></object><source src="{{asset('/storage/Measurment/Shirts/neck/neck.webm')}}" type="video/webm"></video></div>
@@ -923,7 +923,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     @endforeach
                                                                 </div>
                                                                 <div class="et-input" id="bdymsleeve">
-                                                                    <span>SLEEVE</span> 
+                                                                    <span>SLEEVE</span>
                                                                     @if($eTailorObj['osleeve']==3)
                                                                     <?php $measureshortsleevelst = App\MeasurmentVideo::select('*')->where('cat_id','=',1)->where('id','=',8)->get();?>
                                                                     @foreach($measureshortsleevelst as $mshrtslevlst)
@@ -936,7 +936,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                     @endforeach
                                                                     @endif
                                                                 </div>
-                            									<div class="et-radio-check">                                                           
+                            									<div class="et-radio-check">
                                        								<div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" class="bsizetyp" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label></div>
                                                                     <div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp" class="bsizetyp"  value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?> ><span class="cr"><i class="cr-icon"></i></span>Inch</label></div>
                             									</div>
@@ -987,19 +987,19 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                 </div>
             </div>
             <!-- TABS ENDS -->
-        </div> 
+        </div>
         <!-- Container Ends-->
 	</div>
-	<!-- DESIGN AREA ENDS -->  
+	<!-- DESIGN AREA ENDS -->
     <!-- FOOTER SECTION -->
   <div class="pt-footer cart-page-footer">
         <div class="container">
             <div class="row">
                 <div class="pt-foot-ul">
     @include('../layouts.inc.footer-strkey')
-             </div>	 
+             </div>
             </div>
-        </div>   
+        </div>
 </div>
     <!-- FOOTER SECTION END -->
     <canvas id="frontcanvas" width="340" height="417" style="display:none"></canvas>
@@ -1025,57 +1025,57 @@ $(document).ready(function(){$(".et-ck-btn").click(function(){var cc=$("#crtcoun
 </script>
 
 <script type="text/javascript">
-$("#stand").click(function(){	
-	
+$("#stand").click(function(){
+
    var setarr = $('#setarr').val();
   // var frntviewfinal = $('#frntviewfinal').val();
   // var bkviewfinal = $('#bkviewfinal').val();
    var mpattern = $('#mpattern').val();
    var sizetyp = $('.sizetyp:checked').val();
-   var rndvalue = $('#rndvalue').val();   
-      
+   var rndvalue = $('#rndvalue').val();
+
       var selsize = [];
    $('.selsize').each(function(index,val){
-	 selsize[index] = $(this).val();   
+	 selsize[index] = $(this).val();
   })
-   
+
      var selstdqty = [];
    $('.selstdqty').each(function(index,val){
-	 selstdqty[index] = $(this).val();   
-  })   
-   
-  if (rndvalue!='') {      
+	 selstdqty[index] = $(this).val();
+  })
 
-	
-			
+  if (rndvalue!='') {
+
+
+
 			 $.ajax({
                type:'POST',
                url:'/designshirts/postcart',
                data:{setarr:setarr,mpattern:mpattern,selstdqty:selstdqty,selsize:selsize,sizetyp:sizetyp,rndvalue:rndvalue,},
 			   beforeSend: function() {
 				    $("#et-smallr").show();
-					$("#stand").hide(); 
+					$("#stand").hide();
 			    },
                headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
                success:function(data){
-				   
+
                   $("#msg").html(data.msg);
 				 window.location.href = "/cart";
                }
             });
-			
-			
+
+
     }
   return false;
   });
     </script>
-    
-<script type="text/javascript">
-$("#body").click(function(){	
 
-	
+<script type="text/javascript">
+$("#body").click(function(){
+
+
 	var bsizeNeck = $('#bsizeNeck').val();
 	var bsizeChest = $('#bsizeChest').val();
 	var bsizeWaist = $('#bsizeWaist').val();
@@ -1090,12 +1090,12 @@ $("#body").click(function(){
  //  var frntviewfinal = $('.bfrntviewfinal').val();
  //  var bkviewfinal = $('.bbkviewfinal').val();
    var mpattern = $('#bmpattern').val();
-   var selbodyqty = $('#selbodyqty').val();  
+   var selbodyqty = $('#selbodyqty').val();
    var rndvalue = $('#brndvalue').val();
-   
-   
-  if (rndvalue!='') {      	
-		
+
+
+  if (rndvalue!='') {
+
 
 			 $.ajax({
                type:'POST',
@@ -1103,23 +1103,23 @@ $("#body").click(function(){
                data:{bsizeNeck:bsizeNeck,bsizeChest:bsizeChest,bsizeWaist:bsizeWaist,bsizeHip:bsizeHip,bsizeLength:bsizeLength,bsizeShoulder:bsizeShoulder,bsizeSleeve:bsizeSleeve,bsizetyp:bsizetyp,fitstyle:fitstyle,setarr:setarr,mpattern:mpattern,selbodyqty:selbodyqty,rndvalue:rndvalue,},
 			    beforeSend: function() {
 				    $("#et-body").show();
-					$("#body").hide(); 
+					$("#body").hide();
 			    },
                headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
                success:function(data){
-				   
+
                   $("#msg").html(data.msg);
 				 window.location.href = "/cart";
                }
             });
-			
-			
+
+
     }
   return false;
   });
-    </script>  
-     
-    
+    </script>
+
+
 </html>

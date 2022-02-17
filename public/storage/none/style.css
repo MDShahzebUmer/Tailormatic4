@@ -1,9 +1,9 @@
 /*!
- * 	Template Name: eTailor - Custom Mens Suits & Online Tailor
- * 	Template URI: http://www.etailor.com
+ * 	Template Name: Duniya Tailor - Custom Mens Suits & Online Tailor
+ * 	Template URI: http://www.DuniyaTailor.com
  * 	Description: Custom Mens Suits & Online Tailor
- * 	Author: eTailor Online
- * 	Author URI: http://www.etailor.com
+ * 	Author: Duniya Tailor Online
+ * 	Author URI: http://www.DuniyaTailor.com
  * 	Version: v1.0
 */
 /*----------------------------------------*/
@@ -995,7 +995,7 @@ ul.et-payment-list>li{display:inline-block;font-size:24px;color:#fff;padding: 0 
 }
 .et-ment-option>div>span {
     width: 100%;
-    float: left;	
+    float: left;
     padding-bottom: 5px;
 }
 .et-ment-option>div>span>a{font-size:24px;color:#fff;}
@@ -1836,7 +1836,7 @@ textarea {
     color: #653a2a;
 }
 .user-frofile-list li a:hover, .user-frofile-list li.active a{
-	background: #2c211b; 
+	background: #2c211b;
 }
 .contact-box ul li{
     float: left;
@@ -1866,11 +1866,11 @@ textarea {
 .order-list-data-table .pagination>li{
 	width: auto;
 }
-.order-list-data-table .pagination>.active>a, 
-.order-list-data-table .pagination>.active>a:focus, 
-.order-list-data-table .pagination>.active>a:hover, 
-.order-list-data-table .pagination>.active>span, 
-.order-list-data-table .pagination>.active>span:focus, 
+.order-list-data-table .pagination>.active>a,
+.order-list-data-table .pagination>.active>a:focus,
+.order-list-data-table .pagination>.active>a:hover,
+.order-list-data-table .pagination>.active>span,
+.order-list-data-table .pagination>.active>span:focus,
 .order-list-data-table .pagination>.active>span:hover{
 	background-color: #2c211b;
     border-color: #2c211b;
@@ -2130,7 +2130,7 @@ margin-left: 15px;
 .checkbox label {
     display: inline-block;
     position: relative;
-    padding-left: 5px; 
+    padding-left: 5px;
 }
 .checkbox label::before {
   content: "";
@@ -2145,7 +2145,7 @@ margin-left: 15px;
   background-color: #fff;
   -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
   -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-  transition: border 0.15s ease-in-out, color 0.15s ease-in-out; 
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 .checkbox label::after {
   display: inline-block;
@@ -2158,15 +2158,15 @@ margin-left: 15px;
   padding-left: 3px;
   padding-top: 1px;
   font-size: 11px;
-  color: #555555; 
+  color: #555555;
 }
 .checkbox input[type="checkbox"] {
-    opacity: 0; 
+    opacity: 0;
 }
 .checkbox input[type="checkbox"]:focus + label::before {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px; 
+  outline-offset: -2px;
 }
 .checkbox input[type="checkbox"]:checked + label::after {
   font-family: 'FontAwesome';
@@ -2221,8 +2221,8 @@ margin-left: 15px;
 	text-align: center;
 	padding-bottom: 25px;
 }
-.product-list .col-xs-12, 
-.product-list .col-sm-6, 
+.product-list .col-xs-12,
+.product-list .col-sm-6,
 .product-list .col-md-3{
 	padding: 0 5px;
 	text-align: center;
@@ -2519,7 +2519,7 @@ figure.figure-box img {
 	margin-bottom: 20px;
 }
 .reviewrs-ul{
-    
+
 }
 .reviewrs-ul li{
 	width: 50%;
@@ -2576,11 +2576,11 @@ figure.figure-box img {
 .review-photo-gallery-wrap.thumbnail_image_carousel_indicators .active{
 	width: 80px;
 }
-.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:hover, 
-.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:active, 
-.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:focus, 
-.review-photo-gallery-wrap .thumbnail_image_carousel_control_right:hover, 
-.review-photo-gallery-wrap .thumbnail_image_carousel_control_right:active, 
+.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:hover,
+.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:active,
+.review-photo-gallery-wrap .thumbnail_image_carousel_control_left:focus,
+.review-photo-gallery-wrap .thumbnail_image_carousel_control_right:hover,
+.review-photo-gallery-wrap .thumbnail_image_carousel_control_right:active,
 .review-photo-gallery-wrap .thumbnail_image_carousel_control_right:focus{
     color: #f9efea;
 }
@@ -2591,7 +2591,7 @@ figure.figure-box img {
     z-index: 99999;
     font-size: 40px;
     cursor: pointer;
-} 
+}
 .indicatorsprev{
     float: left;
 }
@@ -2617,7 +2617,7 @@ figure.figure-box img {
 /*video gallary*/
 
 .html5gallery-elem-0 .html5gallery-title-0,
-.html5gallery-elem-0 a[style], 
+.html5gallery-elem-0 a[style],
 .html5gallery-title-text-0,
 .html5gallery-elem-0 a[style] div{
 	display: none !important;
@@ -2705,7 +2705,7 @@ top: 18%;
 	padding: 8px 20px;
     background: #5b3824;
     border: 1px solid #fff;
-    color: #fff;    
+    color: #fff;
     text-transform: uppercase;
     font-size: 14px;
 	width:300px;
@@ -2728,10 +2728,10 @@ top: 18%;
 }
 .show-star-rating .fa-star-o{
 	color: #fff;
-	
+
 }
 .show-star-rating .fa-star-half-o{
-	
+
 }
 .et-related-slider .gp_products_carousel_wrapper {
     background-color: transparent;
@@ -2741,7 +2741,7 @@ top: 18%;
 .et-related-slider .carousel-control.right{
 	background-image: none;
 	background: #292929;
-	opacity: 1;	
+	opacity: 1;
 }
 
 /*product details 29-04-2017*/
@@ -2829,8 +2829,8 @@ border: 1px solid #ca8966;
    border: 1px solid #ca8966;
    border-top: 0;
 }
-.product-details-tab .nav-tabs>li.active>a, 
-.product-details-tab .nav-tabs>li.active>a:focus, 
+.product-details-tab .nav-tabs>li.active>a,
+.product-details-tab .nav-tabs>li.active>a:focus,
 .product-details-tab .nav-tabs>li.active>a:hover,
 .product-details-tab .nav-tabs>li>a:hover{
   border: 1px solid #ca8966;
