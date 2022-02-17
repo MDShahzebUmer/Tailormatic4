@@ -102,7 +102,7 @@ Route::post('/measurjacketdtls',['as' => 'measurjacketdtls' , 'uses' => 'JacketC
 
 Route::get('/mobilejackets' ,['as' => 'mobilejackets' , 'uses' => 'MobileJacketController@index']);
 Route::post('/getjktfabrics2',['as' => 'getjktfabrics2' , 'uses' => 'MobileJacketController@getfabdetails']); //158->138px
-Route::post('/getjktbckcollar2',['as' => 'getjktbckcollar2' , 'uses' => 'MobileJacketController@getbackcollardetails']); 
+Route::post('/getjktbckcollar2',['as' => 'getjktbckcollar2' , 'uses' => 'MobileJacketController@getbackcollardetails']);
 Route::post('/getjktstyle2',['as' => 'getjktstyle' , 'uses' => 'MobileJacketController@getstyledetails']);
 Route::post('/getsetjktoptions2',['as' => 'getsetjktoptions' , 'uses' => 'MobileJacketController@getjktoptiondetails']);
 
@@ -369,3 +369,4 @@ Route::get('address/getstate/{sid?}', function($id){
         return response()->json($states);
 })->name('address.getstate');
 
+Route::view('/pdfinvoice', 'pdftemp');
