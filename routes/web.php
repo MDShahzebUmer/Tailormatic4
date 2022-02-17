@@ -369,4 +369,4 @@ Route::get('address/getstate/{sid?}', function($id){
         return response()->json($states);
 })->name('address.getstate');
 
-Route::view('/pdfinvoice', 'pdftemp');
+
