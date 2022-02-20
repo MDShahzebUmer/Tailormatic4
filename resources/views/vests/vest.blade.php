@@ -529,7 +529,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                         <div class="et-btn-select">
                                                             <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeCntrySize(this.value);">
                                                                 <option value="1" selected>European Size</option>
-                                                               <option value="2">UK/American Size</option>
+                                                               <option value="2">American Size</option>
                                                             </select>
                                                         </div>
                                                         <div class="et-btn-select" id="divsizefit">

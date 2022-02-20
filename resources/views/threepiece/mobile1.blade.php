@@ -21,8 +21,8 @@
                         <div class="pt-variation">
                             @foreach($fabric_ary as $gr)
                                 @if(!empty($gr['jacket']))
-                                    <div id="menu-fabric{{$gr['jacket']->id}}" 
-                                        class="pt-box-square <?php if($gr['jacket']->id == $eJacketTailorObj['ofabricType']) {?>active<?php } ?>" 
+                                    <div id="menu-fabric{{$gr['jacket']->id}}"
+                                        class="pt-box-square <?php if($gr['jacket']->id == $eJacketTailorObj['ofabricType']) {?>active<?php } ?>"
                                         onClick="openPgContent('menu-fabric{{$gr['jacket']->id}}','etfabricjacket','{{$gr['jacket']->id}}','menu-fabric','fabric');">
                                         <p class="sub-fabric-name">{{$gr['jacket']->fbgrp_name}}</p>
                                         @php
@@ -78,9 +78,9 @@
                                                         <ul class="et-item-list">
                                                             <?php $fabriclst = App\Etfabric::select('*')->where('fbgrp_id','=',$gr->id)->where('fabric_status','=','1')->whereRaw('fabric_qty > fabric_min_qty')->get();?>
                                                             @foreach($fabriclst as $fablst)
-                                                            <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}" 
-                                                                title="{{ $fablst->fabric_name }}" 
-                                                                data-title="{{ $fablst->fabric_name }}" 
+                                                            <li class="et-item" id="optionlist-fabric{{$gr->id}}-{{$fablst->id}}"
+                                                                title="{{ $fablst->fabric_name }}"
+                                                                data-title="{{ $fablst->fabric_name }}"
                                                                 onClick="javascript:getjacketfab({{$fablst->id}},'etfabricjacket');"
                                                                 style="background:url('/storage/{{$fablst->fabric_img_l}}');">
                                                                 <figure class="et-item-img">
@@ -97,7 +97,7 @@
                                                                         $rec_frate =    $gr->fabric_rate;
                                                                     }
                                                                     ?>
-                                                                    <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p> 
+                                                                    <p class="m-i-f-price">${{number_format($rec_frate,2)}}</p>
                                                                 </div>
                                                             </li>
                                                             @endforeach
@@ -325,17 +325,17 @@
                         <div class="pt-variation">
                             <?php $cmi=1;?>
                             @foreach($contrast_jacker_record as $contlst)
-                                <div id="menu-{{$contlst->id}}" class="pt-box-square <?php if($contlst->id=='25'){?>active<?php } ?>" 
+                                <div id="menu-{{$contlst->id}}" class="pt-box-square <?php if($contlst->id=='25'){?>active<?php } ?>"
                                     onClick="openPgContent(this.id,'etcontrastjacket','{{$contlst->id}}','{{$contlst->attribute_name}}','contrast');" >
                                     <p>3.{{$cmi}}  {{$contlst->attribute_name}}</p>
                                 </div>
-                                <?php 
-                                    if($cmi == 1){ 
+                                <?php
+                                    if($cmi == 1){
                                         $cmi++;
-                                        ?>  
+                                        ?>
                                         <div id="menu-54" class="pt-box-square" onClick="openPgContent('menu-54','etcontrastpant','54','Pant Contrast','contrast');" >
                                             <p>3.{{$cmi}}  Pant Contrast</p>
-                                        </div>  
+                                        </div>
                                         <?php $cmi++; ?>
                                         <div id="menu-40" class="pt-box-square" onClick="openPgContent('menu-40','etcontrast','40','Vest Contrast','contrast');" >
                                             <p>3.{{$cmi}}  Vest Contrast</p>
@@ -617,7 +617,7 @@
                                 </div>
                                 <!-- End Right Option Section -->
                             </div>
-                        
+
                             <!-- STANDARD SIZES -->
                             <div class="pt-choose-right et-main-body-size" id="menu-mesure-jacket-standardsize" style="display:none;">
                                 <div class="pt-thumb-slider">
@@ -628,7 +628,7 @@
                                         <div class="et-block et-vests-size">
                                             <label>3Piece Size :</label>
                                             <div class="et-btn-select">
-                                                <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeJacketCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">UK/American Size</option></select>
+                                                <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeJacketCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">American Size</option></select>
                                             </div>
                                             <div class="et-btn-select" id="divsizefit">
                                                 <select class="selectpicker btn-primary" id="sizefit" name="sizefit" onChange="javascript:changeJacketSizeDetails();">

@@ -641,7 +641,7 @@
                                         <div class="et-block et-vests-size">
                                             <label>2Piece Size :</label>
                                             <div class="et-btn-select">
-                                                <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeJacketCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">UK/American Size</option></select>
+                                                <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeJacketCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">American Size</option></select>
                                             </div>
                                             <div class="et-btn-select" id="divsizefit">
                                                 <select class="selectpicker btn-primary" id="sizefit" name="sizefit" onChange="javascript:changeJacketSizeDetails();">
