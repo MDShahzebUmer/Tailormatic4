@@ -18,6 +18,7 @@ trait Orders
     public function createOrder(array $data)
     {
         $this->apiEndPoint = 'v2/checkout/orders';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = (object) $data;
 
@@ -29,6 +30,7 @@ trait Orders
     public function updateOrder(string $order_id, array $data)
     {
         $this->apiEndPoint = "v2/checkout/orders/{$order_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = (object) $data;
 
@@ -48,9 +50,10 @@ trait Orders
      *
      * @see https://developer.paypal.com/docs/api/orders/v2/#orders_get
      */
-    public function showOrderDetails(string $order_id)
+    public function showOrderDetails($order_id)
     {
         $this->apiEndPoint = "v2/checkout/orders/{$order_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -69,9 +72,10 @@ trait Orders
      *
      * @see https://developer.paypal.com/docs/api/orders/v2/#orders_authorize
      */
-    public function authorizePaymentOrder(string $order_id, array $data = [])
+    public function authorizePaymentOrder($order_id, array $data = [])
     {
         $this->apiEndPoint = "v2/checkout/orders/{$order_id}/authorize";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = (object) $data;
 
@@ -92,9 +96,10 @@ trait Orders
      *
      * @see https://developer.paypal.com/docs/api/orders/v2/#orders_capture
      */
-    public function capturePaymentOrder(string $order_id, array $data = [])
+    public function capturePaymentOrder($order_id, array $data = [])
     {
         $this->apiEndPoint = "v2/checkout/orders/{$order_id}/capture";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = (object) $data;
 

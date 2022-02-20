@@ -7,8 +7,7 @@ trait BillingPlans
     /**
      * Create a new billing plan.
      *
-     * @param array  $data
-     * @param string $request_id
+     * @param array $data
      *
      * @throws \Throwable
      *
@@ -16,11 +15,11 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_create
      */
-    public function createPlan(array $data, string $request_id)
+    public function createPlan(array $data)
     {
         $this->apiEndPoint = 'v1/billing/plans';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
-        $this->options['headers']['PayPal-Request-Id'] = $request_id;
         $this->options['json'] = $data;
 
         $this->verb = 'post';
@@ -31,9 +30,10 @@ trait BillingPlans
     /**
      * List all billing plans.
      *
-     * @param int  $page
-     * @param int  $size
-     * @param bool $totals
+     * @param int   $page
+     * @param int   $size
+     * @param bool  $totals
+     * @param array $fields
      *
      * @throws \Throwable
      *
@@ -41,11 +41,14 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_list
      */
-    public function listPlans(int $page = 1, int $size = 20, bool $totals = true)
+    public function listPlans($page = 1, $size = 20, $totals = true, array $fields = [])
     {
-        $totals = ($totals) ? 'true' : 'false';
+        $fields_list = collect($fields);
 
-        $this->apiEndPoint = "v1/billing/plans?page={$page}&page_size={$size}&total_required={$totals}";
+        $fields = ($fields_list->count() > 0) ? "&fields={$fields_list->implode(',')}" : '';
+
+        $this->apiEndPoint = "v1/billing/plans?page={$page}&page_size={$size}&total_required={$totals}{$fields}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -64,9 +67,10 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/invoicing/v2/#invoices_update
      */
-    public function updatePlan(string $plan_id, array $data)
+    public function updatePlan($plan_id, array $data)
     {
         $this->apiEndPoint = "v1/billing/plans/{$plan_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -86,9 +90,10 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_get
      */
-    public function showPlanDetails(string $plan_id)
+    public function showPlanDetails($plan_id)
     {
         $this->apiEndPoint = "v1/billing/plans/{$plan_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -106,9 +111,10 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_activate
      */
-    public function activatePlan(string $plan_id)
+    public function activatePlan($plan_id)
     {
         $this->apiEndPoint = "v1/billing/plans/{$plan_id}/activate";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'post';
 
@@ -126,9 +132,10 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_deactivate
      */
-    public function deactivatePlan(string $plan_id)
+    public function deactivatePlan($plan_id)
     {
         $this->apiEndPoint = "v1/billing/plans/{$plan_id}/deactivate";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'post';
 
@@ -147,9 +154,10 @@ trait BillingPlans
      *
      * @see https://developer.paypal.com/docs/api/subscriptions/v1/#plans_update-pricing-schemes
      */
-    public function updatePlanPricing(string $plan_id, array $pricing)
+    public function updatePlanPricing($plan_id, array $pricing)
     {
         $this->apiEndPoint = "v1/billing/plans/{$plan_id}/update-pricing-schemes";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = [
             'pricing_schemes' => $pricing,

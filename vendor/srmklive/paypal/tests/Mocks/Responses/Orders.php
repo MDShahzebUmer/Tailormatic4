@@ -2,16 +2,14 @@
 
 namespace Srmklive\PayPal\Tests\Mocks\Responses;
 
-use GuzzleHttp\Utils;
-
 trait Orders
 {
     /**
      * @return array
      */
-    public function mockCreateOrdersResponse(): array
+    public function mockCreateOrdersResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
         "id": "5O190127TN364715T",
         "status": "CREATED",
         "links": [
@@ -50,9 +48,9 @@ trait Orders
     /**
      * @return array
      */
-    public function mockOrderDetailsResponse(): array
+    public function mockOrderDetailsResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
         "id": "5O190127TN364715T",
         "status": "PAYER_ACTION_REQUIRED",
         "intent": "CAPTURE",
@@ -93,9 +91,9 @@ trait Orders
     /**
      * @return array
      */
-    public function mockOrderPaymentAuthorizedResponse(): array
+    public function mockOrderPaymentAuthorizedResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
         "id": "5O190127TN364715T",
         "status": "COMPLETED",
         "payer": {
@@ -178,9 +176,9 @@ trait Orders
     /**
      * @return array
      */
-    public function mockOrderPaymentCapturedResponse(): array
+    public function mockOrderPaymentCapturedResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
         "id": "5O190127TN364715T",
         "status": "COMPLETED",
         "payer": {

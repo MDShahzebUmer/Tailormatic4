@@ -18,6 +18,7 @@ trait InvoicesTemplates
     public function createInvoiceTemplate(array $data)
     {
         $this->apiEndPoint = 'v2/invoicing/templates';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -39,9 +40,10 @@ trait InvoicesTemplates
      *
      * @see https://developer.paypal.com/docs/api/invoicing/v2/#templates_list
      */
-    public function listInvoiceTemplates(int $page = 1, int $size = 20, string $fields = 'all')
+    public function listInvoiceTemplates($page = 1, $size = 20, $fields = 'all')
     {
         $this->apiEndPoint = "v2/invoicing/templates?page={$page}&page_size={$size}&fields={$fields}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -59,9 +61,10 @@ trait InvoicesTemplates
      *
      * @see https://developer.paypal.com/docs/api/invoicing/v2/#templates_delete
      */
-    public function deleteInvoiceTemplate(string $template_id)
+    public function deleteInvoiceTemplate($template_id)
     {
         $this->apiEndPoint = "v2/invoicing/templates/{$template_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'delete';
 
@@ -80,9 +83,10 @@ trait InvoicesTemplates
      *
      * @see https://developer.paypal.com/docs/api/invoicing/v2/#templates_update
      */
-    public function updateInvoiceTemplate(string $template_id, array $data)
+    public function updateInvoiceTemplate($template_id, array $data)
     {
         $this->apiEndPoint = "v2/invoicing/templates/{$template_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -102,9 +106,10 @@ trait InvoicesTemplates
      *
      * @see https://developer.paypal.com/docs/api/invoicing/v2/#templates_get
      */
-    public function showInvoiceTemplateDetails(string $template_id)
+    public function showInvoiceTemplateDetails($template_id)
     {
         $this->apiEndPoint = "v2/invoicing/templates/{$template_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 

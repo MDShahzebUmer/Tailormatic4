@@ -137,9 +137,7 @@ class Snapshot
             $this->includedFiles = get_included_files();
         }
 
-        if ($includeTraits) {
-            $this->traits = get_declared_traits();
-        }
+        $this->traits = get_declared_traits();
     }
 
     public function excludeList(): ExcludeList

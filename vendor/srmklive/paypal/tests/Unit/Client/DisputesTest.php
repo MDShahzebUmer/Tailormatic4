@@ -2,7 +2,6 @@
 
 namespace Srmklive\PayPal\Tests\Unit\Client;
 
-use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 use Srmklive\PayPal\Tests\MockClientClasses;
 use Srmklive\PayPal\Tests\MockRequestPayloads;
@@ -19,7 +18,7 @@ class DisputesTest extends TestCase
     {
         $expectedResponse = $this->mockListDisputesResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/customer/disputes/';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/customer/disputes/';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -28,9 +27,9 @@ class DisputesTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -38,7 +37,7 @@ class DisputesTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-D-27803';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-27803';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -48,9 +47,9 @@ class DisputesTest extends TestCase
             'json' => $this->updateDisputeParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'patch');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'patch');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->patch($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->patch($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -58,7 +57,7 @@ class DisputesTest extends TestCase
     {
         $expectedResponse = $this->mockGetDisputesResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/customer/disputes/PP-D-4012';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/customer/disputes/PP-D-4012';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -67,8 +66,8 @@ class DisputesTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 }

@@ -2,16 +2,14 @@
 
 namespace Srmklive\PayPal\Tests\Mocks\Responses;
 
-use GuzzleHttp\Utils;
-
 trait InvoicesSearch
 {
     /**
      * @return array
      */
-    private function mockSearchInvoicesResponse(): array
+    private function mockSearchInvoicesResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "total_items": 6,
   "total_pages": 1,
   "items": [

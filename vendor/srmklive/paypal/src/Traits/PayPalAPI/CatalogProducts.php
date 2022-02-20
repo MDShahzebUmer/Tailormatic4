@@ -16,9 +16,10 @@ trait CatalogProducts
      *
      * @see https://developer.paypal.com/docs/api/catalog-products/v1/#products_create
      */
-    public function createProduct(array $data, string $request_id)
+    public function createProduct(array $data, $request_id)
     {
         $this->apiEndPoint = 'v1/catalogs/products';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['headers']['PayPal-Request-Id'] = $request_id;
         $this->options['json'] = $data;
@@ -41,11 +42,12 @@ trait CatalogProducts
      *
      * @see https://developer.paypal.com/docs/api/catalog-products/v1/#products_list
      */
-    public function listProducts(int $page = 1, int $size = 20, bool $totals = true)
+    public function listProducts($page = 1, $size = 20, $totals = true)
     {
         $totals = ($totals === true) ? 'true' : 'false';
 
         $this->apiEndPoint = "v1/catalogs/products?page={$page}&page_size={$size}&total_required={$totals}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -55,8 +57,8 @@ trait CatalogProducts
     /**
      * Update a product.
      *
-     * @param string $product_id
      * @param array  $data
+     * @param string $product_id
      *
      * @throws \Throwable
      *
@@ -64,9 +66,10 @@ trait CatalogProducts
      *
      * @see https://developer.paypal.com/docs/api/catalog-products/v1/#products_patch
      */
-    public function updateProduct(string $product_id, array $data)
+    public function updateProduct(array $data, $product_id)
     {
         $this->apiEndPoint = "v1/catalogs/products/{$product_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -86,9 +89,10 @@ trait CatalogProducts
      *
      * @see https://developer.paypal.com/docs/api/catalog-products/v1/#products_get
      */
-    public function showProductDetails(string $product_id)
+    public function showProductDetails($product_id)
     {
         $this->apiEndPoint = "v1/catalogs/products/{$product_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 

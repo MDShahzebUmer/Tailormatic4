@@ -15,9 +15,10 @@ trait Trackers
      *
      * @see https://developer.paypal.com/docs/api/tracking/v1/#trackers_get
      */
-    public function showTrackingDetails(string $tracking_id)
+    public function showTrackingDetails($tracking_id)
     {
         $this->apiEndPoint = "v1/shipping/trackers/{$tracking_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -36,9 +37,10 @@ trait Trackers
      *
      * @see https://developer.paypal.com/docs/api/tracking/v1/#trackers_put
      */
-    public function updateTrackingDetails(string $tracking_id, array $data)
+    public function updateTrackingDetails($tracking_id, $data)
     {
         $this->apiEndPoint = "v1/shipping/trackers/{$tracking_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -58,9 +60,10 @@ trait Trackers
      *
      * @see https://developer.paypal.com/docs/api/tracking/v1/#trackers-batch_post
      */
-    public function addBatchTracking(array $data)
+    public function addBatchTracking($data)
     {
         $this->apiEndPoint = 'v1/shipping/trackers-batch';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 

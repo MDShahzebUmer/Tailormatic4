@@ -8,18 +8,13 @@ trait MockResponsePayloads
     use Mocks\Responses\CatalogProducts;
     use Mocks\Responses\Disputes;
     use Mocks\Responses\DisputesActions;
-    use Mocks\Responses\Identity;
     use Mocks\Responses\Invoices;
     use Mocks\Responses\InvoicesSearch;
     use Mocks\Responses\InvoicesTemplates;
     use Mocks\Responses\Orders;
-    use Mocks\Responses\PartnerReferrals;
-    use Mocks\Responses\PaymentExperienceWebProfiles;
     use Mocks\Responses\PaymentAuthorizations;
     use Mocks\Responses\PaymentCaptures;
     use Mocks\Responses\PaymentRefunds;
-    use Mocks\Responses\Payouts;
-    use Mocks\Responses\ReferencedPayouts;
     use Mocks\Responses\Reporting;
     use Mocks\Responses\Subscriptions;
     use Mocks\Responses\Trackers;
@@ -28,7 +23,7 @@ trait MockResponsePayloads
     /**
      * @return array
      */
-    private function mockAccessTokenResponse(): array
+    private function mockAccessTokenResponse()
     {
         return [
             'scope'         => 'some_scope',

@@ -2,7 +2,6 @@
 
 namespace Srmklive\PayPal\Tests\Unit\Client;
 
-use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 use Srmklive\PayPal\Tests\MockClientClasses;
 use Srmklive\PayPal\Tests\MockRequestPayloads;
@@ -19,7 +18,7 @@ class ReportingTest extends TestCase
     {
         $expectedResponse = $this->mockListTransactionsResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/reporting/transactions?start_date=2014-07-01T00:00:00-0700&end_date=2014-07-30T23:59:59-0700&transaction_id=5TY05013RG002845M&fields=all&page_size=100&page=1';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/reporting/transactions?start_date=2014-07-01T00:00:00-0700&end_date=2014-07-30T23:59:59-0700&transaction_id=5TY05013RG002845M&fields=all&page_size=100&page=1';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -28,9 +27,9 @@ class ReportingTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -38,7 +37,7 @@ class ReportingTest extends TestCase
     {
         $expectedResponse = $this->mockListBalancesResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/reporting/balances?currency_code=USD&as_of_time=2016-10-15T06:07:00-0700';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/reporting/balances?currency_code=USD&as_of_time=2016-10-15T06:07:00-0700';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -47,8 +46,8 @@ class ReportingTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 }

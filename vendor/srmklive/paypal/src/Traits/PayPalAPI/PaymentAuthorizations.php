@@ -15,9 +15,10 @@ trait PaymentAuthorizations
      *
      * @see https://developer.paypal.com/docs/api/payments/v2/#authorizations_get
      */
-    public function showAuthorizedPaymentDetails(string $authorization_id)
+    public function showAuthorizedPaymentDetails($authorization_id)
     {
         $this->apiEndPoint = "v2/payments/authorizations/{$authorization_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -38,9 +39,10 @@ trait PaymentAuthorizations
      *
      * @see https://developer.paypal.com/docs/api/payments/v2/#authorizations_capture
      */
-    public function captureAuthorizedPayment(string $authorization_id, string $invoice_id, float $amount, string $note)
+    public function captureAuthorizedPayment($authorization_id, $invoice_id, $amount, $note)
     {
         $this->apiEndPoint = "v2/payments/authorizations/{$authorization_id}/capture";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = [
             'amount' => [
@@ -69,9 +71,10 @@ trait PaymentAuthorizations
      *
      * @see https://developer.paypal.com/docs/api/payments/v2/#authorizations_reauthorize
      */
-    public function reAuthorizeAuthorizedPayment(string $authorization_id, float $amount)
+    public function reAuthorizeAuthorizedPayment($authorization_id, $amount)
     {
         $this->apiEndPoint = "v2/payments/authorizations/{$authorization_id}/reauthorize";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = [
             'amount' => [
@@ -96,9 +99,10 @@ trait PaymentAuthorizations
      *
      * @see https://developer.paypal.com/docs/api/payments/v2/#authorizations_void
      */
-    public function voidAuthorizedPayment(string $authorization_id)
+    public function voidAuthorizedPayment($authorization_id)
     {
         $this->apiEndPoint = "v2/payments/authorizations/{$authorization_id}/void";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'post';
 

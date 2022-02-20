@@ -2,7 +2,6 @@
 
 namespace Srmklive\PayPal\Tests\Unit\Client;
 
-use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 use Srmklive\PayPal\Tests\MockClientClasses;
 use Srmklive\PayPal\Tests\MockRequestPayloads;
@@ -19,7 +18,7 @@ class PaymentAuthorizationsTest extends TestCase
     {
         $expectedResponse = $this->mockGetAuthorizedPaymentDetailsResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -28,9 +27,9 @@ class PaymentAuthorizationsTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -38,7 +37,7 @@ class PaymentAuthorizationsTest extends TestCase
     {
         $expectedResponse = $this->mockCaptureAuthorizedPaymentResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/capture';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/capture';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -48,9 +47,9 @@ class PaymentAuthorizationsTest extends TestCase
             'json' => $this->mockCaptureAuthorizedPaymentParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -58,7 +57,7 @@ class PaymentAuthorizationsTest extends TestCase
     {
         $expectedResponse = $this->mockReAuthorizeAuthorizedPaymentResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/reauthorize';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/reauthorize';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -68,9 +67,9 @@ class PaymentAuthorizationsTest extends TestCase
             'json' => $this->mockReAuthorizeAuthorizedPaymentParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -78,7 +77,7 @@ class PaymentAuthorizationsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/void';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v2/payments/authorizations/0VF52814937998046/void';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -87,8 +86,8 @@ class PaymentAuthorizationsTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 }

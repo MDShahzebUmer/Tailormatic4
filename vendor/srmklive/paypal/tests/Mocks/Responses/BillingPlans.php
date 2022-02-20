@@ -2,16 +2,14 @@
 
 namespace Srmklive\PayPal\Tests\Mocks\Responses;
 
-use GuzzleHttp\Utils;
-
 trait BillingPlans
 {
     /**
      * @return array
      */
-    private function mockCreatePlansResponse(): array
+    private function mockCreatePlansResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "id": "P-5ML4271244454362WXNWU5NQ",
   "product_id": "PROD-XXCD1234QWER65782",
   "name": "Video Streaming Service Plan",
@@ -116,9 +114,9 @@ trait BillingPlans
     /**
      * @return array
      */
-    private function mockListPlansResponse(): array
+    private function mockListPlansResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "total_items": 12,
   "total_pages": 6,
   "plans": [
@@ -181,9 +179,9 @@ trait BillingPlans
     /**
      * @return array
      */
-    private function mockGetPlansResponse(): array
+    private function mockGetPlansResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "id": "P-5ML4271244454362WXNWU5NQ",
   "product_id": "PROD-XXCD1234QWER65782",
   "name": "Basic Plan",

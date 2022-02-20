@@ -22,6 +22,7 @@ use TCG\Voyager\Facades\Voyager as VoyagerFacade;
 use TCG\Voyager\FormFields\After\DescriptionHandler;
 use TCG\Voyager\Http\Middleware\VoyagerAdminMiddleware;
 use TCG\Voyager\Models\MenuItem;
+use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\Setting;
 use TCG\Voyager\Policies\BasePolicy;
 use TCG\Voyager\Policies\MenuItemPolicy;
@@ -63,6 +64,7 @@ class VoyagerServiceProvider extends ServiceProvider
 
         $loader = AliasLoader::getInstance();
         $loader->alias('Voyager', VoyagerFacade::class);
+        $loader->alias('Menu', Menu::class);
 
         $this->app->singleton('voyager', function () {
             return new Voyager();

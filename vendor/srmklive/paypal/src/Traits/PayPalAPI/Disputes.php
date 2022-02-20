@@ -16,6 +16,7 @@ trait Disputes
     public function listDisputes()
     {
         $this->apiEndPoint = 'v1/customer/disputes';
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 
@@ -34,9 +35,10 @@ trait Disputes
      *
      * @see https://developer.paypal.com/docs/api/customer-disputes/v1/#disputes_patch
      */
-    public function updateDispute(array $data, string $dispute_id)
+    public function updateDispute(array $data, $dispute_id)
     {
         $this->apiEndPoint = "v1/customer/disputes/{$dispute_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->options['json'] = $data;
 
@@ -56,9 +58,10 @@ trait Disputes
      *
      * @see https://developer.paypal.com/docs/api/customer-disputes/v1/#disputes_get
      */
-    public function showDisputeDetails(string $dispute_id)
+    public function showDisputeDetails($dispute_id)
     {
         $this->apiEndPoint = "v1/customer/disputes/{$dispute_id}";
+        $this->apiUrl = collect([$this->config['api_url'], $this->apiEndPoint])->implode('/');
 
         $this->verb = 'get';
 

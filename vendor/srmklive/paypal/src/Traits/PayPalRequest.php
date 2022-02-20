@@ -49,12 +49,14 @@ trait PayPalRequest
      *
      * @param array $credentials
      *
-     * @throws \RuntimeException|\Exception
+     * @throws \RuntimeException
+     *
+     * @return void
      */
-    public function setApiCredentials(array $credentials): void
+    public function setApiCredentials($credentials)
     {
         if (empty($credentials)) {
-            $this->throwConfigurationException();
+            throw new RuntimeException('Empty configuration provided. Please provide valid configuration for Express Checkout API.');
         }
 
         // Setting Default PayPal Mode If not set
@@ -77,11 +79,11 @@ trait PayPalRequest
      *
      * @throws \RuntimeException
      *
-     * @return \Srmklive\PayPal\Services\PayPal
+     * @return $this
      */
-    public function setCurrency(string $currency = 'USD'): \Srmklive\PayPal\Services\PayPal
+    public function setCurrency($currency = 'USD')
     {
-        $allowedCurrencies = ['AUD', 'BRL', 'CAD', 'CZK', 'DKK', 'EUR', 'HKD', 'HUF', 'ILS', 'INR', 'JPY', 'MYR', 'MXN', 'NOK', 'NZD', 'PHP', 'PLN', 'GBP', 'SGD', 'SEK', 'CHF', 'TWD', 'THB', 'USD', 'RUB', 'CNY'];
+        $allowedCurrencies = ['AUD', 'BRL', 'CAD', 'CZK', 'DKK', 'EUR', 'HKD', 'HUF', 'ILS', 'INR', 'JPY', 'MYR', 'MXN', 'NOK', 'NZD', 'PHP', 'PLN', 'GBP', 'SGD', 'SEK', 'CHF', 'TWD', 'THB', 'USD', 'RUB'];
 
         // Check if provided currency is valid.
         if (!in_array($currency, $allowedCurrencies, true)) {
@@ -95,43 +97,12 @@ trait PayPalRequest
 
     /**
      * Return the set currency.
-     */
-    public function getCurrency(): string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * Function to add request header.
-     *
-     * @param string $key
-     * @param string $value
-     *
-     * @return \Srmklive\PayPal\Services\PayPal
-     */
-    public function setRequestHeader(string $key, string $value): \Srmklive\PayPal\Services\PayPal
-    {
-        $this->options['headers'][$key] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Return request options header.
-     *
-     * @param string $key
-     *
-     * @throws \RuntimeException
      *
      * @return string
      */
-    public function getRequestHeader(string $key): string
+    public function getCurrency()
     {
-        if (isset($this->options['headers'][$key])) {
-            return $this->options['headers'][$key];
-        }
-
-        throw new RuntimeException('Options header is not set.');
+        return $this->currency;
     }
 
     /**
@@ -139,11 +110,11 @@ trait PayPalRequest
      *
      * @param array $config
      *
-     * @throws \Exception
+     * @throws Exception
      */
-    private function setConfig(array $config): void
+    private function setConfig(array $config = [])
     {
-        $api_config = function_exists('config') && !empty(config('paypal')) ? config('paypal') : $config;
+        $api_config = function_exists('config') ? config('paypal') : $config;
 
         // Set Api Credentials
         $this->setApiCredentials($api_config);
@@ -153,15 +124,15 @@ trait PayPalRequest
      * Set API environment to be used by PayPal.
      *
      * @param array $credentials
+     *
+     * @return void
      */
-    private function setApiEnvironment(array $credentials): void
+    private function setApiEnvironment($credentials)
     {
         $this->mode = 'live';
 
         if (!empty($credentials['mode'])) {
             $this->setValidApiEnvironment($credentials['mode']);
-        } else {
-            $this->throwConfigurationException();
         }
     }
 
@@ -169,8 +140,10 @@ trait PayPalRequest
      * Validate & set the environment to be used by PayPal.
      *
      * @param string $mode
+     *
+     * @return void
      */
-    private function setValidApiEnvironment(string $mode): void
+    private function setValidApiEnvironment($mode)
     {
         $this->mode = !in_array($mode, ['sandbox', 'live']) ? 'live' : $mode;
     }
@@ -180,23 +153,13 @@ trait PayPalRequest
      *
      * @param array $credentials
      *
-     * @throws \Exception
+     * @throws Exception
+     *
+     * @return void
      */
-    private function setApiProviderConfiguration(array $credentials): void
+    private function setApiProviderConfiguration($credentials)
     {
         // Setting PayPal API Credentials
-        if (empty($credentials[$this->mode])) {
-            $this->throwConfigurationException();
-        }
-
-        $config_params = ['client_id', 'client_secret'];
-
-        foreach ($config_params as $item) {
-            if (empty($credentials[$this->mode][$item])) {
-                throw new RuntimeException("{$item} missing from the provided configuration. Please add your application {$item}.");
-            }
-        }
-
         collect($credentials[$this->mode])->map(function ($value, $key) {
             $this->config[$key] = $value;
         });
@@ -208,13 +171,5 @@ trait PayPalRequest
         $this->validateSSL = $credentials['validate_ssl'];
 
         $this->setOptions($credentials);
-    }
-
-    /**
-     * @throws RuntimeException
-     */
-    private function throwConfigurationException()
-    {
-        throw new RuntimeException('Invalid configuration provided. Please provide valid configuration for PayPal API. You can also refer to the documentation at https://srmklive.github.io/laravel-paypal/docs.html to setup correct configuration.');
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Srmklive\PayPal\Tests\Unit\Client;
 
-use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 use Srmklive\PayPal\Tests\MockClientClasses;
 use Srmklive\PayPal\Tests\MockRequestPayloads;
@@ -19,7 +18,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = $this->mockCreateSubscriptionResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -29,9 +28,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockCreateSubscriptionParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -39,7 +38,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -49,9 +48,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockUpdateSubscriptionParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'patch');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'patch');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->patch($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->patch($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -59,7 +58,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = $this->mockGetSubscriptionDetailsResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -68,9 +67,9 @@ class SubscriptionsTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -78,7 +77,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/activate';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/activate';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -88,9 +87,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockActivateSubscriptionParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -98,7 +97,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/cancel';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/cancel';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -108,9 +107,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockCancelSubscriptionParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -118,7 +117,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/suspend';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/suspend';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -128,9 +127,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockSuspendSubscriptionParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -138,7 +137,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = '';
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/capture';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/capture';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -148,9 +147,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockCaptureSubscriptionPaymentParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -158,7 +157,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = $this->mockUpdateSubscriptionItemsResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/revise';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/revise';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -168,9 +167,9 @@ class SubscriptionsTest extends TestCase
             'json' => $this->mockUpdateSubscriptionItemsParams(),
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'post');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->post($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 
     /** @test */
@@ -178,7 +177,7 @@ class SubscriptionsTest extends TestCase
     {
         $expectedResponse = $this->mockListSubscriptionTransactionsResponse();
 
-        $expectedEndpoint = 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/transactions?start_time=2018-01-21T07:50:20.940Z&end_time=2018-08-21T07:50:20.940Z';
+        $expectedEndpoint = 'https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G/transactions?start_time=2018-01-21T07:50:20.940Z&end_time=2018-08-21T07:50:20.940Z';
         $expectedParams = [
             'headers' => [
                 'Accept'            => 'application/json',
@@ -187,8 +186,8 @@ class SubscriptionsTest extends TestCase
             ],
         ];
 
-        $mockHttpClient = $this->mock_http_request(Utils::jsonEncode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
+        $mockHttpClient = $this->mock_http_request(\GuzzleHttp\json_encode($expectedResponse), $expectedEndpoint, $expectedParams, 'get');
 
-        $this->assertEquals($expectedResponse, Utils::jsonDecode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
+        $this->assertEquals($expectedResponse, \GuzzleHttp\json_decode($mockHttpClient->get($expectedEndpoint, $expectedParams)->getBody(), true));
     }
 }

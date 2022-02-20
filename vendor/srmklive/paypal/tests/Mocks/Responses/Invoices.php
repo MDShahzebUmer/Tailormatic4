@@ -2,16 +2,14 @@
 
 namespace Srmklive\PayPal\Tests\Mocks\Responses;
 
-use GuzzleHttp\Utils;
-
 trait Invoices
 {
     /**
      * @return array
      */
-    private function mockGenerateInvoiceNumberResponse(): array
+    private function mockGenerateInvoiceNumberResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "invoice_number": "ee0044"
 }', true);
     }
@@ -19,9 +17,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockCreateInvoicesResponse(): array
+    private function mockCreateInvoicesResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "id": "INV2-Z56S-5LLA-Q52L-CPZ5",
   "status": "DRAFT",
   "detail": {
@@ -260,9 +258,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockListInvoicesResponse(): array
+    private function mockListInvoicesResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "total_items": 2,
   "total_pages": 1,
   "items": [
@@ -389,9 +387,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockUpdateInvoicesResponse(): array
+    private function mockUpdateInvoicesResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "id": "INV2-C82X-JNN9-Y6S5-CNXW",
   "status": "DRAFT",
   "detail": {
@@ -620,9 +618,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockGetInvoicesResponse(): array
+    private function mockGetInvoicesResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "id": "INV2-Z56S-5LLA-Q52L-CPZ5",
   "status": "DRAFT",
   "detail": {
@@ -861,7 +859,7 @@ trait Invoices
     /**
      * @return string
      */
-    private function mockGenerateInvoiceQRCodeResponse(): string
+    private function mockGenerateInvoiceQRCodeResponse()
     {
         return '--95dbdbed-7536-4c24-b5ca-bcdbc0006612 Content-Disposition: form-data; name="image" Content-Type: application/octet-stream iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQAAAAAUekxPAAABxUlEQVR42u2WMY7kIBBFq0VA1n0BS1yDjCvZF7DxBdxXIuMaSFzAzgiQaz6t9mxLm1AbrCYYy4H1AlT1f9XHxH89lX7Z/2KJKN3CMIW6FCInYplLPtisoU6FTyHzti6RN5tPm+5ixrtTp0uP8g8s744eMS1yxvikNEOJz966GPTLaOL1fmjaxfAkaLCy2t2Hl10sPUIaNY1araFhCat3TbODDPkZ68Ii1sqfX62c1rzP62W8uWG0aiMaxSyvpS4hez2MzXkZg+FL4NNCwku/XtZ8g/Be550+Pe9jWj0x41rt1ngZyxzYa+NpmDjNMlYx1yhhs2glM8vY3IQ3qGWz9Tqvk7F3cGyYNd3KQDKGSWFGDjFNIZ8yhuWgR8gb5jR8+9bJ8rPUCd3oYbY4VcQqaWSYWRGcdnhnSS+D6lhKJIE5+JrTXtaquDtzuuypXrV0stRKwLAUzFodnYjxERP28ihtLw8WsbQE7JbxCD9SmxMxfsUYpiZ7lxYWMewltzuqKMz4n13tYi3vl6jW2FJQynBH+Za7Zie6sZRhNVXLTkqTmGUE5xSRu5dv3Qz3uYdj0bwkFLGWfxxoJMXx28tO9vu/9oPYF0bR/hBeOiwMAAAAAElFTkSuQmCC --95dbdbed-7536-4c24-b5ca-bcdbc0006612--';
     }
@@ -869,9 +867,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockInvoiceRegisterPaymentResponse(): array
+    private function mockInvoiceRegisterPaymentResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "payment_id": "EXTR-86F38350LX4353815"
 }', true);
     }
@@ -879,9 +877,9 @@ trait Invoices
     /**
      * @return array
      */
-    private function mockInvoiceRefundPaymentResponse(): array
+    private function mockInvoiceRefundPaymentResponse()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
   "refund_id": "EXTR-2LG703375E477444T"
 }', true);
     }

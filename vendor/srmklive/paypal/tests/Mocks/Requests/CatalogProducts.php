@@ -2,16 +2,14 @@
 
 namespace Srmklive\PayPal\Tests\Mocks\Requests;
 
-use GuzzleHttp\Utils;
-
 trait CatalogProducts
 {
     /**
      * @return array
      */
-    private function createProductParams(): array
+    private function createProductParams()
     {
-        return Utils::jsonDecode('{
+        return \GuzzleHttp\json_decode('{
           "name": "Video Streaming Service",
           "description": "Video streaming service",
           "type": "SERVICE",
@@ -24,9 +22,9 @@ trait CatalogProducts
     /**
      * @return array
      */
-    private function updateProductParams(): array
+    private function updateProductParams()
     {
-        return Utils::jsonDecode('[
+        return \GuzzleHttp\json_decode('[
           {
             "op": "replace",
             "path": "/description",
