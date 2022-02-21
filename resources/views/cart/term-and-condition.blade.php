@@ -10,22 +10,22 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>eTailor clothes|| {{$seo['meta_title']}}</title>
-        <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-        <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+        <title>Duniya Tailor|| {{$seo['meta_title']}}</title>
+        <meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+        <meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- CSS 
-        ============================================ -->            
+        <!-- CSS
+        ============================================ -->
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
-        
+
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}" media="all">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap-touch-slider.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
-        
+
     </head>
 <body>
 <header id="et-header" class="et-page-header" style="background-image:url({{asset('/asset/img/page-header.jpg')}});"><!-- Header Start -->
@@ -36,7 +36,7 @@
                     <figure class="top-logo">
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                     </figure>
-                </div>                
+                </div>
                 <div class="et-page-title">
                     <div class="et-title">
                       <!-- {!! Route::getCurrentRoute()->getPath() !!} -->
@@ -78,7 +78,7 @@
     	<div class="row">
         <div class="et-sub-title et-fw">
             	<h2>Coupan Term Policies</h2>
-            </div> 
+            </div>
       	     <div class="col-sm-12 ">
                <p>{!! $term->coupan_term !!}</p>
                <br>
@@ -106,12 +106,12 @@
                 <div class="need-help">
                  <h4>Need Help? Call Us On: +91 123 456 7890</h4>
                 </div>
-               </div> 
-               </div> 
-               
+               </div>
+               </div>
+
                <div class="col-md-6 col-sm-6">
                <div class="right-pay-area">
-               
+
                 <ul>
                  <li><img src="{{asset('/asset/img/icon-01.png')}}"/></li>
                   <li><img src="{{asset('/asset/img/icon-02.png')}}"/></li>
@@ -119,9 +119,9 @@
                   <li><img src="{{asset('/asset/img/icon-05.png')}}"/></li>
                   <li><img src="{{asset('/asset/img/icon-06.png')}}"/></li>
                 </ul>
-                
-               </div>   
-               </div> 
+
+               </div>
+               </div>
             </div>
          </div>
     </div>
@@ -136,7 +136,7 @@
             </div>
             <div class="col-md-6 col-sm-6">
              <div class="et--link">
-             
+
                <ul>
                 @foreach($soc as $s)
                  <li><a href="{{$s->url}}" target="_blank"><i class="fa fa-{{$s->name}}" aria-hidden="true" ></i></a></li>
@@ -167,7 +167,7 @@
     <script type="text/javascript" src="{{asset('asset/js/responsive_bootstrap_carousel.js')}}"></script>
     <script type="text/javascript" src="{{asset('asset/js/jquery.touchSwipe.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('asset/js/bootstrap-touch-slider.js')}}"></script>
-   
+
     <script type="text/javascript">
         $( '#et-banner' ).bsTouchSlider();
     </script>
@@ -177,29 +177,29 @@
           var trigger = $('.hamburger'),
               overlay = $('.overlay'),
              isClosed = false;
-        
+
             trigger.click(function () {
-              hamburger_cross();      
+              hamburger_cross();
             });
-        
+
             function hamburger_cross() {
-        
-              if (isClosed == true) {          
+
+              if (isClosed == true) {
                 overlay.hide();
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
-              } else {   
+              } else {
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
               }
           }
-          
+
           $('[data-toggle="offcanvas"]').click(function () {
                 $('#et-wrapper').toggleClass('toggled');
-          });  
+          });
         });
         $('.navbar-nav > li').mouseover( function(){
             $(this).find('a').tab('show');

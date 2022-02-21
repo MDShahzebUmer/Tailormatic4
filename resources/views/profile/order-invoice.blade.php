@@ -3,23 +3,23 @@
 <head>
 	<title>Email Invoice</title>
 	<?php
-		
-		$shippinginfo = App\Http\Helpers::shippinginfo($ordata->ship_id);	 
+
+		$shippinginfo = App\Http\Helpers::shippinginfo($ordata->ship_id);
 		$shipcountry = App\Country::get_country_name($shippinginfo->scountry_id);
-		$shippncode = App\Country::get_country_ph($shippinginfo->scountry_id);	
-		$shipstate = App\State::get_state_name($shippinginfo->sstate);	
-		$useremail=Auth::user()->email;	
+		$shippncode = App\Country::get_country_ph($shippinginfo->scountry_id);
+		$shipstate = App\State::get_state_name($shippinginfo->sstate);
+		$useremail=Auth::user()->email;
 		$usercountry = App\Country::get_country_name(Auth::user()->country_id);
-		$userstate = App\State::get_state_name(Auth::user()->state);	
+		$userstate = App\State::get_state_name(Auth::user()->state);
 		$cntryphncode = App\Country::get_country_ph(Auth::user()->country_id);
-	
+
 
 $style = [
     /* Layout ------------------------------ */
 
     'body' => 'margin: 0; padding: 0; width: 100%;font-family:Arial; font-size: 13px;',
     'table-body' => 'width: 100%; max-width: 790px; margin: 0 auto;border: 2px solid #212325; color: #333;',
-    'invoice-header' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; background: #212325; text-align: center;',
+    'invoice-header' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; background: #FFFFFF; text-align: center;',
     'logo-img' => 'max-width: 260px;',
     'invoice-header-title' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; border-top: 1px solid #ddd; font-style: italic;background: #593A2E; font-size: 12px; letter-spacing: 1px; color: #fff; font-family: "Proxima Nova Regular";',
     'td-contents' => 'padding: 8px; line-height: 1.42857143; vertical-align: top; border-top: 1px solid #ddd;',
@@ -89,36 +89,36 @@ $style = [
                 <th style="{{ $style['td-contents'] }}">Quantity</th>
 	            <td style="{{ $style['td-contents'] }}" align="right"><strong>Total</strong></td>
 	        </tr>
-				<?php 
+				<?php
 					$i=0;
 					$total=0;
 					$shipamt=0;
                 ?>
                 @foreach($invoicedata as $cart)
-                    @php 
+                    @php
                     $i++
                     @endphp
-                    
-					
-                    <?php										
-						if($cart->product_type==0){	
+
+
+                    <?php
+						if($cart->product_type==0){
 							$groupname = App\OrderItem::groupinfo($cart->group_id,'fbgrp_name');
 							$oprodType = App\OrderItem::orderiteminfo($cart->id,'oprodType');
 							if($cart->cat_id==1){
 							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ocollarName');
-							$olapelName='';						
+							$olapelName='';
 							}elseif($cart->cat_id==2){
 							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 							$olapelN=App\OrderItem::orderiteminfo($cart->id,'olapelName');
 							$olapelName=$olapelN;
 							}elseif($cart->cat_id==3){
-							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');						
-							$olapelName='';						
+							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
+							$olapelName='';
 							}else{
 							$ocollarName = App\OrderItem::orderiteminfo($cart->id,'ostyleName');
 							$olapelN=App\OrderItem::orderiteminfo($cart->id,'opleatName');
-							$olapelName=$olapelN;						
-							}						
+							$olapelName=$olapelN;
+							}
 							$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
 							$fabno=App\OrderItem::allinfodes('etfabrics',$cart->fabric_id,'fabric_code');
 						}else{
@@ -128,10 +128,10 @@ $style = [
 							$ocollarName='Model No : '.$procode;
 							$olapelN=App\OrderItem::orderiteminfo($cart->id,'ofabricType');
 							$olapelName='Fab Type : '.stripslashes($olapelN);
-							
+
 							$size=App\OrderItem::orderiteminfo($cart->id,'osizeFit');
 						}
-                   
+
                     ?>
 
 	        <tr>
@@ -156,13 +156,13 @@ $style = [
 									echo number_format($toamt, 2);?>$
 	            </td>
 	        </tr>
-	        <?php 
+	        <?php
 				$total=$toamt+$total;
-				$shipamt=$shipamt+$cart->shipping;            
+				$shipamt=$shipamt+$cart->shipping;
             ?>
 	        @endforeach
-            
-            <?php            
+
+            <?php
 			$grtotal=$total+$shipamt;
             $orderid=$cart->order_id;
 			$orderinfo = App\Order::orderinfo($orderid);
@@ -204,7 +204,7 @@ $style = [
 	        <tr>
 	          <td align="center" style="{{ $style['td-contents'] }}" colspan="6" >
 	          <p style="{{ $style['p-margin0'] }}"><strong>Terms & Conditions</strong></p>
-	          <p>eTailor garments are shipped worldwide individually and immediately upon production completion, directly from our production facilities to the customer's door without separate warehousing and/or re-shipping in order to minimize delivery time and carbon footprint. Separate shipping charges for each product ordered apply.</p>
+	          <p>Duniya Tailor garments are shipped worldwide individually and immediately upon production completion, directly from our production facilities to the customer's door without separate warehousing and/or re-shipping in order to minimize delivery time and carbon footprint. Separate shipping charges for each product ordered apply.</p>
 	          </td>
 	        </tr>
 	        <tr>

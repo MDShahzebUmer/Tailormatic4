@@ -201,17 +201,17 @@
                 		<div class="pt-variation">
                             <?php $cmi=1;?>
                             @foreach($contrast_jacker_record as $contlst)
-                                <div id="menu-{{$contlst->id}}" class="pt-box-square" 
+                                <div id="menu-{{$contlst->id}}" class="pt-box-square"
                                     onClick="openPgContent(this.id,'etcontrastjacket','{{$contlst->id}}','{{$contlst->attribute_name}}','contrast');" >
                                     <p>3.{{$cmi}}  {{$contlst->attribute_name}}</p>
                                 </div>
-                                <?php 
-                                    if($cmi == 1){ 
+                                <?php
+                                    if($cmi == 1){
                                         $cmi++;
-                                        ?>  
+                                        ?>
                                         <div id="menu-54" class="pt-box-square" onClick="openPgContent('menu-54','etcontrastpant','54','Pant Contrast','contrast');" >
                                             <p>3.{{$cmi}}  Pant Contrast</p>
-                                        </div>  
+                                        </div>
                                         <?php $cmi++; ?>
                                         <div id="menu-40" class="pt-box-square active" onClick="openPgContent('menu-40','etcontrast','40','Vest Contrast','contrast');" >
                                             <p>3.{{$cmi}}  Vest Contrast</p>
@@ -391,7 +391,7 @@
                     			</div>
                 			</div>
                             <!-- End Right Option Section -->
-                            
+
                             <!-- STANDARD SIZES -->
                             <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
                          		<div class="pt-thumb-slider">
@@ -404,7 +404,7 @@
                                             <div class="et-btn-select">
                                                 <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeCntrySize(this.value);">
                                                     <option value="1" selected>European Size</option>
-                                                   <option value="2">UK/American Size</option>
+                                                   <option value="2">American Size</option>
                                                 </select>
                                             </div>
                                             <div class="et-btn-select" id="divsizefit">

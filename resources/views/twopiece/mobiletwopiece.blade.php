@@ -1,4 +1,4 @@
-<?php  
+<?php
     $seo = App\Http\Helpers::page_seo_details(14);
     $cartcount = App\Http\Helpers::cartcount();
 ?>
@@ -13,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTailor clothes|| {{$seo['meta_title']}}</title>
-    <meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-    <meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+    <title>Duniya Tailor|| {{$seo['meta_title']}}</title>
+    <meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+    <meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url" content="{{url('/')}}" />
     <meta property="og:type" content="website" />
@@ -25,10 +25,10 @@
     <meta property="og:image:secure_url" content="http://etailorclothes.com/asset/img/fblogo.png" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
-    <!-- CSS -->            
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
 
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">       
+    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobiletwopiece.css')}}" media="all">
 
     <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
@@ -145,7 +145,7 @@
 
         $first_price = 0;
         if(!empty($fabric_ary[0]['jacket']->fabric_rate)){
-            $first_price += $fabric_ary[0]['jacket']->fabric_rate;    
+            $first_price += $fabric_ary[0]['jacket']->fabric_rate;
         }
         if(!empty($fabric_ary[0]['pant']->fabric_rate)){
             $first_price += $fabric_ary[0]['pant']->fabric_rate;
@@ -156,23 +156,23 @@
         <div class="col-md-11 left-h">
             <div class="pt-right-p">
                 <ul>
-                    <li class=""> 
-                        <a class="cart-checkout"> 
-                            <figure class="t-cart-figure"> 
-                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}"> 
-                                <figcaption>{{$cartcount}}</figcaption> 
-                            </figure> 
+                    <li class="">
+                        <a class="cart-checkout">
+                            <figure class="t-cart-figure">
+                                <img class="t-cart-img" src="{{asset('asset/img/product/cart.png')}}">
+                                <figcaption>{{$cartcount}}</figcaption>
+                            </figure>
                         </a>
-                        <input type="hidden" id="crtcount" value="{{$cartcount}}"> 
+                        <input type="hidden" id="crtcount" value="{{$cartcount}}">
                     </li>
                     <li>|</li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">MY ACCOUNT</a></li>
                         <li>|</li>
-                        <li><a href="{{ url('/login') }}">LOGIN </a></li> 
+                        <li><a href="{{ url('/login') }}">LOGIN </a></li>
                     @else
                         <li><a href="{{ url('/myaccount') }}">MY ACCOUNT</a></li>
-                        <li>|</li> 
+                        <li>|</li>
                         <li>
                         <a href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
@@ -183,7 +183,7 @@
                         {{ csrf_field() }}
                     </form>
              </li>
-             @endif 
+             @endif
             </ul>
             </div>
         </div>
@@ -231,8 +231,8 @@
         </div>
     </div>
     <!-- ================================== preview image ================================ -->
-    
-    <div id="prev_img_jacket" class="design-prev-div prev-active" > 
+
+    <div id="prev_img_jacket" class="design-prev-div prev-active" >
         <div class="pt-men-left" id="main-front">
             <div class="pt-jacketimage-div">@include('jacket.process')
                 <img src="{{asset('demo/img/product/blank.png')}}"/>
@@ -258,7 +258,7 @@
             </div>
         </div>
     </div>
-    <div id="prev_img_pant" class="design-prev-div" > 
+    <div id="prev_img_pant" class="design-prev-div" >
         <div class="pt-men-left" id="main-front">
             <div class="m-image pt-pantimage-div">@include('pants.process')
                 <img src="{{asset('demo/img/product/blank.png')}}" alt=""/>
@@ -280,7 +280,7 @@
         <ul>
             <li>
                 <div id="sb_jacket" class="pt-image-div-2 sb-open" onClick="showStyleByImg('jacket')">
-                    <img src="{{asset('demo/img/product/threepiece-jacket.png')}}" 
+                    <img src="{{asset('demo/img/product/threepiece-jacket.png')}}"
                     style="height:55px;width: 37px;" />
                 </div>
             </li>
@@ -292,7 +292,7 @@
             </li>
         </ul>
     </div>
-    
+
     <!-- =================================== tab content ================================== -->
     <div id="tab-content" class="c-tab-content tab-content" style="display:none;">
         <div class="row m-auto">
@@ -310,80 +310,80 @@
         <ul class="nav nav-tabs" role="tablist">
             <li id="main_menu_etfabric" role="presentation" class="mm-li <?php echo (isset($mytab)&& $mytab == 'etfabric') ? 'active' : '' ?>" >
                 <a href="#etfabric" class="fabric-link" aria-controls="fabric" role="tab" data-toggle="tab" onclick="openNav('etfabric')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Fabric</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Fabric</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/fabric2.png')}}" alt="Fabric">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li id="main_menu_etstyle" role="presentation" class="mm-li <?php echo (isset($mytab)&& $mytab == 'etstyle') ? 'active' : '' ?>" >
                 <a href="#etstyle" class="style-link" aria-controls="style" role="tab" data-toggle="tab" onclick="openNav('etstyle')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Style</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Style</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/style2.png')}}" alt="Style">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li id="main_menu_etcontrast" role="presentation" class="mm-li <?php echo (isset($mytab)&& $mytab == 'etcontrast') ? 'active' : '' ?>" >
                 <a href="#etcontrast" class="contrast-link" aria-controls="contrast" role="tab" data-toggle="tab" onclick="openNav('etcontrast')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Contrast</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Contrast</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/contrast2.png')}}" alt="contrast">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li id="main_menu_etmeasurement" role="presentation" class="mm-li <?php echo (isset($mytab)&& $mytab == 'etmeasurement') ? 'active' : '' ?>" >
                 <a href="#etmeasurement" class="measurement-link" aria-controls="settings" role="tab" data-toggle="tab" onclick="openNav('etmeasurement')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Measurement</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">  
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Measurement</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                                <img src="{{asset('asset/img/product/measurement2.png')}}" alt="measurement">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
         </ul>
-    </div> 
+    </div>
     <div id="style_sub_menu" class="t-p-sub-menu" style="display:none;">
         <ul class="nav nav-tabs" role="tablist">
             <li id="style_sm_jackets" class="style-sm" role="presentation">
                 <a class="jacket-link" role="tab" onClick="showStyle('jackets')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Jacket</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Jacket</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
             <li id="style_sm_pants" class="style-sm" role="presentation">
                 <a class="pant-link" role="tab" onClick="showStyle('pants')">
-                    <figure class="fnd-fg"> 
-                        <figcaption><span class="lang">Pants</span> </figcaption> 
-                        <div class="fg-preview"> 
-                            <div class="fg-border"> 
-                            </div> 
-                        </div> 
+                    <figure class="fnd-fg">
+                        <figcaption><span class="lang">Pants</span> </figcaption>
+                        <div class="fg-preview">
+                            <div class="fg-border">
+                            </div>
+                        </div>
                     </figure>
                 </a>
             </li>
         </ul>
-    </div>     
+    </div>
 </div>
 <canvas id="frontcanvas" width="313" height="421" style="display:none"></canvas>
 <canvas id="backcanvas" width="313" height="421" style="display:none"></canvas>
@@ -431,20 +431,20 @@ function openNav(tabstr) {
 
     } else if(tabstr == 'etcontrast'){
     } else {
-        $("div[id^='menu-mesure-jacket-']").hide(); 
+        $("div[id^='menu-mesure-jacket-']").hide();
 	    $("#menu-mesure-jacket-main").show();
-    }      
+    }
 
     // content active and sub tab active
     $(".tab-pane").removeClass("active");
     var type1 = 'jacket';
     var type2 = 'pant';
-    getTabJacketSect(tabstr+type1);        
-    getTabPantSect(tabstr+type2);        
-    
+    getTabJacketSect(tabstr+type1);
+    getTabPantSect(tabstr+type2);
+
     $(".t-p-menu-1 .mm-li").removeClass('active');
     $(".t-p-menu-1 #main_menu_"+tabstr).addClass('active');
-    
+
     if(tabstr == 'etfabric'){
         openPgContent('menu-fabric'+selected_fabric,'etfabricjacket',selected_fabric,'menu-fabric','fabric');
     }else if(tabstr == 'etmeasurement'){
@@ -471,7 +471,7 @@ function openPgContent(str,tabstr,attrid,attrnm,tab_type) {
             $("#container_jackets").hide();
             $("#container_pants").hide();
         }
-    } else if(tab_type == 'contrast') {        
+    } else if(tab_type == 'contrast') {
         if(tabstr == 'etcontrastjacket'){
             getPgJacketOption(str,tabstr,attrid,attrnm);
             $("#container_jackets").show();
@@ -524,11 +524,11 @@ $(document).ready(function(e) {
     changeJacketSizeDetails();
     showStyle('jackets');
     // for pant --------------
-    stid="menu-"+$('#tabPantSActiveId').val(); 
-    stab=$('#tabPantSActiveId').val(); 
-    getPgPantOption(stid,$('#tabPantActiveId').val(),$('#tabPantSActiveId').val(),''); 
-    frontdesignPantProcess(<?php echo json_encode($ePantTailorObj);?>); 
-    backdesignPantProcess(<?php echo json_encode($ePantTailorObj);?>); 
+    stid="menu-"+$('#tabPantSActiveId').val();
+    stab=$('#tabPantSActiveId').val();
+    getPgPantOption(stid,$('#tabPantActiveId').val(),$('#tabPantSActiveId').val(),'');
+    frontdesignPantProcess(<?php echo json_encode($ePantTailorObj);?>);
+    backdesignPantProcess(<?php echo json_encode($ePantTailorObj);?>);
     changePantSizeDetails();
 });
 function showStyleByImg(style_type) {
@@ -546,26 +546,26 @@ $(document).ready(function () {
     isClosed = false;
 
     trigger.click(function () {
-        hamburger_cross();      
+        hamburger_cross();
     });
 
     function hamburger_cross() {
-        if (isClosed == true) {          
+        if (isClosed == true) {
             overlay.hide();
             trigger.removeClass('is-open');
             trigger.addClass('is-closed');
             isClosed = false;
-        } else {   
+        } else {
             overlay.show();
             trigger.removeClass('is-closed');
             trigger.addClass('is-open');
             isClosed = true;
         }
     }
-  
+
     $('[data-toggle="offcanvas"]').click(function () {
         $('#et-wrapper').toggleClass('toggled');
-    });  
+    });
 });
 $('.navbar-nav > li').mouseover( function(){
     $(this).find('a').tab('show');
@@ -579,9 +579,9 @@ $('.navbar-nav > li').mouseout( function(){
 $(document).ready(function(){
     $(".cart-checkout").click(function(){
         var cc=$("#crtcount").val();
-        if(cc==0) { 
+        if(cc==0) {
             alert("No item in the cart, please add 1");
-        } else{  
+        } else{
             $(".cart-checkout").attr("href","{{url('/cart')}}");
         }
     });
@@ -606,13 +606,13 @@ $("#stand").click(function(e){
     var hsizefit = $('#container_jackets #hsizefit').val();
 
     var pant_setarr = $("#container_pants input#setarr").val();
-    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val(); 
+    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val();
     var pant_bkviewfinal = $("#container_pants input#bkviewfinal").val();
-    var pant_sizewaist = $('#temp_sizewaist').val(); 
-    var pant_sizehip = $('#temp_sizehip').val(); 
-    var pant_sizecrotch = $('#temp_sizecrotch').val();  
-    var pant_sizethigh = $('#temp_sizethigh').val(); 
-    var pant_sizelength = $('#temp_sizelength').val(); 
+    var pant_sizewaist = $('#temp_sizewaist').val();
+    var pant_sizehip = $('#temp_sizehip').val();
+    var pant_sizecrotch = $('#temp_sizecrotch').val();
+    var pant_sizethigh = $('#temp_sizethigh').val();
+    var pant_sizelength = $('#temp_sizelength').val();
 
     var total_price = 0;
     var old_jacket_setarr = JSON.parse(setarr);
@@ -628,10 +628,10 @@ $("#stand").click(function(e){
         new_setarr_ary['osizeStyle']= 'Uk/American Size';
     }else{
         new_setarr_ary['osizeStyle']= 'European Size';
-    }         
+    }
     new_setarr_ary['osizePattern']= mpattern;
     new_setarr_ary['osizeType']= sizetyp;
-    new_setarr_ary['osizeFit']=hsizefit;  
+    new_setarr_ary['osizeFit']=hsizefit;
     new_setarr_ary['oqty']= selstdqty;
 
     // add jacket data ----------------------------------------------
@@ -640,8 +640,8 @@ $("#stand").click(function(e){
     new_setarr_ary['osizeHip']= sizehip;
     new_setarr_ary['osizeShoulder']= sizeshoulder;
     new_setarr_ary['osizeSleeve']= sizesleeve;
-    new_setarr_ary['osizeLength']= sizelength; 
-    // add pant data ------------------------------------------------    
+    new_setarr_ary['osizeLength']= sizelength;
+    // add pant data ------------------------------------------------
     new_setarr_ary['pant_obackpockt'] = old_pant_setarr['obackpockt'];
     new_setarr_ary['pant_obackpocktName'] = old_pant_setarr['obackpocktName'];
     new_setarr_ary['pant_obackpocktSide'] = old_pant_setarr['obackpocktSide'];
@@ -667,7 +667,7 @@ $("#stand").click(function(e){
     new_setarr_ary['pant_ofabricList'] = old_pant_setarr['ofabricList'];
     new_setarr_ary['pant_ofabricName'] = old_pant_setarr['ofabricName'];
     new_setarr_ary['pant_ofabricPrice'] = old_pant_setarr['ofabricPrice'];
-    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];    
+    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];
     new_setarr_ary['pant_opacket'] = old_pant_setarr['opacket'];
     new_setarr_ary['pant_opacketName'] = old_pant_setarr['opacketName'];
     new_setarr_ary['pant_opleat'] = old_pant_setarr['opleat'];
@@ -690,31 +690,31 @@ $("#stand").click(function(e){
 
     total_price = (1*new_setarr_ary['ofabricPrice']) + (1*new_setarr_ary['pant_ofabricPrice']);
     var new_setarr = JSON.stringify(new_setarr_ary);
-    
+
     // console.log(" ============== total price:",total_price);
     // e.preventDefault();
     $.ajax({
         type:'POST',
         url:'/designtwopiece/postcart2',
         data:{
-            setarr:new_setarr, 
+            setarr:new_setarr,
             frntviewfinal:frntviewfinal,
             bkviewfinal:bkviewfinal,
             pant_frntviewfinal:pant_frntviewfinal,
             pant_bkviewfinal:pant_bkviewfinal,
-            catId:19,// db categories table id : 19 (two piece suit) 
+            catId:19,// db categories table id : 19 (two piece suit)
             totalPrice:total_price,
         },
         beforeSend: function() {
             $("#et-smallr").show();
-            $("#stand").hide(); 
+            $("#stand").hide();
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success:function(data){
             $("#et-smallr").hide();
-            $("#stand").show(); 
+            $("#stand").show();
             // console.log(data);
             window.location.href = "/cart";
         }
@@ -724,7 +724,7 @@ $("#stand").click(function(e){
     return;
 });
 
-$("#temp_body_btn").click(function(e){    
+$("#temp_body_btn").click(function(e){
     var bsizetyp = $('#container_jackets #bsizetyp:checked').val();
     $('#container_pants input:radio[name=bsizetyp]').filter('[value='+bsizetyp+']').prop('checked', true);
 
@@ -741,17 +741,17 @@ $("#temp_body_btn").click(function(e){
     var frntviewfinal = $('#container_jackets .bfrntviewfinal').val();
     var bkviewfinal = $('#container_jackets .bbkviewfinal').val();
     var mpattern = $('#container_jackets #bmpattern').val();
-    var selstdqty = $('#container_jackets #bselbodyqty').val();    
+    var selstdqty = $('#container_jackets #bselbodyqty').val();
     var rndvalue = $('#container_jackets #brndvalue').val();
 
     var pant_setarr = $("#container_pants input#setarr").val();
-    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val(); 
+    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val();
     var pant_bkviewfinal = $("#container_pants input#bkviewfinal").val();
-    var pant_bsizewaist = $('#temp_pant_bsizeWaist').val(); 
-    var pant_bsizehip = $('#temp_pant_bsizeHip').val(); 
-    var pant_bsizecrotch = $('#temp_pant_bsizeCrotch').val();  
-    var pant_bsizethigh = $('#temp_pant_bsizeThigh').val(); 
-    var pant_bsizelength = $('#temp_pant_bsizeLength').val(); 
+    var pant_bsizewaist = $('#temp_pant_bsizeWaist').val();
+    var pant_bsizehip = $('#temp_pant_bsizeHip').val();
+    var pant_bsizecrotch = $('#temp_pant_bsizeCrotch').val();
+    var pant_bsizethigh = $('#temp_pant_bsizeThigh').val();
+    var pant_bsizelength = $('#temp_pant_bsizeLength').val();
     $('#container_pants #bsizeWaist').val(pant_bsizewaist);
     $('#container_pants #bsizeHip').val(pant_bsizehip);
     $('#container_pants #bsizeCrotch').val(pant_bsizecrotch);
@@ -776,20 +776,20 @@ $("#temp_body_btn").click(function(e){
     new_setarr_ary['oprodType1'] = new_setarr_ary['oprodType'];
     new_setarr_ary['oprodType'] = "2Piece Suit";
     new_setarr_ary['osizePattern']= mpattern;
-    new_setarr_ary['osizeStyle']= fitstyle;          
+    new_setarr_ary['osizeStyle']= fitstyle;
     new_setarr_ary['osizeType']= bsizetyp;
     new_setarr_ary['oqty']= 1;
     new_setarr_ary['osizeFit']='';
 
-    // add jacket data ---------------------------------------------          
+    // add jacket data ---------------------------------------------
     new_setarr_ary['osizeChest']= bsizeChest;
     new_setarr_ary['osizeWaist']= bsizeWaist;
     new_setarr_ary['osizeHip']= bsizeHip;
     new_setarr_ary['osizeShoulder']= bsizeShoulder;
     new_setarr_ary['osizeSleeve']= bsizeSleeve;
-    new_setarr_ary['osizeLength']= bsizeLength;          
-                   
-    // add pant data ------------------------------------------------    
+    new_setarr_ary['osizeLength']= bsizeLength;
+
+    // add pant data ------------------------------------------------
     new_setarr_ary['pant_obackpockt'] = old_pant_setarr['obackpockt'];
     new_setarr_ary['pant_obackpocktName'] = old_pant_setarr['obackpocktName'];
     new_setarr_ary['pant_obackpocktSide'] = old_pant_setarr['obackpocktSide'];
@@ -815,7 +815,7 @@ $("#temp_body_btn").click(function(e){
     new_setarr_ary['pant_ofabricList'] = old_pant_setarr['ofabricList'];
     new_setarr_ary['pant_ofabricName'] = old_pant_setarr['ofabricName'];
     new_setarr_ary['pant_ofabricPrice'] = old_pant_setarr['ofabricPrice'];
-    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];    
+    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];
     new_setarr_ary['pant_opacket'] = old_pant_setarr['opacket'];
     new_setarr_ary['pant_opacketName'] = old_pant_setarr['opacketName'];
     new_setarr_ary['pant_opleat'] = old_pant_setarr['opleat'];
@@ -834,7 +834,7 @@ $("#temp_body_btn").click(function(e){
     new_setarr_ary['pant_osizeThigh']= pant_bsizethigh;
     new_setarr_ary['pant_osizeLength']= pant_bsizelength;
 
-    // --------------------------------------------------------------  
+    // --------------------------------------------------------------
 
     // console.log("new_setarr_ary : ",new_setarr_ary);
 
@@ -854,7 +854,7 @@ $("#temp_body_btn").click(function(e){
                 bkviewfinal:bkviewfinal,
                 pant_frntviewfinal:pant_frntviewfinal,
                 pant_bkviewfinal:pant_bkviewfinal,
-                catId:19,// db categories table id : 19 (two piece suit) 
+                catId:19,// db categories table id : 19 (two piece suit)
                 totalPrice:total_price,
             },
             beforeSend: function() {
@@ -868,12 +868,12 @@ $("#temp_body_btn").click(function(e){
                 window.location.href = "/cart";
             }
         });
-    }        
-    
+    }
+
     e.preventDefault();
     return;
 });
-</script> 
+</script>
 
 
 </html>

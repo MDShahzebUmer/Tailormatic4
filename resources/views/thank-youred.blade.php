@@ -10,23 +10,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-          <title>eTailor clothes</title>
-        <meta name="keywords" content="eTailor clothes">
-        <meta name="description" content="eTailor clothes">
+          <title>Duniya Tailor</title>
+        <meta name="keywords" content="Duniya Tailor">
+        <meta name="description" content="Duniya Tailor">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- CSS 
-        ============================================ -->            
+        <!-- CSS
+        ============================================ -->
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
-        
+
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}" media="all">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/font-awesome.min.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap-touch-slider.css')}}" media="screen">
         <link rel="stylesheet" type="text/css" href="{{asset('asset/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
        <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
-        
+
     </head>
 <body>
 <header id="et-header" class="et-page-header" style="background-image:url({{asset('/asset/img/page-header.jpg')}});"><!-- Header Start -->
@@ -37,7 +37,7 @@
                     <figure class="top-logo">
                         <a href="{{url('/')}}"><img src="{{asset('storage/')}}/{!! setting('site.logo') !!}" alt="{{ setting('site.site_image_name') }}"></a>
                     </figure>
-                </div>                
+                </div>
                 <div class="et-page-title">
                     <div class="et-title">
                       <!-- {!! Route::getCurrentRoute()->getPath() !!} -->
@@ -85,13 +85,13 @@
                 <div class="et-thank-you">
 
                     <h1 class="text-center">
-                   
+
                     You're all set!
                     </h1>
                     <p><strong>Fabric Id : </strong> {{$ids}}</p>
                     <h3>Thank you  For Images Created, <br> we hope you enjoy !</h3> <br>
                     <a href="{{url('/')}}"  class="et-btn">Continue ></a>
-                </div> 
+                </div>
                 @elseif($sta == 2)
                 <div class="et-thank-you">
                      <h1 class="text-center">
@@ -100,7 +100,7 @@
                     <p><strong>Fabric Id : </strong> {{$ids}}</p>
                     <h3>Fabric are not created in serverr  </h3> <br>
                     <a href="{{url('/')}}"  class="et-btn">Continue ></a>
-                </div> 
+                </div>
 
                 @else
                 <div class="et-thank-you">
@@ -110,7 +110,7 @@
                     <p><strong>Fabric Id : </strong> {{$ids}}</p>
                     <h3>Thank you  For Images Created, <br> we hope you enjoy !</h3> <br>
                     <a href="{{url('/')}}"  class="et-btn">Continue ></a>
-                </div> 
+                </div>
 
                 @endif
              </div>

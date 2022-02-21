@@ -14,8 +14,8 @@ $cartcount = App\Http\Helpers::cartcount();
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
  <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
-<meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-<meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+<meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+<meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:url" content="{{url('/')}}" />
 <meta property="og:type" content="website" />
@@ -606,7 +606,7 @@ $(document).ready(function() {
                                 <div class="et-btn-select">
                                     <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeCntrySize(this.value);">
                                         <option value="1" selected>European Size</option>
-                                       <option value="2">UK/American Size</option>
+                                       <option value="2">American Size</option>
                                     </select>
                                 </div>
                                 <div class="et-btn-select" id="divsizefit">

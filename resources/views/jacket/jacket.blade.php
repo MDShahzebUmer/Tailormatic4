@@ -11,8 +11,8 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
  <title>{{ setting('site.title') }} || {{$seo['meta_title']}}</title>
-<meta name="keywords" content="eTailor clothes|| {{$seo['meta_keyword']}}">
-<meta name="description" content="eTailor clothes|| {{$seo['meta_desc']}}">
+<meta name="keywords" content="Duniya Tailor|| {{$seo['meta_keyword']}}">
+<meta name="description" content="Duniya Tailor|| {{$seo['meta_desc']}}">
 <meta name="description" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon
@@ -704,7 +704,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                 	<div class="et-block et-vests-size">
                                                     	<label>Jacket Size :</label>
                                                         <div class="et-btn-select">
-                                                            <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">UK/American Size</option></select>
+                                                            <select class="selectpicker btn-primary" id="cntrysize" name="cntrysize" onChange="javascript:changeCntrySize(this.value);"><option value="1" selected>European Size</option><option value="2">American Size</option></select>
                                                         </div>
                                                         <div class="et-btn-select" id="divsizefit">
                                                             <select class="selectpicker btn-primary" id="sizefit" name="sizefit" onChange="javascript:changeSizeDetails();">

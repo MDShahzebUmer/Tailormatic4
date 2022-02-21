@@ -219,7 +219,7 @@ $style = [
 	        <tr>
 	          <td align="center" style="{{ $style['td-contents'] }}" colspan="6" >
 	          <p style="{{ $style['p-margin0'] }}"><strong>Terms & Conditions</strong></p>
-	          <p>eTailor garments are shipped worldwide individually and immediately upon production completion, directly from our production facilities to the customer's door without separate warehousing and/or re-shipping in order to minimize delivery time and carbon footprint. Separate shipping charges for each product ordered apply.</p>
+	          <p>Duniya Tailor garments are shipped worldwide individually and immediately upon production completion, directly from our production facilities to the customer's door without separate warehousing and/or re-shipping in order to minimize delivery time and carbon footprint. Separate shipping charges for each product ordered apply.</p>
 	          </td>
 	        </tr>
 	        <tr>
