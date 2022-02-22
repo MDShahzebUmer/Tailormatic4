@@ -12,12 +12,12 @@
                 <div class="add-review-box full-width">
                     <div class="add-title-box">
                         <ul class="nav nav-pills">
-                          <li class="active"><a data-toggle="tab" href="#review-text">Text Review</a></li>
-                          <li><a data-toggle="tabb" href="#review-photo">Photo Review</a></li>
-                          <li><a data-toggle="tabb" href="#review-video">Video Review</a></li>
+                          {{-- <li class="active"><a data-toggle="tab" href="#review-text">Text Review</a></li> --}}
+                          {{-- <li><a data-toggle="tabb" href="#review-photo">Photo Review</a></li> --}}
+                          {{-- <li><a data-toggle="tabb" href="#review-video">Video Review</a></li> --}}
                         </ul>
                     </div>
-                    <p class="review-heading">Review US/UK Customers </p>
+                    <p class="review-heading">Our Premium Customers </p>
                      <div class="add-review-content-box view-review-content-box full-width add-review-scroll-up">
                         <div class="tab-content">
                            <div id="review-text" class="tab-pane fade in active">
@@ -329,8 +329,11 @@
  var intervalDiv = null;
  var intervalDiv = setInterval(function(){
    var pos = div.scrollTop();
-   div.scrollTop(pos + 2);
- }, 80);
+   div.scrollTop(pos + 1);
+ }, 100
+ );
+
+
 
  $(div).click(function(){
    clearInterval(intervalDiv);
