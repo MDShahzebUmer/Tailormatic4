@@ -89,7 +89,7 @@
                     </h1>
                     <p></p>
                     <h3>Thanks for being awesome, <br> we hope you enjoy your purchase!</h3> <br>
-                    <a href="{{url('/')}}"  class="et-btn">Continue ></a>
+                    <a href="{{url('/myaccount/orderlists')}}"  class="et-btn">Continue ></a>
                 </div>
              </div>
         </div>
