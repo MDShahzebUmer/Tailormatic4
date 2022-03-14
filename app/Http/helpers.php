@@ -59,6 +59,10 @@ class Helpers {
 			$shipingamt=$shipamt->vests_amt;
 		}elseif($cat_id==4){
 			$shipingamt=$shipamt->pant_amt;
+		}elseif($cat_id==18){
+			$shipingamt=$shipamt->threepc_amt;
+		}elseif($cat_id==19){
+			$shipingamt=$shipamt->twopc_amt;
 		}else{
 			$shipingamt=$shipamt->other_cat_amt;
 		}

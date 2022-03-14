@@ -629,6 +629,8 @@ public function save_img($file =null,$slug_type =null,$size='',$id=null)
        $data->jacket_amt = $request->input(['jacket_amt']);
        $data->vests_amt  = $request->input(['vests_amt']);
        $data->pant_amt   = $request->input(['pant_amt']);
+       $data->threepc_amt   = $request->input(['threepc_amt']);
+       $data->twopc_amt   = $request->input(['twopc_amt']);
        $data->other_cat_amt   = $request->input(['other_cat_amt']);
         if($data->save())
         {
@@ -670,6 +672,8 @@ public function save_img($file =null,$slug_type =null,$size='',$id=null)
         $data->jacket_amt = $request->input(['jacket_amt']);
         $data->vests_amt  = $request->input(['vests_amt']);
         $data->pant_amt   = $request->input(['pant_amt']);
+        $data->threepc_amt   = $request->input(['threepc_amt']);
+        $data->twopc_amt   = $request->input(['twopc_amt']);
         $data->other_cat_amt   = $request->input(['other_cat_amt']);
         if($data->save())
         {

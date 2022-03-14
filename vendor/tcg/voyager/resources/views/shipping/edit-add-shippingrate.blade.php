@@ -56,6 +56,18 @@
                                            value="" required>
                                  </div>
                                  <div class="form-group" id="hide_count">
+                                    <label for="threepc_amt">3Piece Suit Amount.</label>
+                                    <input type="text" class="form-control" name="threepc_amt"
+                                           placeholder="3Piece Suit Amount" id="threepc_amt"
+                                           value="" required>
+                                 </div>
+                                 <div class="form-group" id="hide_count">
+                                    <label for="twopc_amt">2Piece Suit Amount.</label>
+                                    <input type="text" class="form-control" name="twopc_amt"
+                                           placeholder="2Piece Suit Amount" id="twopc_amt"
+                                           value="" required>
+                                 </div>
+                                 <div class="form-group" id="hide_count">
                                     <label for="other_cat_amt">Other Category Amount.</label>
                                     <input type="text" class="form-control" name="other_cat_amt"
                                            placeholder="Pant Amount" id="other_cat_amt"
@@ -113,6 +125,20 @@
                                     <input type="text" class="form-control" name="pant_amt"
                                            placeholder="Pant Amount" id="pant_amt"
                                            value="{{$data->pant_amt}}" required>
+                                           <input type="hidden" name="id" value="{{$data->id}}">
+                                 </div>
+                                 <div class="form-group" id="hide_count">
+                                    <label for="threepc_amt">3Piece Suit Amount.</label>
+                                    <input type="text" class="form-control" name="threepc_amt"
+                                           placeholder="3Piece Suit Amount" id="threepc_amt"
+                                           value="{{$data->threepc_amt}}" required>
+                                           <input type="hidden" name="id" value="{{$data->id}}">
+                                 </div>
+                                 <div class="form-group" id="hide_count">
+                                    <label for="twopc_amt">2Piece Suit Amount.</label>
+                                    <input type="text" class="form-control" name="twopc_amt"
+                                           placeholder="2Piece Suit Amount" id="twopc_amt"
+                                           value="{{$data->twopc_amt}}" required>
                                            <input type="hidden" name="id" value="{{$data->id}}">
                                  </div>
                                  <div class="form-group" id="hide_count">

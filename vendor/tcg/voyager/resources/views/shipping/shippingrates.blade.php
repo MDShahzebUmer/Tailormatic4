@@ -25,7 +25,9 @@
                                     <th>Shitrs Amt</th>
                                     <th>Jacket</th>
                                     <th>Pant</th>
-                                    <th>Vests</th>    
+                                    <th>Vests</th>
+                                    <th>3Piece Suit</th>
+                                    <th>2Piece Suit</th>    
                                     <th>Other amt</th>    
                                     <th class="actions" style="text-align:center">Actions</th>
                                 </tr>
@@ -39,6 +41,8 @@
                                 <td>${{$d->jacket_amt}}</td>
                                 <td>${{$d->pant_amt}}</td>
                                 <td>${{$d->vests_amt}}</td>
+                                <td>${{$d->threepc_amt}}</td>
+                                <td>${{$d->twopc_amt}}</td>
                                 <td>${{$d->other_cat_amt}}</td>
                                 <td class="no-sort no-click">
                                   <div class="btn-sm btn-danger pull-right delete" data-id="{{$d->id}}" id="delete-{{$d->id}}">
