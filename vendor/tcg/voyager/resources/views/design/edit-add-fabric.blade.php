@@ -68,18 +68,18 @@
                                     <label for="fabric_qty">Fabric Qty.</label>
                                     <input type="text" class="form-control" name="fabric_qty"
                                            placeholder="Qty" id="fabric_qty"
-                                           value="{{$con->fabric_qty}}">
+                                           value="{{$con->fabric_qty}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="fabric_min_qty">Fabric Min Qty.</label>
                                     <input type="text" class="form-control" name="fabric_min_qty"
                                            placeholder="Min Qty" id="fabric_min_qty"
-                                           value="{{$con->fabric_min_qty}}">
+                                           value="{{$con->fabric_min_qty}}" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="fabric_name">Fabric Desc.</label>
-                                     <textarea class="form-control" id="fabric_desc" name="fabric_desc"placeholder="Short Description.">{{$con->fabric_desc}}</textarea>
+                                     <textarea class="form-control" id="fabric_desc" name="fabric_desc"placeholder="Short Description." required>{{$con->fabric_desc}}</textarea>
                                  </div>
                                    <span><b>Fabric Large Image Size. (WxH)(436x567),JPG Format, 15-20.KB.</b></span>
                                <div class="form-group">
@@ -181,18 +181,18 @@
                                     <label for="fabric_qty">Fabric Qty.</label>
                                     <input type="text" class="form-control" name="fabric_qty"
                                            placeholder="Qty" id="fabric_qty"
-                                           value="">
+                                           value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="fabric_min_qty">Fabric Min Qty.</label>
                                     <input type="text" class="form-control" name="fabric_min_qty"
                                            placeholder="Min Qty" id="fabric_min_qty"
-                                           value="2">
+                                           value="2" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="fabric_name">Fabric Desc.</label>
-                                     <textarea class="form-control" id="fabric_desc" name="fabric_desc"placeholder="Short Description."></textarea>
+                                     <textarea class="form-control" id="fabric_desc" name="fabric_desc"placeholder="Short Description." required></textarea>
                                  </div>
                                 <span><b>Fabric Large Image Size. (WxH)(436x567),JPG Format, 15-20.KB.</b></span>
                                <div class="form-group">
