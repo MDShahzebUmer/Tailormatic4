@@ -2182,7 +2182,7 @@ function showMeasureSect(id) {
     $("div[id^='menu-mesure-']").css("display", "none");
     $("#menu-mesure-" + id).css("display", "block");
     $("#etmeasurement").find("div.pt-variation div.pt-box-square").removeClass("active");
-    if (id == "bodysize" || id == "standardsize") {
+    if (id == "bodysize" || id == "standardsize" || id == "outfitsize") {
         $("#menu-" + id).addClass("active");
         if (id == "bodysize") {
             $("input#bsizeNeck").focus();
@@ -2198,6 +2198,19 @@ function showMeasureSect(id) {
             var arr = document.getElementById("harr").value;
             $("input#setarr").val(arr);
         } else if (id == "standardsize") {
+            var fview = $("#main-front-etmeasurement").find("div.pt-image-div img").attr("src");
+            var bview = $("#main-back-etmeasurement").find("div.pt-image-div img").attr("src");
+            $("input#frntviewfinal").val(fview);
+            $("input#bkviewfinal").val(bview);
+            var arr = document.getElementById("harr").value;
+            $("input#setarr").val(arr);
+        } else if (id == "outfitsize") {
+            $("input#bsizeNeck2").focus();
+            $("span#fldtitle2").html("Neck");
+            $("span#rngfrom2").html("9");
+            $("span#rngto2").html("23");
+            $("div.et-measure-image-2").find("figure img").attr("src", url + "/Measurment/Shirts/neck/neck.jpg");
+            $("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="' + url + '/Measurment/Shirts/neck/neck.ogv" type="video/ogg"><source src="' + url + '/Measurment/Shirts/neck/neck.mp4" type="video/mp4"><object data="' + url + '/Measurment/Shirts/neck/neck.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="' + url + '/Measurment/Shirts/neck/neck.webm" type="video/webm"></video>');
             var fview = $("#main-front-etmeasurement").find("div.pt-image-div img").attr("src");
             var bview = $("#main-back-etmeasurement").find("div.pt-image-div img").attr("src");
             $("input#frntviewfinal").val(fview);
@@ -2653,4 +2666,303 @@ function updatefabprice() {
     var fabprice = arr['ofabricPrice'];
     fabprice = parseFloat(fabprice);
     $(".pt-dollor").html("$" + fabprice);
+}
+
+/* new added for body type */
+function selectBodyType(option, type) {
+    $('#body_type_ul_'+1+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+1+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    $('#body_type_ul_'+2+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+2+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    $('#body_type_ul_'+3+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+3+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    var arr = document.getElementById("harr").value;
+    arr = JSON.parse(arr);
+    arr['body_type_'+option] = type;
+    var uparr = JSON.stringify(arr);
+    $('#harr').val(uparr);
+    $("input#setarr").val(uparr);
+}
+/* ============================ new added for outfit size =============================== */
+function showRanges2(ttl, frange, trange, typ) {
+    var sizetyp = $("input[id^='bsizetyp2']:checked").attr("value");
+    if (sizetyp == "cm") {
+        frange = Math.round(frange * 2.54, 2);
+        trange = Math.round(trange * 2.54, 2);
+    } else {
+        frange = frange;
+        trange = trange;
+    }
+    var msrimg = url + "/Measurment/Shirts/" + typ + "/" + typ + ".jpg";
+    $("div.et-measure-image-2").find("figure img").attr("src", msrimg);
+    var video_html = '';
+    video_html += '<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__">';
+        video_html += '<source src="' + url + '/Measurment/Shirts/' + typ + '/' + typ + '.ogv" type="video/ogg">';
+        video_html += '<source src="' + url + '/Measurment/Shirts/' + typ + '/' + typ + '.mp4" type="video/mp4">';
+        video_html += '<object data="' + url + '/Measurment/Shirts/' + typ + '/' + typ + '.swf" type="application/x-shockwave-flash" width="300" height="220">';
+        video_html += '</object><source src="' + url + '/Measurment/Shirts/' + typ + '/' + typ + '.webm" type="video/webm">';
+    video_html += '</video>';
+    $("div.et-measure-video-2").html(video_html);
+    $("span#fldtitle2").html(ttl);
+    $("span#rngfrom2").html(frange);
+    $("span#rngto2").html(trange);
+    $("span#mtyp2").html(sizetyp);
+}
+function validateField2(fid, frange, trange) {
+    var sizetyp = $("input[id^='bsizetyp2']:checked").attr("value");
+    var fval = $("#" + fid).val();
+    if (sizetyp == "cm") {
+        frange = Math.round(frange * 2.54, 2);
+        trange = Math.round(trange * 2.54, 2);
+    } else {
+        frange = frange;
+        trange = trange;
+    }
+    if (fval == "") {
+        $("#" + fid).css({
+            'border-color': '#f00',
+            'box-shadow': '0px 0px 15px #f00',
+            '-webkit-box-shadow': '0px 0px 15px #f00'
+        });
+    } else if (fval < frange || fval > trange) {
+        $("#" + fid).css({
+            'border-color': '#f00',
+            'box-shadow': '0px 0px 15px #f00',
+            '-webkit-box-shadow': '0px 0px 15px #f00'
+        });
+    } else {
+        $("#" + fid).css({
+            'border-color': '#090',
+            'box-shadow': '0px 0px 15px #090'
+        });
+    }
+}
+function validatebodyform2() {
+    var typ = $("input[id^='bsizetyp2']:checked").attr("value");
+    var rnge = "";
+    if (document.getElementById('bsizeNeck2').value == "") {
+        document.getElementById('bsizeNeck2').focus();
+        return false;
+    } else if (document.getElementById('bsizeNeck2').value != "") {
+        rnge = $("#bsizeNeck2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeNeck2').value) == false) {
+            $("#bsizeNeck2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeNeck2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeNeck2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeNeck2').value) > parseFloat(trange)) {
+            $("#bsizeNeck2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeNeck2').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeChest2').value == "") {
+        document.getElementById('bsizeChest2').focus();
+        return false;
+    } else if (document.getElementById('bsizeChest2').value != "") {
+        rnge = $("#bsizeChest2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeChest2').value) == false) {
+            $("#bsizeChest2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeChest2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeChest2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeChest2').value) > parseFloat(trange)) {
+            $("#bsizeChest2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeChest2').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeWaist2').value == "") {
+        document.getElementById('bsizeWaist2').focus();
+        return false;
+    } else if (document.getElementById('bsizeWaist2').value != "") {
+        rnge = $("#bsizeWaist2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeWaist2').value) == false) {
+            $("#bsizeWaist2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeWaist2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeWaist2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeWaist2').value) > parseFloat(trange)) {
+            $("#bsizeWaist2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeWaist2').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeHip2').value == "") {
+        document.getElementById('bsizeHip2').focus();
+        return false;
+    } else if (document.getElementById('bsizeHip2').value != "") {
+        rnge = $("#bsizeHip2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeHip2').value) == false) {
+            $("#bsizeHip2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeHip2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeHip2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeHip2').value) > parseFloat(trange)) {
+            $("#bsizeHip2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeHip').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeLength2').value == "") {
+        document.getElementById('bsizeLength2').focus();
+        return false;
+    } else if (document.getElementById('bsizeLength2').value != "") {
+        rnge = $("#bsizeLength2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeLength2').value) == false) {
+            $("#bsizeLength2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeLength2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeLength2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeLength2').value) > parseFloat(trange)) {
+            $("#bsizeLength2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeLength2').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeShoulder2').value == "") {
+        document.getElementById('bsizeShoulder2').focus();
+        return false;
+    } else if (document.getElementById('bsizeShoulder2').value != "") {
+        rnge = $("#bsizeShoulder2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeShoulder2').value) == false) {
+            $("#bsizeShoulder2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeShoulder2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeShoulder2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeShoulder2').value) > parseFloat(trange)) {
+            $("#bsizeShoulder2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeShoulder').focus();
+            return false;
+        }
+    }
+    if (document.getElementById('bsizeSleeve2').value == "") {
+        document.getElementById('bsizeSleeve2').focus();
+        return false;
+    } else if (document.getElementById('bsizeSleeve2').value != "") {
+        rnge = $("#bsizeSleeve2").attr("data-title").split('-');
+        frange = parseFloat(rnge[0]);
+        trange = parseFloat(rnge[1]);
+        if (typ == "cm") {
+            frange = Math.round(frange * 2.54, 2);
+            trange = Math.round(trange * 2.54, 2);
+        } else {
+            frange = frange;
+            trange = trange;
+        }
+        if (IsFloat(document.getElementById('bsizeSleeve2').value) == false) {
+            $("#bsizeSleeve2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeSleeve2').focus();
+            return false;
+        } else if (parseFloat(document.getElementById('bsizeSleeve2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeSleeve2').value) > parseFloat(trange)) {
+            $("#bsizeSleeve2").css({
+                'border-color': '#f00',
+                'box-shadow': '0px 0px 15px #f00',
+                '-webkit-box-shadow': '0px 0px 15px #f00'
+            });
+            document.getElementById('bsizeSleeve2').focus();
+            return false;
+        }
+    }
+    return true;
 }

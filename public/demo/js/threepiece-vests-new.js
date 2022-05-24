@@ -448,9 +448,9 @@ function showMeasureSect(id){
 	$("#container_vests #menu-mesure-"+id).css("display","block");
 	
 	$("#container_vests #etmeasurement").find("div.pt-variation div.pt-box-square").removeClass("active");
-	if(id=="bodysize" || id=="standardsize"){
+	if(id=="bodysize" || id=="standardsize" || id=="outfitsize"){
 		$("#container_vests #menu-"+id).addClass("active");
-		if(id=="bodysize"){ 
+		if(id=="bodysize" || id=="outfitsize"){ 
 			$("#container_vests input#bsizeChest").focus(); 
 			var tt=$("#container_vests input#bsizeChest").attr("data-title").split('-');
 			$("#container_vests span#fldtitle").html("Chest"); 

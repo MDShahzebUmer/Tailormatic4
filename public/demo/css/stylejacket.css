@@ -65,3 +65,61 @@ ul.et-payment-list>li {
     display: inline-block;
     color: #ffe600 !important;
   }
+
+/* =============== new added for body type ================= */
+.body-type-block {
+    position: relative;
+}
+.body-type-img{
+    width: 90px;
+}
+.body-type-li {
+    margin: 5px;
+    cursor: pointer;
+}
+.body-type-fig {
+    background-color: #5c3312;
+}
+.body-type-fig-cap {
+    color: #c3c3c3;
+    text-align: center;
+}
+.icon-check-2 {
+    width: 30px;
+    height: 30px;
+    background-image: url(/demo/img/CheckMarkBlue.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 36px;
+    z-index: 999
+}
+
+/* =============== new added for outfit size =============== */
+.et-measure-image-2, .et-measure-video-2 {
+    margin: 0 30px;
+    overflow: hidden;
+}
+
+.et-measure-image-2 {
+    width: 335px;
+    height: 195px;
+    border: 1px solid #3c3c3c;
+    text-align: center;
+    line-height: 192px;
+    float: left;
+}
+
+.et-measure-video-2 {
+    width: 335px;
+    height: 195px;
+    float: left;
+    border: 1px solid #3c3c3c;
+    text-align: center;
+    line-height: 191px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px){
+    .et-measure-image-2, .et-measure-video-2 {
+        margin: 0px 0px;
+    }
+}

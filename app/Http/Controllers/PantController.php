@@ -557,7 +557,7 @@ class PantController extends Controller
 		   
 		   $finalarr = $eTailorObj;
 		   $finalarr['osizePattern']= $request['mpattern'];
-		   if($request['mpattern']=="Body"){
+		   if($request['mpattern']=="Body" || $request['mpattern']=="Outfit"){
 				$finalarr['osizeStyle']= $request['fitstyle'];			
 				$finalarr['osizeType']= $request['bsizetyp'];				
 				$finalarr['osizeWaist']= $request['bsizeWaist'];

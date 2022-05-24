@@ -135,7 +135,11 @@ class JacketController extends Controller
 			'oqty'=>'1',
 			'ofrontView'=>'',
 			'obackView'=>'',
-			'ocartID'=>''
+			'ocartID'=>'',
+			'body_type_front'=>'normal',
+			'body_type_back'=>'normal',
+			'body_type_shoulder'=>'normal',
+			'body_type_stomach'=>'normal'
 		];
 		
 		$mytab="etfabric";
@@ -1344,7 +1348,7 @@ class JacketController extends Controller
 		   
 		   $finalarr = $eTailorObj;
 		   $finalarr['osizePattern']= $_POST['mpattern'];
-		   if($_POST['mpattern']=="Body"){
+		   if($_POST['mpattern']=="Body" || $_POST['mpattern']=="Outfit"){
 				$finalarr['osizeStyle']= $_POST['fitstyle'];			
 				$finalarr['osizeType']= $_POST['bsizetyp'];			
 				$finalarr['osizeChest']= $_POST['bsizeChest'];

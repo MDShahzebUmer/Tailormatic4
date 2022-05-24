@@ -394,9 +394,9 @@ function showPantMeasureSect(id){
 	$("div[id^='menu-mesure-pant-']").css("display","none"); 
 	$("#menu-mesure-pant-"+id).css("display","block");
 	$("#etmeasurementpant").find("div.pt-variation div.pt-box-square").removeClass("active");
-	if(id=="bodysize" || id=="standardsize"){
+	if(id=="bodysize" || id=="standardsize" || id=="outfitsize"){
 		$("#menu-pant-"+id).addClass("active");
-		if(id=="bodysize"){ 
+		if(id=="bodysize" || id=="outfitsize"){ 
 			$("#container_pants input#bsizeWaist").focus(); 
 			var rrv=$("#container_pants input#bsizeWaist").attr("data-title"); 
 			rrv=rrv.split('-'); 

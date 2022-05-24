@@ -317,7 +317,7 @@ function getseloptions(id,opt,ctyp,otab){
 function showMeasureSect(id){
 	$("div[id^='menu-mesure-']").css("display","none"); $("#menu-mesure-"+id).css("display","block");
 	$("#etmeasurement").find("div.pt-variation div.pt-box-square").removeClass("active");
-	if(id=="bodysize" || id=="standardsize"){
+	if(id=="bodysize" || id=="standardsize" || id=="outfitsize"){
 		$("#menu-"+id).addClass("active");
 		if(id=="bodysize"){ 
 			$("input#bsizeWaist").focus(); var rrv=$("input#bsizeWaist").attr("data-title"); rrv=rrv.split('-'); $("span#fldtitle").html("Waist"); $("span#rngfrom").html(rrv[0]); $("span#rngto").html(rrv[1]);
@@ -327,7 +327,23 @@ function showMeasureSect(id){
 			var fview=$("#main-front-etmeasurement").find("div.pt-image-div img").attr("src");var bview=$("#main-back-etmeasurement").find("div.pt-image-div img").attr("src"); $("input#frntviewfinal").val(fview); $("input#bkviewfinal").val(bview); var arr = document.getElementById("harr").value; $("input#setarr").val(arr);
 		} else if(id=="standardsize"){
 			var fview=$("#main-front-etmeasurement").find("div.pt-image-div img").attr("src"); var bview=$("#main-back-etmeasurement").find("div.pt-image-div img").attr("src"); $("input#frntviewfinal").val(fview); $("input#bkviewfinal").val(bview); var arr = document.getElementById("harr").value; $("input#setarr").val(arr);
-		}
+		} else if(id=="outfitsize"){ 
+			$("input#bsizeWaist2").focus(); 
+			var rrv=$("input#bsizeWaist2").attr("data-title"); 
+			rrv=rrv.split('-'); 
+			$("span#fldtitle2").html("Waist"); 
+			$("span#rngfrom2").html(rrv[0]); 
+			$("span#rngto2").html(rrv[1]);
+			$("div.et-measure-image-2").find("figure img").attr("src",url+"/Measurment/Shirts/pwaist/waist.jpg");
+			$("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/pwaist/waist.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/pwaist/waist.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/pwaist/waist.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/pwaist/waist.webm" type="video/webm"></video>');
+			
+			var fview=$("#main-front-etmeasurement").find("div.pt-image-div img").attr("src");
+			var bview=$("#main-back-etmeasurement").find("div.pt-image-div img").attr("src"); 
+			$("input#frntviewfinal2").val(fview); 
+			$("input#bkviewfinal2").val(bview); 
+			var arr = document.getElementById("harr").value; 
+			$("input#setarr2").val(arr);
+		} 
 	}
 }
 
@@ -524,4 +540,106 @@ function updatefabprice(){
 	fabprice=parseFloat(fabprice);
 	$(".pt-dollor").html("$ "+fabprice);
 	$(".vwprice").html("1 Pant: $ "+fabprice);
+}
+/* ============================ new added for outfit size =============================== */
+function showRanges2(ttl,frange,trange,typ){
+	var sizetyp=$("input[id^='bsizetyp2']:checked").attr("value");
+	if(sizetyp=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+	if(typ=="waist"){
+		var msrimg=url+"/Measurment/Shirts/pwaist/"+typ+".jpg";
+		$("div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/pwaist/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.webm" type="video/webm"></video>');
+	}else if(typ=="hip"){
+		var msrimg=url+"/Measurment/Shirts/phip/"+typ+".jpg";
+		$("div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/phip/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.webm" type="video/webm"></video>');
+	}else if(typ=="length"){
+		var msrimg=url+"/Measurment/Shirts/plength/"+typ+".jpg";
+		$("div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/plength/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.webm" type="video/webm"></video>');
+	} else {
+		var msrimg=url+"/Measurment/Shirts/"+typ+"/"+typ+".jpg";
+		$("div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.webm" type="video/webm"></video>');
+	}
+	$("span#fldtitle2").html(ttl); 
+	$("span#rngfrom2").html(frange); 
+	$("span#rngto2").html(trange); 
+	$("span#mtyp2").html(sizetyp);
+}
+
+function validateField2(fid,frange,trange){
+	var sizetyp=$("input[id^='bsizetyp2']:checked").attr("value"); var fval=$("#"+fid).val();
+	if(sizetyp=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+	
+	if(fval==""){ $("#"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); } else if(fval<frange || fval>trange){ $("#"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); } else { $("#"+fid).css({'border-color':'#090','box-shadow':'0px 0px 15px #090'}); }
+}
+
+function validatebodyform2(){
+	var typ=$("input[id^='bsizetyp2']:checked").attr("value"); var rnge="";
+	
+	if(document.getElementById('bsizeWaist2').value==""){ document.getElementById('bsizeWaist2').focus(); return false;
+	} else if(document.getElementById('bsizeWaist2').value!=""){
+		rnge=$("#bsizeWaist2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat(document.getElementById('bsizeWaist2').value)==false){
+			$("#bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeWaist2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeWaist2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeWaist2').value) > parseFloat(trange)){
+			$("#bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeWaist2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeHip2').value==""){ document.getElementById('bsizeHip2').focus(); return false;
+	} else if(document.getElementById('bsizeHip2').value!=""){
+		rnge=$("#bsizeHip2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat(document.getElementById('bsizeHip2').value)==false){
+			$("#bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeHip2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeHip2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeHip2').value) > parseFloat(trange)){
+			$("#bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeHip2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeCrotch2').value==""){ document.getElementById('bsizeCrotch2').focus(); return false;
+	} else if(document.getElementById('bsizeCrotch2').value!=""){
+		rnge=$("#bsizeCrotch2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat(document.getElementById('bsizeCrotch2').value)==false){
+			$("#bsizeCrotch2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeCrotch2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeCrotch2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeCrotch2').value) > parseFloat(trange)){
+			$("#bsizeCrotch2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeCrotch2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeLength2').value==""){ document.getElementById('bsizeLength2').focus(); return false;
+	} else if(document.getElementById('bsizeLength2').value!=""){
+		rnge=$("#bsizeLength2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat(document.getElementById('bsizeLength2').value)==false){
+			$("#bsizeLength2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeLength2').focus();
+			return false;
+		}
+	}
+	if(document.getElementById('bsizeThigh2').value==""){ document.getElementById('bsizeThigh2').focus(); return false;
+	} else if(document.getElementById('bsizeThigh2').value!=""){
+		rnge=$("#bsizeThigh2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat(document.getElementById('bsizeThigh2').value)==false){
+			$("#bsizeThigh2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeThigh2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeThigh2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeThigh2').value) > parseFloat(trange)){
+			$("#bsizeThigh2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeThigh2').focus(); return false;
+		}
+	}
+	return true;
 }

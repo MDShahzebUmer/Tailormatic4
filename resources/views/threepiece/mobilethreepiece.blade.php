@@ -32,12 +32,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/et-responsive.css')}}" media="screen">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylejacket.css')}}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylejacket.css')}}?v<?=rand(1, 1000000)?>" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{asset('demo/css/responsive_bootstrap_carousel_mega_min.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobilethreepiece.css?v0')}}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylemobilethreepiece.css')}}" media="all">
 
     <script type="text/javascript" src="{{asset('demo/js/jquery.min.js')}}"></script>
 
@@ -191,17 +191,17 @@
                         <li><a href="{{ url('/myaccount') }}">MY ACCOUNT</a></li>
                         <li>|</li>
                         <li>
-                        <a href="{{ url('/logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <span>LOGOUT</span>
-                        </a>
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-             </li>
-             @endif
-            </ul>
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                <span>LOGOUT</span>
+                            </a>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
         <div class="col-md-1 right-h">
@@ -465,9 +465,9 @@
 <script type="text/javascript" src="{{asset('demo/js/bootstrap-touch-slider.js')}}"></script>
 <script type="text/javascript">var url = "{{asset('/storage/')}}";</script>
 <script type="text/javascript" src="{{asset('demo/js/fabric.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece1.js?v0')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece2.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece3.js')}}"></script>
+<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece1.js')}}?v<?=rand(1, 1000000)?>"></script>
+<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece2.js')}}?v<?=rand(1, 1000000)?>"></script>
+<script type="text/javascript" src="{{asset('demo/js/mobilethreepiece3.js')}}?v<?=rand(1, 1000000)?>"></script>
 
 <script type="text/javascript">
 $( '#et-banner' ).bsTouchSlider();
@@ -1078,6 +1078,217 @@ $("#temp_body_btn").click(function(e){
         });
     }
 
+    e.preventDefault();
+    return;
+});
+$("#temp_body_btn2").click(function(e){ 
+
+    var bsizetyp = $('#container_jackets #bsizetyp2:checked').val();
+    $('#container_pants input:radio[name=bsizetyp]').filter('[value='+bsizetyp+']').prop('checked', true);
+    $('#container_vests input:radio[name=bsizetyp]').filter('[value='+bsizetyp+']').prop('checked', true);
+
+    var fitstyle = $('#container_jackets #fitstyle2:checked').val();
+    $('#container_pants input:radio[name=fitstyle]').filter('[value='+fitstyle+']').prop('checked', true);
+    $('#container_vests input:radio[name=fitstyle]').filter('[value='+fitstyle+']').prop('checked', true);
+
+    var bsizeChest = $('#container_jackets #bsizeChest2').val();
+    var bsizeWaist = $('#container_jackets #bsizeWaist2').val();
+    var bsizeHip = $('#container_jackets #bsizeHip2').val();
+    var bsizeShoulder = $('#container_jackets #bsizeShoulder2').val();
+    var bsizeSleeve = $('#container_jackets #bsizeSleeve2').val();
+    var bsizeLength = $('#container_jackets #bsizeLength2').val();
+    var setarr = $('#container_jackets input#setarr2').val();
+    var frntviewfinal = $('#container_jackets input#frntviewfinal2').val();
+    var bkviewfinal = $('#container_jackets input#bkviewfinal2').val();
+    var mpattern = $('#container_jackets #bmpattern2').val();
+    var selstdqty = $('#container_jackets #bselbodyqty2').val();    
+    var rndvalue = $('#container_jackets #brndvalue2').val();
+
+    var pant_setarr = $("#container_pants input#setarr").val();
+    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val(); 
+    var pant_bkviewfinal = $("#container_pants input#bkviewfinal").val();
+    var pant_bsizewaist = $('#temp_pant_bsizeWaist2').val(); 
+    var pant_bsizehip = $('#temp_pant_bsizeHip2').val(); 
+    var pant_bsizecrotch = $('#temp_pant_bsizeCrotch2').val();  
+    var pant_bsizethigh = $('#temp_pant_bsizeThigh2').val(); 
+    var pant_bsizelength = $('#temp_pant_bsizeLength2').val(); 
+    $('#container_pants #bsizeWaist').val(pant_bsizewaist);
+    $('#container_pants #bsizeHip').val(pant_bsizehip);
+    $('#container_pants #bsizeCrotch').val(pant_bsizecrotch);
+    $('#container_pants #bsizeThigh').val(pant_bsizethigh);
+    $('#container_pants #bsizeLength').val(pant_bsizelength);
+
+    var vest_bsizeChest = $('#temp_vest_bsizeChest2').val();
+    var vest_bsizeWaist = $('#temp_vest_bsizeWaist2').val();
+    var vest_bsizeHip = $('#temp_vest_bsizeHip2').val();
+    var vest_bsizeShoulder = $('#temp_vest_bsizeShoulder2').val();
+    var vest_bsizeLength = $('#temp_vest_bsizeLength2').val();
+    var vest_setarr = $('#container_vests input#setarr').val();
+    var vest_frntviewfinal = $('#container_vests input#frntviewfinal').val();
+    var vest_bkviewfinal = $('#container_vests input#bkviewfinal').val();
+
+    var total_price = 0;
+
+    var validation_state = validatejacketbodyform2();
+    // console.log("validattion state: " , validation_state);
+
+    // e.preventDefault();
+    // return;
+
+    var old_jacket_setarr = JSON.parse(setarr);
+    var old_pant_setarr = JSON.parse(pant_setarr);
+    var old_vest_setarr = JSON.parse(vest_setarr);
+    // console.log("old jacket setarr:", old_jacket_setarr);
+    // console.log("old pant setarr:", old_pant_setarr);
+    // console.log("old vest setarr:", old_vest_setarr);
+
+    var new_setarr_ary = old_jacket_setarr;
+    // change basic data --------------------------------------------
+    new_setarr_ary['oprodType1'] = new_setarr_ary['oprodType'];
+    new_setarr_ary['oprodType'] = "3Piece Suit";
+    new_setarr_ary['osizePattern']= mpattern;
+    new_setarr_ary['osizeStyle']= fitstyle;          
+    new_setarr_ary['osizeType']= bsizetyp;
+    new_setarr_ary['oqty']= 1;
+    new_setarr_ary['osizeFit']='';
+
+    // add jacket data ---------------------------------------------          
+    new_setarr_ary['osizeChest']= bsizeChest;
+    new_setarr_ary['osizeWaist']= bsizeWaist;
+    new_setarr_ary['osizeHip']= bsizeHip;
+    new_setarr_ary['osizeShoulder']= bsizeShoulder;
+    new_setarr_ary['osizeSleeve']= bsizeSleeve;
+    new_setarr_ary['osizeLength']= bsizeLength;          
+                   
+    // add pant data ------------------------------------------------    
+    new_setarr_ary['pant_obackpockt'] = old_pant_setarr['obackpockt'];
+    new_setarr_ary['pant_obackpocktName'] = old_pant_setarr['obackpocktName'];
+    new_setarr_ary['pant_obackpocktSide'] = old_pant_setarr['obackpocktSide'];
+    new_setarr_ary['pant_obeltloop'] = old_pant_setarr['obeltloop'];
+    new_setarr_ary['pant_obeltloopName'] = old_pant_setarr['obeltloopName'];
+    new_setarr_ary['pant_obutton'] = old_pant_setarr['obutton'];
+    new_setarr_ary['pant_obuttonCode'] = old_pant_setarr['obuttonCode'];
+    new_setarr_ary['pant_obuttonHole'] = old_pant_setarr['obuttonHole'];
+    new_setarr_ary['pant_obuttonHoleCode'] = old_pant_setarr['obuttonHoleCode'];
+    new_setarr_ary['pant_obuttonHoleName'] = old_pant_setarr['obuttonHoleName'];
+    new_setarr_ary['pant_obuttonName'] = old_pant_setarr['obuttonName'];
+    new_setarr_ary['pant_ocatID'] = old_pant_setarr['ocatID'];
+    new_setarr_ary['pant_ocontbackpockets'] = old_pant_setarr['ocontbackpockets'];
+    new_setarr_ary['pant_ocontbeltloop'] = old_pant_setarr['ocontbeltloop'];
+    new_setarr_ary['pant_ocontrast'] = old_pant_setarr['ocontrast'];
+    new_setarr_ary['pant_ocontrastName'] = old_pant_setarr['ocontrastName'];
+    new_setarr_ary['pant_ocuff'] = old_pant_setarr['ocuff'];
+    new_setarr_ary['pant_ocuffName'] = old_pant_setarr['ocuffName'];
+    new_setarr_ary['pant_ofabric'] = old_pant_setarr['ofabric'];
+    new_setarr_ary['pant_ofabricDesc'] = old_pant_setarr['ofabricDesc'];
+    new_setarr_ary['pant_ofabricGroup'] = old_pant_setarr['ofabricGroup'];
+    new_setarr_ary['pant_ofabricImage'] = old_pant_setarr['ofabricImage'];
+    new_setarr_ary['pant_ofabricList'] = old_pant_setarr['ofabricList'];
+    new_setarr_ary['pant_ofabricName'] = old_pant_setarr['ofabricName'];
+    new_setarr_ary['pant_ofabricPrice'] = old_pant_setarr['ofabricPrice'];
+    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];    
+    new_setarr_ary['pant_opacket'] = old_pant_setarr['opacket'];
+    new_setarr_ary['pant_opacketName'] = old_pant_setarr['opacketName'];
+    new_setarr_ary['pant_opleat'] = old_pant_setarr['opleat'];
+    new_setarr_ary['pant_opleatName'] = old_pant_setarr['opleatName'];
+    new_setarr_ary['pant_oprodType'] = old_pant_setarr['oprodType'];
+    new_setarr_ary['pant_oqty'] = old_pant_setarr['oqty'];
+    // new_setarr_ary['pant_osizeFit'] = old_pant_setarr['osizeFit'];
+    // new_setarr_ary['pant_osizePattern'] = old_pant_setarr['osizePattern'];
+    new_setarr_ary['pant_ostyle'] = old_pant_setarr['ostyle'];
+    new_setarr_ary['pant_ostyleName'] = old_pant_setarr['ostyleName'];
+    new_setarr_ary['pant_owaistbandedge'] = old_pant_setarr['owaistbandedge'];
+
+    new_setarr_ary['pant_osizeWaist']= pant_bsizewaist;
+    new_setarr_ary['pant_osizeHip']= pant_bsizehip;
+    new_setarr_ary['pant_osizeCrotch']= pant_bsizecrotch;
+    new_setarr_ary['pant_osizeThigh']= pant_bsizethigh;
+    new_setarr_ary['pant_osizeLength']= pant_bsizelength;
+
+    // add vest data ------------------------------------------------ 
+    new_setarr_ary['vest_oback'] = old_vest_setarr['oback'];
+    new_setarr_ary['vest_obackName'] = old_vest_setarr['obackName'];
+    new_setarr_ary['vest_obackView'] = old_vest_setarr['obackView'];
+    new_setarr_ary['vest_obottom'] = old_vest_setarr['obottom'];
+    new_setarr_ary['vest_obottomName'] = old_vest_setarr['obottomName'];
+    new_setarr_ary['vest_obutton'] = old_vest_setarr['obutton'];
+    new_setarr_ary['vest_obuttonCode'] = old_vest_setarr['obuttonCode'];
+    new_setarr_ary['vest_obuttonHole'] = old_vest_setarr['obuttonHole'];
+    new_setarr_ary['vest_obuttonHoleCode'] = old_vest_setarr['obuttonHoleCode'];
+    new_setarr_ary['vest_obuttonHoleName'] = old_vest_setarr['obuttonHoleName'];
+    new_setarr_ary['vest_obuttonName'] = old_vest_setarr['obuttonName'];
+    new_setarr_ary['vest_obuttonstyle'] = old_vest_setarr['obuttonstyle'];
+    new_setarr_ary['vest_obuttonstyleName'] = old_vest_setarr['obuttonstyleName'];
+    new_setarr_ary['vest_ocatID'] = old_vest_setarr['ocatID'];
+    new_setarr_ary['vest_ocontlapel'] = old_vest_setarr['ocontlapel'];
+    new_setarr_ary['vest_ocontpockets'] = old_vest_setarr['ocontpockets'];
+    new_setarr_ary['vest_ocontrast'] = old_vest_setarr['ocontrast'];
+    new_setarr_ary['vest_ocontrastName'] = old_vest_setarr['ocontrastName'];
+    new_setarr_ary['vest_ofabric'] = old_vest_setarr['ofabric'];
+    new_setarr_ary['vest_ofabricDesc'] = old_vest_setarr['ofabricDesc'];
+    new_setarr_ary['vest_ofabricGroup'] = old_vest_setarr['ofabricGroup'];
+    new_setarr_ary['vest_ofabricImage'] = old_vest_setarr['ofabricImage'];
+    new_setarr_ary['vest_ofabricList'] = old_vest_setarr['ofabricList'];
+    new_setarr_ary['vest_ofabricName'] = old_vest_setarr['ofabricName'];
+    new_setarr_ary['vest_ofabricPrice'] = old_vest_setarr['ofabricPrice'];
+    new_setarr_ary['vest_ofabricType'] = old_vest_setarr['ofabricType'];
+    new_setarr_ary['vest_ofrontView'] = old_vest_setarr['ofrontView'];
+    new_setarr_ary['vest_olining'] = old_vest_setarr['olining'];
+    new_setarr_ary['vest_oliningName'] = old_vest_setarr['oliningName'];
+    new_setarr_ary['vest_opacket'] = old_vest_setarr['opacket'];
+    new_setarr_ary['vest_opacketName'] = old_vest_setarr['opacketName'];
+    new_setarr_ary['vest_opiping'] = old_vest_setarr['opiping'];
+    new_setarr_ary['vest_opipingName'] = old_vest_setarr['opipingName'];
+    new_setarr_ary['vest_oprodType'] = old_vest_setarr['oprodType'];
+    new_setarr_ary['vest_ostyle'] = old_vest_setarr['ostyle'];
+    new_setarr_ary['vest_ostyleName'] = old_vest_setarr['ostyleName'];
+
+    new_setarr_ary['vest_osizeChest'] = vest_bsizeChest;    
+    new_setarr_ary['vest_osizeWaist'] = vest_bsizeWaist;
+    new_setarr_ary['vest_osizeHip'] = vest_bsizeHip;
+    new_setarr_ary['vest_osizeShoulder'] =vest_bsizeShoulder;
+    new_setarr_ary['vest_osizeLength'] = vest_bsizeLength;
+
+    // --------------------------------------------------------------  
+
+    // console.log("new_setarr_ary : ",new_setarr_ary);
+
+    total_price = (1*new_setarr_ary['ofabricPrice']) + (1*new_setarr_ary['pant_ofabricPrice']) + (1*new_setarr_ary['vest_ofabricPrice']);
+    var new_setarr = JSON.stringify(new_setarr_ary);
+
+    // console.log("============== vest_frntviewfinal :",vest_frntviewfinal);
+    // console.log("============== vest_bkviewfinal :",vest_bkviewfinal);
+    // e.preventDefault();
+    // return;
+
+    if(validation_state){
+        $.ajax({
+            type:'POST',
+            url:'/designthreepiece/postcart2',
+            data:{
+                setarr:new_setarr,  
+                frntviewfinal:frntviewfinal,
+                bkviewfinal:bkviewfinal,
+                pant_frntviewfinal:pant_frntviewfinal,
+                pant_bkviewfinal:pant_bkviewfinal,
+                vest_frntviewfinal:vest_frntviewfinal,
+                vest_bkviewfinal:vest_bkviewfinal,
+                catId:18,// db categories table id : 18 (three piece suit) 
+                totalPrice:total_price,
+            },
+            beforeSend: function() {
+                $("#et-body").show();
+                $("#temp_body_btn").hide();
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                window.location.href = "/cart";
+            }
+        });
+    }        
+    
     e.preventDefault();
     return;
 });

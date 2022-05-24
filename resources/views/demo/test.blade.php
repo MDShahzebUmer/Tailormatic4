@@ -24,7 +24,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
 <!-- CSS
 ============================================ -->
-<link rel="stylesheet" type="text/css" href="{{asset('demo/css/style.css')}}" media="all">
+<link rel="stylesheet" type="text/css" href="{{asset('demo/css/style.css')}}?v<?=rand(1, 1000000)?>" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
@@ -53,29 +53,41 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
         var shoulder = '';
         var sleev = '';
         var submitCheck = function(i,val){
-
             if(i == 'neck') neck = i ;
-
             if(i == 'chest') chest = i ;
-
             if(i == 'wasit') wasit = i ;
-
             if(i == 'hip') hip = i ;
-
             if(i == 'lentgh') lentgh = i ;
-
             if(i == 'shoulder') shoulder = i ;
-
             if(i == 'sleev') sleev = i ;
             var doo = false;
             if(neck) if(chest) if(wasit) if(hip) if(lentgh) if(shoulder) if(sleev) doo = true;
-
-            if(doo) $('button[id="add_to_cart_by_input"]').css('display','block');
-            else $('button[id="add_to_cart_by_input"]').css('display','none');
+            if(doo) $('button[id="body"]').css('display','block');
+            else $('button[id="body"]').css('display','none');
             return 0 ;
-
         }
 
+        var neck2 = '';
+        var chest2 = '';
+        var wasit2 = '';
+        var hip2 = '';
+        var lentgh2 = '';
+        var shoulder2 = '';
+        var sleev2 = '';
+        var submitCheck2 = function(i,val){
+            if(i == 'neck') neck2 = i ;
+            if(i == 'chest') chest2 = i ;
+            if(i == 'wasit') wasit2 = i ;
+            if(i == 'hip') hip2 = i ;
+            if(i == 'lentgh') lentgh2 = i ;
+            if(i == 'shoulder') shoulder2 = i ;
+            if(i == 'sleev') sleev2 = i ;
+            var doo = false;
+            if(neck2) if(chest2) if(wasit2) if(hip2) if(lentgh2) if(shoulder2) if(sleev2) doo = true;
+            if(doo) $('button[id="body2"]').css('display','block');
+            else $('button[id="body2"]').css('display','none');
+            return 0 ;
+        }
 
 
     //   });
@@ -753,6 +765,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             	<div class="pt-variation-main">
                             		<div class="pt-variation">
                                         <div id="menu-bodysize" class="pt-box-square" onClick="javascript:showMeasureSect('bodysize');"><p>Body Size</p></div>
+                                        <div id="menu-outfitsize" class="pt-box-square" onClick="javascript:showMeasureSect('outfitsize');"><p>Outfit Size</p></div>
                                         <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>
                             		</div>
                             	</div>
@@ -760,33 +773,33 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
                                         <div id="menu-mesure-main" style="display:block;">
-                                        <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts.png')}}" width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
-                                        <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts-back.png')}}"  width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
-                                        <!-- End Main Preview -->
-                                        <!-- Right Option Section -->
-                            			<div class="pt-choose-right et-measure-right">
-                                			<div class="pt-thumb-slider">
-                                                <div class="et-des-title"><h2>Great Choice!  Please Select Your Measurement Option</h2></div>
-                                    			<div class="et-ment-option">
-                                                    <div class="et-body-size light-bg" onClick="javascript:showMeasureSect('bodysize');">
-                                                        <h2 class="un-bg">BODY SIZE</h2>
-                                                        <p>Part of the tailor-made experience is getting yourself measured up. With the assistance of our easy-to-follow video measuring guide, get yourself measured up in no time!</p>
-                                                        <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('bodysize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
-                                                        <figure class="et-img"><img src="{{asset('demo/img/Measurement.png')}}" alt=""></figure>
+                                            <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts.png')}}" width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
+                                            <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/pt-shirts-back.png')}}"  width="340" height="417" alt="{{$alt_name}}"/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
+                                            <!-- End Main Preview -->
+                                            <!-- Right Option Section -->
+                                			<div class="pt-choose-right et-measure-right">
+                                    			<div class="pt-thumb-slider">
+                                                    <div class="et-des-title"><h2>Great Choice!  Please Select Your Measurement Option</h2></div>
+                                        			<div class="et-ment-option">
+                                                        <div class="et-body-size light-bg" onClick="javascript:showMeasureSect('bodysize');">
+                                                            <h2 class="un-bg">BODY SIZE</h2>
+                                                            <p>Part of the tailor-made experience is getting yourself measured up. With the assistance of our easy-to-follow video measuring guide, get yourself measured up in no time!</p>
+                                                            <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('bodysize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
+                                                            <figure class="et-img"><img src="{{asset('demo/img/Measurement.png')}}" alt=""></figure>
+                                                        </div>
+                                                        <div class="et-standard-size light-bg" onClick="javascript:showMeasureSect('standardsize');">
+                                                            <h2 class="un-bg">Standard SIZES</h2>
+                                                            <p>Standard sizes provide an equally amazing fit. Select from an array of sizes from our standard size chart. Enjoy your Tailor-made product with the perfect combination of the right size and your creative style choices!</p>
+                                                            <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('standardsize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
+                                                            <figure class="et-img"><img src="{{asset('demo/img/SML.png')}}" alt=""></figure>
+                                                        </div>
                                                     </div>
-                                                    <div class="et-standard-size light-bg" onClick="javascript:showMeasureSect('standardsize');">
-                                                        <h2 class="un-bg">Standard SIZES</h2>
-                                                        <p>Standard sizes provide an equally amazing fit. Select from an array of sizes from our standard size chart. Enjoy your Tailor-made product with the perfect combination of the right size and your creative style choices!</p>
-                                                        <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('standardsize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
-                                                        <figure class="et-img"><img src="{{asset('demo/img/SML.png')}}" alt=""></figure>
+                                        			<div class="et-checkout-box">
+                                                        @include('demo.shopping')
                                                     </div>
-                                                </div>
-                                    			<div class="et-checkout-box">
-                                                    @include('demo.shopping')
-                                                </div>
+                                    			</div>
                                 			</div>
-                            			</div>
-                                        <!-- End Right Option Section -->
+                                            <!-- End Right Option Section -->
                                         </div>
                                         <!-- STANDARD SIZES -->
                                         <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
@@ -858,36 +871,230 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                 </div>
                                                             </div>
                                                             <div class="et-setect-fit et-standard" id="stdullst">
-                                                                	<ul>
-                                                                    	<li><span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Size :</span></li>
-                                                                    	<li><div class="et-btn-group">
-                                                                                <div class="et-btn-select" id="dvsizeoption">
-                                                                                	<?php $sizelst = App\MeasurmentSize::select('*')->get();?>
-                                                                                    <select class="selectpicker btn-primary selsize" id="selsize" name="selsize[]">
-                                                                                        @foreach($sizelst as $sizee)
-                                                                                        @if($eTailorObj['osizeFit']==$sizee->name)<option value="{{$sizee->name}}" selected>{{$sizee->name}}</option>@else<option value="{{$sizee->name}}">{{$sizee->name}}</option>@endif
-                                                                                        @endforeach
-                                                                              		</select>
-                                                                                </div>
+                                                            	<ul>
+                                                                	<li><span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Size :</span></li>
+                                                                	<li><div class="et-btn-group">
+                                                                            <div class="et-btn-select" id="dvsizeoption">
+                                                                            	<?php $sizelst = App\MeasurmentSize::select('*')->get();?>
+                                                                                <select class="selectpicker btn-primary selsize" id="selsize" name="selsize[]">
+                                                                                    @foreach($sizelst as $sizee)
+                                                                                    @if($eTailorObj['osizeFit']==$sizee->name)<option value="{{$sizee->name}}" selected>{{$sizee->name}}</option>@else<option value="{{$sizee->name}}">{{$sizee->name}}</option>@endif
+                                                                                    @endforeach
+                                                                          		</select>
                                                                             </div>
-                                                                        </li>
-                                                                        @if($eTailorObj['ocartID']=="")
-                                                                        <li><span>Quantity :</span></li>
-                                                                        <li>
-                                                                        	<div class="et-btn-group">
-                                                                                <div class="et-btn-select" id="dvqtyoption">
-                                                                                    <select class="selectpicker btn-primary selstdqty" id="selstdqty" name="selstdqty[]">
-                                                                                    	@for($i=1;$i<=100;$i++)
-                                                                                        @if($eTailorObj['oqty']==$i)<option value="{{$i}}" selected>{{$i}}</option>@else<option value="{{$i}}" >{{$i}}</option>@endif
-                                                                                        @endfor
-                                                                              		</select>
-                                                                                </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    @if($eTailorObj['ocartID']=="")
+                                                                    <li><span>Quantity :</span></li>
+                                                                    <li>
+                                                                    	<div class="et-btn-group">
+                                                                            <div class="et-btn-select" id="dvqtyoption">
+                                                                                <select class="selectpicker btn-primary selstdqty" id="selstdqty" name="selstdqty[]">
+                                                                                	@for($i=1;$i<=100;$i++)
+                                                                                    @if($eTailorObj['oqty']==$i)<option value="{{$i}}" selected>{{$i}}</option>@else<option value="{{$i}}" >{{$i}}</option>@endif
+                                                                                    @endfor
+                                                                          		</select>
                                                                             </div>
-                                                                        </li>
-                                                                        <li><a href="#" class="et-black-btn" onClick="javascript:addMoreSize();">Add Other Sizes</a></li>
-                                                                        @endif
-                                                                    </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li><a href="#" class="et-black-btn" onClick="javascript:addMoreSize();">Add Other Sizes</a></li>
+                                                                    @endif
+                                                                </ul>
+                                                            </div>
+                                                            <!-- ================= new added for body type ===================== -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Front type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_2_front" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_front_thin" 
+                                                                                        onclick="selectBodyType('front','thin');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thin.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thin
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_front_normal"
+                                                                                        onclick="selectBodyType('front','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_front_thick"
+                                                                                        onclick="selectBodyType('front','thick');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thick.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thick
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Back type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_2_back" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_back_straight"
+                                                                                        onclick="selectBodyType('back','straight');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_straight.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Straight
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_back_normal"
+                                                                                        onclick="selectBodyType('back','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_back_curved"
+                                                                                        onclick="selectBodyType('back','curved');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_curved.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Curved
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Shoulder type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_2_shoulder" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_shoulder_straight" 
+                                                                                        onclick="selectBodyType('shoulder','straight');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_straight.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Straight
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_shoulder_normal"
+                                                                                        onclick="selectBodyType('shoulder','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_shoulder_curved"
+                                                                                        onclick="selectBodyType('shoulder','curved');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_curved.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Curved
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Stomach type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_2_stomach" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_stomach_thin"
+                                                                                        onclick="selectBodyType('stomach','thin');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thin.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thin
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_stomach_normal"
+                                                                                        onclick="selectBodyType('stomach','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_2_stomach_thick"
+                                                                                        onclick="selectBodyType('stomach','thick');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thick.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thick
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- ================= end for body type =========================== -->
                                                             <div class="et-block et-form-btn">
                                                             	<a href="#" onClick="javascript:showMeasureSect('main');" class="et-blk-brn blue">Back</a>
                                                                  <input type="hidden" name="setarr" id="setarr" value="">
@@ -911,7 +1118,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                      		<div class="pt-thumb-slider">
                                             	<div class="et-des-title"><h2>YOUR BODY SIZES</h2></div>
                                                 <div class="et-main-measurement">
-                                                	<form class="et-shirt-measure" role="form" method="POST"  onSubmit="javascript:return validatebodyform();">
+                                                	
                                                     	<div class="et-block">
                                                         	<div class="et-measure-image"><figure><img src="{{asset('/storage/Measurment/Shirts/neck/neck.jpg')}}" alt=""></figure></div>
                                                             <div class="et-measure-video"><video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.ogv')}}" type="video/ogg"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.mp4')}}" type="video/mp4"><object data="{{asset('/storage/Measurment/Shirts/neck/neck.swf')}}" type="application/x-shockwave-flash" width="300" height="220"></object><source src="{{asset('/storage/Measurment/Shirts/neck/neck.webm')}}" type="video/webm"></video></div>
@@ -988,16 +1195,211 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                 	<ul><li><span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Size :</span></li><li><div class="radio"><label><input type="radio" name="fitstyle" class="fitstyle" id="fitstyle" value="Comfortable" <?php if($eTailorObj['osizeStyle']=="Comfortable"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Signature Standard Fit</label></div></li><li><div class="radio"><label><input type="radio" id="fitstyle" class="fitstyle" name="fitstyle" value="Slim" <?php if($eTailorObj['osizeStyle']=="Slim"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Euro Slim Fit</label></div></li></ul>
                                                                 </div>
                                                             </div>
+                                                            <!-- ================= new added for body type ===================== -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Front type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_1_front" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_front_thin" 
+                                                                                        onclick="selectBodyType('front','thin');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thin.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thin
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_front_normal"
+                                                                                        onclick="selectBodyType('front','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_front_thick"
+                                                                                        onclick="selectBodyType('front','thick');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thick.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thick
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Back type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_1_back" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_back_straight"
+                                                                                        onclick="selectBodyType('back','straight');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_straight.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Straight
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_back_normal"
+                                                                                        onclick="selectBodyType('back','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_back_curved"
+                                                                                        onclick="selectBodyType('back','curved');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/back_curved.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Curved
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Shoulder type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_1_shoulder" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_shoulder_straight" 
+                                                                                        onclick="selectBodyType('shoulder','straight');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_straight.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Straight
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_shoulder_normal"
+                                                                                        onclick="selectBodyType('shoulder','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_shoulder_curved"
+                                                                                        onclick="selectBodyType('shoulder','curved');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_curved.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Curved
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="et-block body-type-block">
+                                                                        <div style="display: inline-block;">
+                                                                            <ul>
+                                                                                <li style="width: auto;">
+                                                                                    <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Stomach type :</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                            <ul id="body_type_ul_1_stomach" style="display:flex;">
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_stomach_thin"
+                                                                                        onclick="selectBodyType('stomach','thin');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thin.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thin
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_stomach_normal"
+                                                                                        onclick="selectBodyType('stomach','normal');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_normal.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Normal
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                        <div class="icon-check-2"></div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="body-type-li">
+                                                                                    <div id="body_type_1_stomach_thick"
+                                                                                        onclick="selectBodyType('stomach','thick');">
+                                                                                        <figure class="body-type-fig">
+                                                                                            <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thick.png')}}" alt="">
+                                                                                            <figcaption class="body-type-fig-cap">
+                                                                                                Thick
+                                                                                            </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- ================= end for body type =========================== -->
+                                                                    
                                                             <div class="et-block et-form-btn">
                                                             	<a href="#" onClick="javascript:showMeasureSect('main');" class="et-blk-brn blue">Back</a>
                                                                 <input type="hidden" name="setarr" id="setarr" class="bsetarr" value="">
-                                                               <input type="hidden" name="frntviewfinal" id="frntviewfinal" class="bfrntviewfinal">
+                                                                <input type="hidden" name="frntviewfinal" id="frntviewfinal" class="bfrntviewfinal">
                                                                 <input type="hidden" name="bkviewfinal" id="bkviewfinal"  class="bbkviewfinal">
                                                                 <input type="hidden" name="tocken" id="tocken" value="{{csrf_token() }}">
                                                                 <input type="hidden" name="mpattern" value="Body"  id="bmpattern">
                                                                 <input type="hidden" name="rndvalue" id="brndvalue" value="<?php echo rand(100000, 999999);?>">
                                                                   <div id="et-body"  class="et-cart-brn" style="display:none; width:80px"><img src="{{URL::asset('asset/img/page-loader.gif')}}"></div>
-                                                                <button style="display:none;" type="sumbit" class="et-cart-brn" id="add_to_cart_by_input">Add To Cart</button>
+                                                                <button style="display:none;" type="sumbit" class="et-cart-brn" id="body">Add To Cart</button>
                                                                <!-- <button type="sumbit" class="et-cart-brn">Add To Cart</button>-->
 
                                                                 <div class="et-btn-group">
@@ -1014,12 +1416,317 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                    
                                                 </div>
                                                 <div class="et-checkout-box">@include('demo.shopping')</div>
                                     		</div>
                                   		</div>
                                         <!-- BODY SIZES END -->
+                                        <!-- ============================== OUTFIT SIZES ====================================== -->
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-outfitsize" style="display:none;">
+                                            <div class="pt-thumb-slider">
+                                                <div class="et-des-title"><h2>YOUR OUTFIT SIZES</h2></div>
+                                                <div class="et-main-measurement">
+                                                    <div class="et-block">
+                                                        <div class="et-measure-image-2"><figure><img src="{{asset('/storage/Measurment/Shirts/neck/neck.jpg')}}" alt=""></figure></div>
+                                                        <div class="et-measure-video-2"><video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.ogv')}}" type="video/ogg"><source src="{{asset('/storage/Measurment/Shirts/neck/neck.mp4')}}" type="video/mp4"><object data="{{asset('/storage/Measurment/Shirts/neck/neck.swf')}}" type="application/x-shockwave-flash" width="300" height="220"></object><source src="{{asset('/storage/Measurment/Shirts/neck/neck.webm')}}" type="video/webm"></video></div>
+                                                    </div>
+                                                    <div class="et-block no-pad">
+                                                        <div class="et-subhead">
+                                                            <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                                            <span>Enter your measurements in the corresponding boxes : <span id="fldtitle2">Neck</span> generally range from <b><span id="rngfrom2">9</span></b> to <b><span id="rngto2">23</span></b> <span id="mtyp2">inch</span></span>
+                                                        </div>
+                                                        <div class="et-type-Input">
+                                                            <div class="et-input">
+                                                                <span>NECK</span>
+                                                                <?php $measurenecklst = App\MeasurmentVideo::select('*')->where('id','=',25)->get();?>
+                                                                @foreach($measurenecklst as $mnecklst)
+                                                                <input onkeyup="submitCheck2('neck',this.value);" type="text" data-title="{{$mnecklst->from_range}}-{{$mnecklst->to_range}}" name="bsizeNeck2" id="bsizeNeck2" style="border-color:#F30;" onFocus="javascript:showRanges2('{{$mnecklst->bodysize_type}}',{{$mnecklst->from_range}},{{$mnecklst->to_range}},'neck');" onBlur="javascript:validateField2(this.id,{{$mnecklst->from_range}},{{$mnecklst->to_range}});" value="<?php echo $eTailorObj['osizeNeck'];?>"  >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input">
+                                                                <span>CHEST</span>
+                                                                <?php $measurechestlst = App\MeasurmentVideo::select('*')->where('id','=',26)->get();?>
+                                                                @foreach($measurechestlst as $mchestlst)
+                                                                <input onkeyup="submitCheck2('chest',this.value);" type="text" data-title="{{$mchestlst->from_range}}-{{$mchestlst->to_range}}" name="bsizeChest2" id="bsizeChest2" onFocus="javascript:showRanges2('{{$mchestlst->bodysize_type}}',{{$mchestlst->from_range}},{{$mchestlst->to_range}},'chest');" onBlur="javascript:validateField2(this.id,{{$mchestlst->from_range}},{{$mchestlst->to_range}});" value="<?php echo $eTailorObj['osizeChest'];?>"  >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input">
+                                                                <span>WAIST</span>
+                                                                <?php $measurewaistlst = App\MeasurmentVideo::select('*')->where('id','=',27)->get();?>
+                                                                @foreach($measurewaistlst as $mwaistlst)
+                                                                <input onkeyup="submitCheck2('wasit',this.value);" type="text" data-title="{{$mwaistlst->from_range}}-{{$mwaistlst->to_range}}" name="bsizeWaist2" id="bsizeWaist2" onFocus="javascript:showRanges2('{{$mwaistlst->bodysize_type}}',{{$mwaistlst->from_range}},{{$mwaistlst->to_range}},'waist');" onBlur="javascript:validateField2(this.id,{{$mwaistlst->from_range}},{{$mwaistlst->to_range}});" value="<?php echo $eTailorObj['osizeWaist'];?>" >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input">
+                                                                <span>HIP</span>
+                                                                <?php $measurehiplst = App\MeasurmentVideo::select('*')->where('id','=',28)->get();?>
+                                                                @foreach($measurehiplst as $mhiplst)
+                                                                <input onkeyup="submitCheck2('hip',this.value);" type="text" data-title="{{$mhiplst->from_range}}-{{$mhiplst->to_range}}" name="bsizeHip2" id="bsizeHip2" onFocus="javascript:showRanges2('{{$mhiplst->bodysize_type}}',{{$mhiplst->from_range}},{{$mhiplst->to_range}},'hip');" onBlur="javascript:validateField2(this.id,{{$mhiplst->from_range}},{{$mhiplst->to_range}});" value="<?php echo $eTailorObj['osizeHip'];?>" >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input">
+                                                                <span>LENGTH</span>
+                                                                <?php $measurelengthlst = App\MeasurmentVideo::select('*')->where('id','=',29)->get();?>
+                                                                @foreach($measurelengthlst as $mlengthlst)
+                                                                <input onkeyup="submitCheck2('lentgh',this.value);" type="text" data-title="{{$mlengthlst->from_range}}-{{$mlengthlst->to_range}}" name="bsizeLength2" id="bsizeLength2" onFocus="javascript:showRanges2('{{$mlengthlst->bodysize_type}}',{{$mlengthlst->from_range}},{{$mlengthlst->to_range}},'length');" onBlur="javascript:validateField2(this.id,{{$mlengthlst->from_range}},{{$mlengthlst->to_range}});" value="<?php echo $eTailorObj['osizeLength'];?>" >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input">
+                                                                <span>SHOULDER</span>
+                                                                <?php $measureshoulderlst = App\MeasurmentVideo::select('*')->where('id','=',30)->get();?>
+                                                                @foreach($measureshoulderlst as $mshoulderlst)
+                                                                <input onkeyup="submitCheck2('shoulder',this.value);" type="text" data-title="{{$mshoulderlst->from_range}}-{{$mshoulderlst->to_range}}" name="bsizeShoulder2" id="bsizeShoulder2" onFocus="javascript:showRanges2('{{$mshoulderlst->bodysize_type}}',{{$mshoulderlst->from_range}},{{$mshoulderlst->to_range}},'shoulder');" onBlur="javascript:validateField2(this.id,{{$mshoulderlst->from_range}},{{$mshoulderlst->to_range}});" value="<?php echo $eTailorObj['osizeShoulder'];?>" >
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="et-input" id="bdymsleeve">
+                                                                <span>SLEEVE</span>
+                                                                @if($eTailorObj['osleeve']==3)
+                                                                <?php $measureshortsleevelst = App\MeasurmentVideo::select('*')->where('id','=',32)->get();?>
+                                                                @foreach($measureshortsleevelst as $mshrtslevlst)
+                                                                <input onkeyup="submitCheck2('sleev',this.value);" type="text" data-title="{{$mshrtslevlst->from_range}}-{{$mshrtslevlst->to_range}}" name="bsizeSleeve2" id="bsizeSleeve2" onFocus="javascript:showRanges2('{{$mshrtslevlst->bodysize_type}}',{{$mshrtslevlst->from_range}},{{$mshrtslevlst->to_range}},'shortsleeve');" onBlur="javascript:validateField2(this.id,{{$mshrtslevlst->from_range}},{{$mshrtslevlst->to_range}});" value="<?php echo $eTailorObj['osizeSleeve'];?>" >
+                                                                @endforeach
+                                                                @else
+                                                                <?php $measuresleevelst = App\MeasurmentVideo::select('*')->where('id','=',31)->get();?>
+                                                                @foreach($measuresleevelst as $msleevlst)
+                                                                <input onkeyup="submitCheck2('sleev',this.value);" type="text" data-title="{{$msleevlst->from_range}}-{{$msleevlst->to_range}}" name="bsizeSleeve2" id="bsizeSleeve2" onFocus="javascript:showRanges2('{{$msleevlst->bodysize_type}}',{{$msleevlst->from_range}},{{$msleevlst->to_range}},'sleeve');" onBlur="javascript:validateField2(this.id,{{$msleevlst->from_range}},{{$msleevlst->to_range}});" value="<?php echo $eTailorObj['osizeSleeve'];?>" >
+                                                                @endforeach
+                                                                @endif
+                                                            </div>
+                                                            <div class="et-radio-check">
+                                                                <div class="radio"><label><input type="radio" name="bsizetyp2" id="bsizetyp2" class="bsizetyp2" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label></div>
+                                                                <div class="radio"><label><input type="radio" name="bsizetyp2" id="bsizetyp2" class="bsizetyp2"  value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?> ><span class="cr"><i class="cr-icon"></i></span>Inch</label></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="et-block">
+                                                            <div class="et-setect-fit">
+                                                                <ul><li><span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Size :</span></li><li><div class="radio"><label><input type="radio" name="fitstyle2" class="fitstyle2" id="fitstyle2" value="Comfortable" <?php if($eTailorObj['osizeStyle']=="Comfortable"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Signature Standard Fit</label></div></li><li><div class="radio"><label><input type="radio" id="fitstyle2" class="fitstyle2" name="fitstyle2" value="Slim" <?php if($eTailorObj['osizeStyle']=="Slim"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Euro Slim Fit</label></div></li></ul>
+                                                            </div>
+                                                        </div>
+                                                        <!-- ================= new added for body type ===================== -->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="et-block body-type-block">
+                                                                    <div style="display: inline-block;">
+                                                                        <ul>
+                                                                            <li style="width: auto;">
+                                                                                <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Front type :</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul id="body_type_ul_3_front" style="display:flex;">
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_front_thin" 
+                                                                                    onclick="selectBodyType('front','thin');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thin.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Thin
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_front_normal"
+                                                                                    onclick="selectBodyType('front','normal');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/front_normal.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Normal
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <div class="icon-check-2"></div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_front_thick"
+                                                                                    onclick="selectBodyType('front','thick');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/front_thick.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Thick
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="et-block body-type-block">
+                                                                    <div style="display: inline-block;">
+                                                                        <ul>
+                                                                            <li style="width: auto;">
+                                                                                <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Back type :</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul id="body_type_ul_3_back" style="display:flex;">
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_back_straight"
+                                                                                    onclick="selectBodyType('back','straight');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/back_straight.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Straight
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_back_normal"
+                                                                                    onclick="selectBodyType('back','normal');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/back_normal.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Normal
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <div class="icon-check-2"></div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_back_curved"
+                                                                                    onclick="selectBodyType('back','curved');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/back_curved.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Curved
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="et-block body-type-block">
+                                                                    <div style="display: inline-block;">
+                                                                        <ul>
+                                                                            <li style="width: auto;">
+                                                                                <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Shoulder type :</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul id="body_type_ul_3_shoulder" style="display:flex;">
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_shoulder_straight" 
+                                                                                    onclick="selectBodyType('shoulder','straight');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_straight.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Straight
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_shoulder_normal"
+                                                                                    onclick="selectBodyType('shoulder','normal');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_normal.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Normal
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <div class="icon-check-2"></div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_shoulder_curved"
+                                                                                    onclick="selectBodyType('shoulder','curved');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/shoulder_curved.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Curved
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="et-block body-type-block">
+                                                                    <div style="display: inline-block;">
+                                                                        <ul>
+                                                                            <li style="width: auto;">
+                                                                                <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Stomach type :</span>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <ul id="body_type_ul_3_stomach" style="display:flex;">
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_stomach_thin"
+                                                                                    onclick="selectBodyType('stomach','thin');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thin.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Thin
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_stomach_normal"
+                                                                                    onclick="selectBodyType('stomach','normal');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_normal.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Normal
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                    <div class="icon-check-2"></div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="body-type-li">
+                                                                                <div id="body_type_3_stomach_thick"
+                                                                                    onclick="selectBodyType('stomach','thick');">
+                                                                                    <figure class="body-type-fig">
+                                                                                        <img class="body-type-img" src="{{asset('/asset/img/body_type/stomach_thick.png')}}" alt="">
+                                                                                        <figcaption class="body-type-fig-cap">
+                                                                                            Thick
+                                                                                        </figcaption>
+                                                                                    </figure>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- ================= end for body type =========================== -->
+                                                        <div class="et-block et-form-btn">
+                                                            <a href="#" onClick="javascript:showMeasureSect('main');" class="et-blk-brn blue">Back</a>
+                                                            <input type="hidden" name="setarr" id="setarr" class="bsetarr" value="">
+                                                            <input type="hidden" name="frntviewfinal" id="frntviewfinal" class="bfrntviewfinal">
+                                                            <input type="hidden" name="bkviewfinal" id="bkviewfinal"  class="bbkviewfinal">
+                                                            <input type="hidden" name="tocken" id="tocken" value="{{csrf_token() }}">
+                                                            <input type="hidden" name="mpattern" value="Outfit"  id="bmpattern2">
+                                                            <input type="hidden" name="rndvalue" id="brndvalue2" value="<?php echo rand(100000, 999999);?>">
+                                                              <div id="et-body"  class="et-cart-brn" style="display:none; width:80px"><img src="{{URL::asset('asset/img/page-loader.gif')}}"></div>
+                                                            <button style="display:none;" type="button" class="et-cart-brn" id="body2">Add To Cart</button>
+
+                                                            <div class="et-btn-group">
+                                                                @if($eTailorObj['ocartID']=="")
+                                                                <span>Quantity :</span>
+                                                                <div class="et-btn-select">
+                                                                    <select class="selectpicker btn-primary" id="selbodyqty2" name="selbodyqty2">
+                                                                        @for($i=1;$i<=100;$i++)
+                                                                        @if($eTailorObj['oqty']==$i)<option value="{{$i}}" selected>{{$i}}</option>@else<option value="{{$i}}" >{{$i}}</option>@endif
+                                                                        @endfor
+                                                                    </select>
+                                                                </div>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="et-checkout-box">@include('demo.shopping')</div>
+                                            </div>
+                                        </div>
+                                        <!-- ============================== OUTFIT SIZES END ================================== -->
                             		</div>
                             	</div>
                             </div>
@@ -1058,7 +1765,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
 <script type="text/javascript" src="{{asset('demo/js/bootstrap-touch-slider.js')}}"></script>
 <script type="text/javascript">var url = "{{asset('/storage/')}}";</script>
 <script type="text/javascript" src="{{asset('demo/js/fabric.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/designprocessnew.js')}}"></script>
+<script type="text/javascript" src="{{asset('demo/js/designprocessnew.js')}}?v<?=rand(1, 1000000)?>"></script>
 <!-- Bootstrap Side Menu JS File -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function(e){var stid="menu-"+$('#tabSActiveId').val();var stab=$('#tabSActiveId').val(); var newarr=$('#harr').val(); getTabSect($('#tabActiveId').val());getPgOption(stid,$('#tabActiveId').val(),$('#tabSActiveId').val(),''); designOpenProcessing(JSON.parse(newarr));});
@@ -1069,56 +1776,48 @@ $(document).ready(function(){$(".et-ck-btn").click(function(){var cc=$("#crtcoun
 
 <script type="text/javascript">
 $("#stand").click(function(){
-
-   var setarr = $('#setarr').val();
-  // var frntviewfinal = $('#frntviewfinal').val();
-  // var bkviewfinal = $('#bkviewfinal').val();
-   var mpattern = $('#mpattern').val();
-   var sizetyp = $('.sizetyp:checked').val();
-   var rndvalue = $('#rndvalue').val();
-
-      var selsize = [];
-   $('.selsize').each(function(index,val){
-	 selsize[index] = $(this).val();
-  })
-
-     var selstdqty = [];
-   $('.selstdqty').each(function(index,val){
-	 selstdqty[index] = $(this).val();
-  })
-
-  if (rndvalue!='') {
-
-
-
-			 $.ajax({
-               type:'POST',
-               url:'/designshirts/postcart',
-               data:{setarr:setarr,mpattern:mpattern,selstdqty:selstdqty,selsize:selsize,sizetyp:sizetyp,rndvalue:rndvalue,},
-			   beforeSend: function() {
-				    $("#et-smallr").show();
-					$("#stand").hide();
-			    },
-               headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-               success:function(data){
-
-                  $("#msg").html(data.msg);
-				 window.location.href = "/cart";
-               }
-            });
-
-
+    var setarr = $('#setarr').val();
+    // var frntviewfinal = $('#frntviewfinal').val();
+    // var bkviewfinal = $('#bkviewfinal').val();
+    var mpattern = $('#mpattern').val();
+    var sizetyp = $('.sizetyp:checked').val();
+    var rndvalue = $('#rndvalue').val();
+    var selsize = [];
+    $('.selsize').each(function(index,val){
+	   selsize[index] = $(this).val();
+    })
+    var selstdqty = [];
+    $('.selstdqty').each(function(index,val){
+	   selstdqty[index] = $(this).val();
+    })
+    if (rndvalue!='') {
+	   $.ajax({
+            type:'POST',
+            url:'/designshirts/postcart',
+            data:{setarr:setarr,mpattern:mpattern,selstdqty:selstdqty,selsize:selsize,sizetyp:sizetyp,rndvalue:rndvalue,},
+			beforeSend: function() {
+				$("#et-smallr").show();
+				$("#stand").hide();
+			},
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                $("#msg").html(data.msg);
+				window.location.href = "/cart";
+            }
+        });
     }
-  return false;
-  });
-    </script>
+    return false;
+});
+</script>
 
 <script type="text/javascript">
-$("#body").click(function(){
-
-
+$("#body").click(function(event){
+    if(!validatebodyform()) {
+        event.preventDefault();
+        return false;
+    }
 	var bsizeNeck = $('#bsizeNeck').val();
 	var bsizeChest = $('#bsizeChest').val();
 	var bsizeWaist = $('#bsizeWaist').val();
@@ -1130,40 +1829,101 @@ $("#body").click(function(){
 	var bsizetyp = $('.bsizetyp:checked').val();
 	var fitstyle = $('.fitstyle:checked').val();
 	var setarr = $('.bsetarr').val();
- //  var frntviewfinal = $('.bfrntviewfinal').val();
- //  var bkviewfinal = $('.bbkviewfinal').val();
-   var mpattern = $('#bmpattern').val();
-   var selbodyqty = $('#selbodyqty').val();
-   var rndvalue = $('#brndvalue').val();
-
-
-  if (rndvalue!='') {
-
-
-			 $.ajax({
-               type:'POST',
-               url:'/designshirts/postcart',
-               data:{bsizeNeck:bsizeNeck,bsizeChest:bsizeChest,bsizeWaist:bsizeWaist,bsizeHip:bsizeHip,bsizeLength:bsizeLength,bsizeShoulder:bsizeShoulder,bsizeSleeve:bsizeSleeve,bsizetyp:bsizetyp,fitstyle:fitstyle,setarr:setarr,mpattern:mpattern,selbodyqty:selbodyqty,rndvalue:rndvalue,},
-			    beforeSend: function() {
-				    $("#et-body").show();
-					$("#body").hide();
-			    },
-               headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-               success:function(data){
-
-                  $("#msg").html(data.msg);
-				 window.location.href = "/cart";
-               }
-            });
-
-
+    //  var frntviewfinal = $('.bfrntviewfinal').val();
+    //  var bkviewfinal = $('.bbkviewfinal').val();
+    var mpattern = $('#bmpattern').val();
+    var selbodyqty = $('#selbodyqty').val();
+    var rndvalue = $('#brndvalue').val();
+    if (rndvalue!='') {
+		$.ajax({
+            type:'POST',
+            url:'/designshirts/postcart',
+            data:{
+                bsizeNeck:bsizeNeck,
+                bsizeChest:bsizeChest,
+                bsizeWaist:bsizeWaist,
+                bsizeHip:bsizeHip,
+                bsizeLength:bsizeLength,
+                bsizeShoulder:bsizeShoulder,
+                bsizeSleeve:bsizeSleeve,
+                bsizetyp:bsizetyp,
+                fitstyle:fitstyle,
+                setarr:setarr,
+                mpattern:mpattern,
+                selbodyqty:selbodyqty,
+                rndvalue:rndvalue,
+            },
+		    beforeSend: function() {
+			    $("#et-body").show();
+				$("#body").hide();
+		    },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                $("#msg").html(data.msg);
+			     window.location.href = "/cart";
+            }
+        });
     }
-  return false;
-  });
-    </script>
-
+    return false;
+});
+$("#body2").click(function(event){
+    if(!validatebodyform2()) {
+        event.preventDefault();
+        return false;
+    }
+    var bsizeNeck = $('#bsizeNeck2').val();
+    var bsizeChest = $('#bsizeChest2').val();
+    var bsizeWaist = $('#bsizeWaist2').val();
+    var bsizeHip = $('#bsizeHip2').val();
+    var bsizeLength = $('#bsizeLength2').val();
+    var bsizeShoulder = $('#bsizeShoulder2').val();
+    var bsizeSleeve = $('#bsizeSleeve2').val();
+    var bsizetyp = $('.bsizetyp2:checked').val();
+    var fitstyle = $('.fitstyle2:checked').val();
+    var setarr = $('.bsetarr').val();
+    //  var frntviewfinal = $('.bfrntviewfinal').val();
+    //  var bkviewfinal = $('.bbkviewfinal').val();
+    var mpattern = $('#bmpattern2').val();
+    var selbodyqty = $('#selbodyqty2').val();
+    var rndvalue = $('#brndvalue2').val();
+    
+    if (rndvalue!='') {
+        $.ajax({
+            type:'POST',
+            url:'/designshirts/postcart',
+            data:{
+                bsizeNeck:bsizeNeck,
+                bsizeChest:bsizeChest,
+                bsizeWaist:bsizeWaist,
+                bsizeHip:bsizeHip,
+                bsizeLength:bsizeLength,
+                bsizeShoulder:bsizeShoulder,
+                bsizeSleeve:bsizeSleeve,
+                bsizetyp:bsizetyp,
+                fitstyle:fitstyle,
+                setarr:setarr,
+                mpattern:mpattern,
+                selbodyqty:selbodyqty,
+                rndvalue:rndvalue,
+            },
+            beforeSend: function() {
+                $("#et-body").show();
+                $("#body").hide();
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                $("#msg").html(data.msg);
+                 window.location.href = "/cart";
+            }
+        });
+    }
+    return false;
+});
+</script>
 <script>
     $(document).ready(function(){
         setTimeout(function(){
@@ -1171,6 +1931,5 @@ $("#body").click(function(){
         }, 2000);
     })
 </script>
-
 
 </html>

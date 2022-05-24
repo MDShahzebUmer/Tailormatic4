@@ -19,7 +19,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
 <!-- CSS
 ============================================ -->
-<link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylepants.css')}}" media="all">
+<link rel="stylesheet" type="text/css" href="{{asset('demo/css/stylepants.css')}}?v<?=rand(1, 1000000)?>" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
@@ -510,6 +510,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             	<div class="pt-variation-main">
                             		<div class="pt-variation">
                                         <div id="menu-bodysize" class="pt-box-square" onClick="javascript:showMeasureSect('bodysize');"><p>Body Size</p></div>
+                                        <div id="menu-outfitsize" class="pt-box-square" onClick="javascript:showMeasureSect('outfitsize');"><p>Outfit Size</p></div>
                                         <div id="menu-standardsize" class="pt-box-square" onClick="javascript:showMeasureSect('standardsize');"><p>Standard Sizes</p></div>
                             		</div>
                             	</div>
@@ -517,35 +518,35 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                             		<div class="pt-men">
                                     	<!-- Main Preview -->
                                         <div id="menu-mesure-main" style="display:block;">
-                                        <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
-                                        <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
-                                        <!-- End Main Preview -->
-                                        <!-- Right Option Section -->
-                            			<div class="pt-choose-right et-measure-right">
-                                			<div class="pt-thumb-slider">
-                                                <div class="et-des-title">
-                                                    <h2>Great Choice!  Please Select Your Measurement Option</h2>
-                                                </div>
-                                    			<div class="et-ment-option">
-                                                    <div class="et-body-size light-bg" onClick="javascript:showMeasureSect('bodysize');">
-                                                        <h2 class="un-bg">BODY SIZE</h2>
-                                                        <p>Part of the tailor-made experience is getting yourself measured up. With the assistance of our easy-to-follow video measuring guide, get yourself measured up in no time!</p>
-                                                        <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('bodysize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
-                                                        <figure class="et-img"><img src="{{asset('demo/img/Measurement.png')}}" alt=""></figure>
+                                            <div class="pt-men-left et-measure-left" id="main-front-etmeasurement"><div class="pt-image-div"><img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainBack('etmeasurement');" >BACK VIEW</a></div></div>
+                                            <div class="pt-men-left et-measure-left" id="main-back-etmeasurement" style="display:none;"><div class="pt-image-div"><img src="{{asset('demo/img/product/blank.png')}}" alt=""/></div><div class="pt-price-shirt"><a href="javascript:void(0);" class="pt-back-btn" onClick="javascript:viewMainFront('etmeasurement');" >FRONT VIEW</a></div></div>
+                                            <!-- End Main Preview -->
+                                            <!-- Right Option Section -->
+                                			<div class="pt-choose-right et-measure-right">
+                                    			<div class="pt-thumb-slider">
+                                                    <div class="et-des-title">
+                                                        <h2>Great Choice!  Please Select Your Measurement Option</h2>
                                                     </div>
-                                                    <div class="et-standard-size light-bg" onClick="javascript:showMeasureSect('standardsize');">
-                                                        <h2 class="un-bg">Standard SIZES</h2>
-                                                        <p>Standard sizes provide an equally amazing fit. Select from an array of sizes from our standard size chart. Enjoy your Tailor-made product with the perfect combination of the right size and your creative style choices!</p>
-                                                        <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('standardsize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
-                                                        <figure class="et-img"><img src="{{asset('demo/img/SML.png')}}" alt=""></figure>
+                                        			<div class="et-ment-option">
+                                                        <div class="et-body-size light-bg" onClick="javascript:showMeasureSect('bodysize');">
+                                                            <h2 class="un-bg">BODY SIZE</h2>
+                                                            <p>Part of the tailor-made experience is getting yourself measured up. With the assistance of our easy-to-follow video measuring guide, get yourself measured up in no time!</p>
+                                                            <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('bodysize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
+                                                            <figure class="et-img"><img src="{{asset('demo/img/Measurement.png')}}" alt=""></figure>
+                                                        </div>
+                                                        <div class="et-standard-size light-bg" onClick="javascript:showMeasureSect('standardsize');">
+                                                            <h2 class="un-bg">Standard SIZES</h2>
+                                                            <p>Standard sizes provide an equally amazing fit. Select from an array of sizes from our standard size chart. Enjoy your Tailor-made product with the perfect combination of the right size and your creative style choices!</p>
+                                                            <span><a href="javascript:void(0);" onClick="javascript:showMeasureSect('standardsize');"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a></span>
+                                                            <figure class="et-img"><img src="{{asset('demo/img/SML.png')}}" alt=""></figure>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                    			<div class="et-checkout-box">
-                                                    @include('pants.shopping')
-                                                </div>
+                                        			<div class="et-checkout-box">
+                                                        @include('pants.shopping')
+                                                    </div>
+                                    			</div>
                                 			</div>
-                            			</div>
-                                        <!-- End Right Option Section -->
+                                            <!-- End Right Option Section -->
                                         </div>
                                         <!-- STANDARD SIZES -->
                                         <div class="pt-choose-right et-main-body-size" id="menu-mesure-standardsize" style="display:none;">
@@ -731,6 +732,93 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                     		</div>
                                   		</div>
                                         <!-- BODY SIZES END -->
+                                        <!-- ============================== OUTFIT SIZES ====================================== -->
+                                        <div class="pt-choose-right et-main-body-size" id="menu-mesure-outfitsize" style="display:none;">
+                                            <div class="pt-thumb-slider">
+                                                <div class="et-des-title"><h2>YOUR OUTFIT SIZES</h2></div>
+                                                <div class="et-main-measurement">
+                                                    <form class="et-shirt-measure" role="form" method="POST" action="{{ url('/designpants/postcart') }}" onSubmit="javascript:return validatebodyform2();">
+                                                        {{ csrf_field() }}
+                                                        <div class="et-block">
+                                                            <div class="et-measure-image-2"><figure><img src="{{asset('/storage/Measurment/Shirts/plength/length.jpg')}}" alt=""></figure></div>
+                                                            <div class="et-measure-video-2"><video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="{{asset('/storage/Measurment/Shirts/plength/length.ogv')}}" type="video/ogg"><source src="{{asset('/storage/Measurment/Shirts/plength/length.mp4')}}" type="video/mp4"><object data="{{asset('/storage/Measurment/Shirts/plength/length.swf')}}" type="application/x-shockwave-flash" width="300" height="220"></object><source src="{{asset('/storage/Measurment/Shirts/plength/length.webm')}}" type="video/webm"></video></div>
+                                                        </div>
+                                                        <div class="et-block no-pad">
+                                                            <div class="et-subhead">
+                                                                <span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                                                                <span>Pant <span id="fldtitle2">Waist</span> generally range from <b><span id="rngfrom2">28</span></b> to <b><span id="rngto2">75</span></b> <span id="mtyp2">inch</span></span>
+                                                            </div>
+                                                            <div class="et-type-Input">
+                                                                <div class="et-input">
+                                                                    <span>WAIST</span>
+                                                                    <?php $measurewaistlst = App\MeasurmentVideo::select('*')->where('id','=',44)->get();?>
+                                                                    @foreach($measurewaistlst as $mwaistlst)
+                                                                    <input type="text" data-title="{{$mwaistlst->from_range}}-{{$mwaistlst->to_range}}" name="bsizeWaist" id="bsizeWaist2" onFocus="javascript:showRanges2('{{$mwaistlst->bodysize_type}}',{{$mwaistlst->from_range}},{{$mwaistlst->to_range}},'waist');" onBlur="javascript:validateField2(this.id,{{$mwaistlst->from_range}},{{$mwaistlst->to_range}});" value="<?php echo $eTailorObj['osizeWaist'];?>" >
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="et-input">
+                                                                    <span>HIP</span>
+                                                                    <?php $measurehiplst = App\MeasurmentVideo::select('*')->where('id','=',45)->get();?>
+                                                                    @foreach($measurehiplst as $mhiplst)
+                                                                    <input type="text" data-title="{{$mhiplst->from_range}}-{{$mhiplst->to_range}}" name="bsizeHip" id="bsizeHip2" onFocus="javascript:showRanges2('{{$mhiplst->bodysize_type}}',{{$mhiplst->from_range}},{{$mhiplst->to_range}},'hip');" onBlur="javascript:validateField2(this.id,{{$mhiplst->from_range}},{{$mhiplst->to_range}});" value="<?php echo $eTailorObj['osizeHip'];?>" >
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="et-input">
+                                                                    <span>CROTCH</span>
+                                                                    <?php $measurecrotchlst = App\MeasurmentVideo::select('*')->where('id','=',46)->get();?>
+                                                                    @foreach($measurecrotchlst as $mcrotchlst)
+                                                                    <input type="text" data-title="{{$mcrotchlst->from_range}}-{{$mcrotchlst->to_range}}" name="bsizeCrotch" id="bsizeCrotch2" onFocus="javascript:showRanges2('{{$mcrotchlst->bodysize_type}}',{{$mcrotchlst->from_range}},{{$mcrotchlst->to_range}},'croch');" onBlur="javascript:validateField2(this.id,{{$mcrotchlst->from_range}},{{$mcrotchlst->to_range}});" value="<?php echo $eTailorObj['osizeCrotch'];?>" >
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="et-input">
+                                                                    <span>THIGH</span>
+                                                                    <?php $measurethighlst = App\MeasurmentVideo::select('*')->where('id','=',47)->get();?>
+                                                                    @foreach($measurethighlst as $mthighlst)
+                                                                    <input type="text" data-title="{{$mthighlst->from_range}}-{{$mthighlst->to_range}}" name="bsizeThigh" id="bsizeThigh2" onFocus="javascript:showRanges2('{{$mthighlst->bodysize_type}}',{{$mthighlst->from_range}},{{$mthighlst->to_range}},'thigh');" onBlur="javascript:validateField2(this.id,{{$mthighlst->from_range}},{{$mthighlst->to_range}});" value="<?php echo $eTailorObj['osizeThigh'];?>" >
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="et-input">
+                                                                    <span>LENGTH</span>
+                                                                    <?php $measurelengthlst = App\MeasurmentVideo::select('*')->where('id','=',48)->get();?>
+                                                                    @foreach($measurelengthlst as $mlengthlst)
+                                                                    <input type="text" data-title="{{$mlengthlst->from_range}}-{{$mlengthlst->to_range}}" name="bsizeLength" id="bsizeLength2" onFocus="javascript:showRanges2('{{$mlengthlst->bodysize_type}}',{{$mlengthlst->from_range}},{{$mlengthlst->to_range}},'length');" onBlur="javascript:validateField2(this.id,{{$mlengthlst->from_range}},{{$mlengthlst->to_range}});" value="<?php echo $eTailorObj['osizeLength'];?>" >
+                                                                    @endforeach
+                                                                </div>
+                                                                <div class="et-radio-check">
+                                                                    <div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp2" value="cm" <?php if($eTailorObj['osizeType']=="cm"){?>checked<?php } ?>><span class="cr"><i class="cr-icon"></i></span>Cm</label></div>
+                                                                    <div class="radio"><label><input type="radio" name="bsizetyp" id="bsizetyp2" value="inch" <?php if($eTailorObj['osizeType']=="inch"){?>checked<?php } ?> ><span class="cr"><i class="cr-icon"></i></span>Inch</label></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="et-block">
+                                                                <div class="et-setect-fit">
+                                                                    <ul>
+                                                                        <li><span class="longarrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span><span>Select Your Size :</span></li>
+                                                                        <li><div class="radio"><label><input type="radio" name="fitstyle" value="Comfortable" <?php if($eTailorObj['osizeStyle']=="Comfortable"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Signature Standard Fit</label></div></li>
+                                                                        <li><div class="radio"><label><input type="radio" name="fitstyle" value="Slim" <?php if($eTailorObj['osizeStyle']=="Slim"){?> checked<?php }?> ><span class="cr"><i class="cr-icon"></i></span>Euro Slim Fit</label></div></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="et-block et-form-btn">
+                                                                <a href="#" onClick="javascript:showMeasureSect('main');" class="et-blk-brn blue">Back To Design</a>
+                                                                <input type="hidden" name="setarr" id="setarr2" value="">
+                                                                <input type="hidden" name="frntviewfinal" id="frntviewfinal2">
+                                                                <input type="hidden" name="bkviewfinal" id="bkviewfinal2">
+                                                                <input type="hidden" name="mpattern" value="Outfit">
+                                                                <input type="hidden" name="selbodyqty" value="1">
+                                                                <button type="sumbit" class="et-cart-brn">Add To Cart</button>
+                                                                <div class="et-btn-group">
+                                                                    <h4 style="color:#f00; font-weight:bold;" class="vwprice">1 Pant: ${{$eTailorObj['ofabricPrice']}} </h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="et-checkout-box">
+                                                    @include('pants.shopping')
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ============================== OUTFIT SIZES END ================================== -->
                             		</div>
                             	</div>
                             </div>
@@ -761,7 +849,7 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
 <script type="text/javascript" src="{{asset('demo/js/bootstrap-touch-slider.js')}}"></script>
 <script type="text/javascript">var url = "{{asset('/storage/')}}";</script>
 <script type="text/javascript" src="{{asset('demo/js/fabric.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/pantsprocessnew.js')}}"></script>
+<script type="text/javascript" src="{{asset('demo/js/pantsprocessnew.js')}}?v<?=rand(1, 1000000)?>"></script>
 <!-- Bootstrap Side Menu JS File -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function(e){var stid="menu-"+$('#tabSActiveId').val(); var stab=$('#tabSActiveId').val(); getTabSect($('#tabActiveId').val());getPgOption(stid,$('#tabActiveId').val(),$('#tabSActiveId').val(),''); frontdesignProcess(<?php echo json_encode($eTailorObj);?>); backdesignProcess(<?php echo json_encode($eTailorObj);?>); changeSizeDetails();});

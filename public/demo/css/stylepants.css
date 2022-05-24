@@ -730,3 +730,31 @@ ul.et-payment-list>li {
     display: inline-block;
     color: #ffe600 !important;
   }
+/* =============== new added for outfit size =============== */
+.et-measure-image-2, .et-measure-video-2 {
+    margin: 0 30px;
+    overflow: hidden;
+}
+
+.et-measure-image-2 {
+    width: 335px;
+    height: 195px;
+    border: 1px solid #3c3c3c;
+    text-align: center;
+    line-height: 192px;
+    float: left;
+}
+
+.et-measure-video-2 {
+    width: 335px;
+    height: 195px;
+    float: left;
+    border: 1px solid #3c3c3c;
+    text-align: center;
+    line-height: 191px;
+}
+@media only screen and (min-width: 0px) and (max-width: 767px){
+    .et-measure-image-2, .et-measure-video-2 {
+        margin: 0px 0px;
+    }
+}

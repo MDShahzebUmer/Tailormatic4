@@ -20,7 +20,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}">
 <!-- CSS 
 ============================================ -->
-<link rel="stylesheet" type="text/css" href="{{asset('demo/css/styletwopiece.css?v1')}}" media="all">
+<link rel="stylesheet" type="text/css" href="{{asset('demo/css/styletwopiece.css')}}?v<?=rand(1, 1000000)?>" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap.min.css')}}" media="all">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/font-awesome.min.css')}}" media="screen">
 <link rel="stylesheet" type="text/css" href="{{asset('demo/css/bootstrap-touch-slider.css')}}" media="screen">
@@ -273,6 +273,11 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
                                         </a>
                                     </li>
                                     <li>
+                                        <a class="link menu-link" id="bodysize_link" onClick="openPgContent(this,'','etmeasurementjacket','','outfitsize','measurement');">
+                                            <p>Outfit Size</p>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a class="link menu-link" id="standardsize_link" onClick="openPgContent(this,'','etmeasurementjacket','','standardsize','measurement');">
                                             <p>Standard Size</p>
                                         </a>
@@ -317,8 +322,8 @@ $(document).ready(function() {var l=$("#loadme").val();if(l==0){setTimeout(funct
 <script type="text/javascript" src="{{asset('demo/js/bootstrap-touch-slider.js')}}"></script>
 <script type="text/javascript">var url = "{{asset('/storage/')}}";</script>
 <script type="text/javascript" src="{{asset('demo/js/fabric.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/twopieceprocess.js?v6')}}"></script>
-<script type="text/javascript" src="{{asset('demo/js/twopiece-pants.js?v4')}}"></script>
+<script type="text/javascript" src="{{asset('demo/js/twopieceprocess.js')}}?v<?=rand(1, 1000000)?>"></script>
+<script type="text/javascript" src="{{asset('demo/js/twopiece-pants.js')}}?v<?=rand(1, 1000000)?>"></script>
 <!-- Bootstrap Side Menu JS File -->
 <script language="javascript" type="text/javascript">
 $(document).ready(function(e) {
@@ -746,6 +751,155 @@ $("#temp_body_btn").click(function(e){
 				$("#et-body").show();
 				$("#temp_body_btn").hide();
 			},
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                window.location.href = "/cart";
+            }
+        });
+    }        
+    
+    e.preventDefault();
+    return;
+});
+$("#temp_body_btn2").click(function(e){    
+    var bsizetyp = $('#container_jackets #bsizetyp2:checked').val();
+    $('#container_pants input:radio[name=bsizetyp]').filter('[value='+bsizetyp+']').prop('checked', true);
+
+    var fitstyle = $('#container_jackets #fitstyle2:checked').val();
+    $('#container_pants input:radio[name=fitstyle]').filter('[value='+fitstyle+']').prop('checked', true);
+
+    var bsizeChest = $('#container_jackets #bsizeChest2').val();
+    var bsizeWaist = $('#container_jackets #bsizeWaist2').val();
+    var bsizeHip = $('#container_jackets #bsizeHip2').val();
+    var bsizeShoulder = $('#container_jackets #bsizeShoulder2').val();
+    var bsizeSleeve = $('#container_jackets #bsizeSleeve2').val();
+    var bsizeLength = $('#container_jackets #bsizeLength2').val();
+    var setarr = $('#container_jackets input#setarr2').val();
+    var frntviewfinal = $('#container_jackets input#frntviewfinal2').val();
+    var bkviewfinal = $('#container_jackets input#bkviewfinal2').val();
+    var mpattern = $('#container_jackets #bmpattern2').val();
+    var selstdqty = $('#container_jackets #bselbodyqty2').val();    
+    var rndvalue = $('#container_jackets #brndvalue2').val();
+
+    var pant_setarr = $("#container_pants input#setarr").val();
+    var pant_frntviewfinal = $("#container_pants input#frntviewfinal").val(); 
+    var pant_bkviewfinal = $("#container_pants input#bkviewfinal").val();
+    var pant_bsizewaist = $('#temp_pant_bsizeWaist2').val(); 
+    var pant_bsizehip = $('#temp_pant_bsizeHip2').val(); 
+    var pant_bsizecrotch = $('#temp_pant_bsizeCrotch2').val();  
+    var pant_bsizethigh = $('#temp_pant_bsizeThigh2').val(); 
+    var pant_bsizelength = $('#temp_pant_bsizeLength2').val(); 
+    $('#container_pants #bsizeWaist').val(pant_bsizewaist);
+    $('#container_pants #bsizeHip').val(pant_bsizehip);
+    $('#container_pants #bsizeCrotch').val(pant_bsizecrotch);
+    $('#container_pants #bsizeThigh').val(pant_bsizethigh);
+    $('#container_pants #bsizeLength').val(pant_bsizelength);
+
+    var total_price = 0;
+
+    var validation_state = validatejacketbodyform2();
+    // console.log("validattion state: " , validation_state);
+
+    // e.preventDefault();
+    // return;
+
+    var old_jacket_setarr = JSON.parse(setarr);
+    var old_pant_setarr = JSON.parse(pant_setarr);
+    // console.log("old jacket setarr:", old_jacket_setarr);
+    // console.log("old pant setarr:", old_pant_setarr);
+
+    var new_setarr_ary = old_jacket_setarr;
+    // change basic data --------------------------------------------
+    new_setarr_ary['oprodType1'] = new_setarr_ary['oprodType'];
+    new_setarr_ary['oprodType'] = "2Piece Suit";
+    new_setarr_ary['osizePattern']= mpattern;
+    new_setarr_ary['osizeStyle']= fitstyle;          
+    new_setarr_ary['osizeType']= bsizetyp;
+    new_setarr_ary['oqty']= 1;
+    new_setarr_ary['osizeFit']='';
+
+    // add jacket data ---------------------------------------------          
+    new_setarr_ary['osizeChest']= bsizeChest;
+    new_setarr_ary['osizeWaist']= bsizeWaist;
+    new_setarr_ary['osizeHip']= bsizeHip;
+    new_setarr_ary['osizeShoulder']= bsizeShoulder;
+    new_setarr_ary['osizeSleeve']= bsizeSleeve;
+    new_setarr_ary['osizeLength']= bsizeLength;          
+                   
+    // add pant data ------------------------------------------------    
+    new_setarr_ary['pant_obackpockt'] = old_pant_setarr['obackpockt'];
+    new_setarr_ary['pant_obackpocktName'] = old_pant_setarr['obackpocktName'];
+    new_setarr_ary['pant_obackpocktSide'] = old_pant_setarr['obackpocktSide'];
+    new_setarr_ary['pant_obeltloop'] = old_pant_setarr['obeltloop'];
+    new_setarr_ary['pant_obeltloopName'] = old_pant_setarr['obeltloopName'];
+    new_setarr_ary['pant_obutton'] = old_pant_setarr['obutton'];
+    new_setarr_ary['pant_obuttonCode'] = old_pant_setarr['obuttonCode'];
+    new_setarr_ary['pant_obuttonHole'] = old_pant_setarr['obuttonHole'];
+    new_setarr_ary['pant_obuttonHoleCode'] = old_pant_setarr['obuttonHoleCode'];
+    new_setarr_ary['pant_obuttonHoleName'] = old_pant_setarr['obuttonHoleName'];
+    new_setarr_ary['pant_obuttonName'] = old_pant_setarr['obuttonName'];
+    new_setarr_ary['pant_ocatID'] = old_pant_setarr['ocatID'];
+    new_setarr_ary['pant_ocontbackpockets'] = old_pant_setarr['ocontbackpockets'];
+    new_setarr_ary['pant_ocontbeltloop'] = old_pant_setarr['ocontbeltloop'];
+    new_setarr_ary['pant_ocontrast'] = old_pant_setarr['ocontrast'];
+    new_setarr_ary['pant_ocontrastName'] = old_pant_setarr['ocontrastName'];
+    new_setarr_ary['pant_ocuff'] = old_pant_setarr['ocuff'];
+    new_setarr_ary['pant_ocuffName'] = old_pant_setarr['ocuffName'];
+    new_setarr_ary['pant_ofabric'] = old_pant_setarr['ofabric'];
+    new_setarr_ary['pant_ofabricDesc'] = old_pant_setarr['ofabricDesc'];
+    new_setarr_ary['pant_ofabricGroup'] = old_pant_setarr['ofabricGroup'];
+    new_setarr_ary['pant_ofabricImage'] = old_pant_setarr['ofabricImage'];
+    new_setarr_ary['pant_ofabricList'] = old_pant_setarr['ofabricList'];
+    new_setarr_ary['pant_ofabricName'] = old_pant_setarr['ofabricName'];
+    new_setarr_ary['pant_ofabricPrice'] = old_pant_setarr['ofabricPrice'];
+    new_setarr_ary['pant_ofabricType'] = old_pant_setarr['ofabricType'];    
+    new_setarr_ary['pant_opacket'] = old_pant_setarr['opacket'];
+    new_setarr_ary['pant_opacketName'] = old_pant_setarr['opacketName'];
+    new_setarr_ary['pant_opleat'] = old_pant_setarr['opleat'];
+    new_setarr_ary['pant_opleatName'] = old_pant_setarr['opleatName'];
+    new_setarr_ary['pant_oprodType'] = old_pant_setarr['oprodType'];
+    new_setarr_ary['pant_oqty'] = old_pant_setarr['oqty'];
+    // new_setarr_ary['pant_osizeFit'] = old_pant_setarr['osizeFit'];
+    // new_setarr_ary['pant_osizePattern'] = old_pant_setarr['osizePattern'];
+    new_setarr_ary['pant_ostyle'] = old_pant_setarr['ostyle'];
+    new_setarr_ary['pant_ostyleName'] = old_pant_setarr['ostyleName'];
+    new_setarr_ary['pant_owaistbandedge'] = old_pant_setarr['owaistbandedge'];
+
+    new_setarr_ary['pant_osizeWaist']= pant_bsizewaist;
+    new_setarr_ary['pant_osizeHip']= pant_bsizehip;
+    new_setarr_ary['pant_osizeCrotch']= pant_bsizecrotch;
+    new_setarr_ary['pant_osizeThigh']= pant_bsizethigh;
+    new_setarr_ary['pant_osizeLength']= pant_bsizelength;
+
+    // --------------------------------------------------------------  
+
+    // console.log("new_setarr_ary : ",new_setarr_ary);
+
+    total_price = (1*new_setarr_ary['ofabricPrice']) + (1*new_setarr_ary['pant_ofabricPrice']);
+    var new_setarr = JSON.stringify(new_setarr_ary);
+
+    // e.preventDefault();
+    // return;
+
+    if(validation_state){
+        $.ajax({
+            type:'POST',
+            url:'/designtwopiece/postcart',
+            data:{
+                setarr:new_setarr, 
+                frntviewfinal:frntviewfinal,
+                bkviewfinal:bkviewfinal,
+                pant_frntviewfinal:pant_frntviewfinal,
+                pant_bkviewfinal:pant_bkviewfinal,
+                catId:19,// db categories table id : 19 (two piece suit) 
+                totalPrice:total_price,
+            },
+            beforeSend: function() {
+                $("#et-body").show();
+                $("#temp_body_btn").hide();
+            },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

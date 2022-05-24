@@ -913,7 +913,7 @@ function showJacketMeasureSect(id){
 	$("div[id^='menu-mesure-jacket-']").css("display","none"); 
 	$("#menu-mesure-jacket-"+id).css("display","block");
 	$("#etmeasurementjacket").find("div.pt-variation div.pt-box-square").removeClass("active");
-	if(id=="bodysize" || id=="standardsize"){
+	if(id=="bodysize" || id=="standardsize" || id=="outfitsize"){
 		$("#menu-jacket-"+id).addClass("active");
 		if(id=="bodysize"){ 
 			$("#container_jackets input#bsizeChest").focus(); 
@@ -935,6 +935,19 @@ function showJacketMeasureSect(id){
 			$("#container_jackets input#bkviewfinal").val(bview);
 			var arr = document.getElementById("harrJacket").value; 
 			$("#container_jackets input#setarr").val(arr);
+		} else if(id=="outfitsize"){ 
+			$("#container_jackets input#bsizeChest2").focus(); 
+			$("#container_jackets span#fldtitle2").html("Chest"); 
+			$("#container_jackets span#rngfrom2").html("28"); 
+			$("#container_jackets span#rngto2").html("75");
+			$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",url+"/Measurment/Shirts/chest/chest.jpg");
+			$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/chest/chest.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/chest/chest.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/chest/chest.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/chest/chest.webm" type="video/webm"></video>');
+			var fview=$("#container_jackets #main-front-etmeasurementjacket").find("div.pt-jacketimage-div img").attr("src"); 
+			var bview=$("#container_jackets #main-back-etmeasurementjacket").find("div.pt-jacketimage-div img").attr("src");
+			$("#container_jackets input#frntviewfinal2").val(fview); 
+			$("#container_jackets input#bkviewfinal2").val(bview); 
+			var arr = document.getElementById("harrJacket").value; 
+			$("#container_jackets input#setarr2").val(arr);
 		}
 	}
 
@@ -1353,5 +1366,370 @@ function updatejacketfabprice(){
 	// fabprice=parseFloat(fabprice);
 	// $("#container_jackets .pt-dollor").html("$ "+fabprice);
 	// $("#container_jackets .vwprice").html("1 Jacket: $ "+fabprice);
+}
+/* new added for body type */
+function selectBodyType(option, type) {
+    $('#body_type_ul_'+1+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+1+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    $('#body_type_ul_'+2+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+2+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    $('#body_type_ul_'+3+'_'+option).find('div.icon-check-2').remove();
+    $('#body_type_'+3+'_'+option+'_'+type).append('<div class="icon-check-2"></div>');
+    var arr = document.getElementById("harrJacket").value; 
+    arr = JSON.parse(arr);
+    arr['body_type_'+option] = type;
+    var uparr = JSON.stringify(arr);
+    $('#harrJacket').val(uparr);
+    $("#container_jackets input#setarr").val(uparr);
+    $("#container_jackets input#setarr2").val(uparr);
+}
+/* ============================ new added for outfit size =============================== */
+function showJacketRanges2(ttl,frange,trange,typ){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value");
+	if(sizetyp=="cm"){ 
+		frange=Math.round(frange*2.54,2); 
+		trange=Math.round(trange*2.54,2); 
+	} else { 
+		frange=frange; 
+		trange=trange; 
+	}
+	var msrimg=url+"/Measurment/Shirts/"+typ+"/"+typ+".jpg"; 
+	$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+	$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.webm" type="video/webm"></video>');
+	$("#container_jackets span#fldtitle2").html(ttl); 
+	$("#container_jackets span#rngfrom2").html(frange); 
+	$("#container_jackets span#rngto2").html(trange); 
+	$("#container_jackets span#mtyp2").html(sizetyp);
+}
+function showPantRangesTemp2(ttl,frange,trange,typ){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value");
+	if(sizetyp=="cm"){ 
+		frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); 
+	} else { frange=frange; trange=trange; }
+	if(typ=="waist"){
+		var msrimg=url+"/Measurment/Shirts/pwaist/"+typ+".jpg";
+		$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/pwaist/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/pwaist/'+typ+'.webm" type="video/webm"></video>');
+	}else if(typ=="hip"){
+		var msrimg=url+"/Measurment/Shirts/phip/"+typ+".jpg";
+		$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/phip/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/phip/'+typ+'.webm" type="video/webm"></video>');
+	}else if(typ=="length"){
+		var msrimg=url+"/Measurment/Shirts/plength/"+typ+".jpg";
+		$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/plength/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/plength/'+typ+'.webm" type="video/webm"></video>');
+	} else {
+		var msrimg=url+"/Measurment/Shirts/"+typ+"/"+typ+".jpg";
+		$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.webm" type="video/webm"></video>');
+	}
+	$("#container_jackets span#pant_fldtitle2").html(ttl); 
+	$("#container_jackets span#pant_rngfrom2").html(frange); 
+	$("#container_jackets span#pant_rngto2").html(trange); 
+	$("#container_jackets span#pant_mtyp2").html(sizetyp);
+}
+function showVestRangesTemp2(ttl,frange,trange,typ){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value");
+	if(sizetyp=="cm"){
+		frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); 
+	} else { frange=frange; trange=trange;}
+	if(typ=="length"){
+		var msrimg=url+"/Measurment/Shirts/vlength/"+typ+".jpg";
+		$("#container_jackets div.et-measure-image-2").find("figure img").attr("src",msrimg);
+		$("#container_jackets div.et-measure-video-2").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/vlength/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/vlength/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/vlength/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/vlength/'+typ+'.webm" type="video/webm"></video>'); 
+	} else {
+		var msrimg=url+"/Measurment/Shirts/"+typ+"/"+typ+".jpg";$("div.et-measure-image").find("figure img").attr("src",msrimg);$("div.et-measure-video").html('<video width="100%" loop preload="metadata" autoplay controls class="__web-inspector-hide-shortcut__"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.ogv" type="video/ogg"><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.mp4" type="video/mp4"><object data="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.swf" type="application/x-shockwave-flash" width="300" height="220"></object><source src="'+url+'/Measurment/Shirts/'+typ+'/'+typ+'.webm" type="video/webm"></video>'); 
+	}
+	$("#container_jackets span#vest_fldtitle2").html(ttl); 
+	$("#container_jackets span#vest_rngfrom2").html(frange); 
+	$("#container_jackets span#vest_rngto2").html(trange); 
+	$("#container_jackets span#vest_mtyp2").html(sizetyp);
+}
+
+function validateJacketField2(fid,frange,trange){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value"); 
+	var fval=$("#container_jackets #"+fid).val();
+	if(sizetyp=="cm"){
+		frange=Math.round(frange*2.54,2); 
+		trange=Math.round(trange*2.54,2); 
+	} else { frange=frange; trange=trange; }
+	if(fval==""){ 
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); 
+	} else if(fval<frange || fval>trange){ 
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); 
+	} else { 
+		$("#container_jackets #"+fid).css({'border-color':'#090','box-shadow':'0px 0px 15px #090'}); 
+	}
+}
+
+function validatePantFieldTemp2(fid,frange,trange){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value"); 
+	var fval=$("#"+fid).val();
+	if(sizetyp=="cm"){ 
+		frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); 
+	} else { frange=frange; trange=trange; }
+	
+	if(fval==""){ 
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); 
+	} else if(fval<frange || fval>trange){ 
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'}); 
+	} else { 
+		$("#container_jackets #"+fid).css({'border-color':'#090','box-shadow':'0px 0px 15px #090'}); 
+	}
+}
+
+function validateVestFieldTemp2(fid,frange,trange){
+	var sizetyp=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value");
+	var fval=$("#"+fid).val();
+	if(sizetyp=="cm"){ 
+		frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); 
+	} else { frange=frange; trange=trange; }
+	
+	if(fval==""){
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+	} else if(fval<frange || fval>trange){ 
+		$("#container_jackets #"+fid).css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+	} else { 
+		$("#container_jackets #"+fid).css({'border-color':'#090','box-shadow':'0px 0px 15px #090'}); 
+	}
+}
+function validatejacketbodyform2(){
+	var typ=$("#container_jackets input[id^='bsizetyp2']:checked").attr("value"); 
+	var rnge="";
+	if(document.getElementById('bsizeChest2').value==""){
+		document.getElementById('bsizeChest2').focus(); 
+		return false;
+	} else if(
+		document.getElementById('bsizeChest2').value!=""){
+		rnge=$("#container_jackets #bsizeChest2").attr("data-title").split('-'); 
+		frange=parseFloat(rnge[0]); 
+		trange=parseFloat(rnge[1]);
+		if(typ=="cm"){
+			frange=Math.round(frange*2.54,2); 
+			trange=Math.round(trange*2.54,2);
+		} else { frange=frange; trange=trange;}
+		if(IsFloat(document.getElementById('bsizeChest2').value)==false){
+			$("#container_jackets #bsizeChest2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeChest2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeChest2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeChest2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeChest2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeChest2').focus(); return false;
+		}
+	}
+	if(
+		document.getElementById('bsizeWaist2').value==""){ 
+		document.getElementById('bsizeWaist2').focus(); 
+		return false;
+	} else if(document.getElementById('bsizeWaist2').value!=""){
+		rnge=$("#container_jackets #bsizeWaist2").attr("data-title").split('-'); 
+		frange=parseFloat(rnge[0]); 
+		trange=parseFloat(rnge[1]);
+		if(typ=="cm"){
+			frange=Math.round(frange*2.54,2);
+			trange=Math.round(trange*2.54,2);
+		} else {frange=frange;trange=trange;}
+		if(IsFloat(document.getElementById('bsizeWaist2').value)==false){
+			$("#container_jackets #bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeWaist2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeWaist2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeWaist2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeWaist2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeHip2').value==""){ document.getElementById('bsizeHip2').focus(); return false;
+	} else if(document.getElementById('bsizeHip2').value!=""){
+		rnge=$("#container_jackets #bsizeHip2").attr("data-title").split('-'); 
+		frange=parseFloat(rnge[0]); 
+		trange=parseFloat(rnge[1]);
+		if(typ=="cm"){
+			frange=Math.round(frange*2.54,2); 
+			trange=Math.round(trange*2.54,2);
+		} else {frange=frange; trange=trange;}
+		if(IsFloat(document.getElementById('bsizeHip2').value)==false){
+			$("#container_jackets #bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeHip2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeHip2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeHip2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeHip2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeLength2').value==""){
+		document.getElementById('bsizeLength2').focus(); return false;
+	} else if(document.getElementById('bsizeLength2').value!=""){
+		rnge=$("#container_jackets #bsizeLength2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){frange=Math.round(frange*2.54,2);trange=Math.round(trange*2.54,2);} else {frange=frange;trange=trange;}
+		if(IsFloat(document.getElementById('bsizeLength2').value)==false){
+			$("#container_jackets #bsizeLength2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeLength2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeLength2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeLength2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeLength2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeLength2').focus();return false;
+		}
+	}
+	if(document.getElementById('bsizeShoulder2').value==""){ document.getElementById('bsizeShoulder2').focus(); return false;
+	} else if(document.getElementById('bsizeShoulder2').value!=""){
+		rnge=$("#container_jackets #bsizeShoulder2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){frange=Math.round(frange*2.54,2);trange=Math.round(trange*2.54,2);} else {frange=frange;trange=trange;}
+		if(IsFloat(document.getElementById('bsizeShoulder2').value)==false){
+			$("#container_jackets #bsizeShoulder2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeShoulder2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeShoulder2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeShoulder2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeShoulder2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeShoulder2').focus(); return false;
+		}
+	}
+	if(document.getElementById('bsizeSleeve2').value==""){document.getElementById('bsizeSleeve2').focus(); return false;
+	} else if(document.getElementById('bsizeSleeve2').value!=""){
+		rnge=$("#container_jackets #bsizeSleeve2").attr("data-title").split('-');frange=parseFloat(rnge[0]);trange=parseFloat(rnge[1]);
+		if(typ=="cm"){frange=Math.round(frange*2.54,2);trange=Math.round(trange*2.54,2);} else {frange=frange;trange=trange;}
+		if(IsFloat(document.getElementById('bsizeSleeve2').value)==false){
+			$("#container_jackets #bsizeSleeve2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeSleeve2').focus(); return false;
+		} else if(parseFloat(document.getElementById('bsizeSleeve2').value) < parseFloat(frange) || parseFloat(document.getElementById('bsizeSleeve2').value) > parseFloat(trange)){
+			$("#container_jackets #bsizeSleeve2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			document.getElementById('bsizeSleeve2').focus(); return false;
+		}
+	}
+
+	// pant validate ---------------------------------------------------------------------
+	if($('#temp_pant_bsizeWaist2').val()==""){ 
+		$('#temp_pant_bsizeWaist2').focus(); 
+		return false;
+	} else if($('#temp_pant_bsizeWaist2').val()!=""){
+		rnge=$('#temp_pant_bsizeWaist2').attr("data-title").split('-'); 
+		frange=parseFloat(rnge[0]); 
+		trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_pant_bsizeWaist2').val())==false){
+			$('#temp_pant_bsizeWaist2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeWaist2').focus(); return false;
+		} else if(parseFloat($('#temp_pant_bsizeWaist2').val()) < parseFloat(frange) 
+			|| parseFloat($('#temp_pant_bsizeWaist2').val()) > parseFloat(trange)){
+			$('#temp_pant_bsizeWaist2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeWaist2').focus(); return false;
+		}
+	}
+	
+	if($('#temp_pant_bsizeHip2').val()==""){ 
+		$('#temp_pant_bsizeHip2').focus(); return false;
+	} else if($('#temp_pant_bsizeHip2').val()!=""){
+		rnge=$('#temp_pant_bsizeHip2').attr("data-title").split('-'); 
+		frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_pant_bsizeHip2').val())==false){
+			$('#temp_pant_bsizeHip2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeHip2').focus(); return false;
+		} else if(parseFloat($('#temp_pant_bsizeHip2').val()) < parseFloat(frange) || parseFloat($('#temp_pant_bsizeHip2').val()) > parseFloat(trange)){
+			$('#temp_pant_bsizeHip2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeHip2').focus(); return false;
+		}
+	}
+
+	if($('#temp_pant_bsizeCrotch2').val()==""){ $('#temp_pant_bsizeCrotch2').focus(); return false;
+	} else if($('#temp_pant_bsizeCrotch2').val()!=""){
+		rnge=$('#temp_pant_bsizeCrotch2').attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_pant_bsizeCrotch2').val())==false){
+			$('#temp_pant_bsizeCrotch2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeCrotch2').focus(); return false;
+			$('#temp_pant_bsizeCrotch2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+		} else if(parseFloat($('#temp_pant_bsizeCrotch2').val()) < parseFloat(frange) || parseFloat($('#temp_pant_bsizeCrotch2').val()) > parseFloat(trange)){
+			$('#temp_pant_bsizeCrotch2').focus(); return false;
+		}
+	}
+
+	if($('#temp_pant_bsizeLength2').val()==""){ $('#temp_pant_bsizeLength2').focus(); return false;
+	} else if($('#temp_pant_bsizeLength2').val()!=""){
+		rnge=$('#temp_pant_bsizeLength2').attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_pant_bsizeLength2').val())==false){
+			$('#temp_pant_bsizeLength2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeLength2').focus();
+			return false;
+		}
+	}
+
+	if($('#temp_pant_bsizeThigh2').val()==""){ $('#temp_pant_bsizeThigh2').focus(); return false;
+	} else if($('#temp_pant_bsizeThigh2').val()!=""){
+		rnge=$('#temp_pant_bsizeThigh2').attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_pant_bsizeThigh2').val())==false){
+			$('#temp_pant_bsizeThigh2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeThigh2').focus(); return false;
+		} else if(parseFloat($('#temp_pant_bsizeThigh2').val()) < parseFloat(frange) || parseFloat($('#temp_pant_bsizeThigh2').val()) > parseFloat(trange)){
+			$('#temp_pant_bsizeThigh2').css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_pant_bsizeThigh2').focus(); return false;
+		}
+	}
+
+	// vest validate ---------------------------------------------------------
+	if($('#temp_vest_bsizeChest2').val()==""){ $('#temp_vest_bsizeChest2').focus(); return false;
+	} else if($('#temp_vest_bsizeChest2').val()!=""){
+		rnge=$("#temp_vest_bsizeChest2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_vest_bsizeChest2').val())==false){
+			$("#temp_vest_bsizeChest2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeChest2').focus(); return false;
+		} else if(parseFloat($('#temp_vest_bsizeChest2').val()) < parseFloat(frange) || parseFloat($('#temp_vest_bsizeChest2').val()) > parseFloat(trange)){
+			$("#temp_vest_bsizeChest2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeChest2').focus(); return false;
+		}
+	}
+	if($('#temp_vest_bsizeWaist2').val()==""){ $('#temp_vest_bsizeWaist2').focus(); return false;
+	} else if($('#temp_vest_bsizeWaist2').val()!=""){
+		rnge=$("#temp_vest_bsizeWaist2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_vest_bsizeWaist2').val())==false){
+			$("#temp_vest_bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeWaist2').focus(); return false;
+		} else if(parseFloat($('#temp_vest_bsizeWaist2').val()) < parseFloat(frange) || parseFloat($('#temp_vest_bsizeWaist2').val()) > parseFloat(trange)){
+			$("#temp_vest_bsizeWaist2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeWaist2').focus(); return false;
+		}
+	}
+	if($('#temp_vest_bsizeHip2').val()==""){ $('#temp_vest_bsizeHip2').focus(); return false;
+	} else if($('#temp_vest_bsizeHip2').val()!=""){
+		rnge=$("#temp_vest_bsizeHip2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_vest_bsizeHip2').val())==false){
+			$("#temp_vest_bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeHip2').focus(); return false;
+		} else if(parseFloat($('#temp_vest_bsizeHip2').val()) < parseFloat(frange) || parseFloat($('#temp_vest_bsizeHip2').val()) > parseFloat(trange)){
+			$("#temp_vest_bsizeHip2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeHip2').focus(); return false;
+		}
+	}
+	if($('#temp_vest_bsizeLength2').val()==""){ $('#temp_vest_bsizeLength2').focus(); return false;
+	} else if($('#temp_vest_bsizeLength2').val()!=""){
+		rnge=$("#temp_vest_bsizeLength2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_vest_bsizeLength2').val())==false){
+			$("#temp_vest_bsizeLength2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeLength2').focus(); return false;
+		}
+	}
+	if($('#temp_vest_bsizeShoulder2').val()==""){ $('#temp_vest_bsizeShoulder2').focus(); return false;
+	} else if($('#temp_vest_bsizeShoulder2').val()!=""){
+		rnge=$("#temp_vest_bsizeShoulder2").attr("data-title").split('-'); frange=parseFloat(rnge[0]); trange=parseFloat(rnge[1]);
+		if(typ=="cm"){ frange=Math.round(frange*2.54,2); trange=Math.round(trange*2.54,2); } else { frange=frange; trange=trange; }
+		
+		if(IsFloat($('#temp_vest_bsizeShoulder2').val())==false){
+			$("#temp_vest_bsizeShoulder2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeShoulder2').focus(); return false;
+		} else if(parseFloat($('#temp_vest_bsizeShoulder2').val()) < parseFloat(frange) || parseFloat($('#temp_vest_bsizeShoulder2').val()) > parseFloat(trange)){
+			$("#temp_vest_bsizeShoulder2").css({'border-color':'#f00','box-shadow':'0px 0px 15px #f00','-webkit-box-shadow':'0px 0px 15px #f00'});
+			$('#temp_vest_bsizeShoulder2').focus(); return false;
+		}
+	}
+	return true;
 }
 //=========================================================================================================
